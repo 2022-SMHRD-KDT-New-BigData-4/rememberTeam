@@ -1,5 +1,5 @@
 package com.smhrd.command;
 
-public class command {
+public class Command {
 
 }

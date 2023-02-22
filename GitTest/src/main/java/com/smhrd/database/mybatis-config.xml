@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xml(eXtensible Markup Language) 파일이란? : 존재 자체가 서로 다른 주체 간의 데이터를 전달하기 
+	위해 데이터의 구조를 기술하는 언어 -->
+<!-- 스키마(xml파일 안에서 사용할 수 있는 태그들의 집합를 불러오는 작업이 선행!!! -->
+ 
+ <!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- dtd : document type definition 약자 -->
+<!-- 1) configuration : mybatis 설정을 기술하는 태그 -->
+<configuration>
+	<!-- mapper 파일에서 사용하는 자료형의 별칭 설정 -->
+	<typeAliases>
+		<!-- com.smhrd.model.MemberVO라는 자료형을 MemberVO 별칭 지정  -->
+		<typeAlias type="java.lang.String" alias="String" />
+	</typeAliases>
+	<!-- 2) enviroments : web project에서 사용할 데이터베이스"들"을 기술하는 공간 -->
+	<environments default="development">
+		<!-- 3) enviroment : 데이터베이스 한 개에 대한 정보를 기술하는 공간 -->
+		<environment id="development">
+			<!-- 4) transactionManager : 트랜잭션을 관리하는 방식에 대해 기술 type 종류 1 - JDBC (COMMIT, 
+				ROLLBACK 기능을 이용하여 Mybatis 자체에서 관리) 2 - MANAGED (서버의 관리 기능) -->
+			<transactionManager type="JDBC" />
+			<!-- 5) dataSource : DB 연결 설정 정보를 기술하는 공간 type의 종류 1 - POOLED : 미리 connection 
+				객체를 생성하고 요청 시 반환 connection pool 방식 : 객체를 사용하고 반환 2 - UNPOOLED : 요청할 때마다 
+				connection 객체 생성 3 - JNDI -->
+			<dataSource type="POOLED">
+				<!-- 6) property : DB 상세 정보 기술 -->
+				<property name="driver"
+					value="oracle.jdbc.driver.OracleDriver" />
+				<property name="url"
+					value="jdbc:oracle:thin:@project-db-stu3.ddns.net:1525:xe" />
+				<property name="username" value="cgi_8_230223_2" />
+				<property name="password" value="smhrd2" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<!-- 7) mappers : 사용할 mapper 파일"들"을 기술하는 공간 -->
+	<mappers>
+		<!-- 8) mapper : SQL 쿼리문을 가지고 있는 파일의 주소를 적는 공간 -->
+		<mapper resource="com/smhrd/database/MemberMapper.xml" />
+	</mappers>
+</configuration>

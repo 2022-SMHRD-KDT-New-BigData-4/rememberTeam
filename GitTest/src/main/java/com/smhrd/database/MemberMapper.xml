@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="com.smhrd.database.MemberMapper">
+	
+	<!-- 회원 가입을 위한 SQL 문장 작성 -->
+	<!-- mybatis의 변수 : 바인드 변수 #{변수명} 
+		 (getter 메소드 사용한다는 의미)	
+	-->
+	<!-- SQL문 세미콜론은 생략하는게 오히려 좋음 -->
+	<!-- 구문이 여러 가지일 경우 id 속성값을 부여해서 구분 -->
+	
+	<insert id="join" parameterType="MemberVO">
+		INSERT INTO WEB_MEMBER VALUES(
+		            #{email}, 
+		            #{pw}, 
+		            #{tel}, 
+		            #{address})
+	</insert>
+	
+	<!-- 결과타입 resultType : 결과에 대해 어떤 타입으로 저장을 할 것인지 지정 
+						   : select구문은 resultType을 무조건 잡아주기
+		 id = "smhrd@smhrd.or.kr" pw = "123" -> 회원의 이름만 select
+	-->
+	<select id="login" parameterType="MemberVO" resultType="MemberVO">
+		SELECT * 
+		  FROM WEB_MEMBER 
+		 WHERE EMAIL=#{email}
+		   AND PW=#{pw} 
+	</select>
+	
+	<!-- 회원정보 수정을 위한 sql문장 작성 -->
+	<!-- 여러 명의 회원 중 어떤 회원에 대하여 정보를 수정할 것인가? -->
+	<update id="update" parameterType="MemberVO">
+		UPDATE WEB_MEMBER SET 
+			   PW=#{pw}, 
+			   TEL=#{tel}, 
+			   ADDRESS=#{address} 
+		 WHERE EMAIL=#{email}
+	</update>
+	
+	<select id="selectAll" resultType="MemberVO">
+		SELECT *
+		  FROM WEB_MEMBER
+		 WHERE EMAIL != 'admin'
+	</select>
+	
+	<!-- 이메일 체크기능 -->
+	<!-- String은 기본 자료형이 아니기 때문에
+		 반드시 parameterType, resultType 필요
+		 java.lang.String (mybatis-config.xml에서 별칭 지정 가능) -->
+	<select id="emailCheck" parameterType="String" resultType="String">
+		SELECT EMAIL
+		  FROM WEB_MEMBER
+		 WHERE EMAIL = #{receive_email}
+	</select>
+	
+</mapper>

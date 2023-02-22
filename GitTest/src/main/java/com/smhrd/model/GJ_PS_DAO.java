@@ -1,5 +1,5 @@
 package com.smhrd.model;
 
-public class MainVO {
+public class GJ_PS_DAO {
 
 }

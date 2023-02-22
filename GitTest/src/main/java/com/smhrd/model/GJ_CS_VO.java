@@ -1,5 +1,5 @@
 package com.smhrd.model;
 
-public class MapDAO {
+public class GJ_CS_VO {
 
 }

@@ -1,5 +1,5 @@
 package com.smhrd.model;
 
-public class MapVO {
+public class GJ_CN_VO {
 
 }

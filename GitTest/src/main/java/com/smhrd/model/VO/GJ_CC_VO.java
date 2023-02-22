@@ -5,12 +5,12 @@ public class GJ_CC_VO {
 	private int cc_seq;
 	private String cc_nm;
 	private String cc_addr;
-	private int cortarNo;
+	private long cortarNo;
 	private String dong;
-	private int lat;
-	private int lng;
+	private double lat;
+	private double lng;
 	
-	public GJ_CC_VO(int cc_seq, String cc_nm, String cc_addr, int cortarNo, String dong, int lat, int lng) {
+	public GJ_CC_VO(int cc_seq, String cc_nm, String cc_addr, long cortarNo, String dong, double lat, double lng) {
 		this.cc_seq = cc_seq;
 		this.cc_nm = cc_nm;
 		this.cc_addr = cc_addr;
@@ -44,11 +44,11 @@ public class GJ_CC_VO {
 		this.cc_addr = cc_addr;
 	}
 
-	public int getCortarNo() {
+	public long getCortarNo() {
 		return cortarNo;
 	}
 
-	public void setCortarNo(int cortarNo) {
+	public void setCortarNo(long cortarNo) {
 		this.cortarNo = cortarNo;
 	}
 
@@ -60,21 +60,22 @@ public class GJ_CC_VO {
 		this.dong = dong;
 	}
 
-	public int getLat() {
+	public double getLat() {
 		return lat;
 	}
 
-	public void setLat(int lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
 
-	public int getLng() {
+	public double getLng() {
 		return lng;
 	}
 
-	public void setLng(int lng) {
+	public void setLng(double lng) {
 		this.lng = lng;
 	}
+
 	
 	
 	

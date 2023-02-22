@@ -2,12 +2,12 @@ package com.smhrd.model.VO;
 
 public class GWANGJU_GU_VO {
 
-	String gu;
-	int cortarNo;
-	String centerlat;
-	String centerlng;
+	private String gu;
+	private long cortarNo;
+	private double centerlat;
+	private double centerlng;
 	
-	public GWANGJU_GU_VO(String gu, int cortarNo, String centerlat, String centerlng) {
+	public GWANGJU_GU_VO(String gu, long cortarNo, double centerlat, double centerlng) {
 		this.gu = gu;
 		this.cortarNo = cortarNo;
 		this.centerlat = centerlat;
@@ -22,29 +22,30 @@ public class GWANGJU_GU_VO {
 		this.gu = gu;
 	}
 
-	public int getCortarNo() {
+	public long getCortarNo() {
 		return cortarNo;
 	}
 
-	public void setCortarNo(int cortarNo) {
+	public void setCortarNo(long cortarNo) {
 		this.cortarNo = cortarNo;
 	}
 
-	public String getCenterlat() {
+	public double getCenterlat() {
 		return centerlat;
 	}
 
-	public void setCenterlat(String centerlat) {
+	public void setCenterlat(double centerlat) {
 		this.centerlat = centerlat;
 	}
 
-	public String getCenterlng() {
+	public double getCenterlng() {
 		return centerlng;
 	}
 
-	public void setCenterlng(String centerlng) {
+	public void setCenterlng(double centerlng) {
 		this.centerlng = centerlng;
 	}
+	
 	
 	
 }

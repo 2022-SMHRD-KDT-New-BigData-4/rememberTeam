@@ -5,12 +5,12 @@ public class GJ_FS_VO {
 	private int fs_seq;
 	private String fs_nm;
 	private String fs_addr;
-	private int cortarNo;
+	private long cortarNo;
 	private String dong;
-	private int lat;
-	private int lng;
+	private double lat;
+	private double lng;
 	
-	public GJ_FS_VO(int fs_seq, String fs_nm, String fs_addr, int cortarNo, String dong, int lat, int lng) {
+	public GJ_FS_VO(int fs_seq, String fs_nm, String fs_addr, long cortarNo, String dong, double lat, double lng) {
 		this.fs_seq = fs_seq;
 		this.fs_nm = fs_nm;
 		this.fs_addr = fs_addr;
@@ -44,11 +44,11 @@ public class GJ_FS_VO {
 		this.fs_addr = fs_addr;
 	}
 
-	public int getCortarNo() {
+	public long getCortarNo() {
 		return cortarNo;
 	}
 
-	public void setCortarNo(int cortarNo) {
+	public void setCortarNo(long cortarNo) {
 		this.cortarNo = cortarNo;
 	}
 
@@ -60,21 +60,22 @@ public class GJ_FS_VO {
 		this.dong = dong;
 	}
 
-	public int getLat() {
+	public double getLat() {
 		return lat;
 	}
 
-	public void setLat(int lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
 
-	public int getLng() {
+	public double getLng() {
 		return lng;
 	}
 
-	public void setLng(int lng) {
+	public void setLng(double lng) {
 		this.lng = lng;
 	}
+	
 	
 	
 	

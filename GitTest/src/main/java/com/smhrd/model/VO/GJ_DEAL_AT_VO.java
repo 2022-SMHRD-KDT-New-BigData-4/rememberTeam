@@ -3,7 +3,7 @@ package com.smhrd.model.VO;
 public class GJ_DEAL_AT_VO {
 
 	private int deal_seq;
-	private int cortarNo;
+	private long cortarNo;
 	private String dong;
 	private String deal_at_type;
 	private int deal_year;
@@ -11,7 +11,7 @@ public class GJ_DEAL_AT_VO {
 	private int deal_dp;
 	private int deal_pr;
 	
-	public GJ_DEAL_AT_VO(int deal_seq, int cortarNo, String dong, String deal_at_type, int deal_year, int deal_month,
+	public GJ_DEAL_AT_VO(int deal_seq, long cortarNo, String dong, String deal_at_type, int deal_year, int deal_month,
 			int deal_dp, int deal_pr) {
 		this.deal_seq = deal_seq;
 		this.cortarNo = cortarNo;
@@ -31,11 +31,11 @@ public class GJ_DEAL_AT_VO {
 		this.deal_seq = deal_seq;
 	}
 
-	public int getCortarNo() {
+	public long getCortarNo() {
 		return cortarNo;
 	}
 
-	public void setCortarNo(int cortarNo) {
+	public void setCortarNo(long cortarNo) {
 		this.cortarNo = cortarNo;
 	}
 
@@ -86,6 +86,7 @@ public class GJ_DEAL_AT_VO {
 	public void setDeal_pr(int deal_pr) {
 		this.deal_pr = deal_pr;
 	}
+	
 	
 	
 }

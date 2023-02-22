@@ -5,12 +5,12 @@ public class GJ_PH_VO {
 	private int ph_seq;
 	private String ph_nm;
 	private String ph_addr;
-	private int cortarNo;
+	private long cortarNo;
 	private String dong;
-	private int lat;
-	private int lng;
+	private double lat;
+	private double lng;
 	
-	public GJ_PH_VO(int ph_seq, String ph_nm, String ph_addr, int cortarNo, String dong, int lat, int lng) {
+	public GJ_PH_VO(int ph_seq, String ph_nm, String ph_addr, long cortarNo, String dong, double lat, double lng) {
 		this.ph_seq = ph_seq;
 		this.ph_nm = ph_nm;
 		this.ph_addr = ph_addr;
@@ -44,11 +44,11 @@ public class GJ_PH_VO {
 		this.ph_addr = ph_addr;
 	}
 
-	public int getCortarNo() {
+	public long getCortarNo() {
 		return cortarNo;
 	}
 
-	public void setCortarNo(int cortarNo) {
+	public void setCortarNo(long cortarNo) {
 		this.cortarNo = cortarNo;
 	}
 
@@ -60,21 +60,24 @@ public class GJ_PH_VO {
 		this.dong = dong;
 	}
 
-	public int getLat() {
+	public double getLat() {
 		return lat;
 	}
 
-	public void setLat(int lat) {
+	public void setLat(double lat) {
 		this.lat = lat;
 	}
 
-	public int getLng() {
+	public double getLng() {
 		return lng;
 	}
 
-	public void setLng(int lng) {
+	public void setLng(double lng) {
 		this.lng = lng;
 	}
+	
+	
+	
 	
 	
 }

@@ -39,6 +39,7 @@
 	<!-- 7) mappers : 사용할 mapper 파일"들"을 기술하는 공간 -->
 	<mappers>
 		<!-- 8) mapper : SQL 쿼리문을 가지고 있는 파일의 주소를 적는 공간 -->
-		<mapper resource="com/smhrd/database/MemberMapper.xml" />
+		<mapper resource="com/smhrd/database/MainMapper.xml" />
+		<mapper resource="com/smhrd/database/MapMapper.xml" />
 	</mappers>
 </configuration>

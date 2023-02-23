@@ -7,30 +7,31 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 import com.smhrd.command.Command;
 import com.smhrd.model.DAO.MainDAO;
 
-public class InfraCnt implements Command{
+public class RSCnt implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 
 		Gson gson = new Gson();
-		
 		MainDAO dao = new MainDAO();
-		String[] table = {"GJ_BUS", "GJ_CC", "GJ_CN", "GJ_CS", "GWANGJU_DONG", "GJ_FS", "GJ_HS", "GJ_METRO", "GJ_MS", "GJ_PH", "GJ_PS", "GJ_SM"};
-		int[] infraCnt = dao.InfraCnt(table);
+		
+		String jeonse = "전세";
+		String monthly = "월세";
+		
+		int jeonseCnt = dao.RSCnt(jeonse);
+		int monthlyCnt = dao.RSCnt(monthly);
 		
 		Map<String, Object> temp = new HashMap<>();
-		for(int i=0;i<table.length;i++) {
-			temp.put(table[i], infraCnt[i]);
-		}
-
-		String json = gson.toJson(temp);
+		temp.put("jeonse", jeonseCnt);
+		temp.put("monthly", monthlyCnt);
 		
+		String json = gson.toJson(temp);
+		System.out.println(json);
 		try {
 			PrintWriter out = response.getWriter();
 			out.print(json);

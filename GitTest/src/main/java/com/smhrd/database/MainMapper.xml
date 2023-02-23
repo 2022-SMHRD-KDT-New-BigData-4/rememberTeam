@@ -6,9 +6,17 @@
   
 <mapper namespace="com.smhrd.database.MainMapper">
 	
+	<!-- 인프라 테이블 튜플 카운트 -->
 	<select id="InfraCnt" parameterType="String" resultType="int">
 		SELECT COUNT(*)
 		  FROM ${table}
+	</select>
+	
+	<!-- 매물 테이블 전세/월세 카운트 -->
+	<select id="RSCnt" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		  FROM GJ_RS
+		 WHERE RS_CR = #{rs}	
 	</select>
 	
 </mapper>

@@ -754,6 +754,7 @@ progress {
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-.5 * var(--bs-gutter-x));
   margin-left: calc(-.5 * var(--bs-gutter-x));
+  justify-content: space-evenly
   
 }
 
@@ -27717,10 +27718,5 @@ pre[class*="language-"] {
   }
 }
 
-#conta{
-	float:right;
- }
-#conta123{
-	float:left;	
-}
+
 /*# sourceMappingURL=dashboard-free.css.map */

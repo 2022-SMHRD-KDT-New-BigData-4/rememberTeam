@@ -12,15 +12,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -205,9 +196,10 @@
 
 <h6>If you are not redirected automatically, follow <a href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard ">this link</a>.</h6>
 <div class="row123">
-  <div class="col-lg-9 z-index-2">
-  	<div id = "conta123" class="col-lg-4 z-index-2">
-  	<div class="row">
+<div class="col-lg-3 z-index-2">
+
+
+    <div class="row mt-3">
       <div class="col-lg-5 col-sm-5">
         <div class="card  mb-2">
   <div class="card-header p-3 pt-2 bg-transparent">
@@ -222,6 +214,9 @@
 
   <hr class="dark horizontal my-0">
 </div>
+
+
+
       </div>
       <div class="col-lg-5 col-sm-5 mt-sm-0 mt-4">
         <div class="card  mb-2">
@@ -231,7 +226,7 @@
     </div>
     <div class="text-end pt-1">
       <p class="text-sm mb-0 text-capitalize ">법정동수</p>
-      <h4  class="mb-0">0</h4>
+      <h4 class="mb-0">0</h4>
     </div>
   </div>
 
@@ -239,17 +234,21 @@
   
 </div>
 
+        
       </div>
     </div>
-  	</div>
-  	<div id="conta" class="col-lg-8 z-index-2">
+
+    
+  </div>
+  <div class="col-lg-6 z-index-2">
+  	<div class="col-lg-12 z-index-2">
   	<div class="card col-lg-12 z-index-2">
   <div class="card-header pb-0">
-    <h6>Sales overview</h6>
+    <h6>지도 레이아웃</h6>
   </div>
   <div class="card-body p-3">
     <div class="chart">
-      <canvas id="chart-line" class="chart-canvas" height="465">
+      <canvas id="chart-line" class="chart-canvas" height="457.5">
       </canvas>
     </div>
   </div>
@@ -259,8 +258,8 @@
   <div class="col-lg-3 z-index-2">
 
 
-    <div class="row">
-      <div class="col-lg-5 col-sm-5">
+    <div class="row mt-3">
+      <div class="col-lg-5 col-sm-5 ">
         <div class="card  mb-2">
   <div class="card-header p-3 pt-2 bg-transparent">
     <div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">

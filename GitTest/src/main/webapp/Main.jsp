@@ -5,7 +5,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
+  
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 
 
 
@@ -47,9 +49,6 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
 <!-- CSS Files -->
-
-
-
 <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 
 
@@ -60,8 +59,13 @@
 
 
   <body class="g-sidenav-show  bg-gray-100">
-    
+  
 
+
+  
+  <form action="InfraCnt.do">
+  	<input type="submit">
+  </form>
     
 
  
@@ -246,7 +250,7 @@
     </div>
     <div class="text-end pt-1">
       <p class="text-sm mb-0 text-capitalize">Bookings</p>
-      <h4 class="mb-0">281</h4>
+      <h4 class="mb-0">1번 라인</h4>
     </div>
   </div>
 
@@ -259,7 +263,7 @@
     </div>
     <div class="text-end pt-1">
       <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2,300</h4>
+      <h4 id="GJ_BUS" class="mb-0"></h4>
     </div>
   </div>
 
@@ -272,20 +276,7 @@
     </div>
     <div class="text-end pt-1">
       <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2,300</h4>
-    </div>
-  </div>
-
-  <hr class="dark horizontal my-0">
-</div>
-<div class="card  mb-2">
-  <div class="card-header p-3 pt-2 bg-transparent">
-    <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
-      <i class="material-icons opacity-10">leaderboard</i>
-    </div>
-    <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">1번라인 끝</h4>
+      <h4 id="GJ_CC" class="mb-0"></h4>
     </div>
   </div>
 
@@ -312,6 +303,19 @@
     <div class="text-end pt-1">
       <p class="text-sm mb-0 text-capitalize">Today's Users</p>
       <h4 class="mb-0">2,300</h4>
+    </div>
+  </div>
+
+  <hr class="dark horizontal my-0">
+</div>
+<div class="card  mb-2">
+  <div class="card-header p-3 pt-2 bg-transparent">
+    <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
+      <i class="material-icons opacity-10">leaderboard</i>
+    </div>
+    <div class="text-end pt-1">
+      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
+      <h4 class="mb-0">1번 라인 끝</h4>
     </div>
   </div>
 
@@ -326,7 +330,7 @@
     </div>
     <div class="text-end pt-1">
       <p class="text-sm mb-0 text-capitalize ">Revenue</p>
-      <h4 class="mb-0 ">2번라인</h4>
+      <h4 class="mb-0 ">2번 라인</h4>
     </div>
   </div>
 
@@ -393,7 +397,7 @@
     </div>
     <div class="text-end pt-1">
       <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2,300</h4>
+      <h4 class="mb-0">2번라인 끝</h4>
     </div>
   </div>
 
@@ -893,7 +897,43 @@
     }
     Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
   }
+  
 </script>
+
+<!-- ajax -->
+<script>
+$(document).ready(()=>{ 
+	$.ajax({
+		url : 'InfraCnt.do',
+		type : 'get',
+		dataType : 'json',
+		success : (res)=>{
+			console.log('통신 성공!');
+			console.log(res);
+			$('#GJ_BUS').text(res.GJ_BUS)
+			},
+		error : ()=>{
+			console.log('통신 실패..')
+			
+		}
+	})
+	
+})
+/* function num_ani(let num){$({ val : 0 }).animate({ val : num }, {
+  duration: 1500,
+  step: function() {
+    var num = numberWithCommas(Math.floor(this.val));
+    $(".count_num").text(num);
+  },
+  complete: function() {
+    var num = numberWithCommas(Math.floor(this.val));
+    $(".count_num").text(num);
+  }
+});
+} */
+
+</script>
+
 
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>

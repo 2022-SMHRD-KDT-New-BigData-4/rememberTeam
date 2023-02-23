@@ -6,6 +6,9 @@
   
 <mapper namespace="com.smhrd.database.MainMapper">
 	
-	
+	<select id="InfraCnt" parameterType="String" resultType="int">
+		SELECT COUNT(*)
+		  FROM ${table}
+	</select>
 	
 </mapper>

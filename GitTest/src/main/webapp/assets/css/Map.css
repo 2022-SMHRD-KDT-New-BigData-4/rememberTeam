@@ -1,1 +1,52 @@
 @charset "UTF-8";
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.header{
+    height: 70px;
+    background-color: black;
+}
+
+.wrap{
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+	/* 3. 메인축 정렬 : justify-content */
+	justify-content: center;
+}
+
+
+.aside1{
+    width: 550px;
+    background-color: red;
+ 
+}
+
+.aside2{
+    width: 550px;
+    background-color: orange;
+}
+
+#map{
+	z-index: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.nav{
+    width: 60px;
+    position: fixed;
+    top: 110px;
+    right: 30px;
+}
+
+.category button{
+	width: 60px;
+}

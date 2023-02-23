@@ -271,7 +271,7 @@
     </div>
     <div class="text-end pt-1">
       <p class="text-sm mb-0 text-capitalize">병원</p>
-      <h4 id="GJ_HS" class="mb-0"></h4>
+      <h4 id="GJ_HS" class="mb-0">0</h4>
     </div>
   </div>
 

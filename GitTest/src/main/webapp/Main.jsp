@@ -61,11 +61,6 @@
   <body class="g-sidenav-show  bg-gray-100">
   
 
-
-  
-  <form action="InfraCnt.do">
-  	<input type="submit">
-  </form>
     
 
  
@@ -249,8 +244,8 @@
       <i class="material-icons opacity-10">weekend</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Bookings</p>
-      <h4 class="mb-0">1번 라인</h4>
+      <p class="text-sm mb-0 text-capitalize">자치단체</p>
+      <h4 id="GJ_CC" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -262,8 +257,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 id="GJ_BUS" class="mb-0">0</h4>
+      <p class="text-sm mb-0 text-capitalize">경찰서</p>
+      <h4 id="GJ_PS" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -275,8 +270,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 id="GJ_CC" class="mb-0"></h4>
+      <p class="text-sm mb-0 text-capitalize">병원</p>
+      <h4 id="GJ_HS" class="mb-0"></h4>
     </div>
   </div>
 
@@ -288,8 +283,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2,300</h4>
+      <p class="text-sm mb-0 text-capitalize">지하철역</p>
+      <h4 id="GJ_METRO" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -301,8 +296,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2,300</h4>
+      <p class="text-sm mb-0 text-capitalize">영화관</p>
+      <h4 id="GJ_CN" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -314,8 +309,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">1번 라인 끝</h4>
+      <p class="text-sm mb-0 text-capitalize">대형마트</p>
+      <h4 id="GJ_SM" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -329,8 +324,8 @@
       <i class="material-icons opacity-10">store</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize ">Revenue</p>
-      <h4 class="mb-0 ">2번 라인</h4>
+      <p class="text-sm mb-0 text-capitalize ">법정동수</p>
+      <h4 id="GWANGJU_DONG" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -344,8 +339,8 @@
       <i class="material-icons opacity-10">person_add</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize ">Followers</p>
-      <h4 class="mb-0 ">+91</h4>
+      <p class="text-sm mb-0 text-capitalize ">소방서</p>
+      <h4 id="GJ_FS" class="mb-0 ">0</h4>
     </div>
   </div>
 
@@ -357,8 +352,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2,300</h4>
+      <p class="text-sm mb-0 text-capitalize">약국</p>
+      <h4 id="GJ_PH" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -370,8 +365,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2,300</h4>
+      <p class="text-sm mb-0 text-capitalize">버스정류장</p>
+      <h4 id="GJ_BUS" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -383,8 +378,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2,300</h4>
+      <p class="text-sm mb-0 text-capitalize">박물관</p>
+      <h4 id="GJ_MS" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -396,8 +391,8 @@
       <i class="material-icons opacity-10">leaderboard</i>
     </div>
     <div class="text-end pt-1">
-      <p class="text-sm mb-0 text-capitalize">Today's Users</p>
-      <h4 class="mb-0">2번라인 끝</h4>
+      <p class="text-sm mb-0 text-capitalize">편의점</p>
+      <h4 id="GJ_CS" class="mb-0">0</h4>
     </div>
   </div>
 
@@ -902,6 +897,24 @@
 
 <!-- ajax -->
 <script>
+function counter($counter, max) {
+	 let now = max;
+
+	  const handle = setInterval(() => {
+	    $counter.innerHTML = Math.ceil(max - now);
+	  
+	    // 목표에 도달하면 정지
+	    if (now < 1) {
+	      clearInterval(handle);
+	    }
+	  
+	    // 적용될 수치, 점점 줄어듬
+	    const step = now / 10;
+
+	    now -= step;
+	  }, 50);
+}
+
 $(document).ready(()=>{ 
 	$.ajax({
 		url : 'InfraCnt.do',
@@ -910,8 +923,22 @@ $(document).ready(()=>{
 		success : (res)=>{
 			console.log('통신 성공!');
 			console.log(res);
-			$('#GJ_BUS').text(res.GJ_BUS)
+			
+			let table_nm = ["GJ_BUS", "GJ_CC", "GJ_CN", "GJ_CS", "GWANGJU_DONG", "GJ_FS", "GJ_HS", "GJ_METRO", "GJ_MS", "GJ_PH", "GJ_PS", "GJ_SM"];
+			
+			$.each(res,(key, value)=>{
+				
+				let tag_id = "#"+key
+				const $counter = document.querySelector(tag_id);
+				const max = value
+				counter($counter, max);
+			
+			})
+			
 			},
+			
+
+			
 		error : ()=>{
 			console.log('통신 실패..')
 			

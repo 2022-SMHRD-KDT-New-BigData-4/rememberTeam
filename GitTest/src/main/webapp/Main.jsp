@@ -20,7 +20,7 @@
 	href="./assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 
-<title>Material Dashboard 2 by Creative Tim</title>
+<title>LET ME GO HOME.. PLZ... </title>
 
 
 
@@ -236,18 +236,6 @@
 <!-- 가운데 지도 레이아웃 -->
 
 				<div class="col-lg-6 z-index-2">
-					<div class="col-lg-12 z-index-2">
-						<div class="card col-lg-12 z-index-2">
-							<div class="card-header pb-0">
-								<h6>지도 레이아웃</h6>
-							</div>
-							<div class="card-body p-3">
-								<div class="chart">
-									<canvas id="chart-line" class="chart-canvas" height="457.5"></canvas>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 				
 				
@@ -327,6 +315,21 @@
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">영화관</p>
 										<h4 id="GJ_CN" class="mb-0">0</h4>
+									</div>
+								</div>
+
+								<hr class="dark horizontal my-0">
+								
+							</div>
+							
+							<div class="card  mb-2">
+								<div class="card-header p-3 pt-2 bg-transparent">
+									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
+										<i class="material-icons opacity-10">leaderboard</i>
+									</div>
+									<div class="text-end pt-1">
+										<p class="text-sm mb-0 text-capitalize">도서관</p>
+										<h4 id="GJ_LB" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -435,6 +438,21 @@
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
+										<p class="text-sm mb-0 text-capitalize">전시관</p>
+										<h4 id="GJ_EX" class="mb-0">0</h4>
+									</div>
+								</div>
+
+								<hr class="dark horizontal my-0">
+								
+							</div>
+							
+							<div class="card  mb-2">
+								<div class="card-header p-3 pt-2 bg-transparent">
+									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
+										<i class="material-icons opacity-10">leaderboard</i>
+									</div>
+									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">편의점</p>
 										<h4 id="GJ_CS" class="mb-0">0</h4>
 									</div>
@@ -449,7 +467,9 @@
 				</div>
 			</div>
 
-			
+
+<!-- footer -->
+
 			<footer class="footer py-4  ">
 				<div class="container-fluid">
 					<div class="row align-items-center justify-content-lg-between">

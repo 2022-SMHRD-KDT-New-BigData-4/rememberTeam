@@ -21,7 +21,7 @@ public class InfraCnt implements Command{
 		Gson gson = new Gson();
 		
 		MainDAO dao = new MainDAO();
-		String[] table = {"GJ_BUS", "GJ_CC", "GJ_CN", "GJ_CS", "GWANGJU_DONG", "GJ_FS", "GJ_HS", "GJ_METRO", "GJ_MS", "GJ_PH", "GJ_PS", "GJ_SM"};
+		String[] table = {"GJ_EX", "GJ_LB", "GJ_BUS", "GJ_CC", "GJ_CN", "GJ_CS", "GWANGJU_DONG", "GJ_FS", "GJ_HS", "GJ_METRO", "GJ_MS", "GJ_PH", "GJ_PS", "GJ_SM"};
 		int[] infraCnt = dao.InfraCnt(table);
 		
 		Map<String, Object> temp = new HashMap<>();

@@ -14,7 +14,7 @@ public class MainDAO {
 	// 인프라 컬럼 테이블 튜플 카운트
 	public int[] InfraCnt(String[] table) {
 
-		int[] cnt = new int[12];
+		int[] cnt = new int[14];
 
 		for (int i = 0; i < table.length; i++) {
 			SqlSession sqlSession = sqlSessionFactory.openSession(true);

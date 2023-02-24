@@ -27718,5 +27718,9 @@ pre[class*="language-"] {
   }
 }
 
+#map_layout {
+	display : flex;
+	justify-content: center;
+}
 
 /*# sourceMappingURL=dashboard-free.css.map */

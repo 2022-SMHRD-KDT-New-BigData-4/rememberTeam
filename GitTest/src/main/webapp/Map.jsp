@@ -6,10 +6,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<!-- jQuery 사용 -->
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<!-- css 파일 불러오기 -->
 <link rel="stylesheet" href="assets/css/Map.css">
-<link rel="stylesheet" href="assets/js/mapStyle.js">
 
 </head>
 <body>
@@ -49,7 +47,7 @@
             <div class="category">
             	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="cs_btn">
+		            	<button type="button" id="cs_btn" style="display: none">
 		            		<i class="fa-solid fa-store fa-lg"></i>
 		            		<br>
 		            		<span>편의점</span>
@@ -60,7 +58,7 @@
             <div class="category">
               	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="sm_btn">
+		            	<button type="button" id="sm_btn" style="display: none">
 		            		<i class="fa-solid fa-cart-shopping fa-lg"></i>
 		            		<br>
 		            		<span>대형마트</span>
@@ -71,7 +69,7 @@
             <div class="category">
                 <ul>
             		<li class="category_btn">
-		            	<button type="button" id="hs_btn">
+		            	<button type="button" id="hs_btn" style="display: none">
 		            		<i class="fa-solid fa-hospital fa-lg"></i>
 		            		<br>
 		            		<span>병원</span>
@@ -82,7 +80,7 @@
             <div class="category">
                	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="ph_btn">
+		            	<button type="button" id="ph_btn" style="display: none">
 		            		<i class="fa-solid fa-pills fa-lg"></i>
 		            		<br>
 		            		<span>약국</span>
@@ -93,7 +91,7 @@
             <div class="category">
             	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="ps_btn">
+		            	<button type="button" id="ps_btn" style="display: none">
 		            		<i class="fa-solid fa-handcuffs fa-lg"></i>
 		            		<br>
 		            		<span>경찰서</span>
@@ -104,7 +102,7 @@
             <div class="category">
             	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="fs_btn">
+		            	<button type="button" id="fs_btn" style="display: none">
 		            		<i class="fa-solid fa-fire-extinguisher fa-lg"></i>
 		            		<br>
 		            		<span>소방서</span>
@@ -115,7 +113,7 @@
             <div class="category">
             	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="cc_btn">
+		            	<button type="button" id="cc_btn" style="display: none">
 		            		<i class="fa-solid fa-building fa-lg"></i>
 		            		<br>
 		            		<span>자치센터</span>
@@ -126,7 +124,7 @@
             <div class="category">
              	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="cn_btn">
+		            	<button type="button" id="cn_btn" style="display: none">
 		            		<i class="fa-solid fa-ticket fa-lg"></i>
 		            		<br>
 		            		<span>영화관</span>
@@ -137,7 +135,7 @@
             <div class="category">
               	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="ms_btn">
+		            	<button type="button" id="ms_btn" style="display: none">
 		            		<i class="fa-solid fa-building-columns fa-lg"></i>
 		            		<br>
 		            		<span>박물관</span>
@@ -148,7 +146,7 @@
             <div class="category">
             	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="ex_btn">
+		            	<button type="button" id="ex_btn" style="display: none">
 		            		<i class="fa-solid fa-palette fa-lg"></i>
 		            		<br>
 		            		<span>전시관</span>
@@ -159,7 +157,7 @@
             <div class="category">
             	<ul>
             		<li class="category_btn">
-		            	<button type="button" id="lb_btn">
+		            	<button type="button" id="lb_btn" style="display: none">
 		            		<i class="fa-solid fa-book fa-lg"></i>
 		            		<br>
 		            		<span>도서관</span>
@@ -170,7 +168,7 @@
             <div class="category">
 				<ul>
             		<li class="category_btn">
-		            	<button type="button" id="up_btn">
+		            	<button type="button" id="down_btn">
 		  					<i class="fa-solid fa-chevron-down fa-lg"></i>
 		            	</button>
             		</li>
@@ -179,7 +177,7 @@
             <div class="category">
 				<ul>
             		<li class="category_btn">
-		            	<button type="button" id="down_btn">
+		            	<button type="button" id="up_btn" style="display: none">
 		  					<i class="fa-solid fa-chevron-up fa-lg"></i>
 		            	</button>
             		</li>
@@ -197,7 +195,13 @@
     
     
     
-    <!-- Scripts -->
+    <!-- ***** Scripts ***** -->
+    
+	<!-- jQuery 사용 -->
+	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	
+	<!-- js 파일 불러오기 -->
+	<script src="assets/js/mapStyle.js"></script>
 	
 	<!-- icon 사용 -->
 	<script src="https://kit.fontawesome.com/4a8c96245b.js" crossorigin="anonymous"></script>

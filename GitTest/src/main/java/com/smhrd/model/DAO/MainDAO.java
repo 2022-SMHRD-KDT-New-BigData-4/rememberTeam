@@ -42,4 +42,8 @@ public class MainDAO {
 
 		return cnt;
 	}
+	
+	public void mainChart() {
+		
+	}
 }

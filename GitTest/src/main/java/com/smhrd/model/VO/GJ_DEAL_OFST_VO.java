@@ -1,34 +1,34 @@
 package com.smhrd.model.VO;
 
-public class GJ_DEAL_AT_VO {
+public class GJ_DEAL_OFST_VO {
 
-	private int deal_seq;
+	private int ofct_seq;
 	private long cortarNo;
-	private String dong;
-	private String deal_at_type;
 	private int deal_year;
 	private int deal_month;
 	private int deal_dp;
 	private int deal_pr;
+	private String gu;
+	private String dong;
 	
-	public GJ_DEAL_AT_VO(int deal_seq, long cortarNo, String dong, String deal_at_type, int deal_year, int deal_month,
-			int deal_dp, int deal_pr) {
-		this.deal_seq = deal_seq;
+	public GJ_DEAL_OFST_VO(int ofct_seq, long cortarNo, int deal_year, int deal_month, int deal_dp, int deal_pr,
+			String gu, String dong) {
+		this.ofct_seq = ofct_seq;
 		this.cortarNo = cortarNo;
-		this.dong = dong;
-		this.deal_at_type = deal_at_type;
 		this.deal_year = deal_year;
 		this.deal_month = deal_month;
 		this.deal_dp = deal_dp;
 		this.deal_pr = deal_pr;
+		this.gu = gu;
+		this.dong = dong;
 	}
 
-	public int getDeal_seq() {
-		return deal_seq;
+	public int getOfct_seq() {
+		return ofct_seq;
 	}
 
-	public void setDeal_seq(int deal_seq) {
-		this.deal_seq = deal_seq;
+	public void setOfct_seq(int ofct_seq) {
+		this.ofct_seq = ofct_seq;
 	}
 
 	public long getCortarNo() {
@@ -37,22 +37,6 @@ public class GJ_DEAL_AT_VO {
 
 	public void setCortarNo(long cortarNo) {
 		this.cortarNo = cortarNo;
-	}
-
-	public String getDong() {
-		return dong;
-	}
-
-	public void setDong(String dong) {
-		this.dong = dong;
-	}
-
-	public String getDeal_at_type() {
-		return deal_at_type;
-	}
-
-	public void setDeal_at_type(String deal_at_type) {
-		this.deal_at_type = deal_at_type;
 	}
 
 	public int getDeal_year() {
@@ -86,6 +70,24 @@ public class GJ_DEAL_AT_VO {
 	public void setDeal_pr(int deal_pr) {
 		this.deal_pr = deal_pr;
 	}
+
+	public String getGu() {
+		return gu;
+	}
+
+	public void setGu(String gu) {
+		this.gu = gu;
+	}
+
+	public String getDong() {
+		return dong;
+	}
+
+	public void setDong(String dong) {
+		this.dong = dong;
+	}
+	
+
 	
 	
 	

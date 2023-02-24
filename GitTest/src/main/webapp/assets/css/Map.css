@@ -44,9 +44,33 @@ body{
     width: 60px;
     position: fixed;
     top: 110px;
-    right: 30px;
+    right: 45px;
 }
 
 .category button{
-	width: 60px;
+	width: 58px;
+	height: 53px;
+	border: none;
+	border-radius: 15px; 
+	background-color: white;
 }
+
+/* 카테고리 버튼에 마우스를 올리면 색상 변경*/
+.category button:hover{
+	background-image: linear-gradient(195deg, #66BB6A 0%, #43A047 100%);
+	cursor: pointer;
+}
+
+.category_btn{
+	list-style-type: none;
+	margin: -12px;
+}
+
+.category_btn  span{
+	font-size: 10px;
+	align-content: center;
+}
+
+
+
+

@@ -34,76 +34,155 @@
         </div>
         <div class="nav">
             <div class="category">
-            	<button type="button">
-            		<i class="fa-sharp fa-solid fa-map-location-dot fa-2x"></i>
-            		매물
-            	</button>
+            	<ul>
+            		<li class="category_btn">
+            			<button type="button">
+		            		<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
+            				<br>
+            				<span>매물</span>
+            			</button>
+            		</li>
+            		
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-store fa-2x"></i>
-            		편의점
-            	</button>
+            	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-store fa-lg"></i>
+		            		<br>
+		            		<span>편의점</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-cart-shopping fa-2x"></i>
-            		대형마트
-            	</button>
+              	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-cart-shopping fa-lg"></i>
+		            		<br>
+		            		<span>대형마트</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-hospital fa-2x"></i>
-            		병원
-            	</button>
+                <ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-hospital fa-lg"></i>
+		            		<br>
+		            		<span>병원</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-pills fa-2x"></i>
-            		약국
-            	</button>
+               	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-pills fa-lg"></i>
+		            		<br>
+		            		<span>약국</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-user-police fa-2x"></i>
-            		경찰서
-            	</button>
+            	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-handcuffs fa-lg"></i>
+		            		<br>
+		            		<span>경찰서</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-fire-extinguisher fa-2x"></i>
-            		소방서
-            	</button>
+            	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-fire-extinguisher fa-lg"></i>
+		            		<br>
+		            		<span>소방서</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-building fa-2x"></i>
-            	자치센터
-            	</button>
+            	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-building fa-lg"></i>
+		            		<br>
+		            		<span>자치센터</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-camera-movie fa-2x"></i>
-            	영화관
-            	</button>
+             	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-ticket fa-lg"></i>
+		            		<br>
+		            		<span>영화관</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-building-columns fa-2x"></i>
-            	박물관
-            	</button>
+              	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-building-columns fa-lg"></i>
+		            		<br>
+		            		<span>박물관</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-            		<i class="fa-solid fa-palette fa-2x"></i>
-            	전시관
-            	</button>
+            	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-palette fa-lg"></i>
+		            		<br>
+		            		<span>전시관</span>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
             <div class="category">
-            	<button type="button">
-  					<i class="fa-solid fa-chevron-up fa-2x"></i>
-  					<i class="fa-solid fa-chevron-down fa-2x"></i>
-            	</button>
+            	<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		            		<i class="fa-solid fa-book fa-lg"></i>
+		            		<br>
+		            		<span>도서관</span>
+		            	</button>
+            		</li>
+            	</ul>
+            </div>
+            <div class="category">
+				<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		  					<i class="fa-solid fa-chevron-down fa-lg"></i>
+		            	</button>
+            		</li>
+            	</ul>
+            </div>
+            <div class="category">
+				<ul>
+            		<li class="category_btn">
+		            	<button type="button">
+		  					<i class="fa-solid fa-chevron-up fa-lg"></i>
+		            	</button>
+            		</li>
+            	</ul>
             </div>
 
             

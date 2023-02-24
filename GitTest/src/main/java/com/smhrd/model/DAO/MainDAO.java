@@ -1,6 +1,7 @@
 package com.smhrd.model.DAO;
 
 import java.sql.Array;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -43,7 +44,16 @@ public class MainDAO {
 		return cnt;
 	}
 	
-	public void mainChart() {
+	public int mainChart(Map<String, Object> ym) {
 		
+		int cnt = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		try {
+			cnt = sqlSession.selectOne("ofctCnt", ym);
+		} finally {
+			sqlSession.close();
+		}
+
+		return cnt;
 	}
 }

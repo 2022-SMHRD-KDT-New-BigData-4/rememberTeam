@@ -18,5 +18,11 @@
 		  FROM GJ_RS
 		 WHERE RS_CR = #{rs}	
 	</select>
-	
+		
+	<select id="ofctCnt" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		  FROM GJ_DEAL_OFCT
+		 WHERE deal_year = #{year}
+		   AND deal_month = #{month}
+	</select>
 </mapper>

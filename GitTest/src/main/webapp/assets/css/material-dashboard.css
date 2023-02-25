@@ -27721,6 +27721,10 @@ pre[class*="language-"] {
 #map_layout {
 	display : flex;
 	justify-content: center;
+	align-items: center;
 }
+
+
+
 
 /*# sourceMappingURL=dashboard-free.css.map */

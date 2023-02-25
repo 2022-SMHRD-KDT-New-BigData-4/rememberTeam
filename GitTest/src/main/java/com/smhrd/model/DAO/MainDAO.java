@@ -7,11 +7,15 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.database.SqlSessionManager;
+import com.smhrd.model.VO.MainVO;
+
 
 public class MainDAO {
 
+	
+	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getFactory();
-
+	
 	// 인프라 컬럼 테이블 튜플 카운트
 	public int[] InfraCnt(String[] table) {
 
@@ -54,6 +58,21 @@ public class MainDAO {
 			sqlSession.close();
 		}
 
+		return cnt;
+	}
+
+	public int[] MouseoverCnt(MainVO[] vo) {
+		
+		int cnt[] = new int[14];
+		for (int i = 0; i < cnt.length; i++) {
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			try {
+				cnt[i] = sqlSession.selectOne("MouseoverCnt", vo[i]);
+			} finally {
+				sqlSession.close();
+			}
+		}
+		
 		return cnt;
 	}
 }

@@ -236,7 +236,7 @@
 <!-- 가운데 지도 레이아웃 -->
 
 				<div id="map_layout" class="col-lg-6 z-index-2">
-					<div id="map" style="width:900px;height:650px;">
+					<div id="map" style="width:600px;height:400px;">
 					</div>
 				</div>
 				
@@ -666,7 +666,7 @@
 		    }
 		  
 		    // 적용될 수치, 점점 줄어듬
-		    const step = now / 10;
+		    const step = now / 4;
 
 		    now -= step;
 		  }, 50);
@@ -679,9 +679,11 @@
 
 $(document).ready(()=>{
 	// 인프라 컬럼 테이블 튜플 카운트 ajax
+	let gu_name = {gu_name : name}
 	$.ajax({
 		url : 'InfraCnt.do',
 		type : 'get',
+		data : 'gu_name',
 		dataType : 'json',
 		success : (res)=>{
 			$.each(res,(key, value)=>{
@@ -732,9 +734,9 @@ $(document).ready(()=>{
 
 <script>
 	// 카카오 맵 생성
-	var container = document.getElementById('map');
-	var options = {
-		center: new kakao.maps.LatLng(35.14507159179403, 126.8351730541552),
+	var mapContainer = document.getElementById('map');
+	var mapOptions = {
+		center: new kakao.maps.LatLng(35.15507159179403, 126.8351730541552),
 		level: 9,
 		draggable : false, // 드래그 옵션 
 		scrollwheel : false, // 마우스 휠 옵션
@@ -742,30 +744,31 @@ $(document).ready(()=>{
 		disableDoubleClickZoom : true // 더블클릭 줌 끄기 옵션
 	};
 
-	var map = new kakao.maps.Map(container, options),
-		customOverlay = new kakao.maps.CustomOverlay({}),
-		infowindow = new kakao.maps.InfoWindow({removable: true});
+	var map = new kakao.maps.Map(mapContainer, mapOptions),
+    customOverlay = new kakao.maps.CustomOverlay({}),
+    infowindow = new kakao.maps.InfoWindow({removable: true});
 	
 </script>
 	
 <script>
 
-// 광주 바깥쪽 폴리곤 생성
-$.getJSON("./assets/json/gj_out_map.geojson", function(geojson) {
-	 
-    var data_out = geojson.features;
-    var coordinates_out = []; 
-    var name_out = ''; 
 
-    $.each(data_out, function(index, val) {
- 
-        coordinates_out = val.geometry.coordinates;
-        name_out = val.properties.CTP_KOR_NM;
-        displayArea_out(coordinates_out, name_out); 
-    })
+//광주 바깥쪽 폴리곤 생성
+$.getJSON("./assets/json/gj_line.geojson", function(geojson) {
+	 
+   var data_out = geojson.features;
+   var coordinates_out = []; 
+   var name_out = ''; 
+
+   $.each(data_out, function(index, val) {
+
+       coordinates_out = val.geometry.coordinates;
+       name_out = val.properties.CTP_KOR_NM;
+       displayArea_out(coordinates_out, name_out); 
+   })
 })
 
-var polygons=[]; 
+
 var polygons_out=[];
 
 
@@ -776,31 +779,32 @@ function displayArea_out(coordinates_out, name_out) {
 		new kakao.maps.LatLng(35.39,127.2),
 		new kakao.maps.LatLng(35.39,126.5)
 	]; 
-    var hole = [];
-    var points = [];
-    
-    $.each(coordinates_out[0][0], function(index, coordinates_out) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
-        var point = new Object(); 
-        point.x = coordinates_out[1];
-        point.y = coordinates_out[0];
-        points.push(point);
-        hole.push(new kakao.maps.LatLng(coordinates_out[1], coordinates_out[0]));	//new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
-    })
+   var hole = [];
+   var points = [];
+   
+   $.each(coordinates_out[0][0], function(index, coordinates_out) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
+       var point = new Object(); 
+       point.x = coordinates_out[1];
+       point.y = coordinates_out[0];
+       points.push(point);
+       hole.push(new kakao.maps.LatLng(coordinates_out[1], coordinates_out[0]));	//new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
+   })
 
-    var polygon_out = new kakao.maps.Polygon({
-        map : map, 
-        path : [path_out, hole],
-        strokeWeight : 2,
-        strokeColor : '#004c80',
-        strokeOpacity : 0.8,
-        fillColor : '#f8f9fa',
-        fillOpacity : 1
-    });
+   var polygon_out = new kakao.maps.Polygon({
+       map : map, 
+       path : [path_out, hole],
+       strokeWeight : 2,
+       strokeColor : '#004c80',
+       strokeOpacity : 0.8,
+       fillColor : '#f8f9fa',
+       fillOpacity : 0.5
+   });
 };
+// 광주 라인 폴리곤 생성
 
 
 //광주 행정구역 구분 폴리곤 생성
-$.getJSON("./assets/json/gj_map.geojson", function(geojson) {
+$.getJSON("./assets/json/gj_gu_line.geojson", function(geojson) {
  
     var data = geojson.features;
     var coordinates = [];    //좌표 저장할 배열
@@ -814,6 +818,8 @@ $.getJSON("./assets/json/gj_map.geojson", function(geojson) {
  
     })
 })
+
+var polygons=[];
 
 //행정구역 폴리곤
 function displayArea(coordinates, name) {
@@ -840,6 +846,7 @@ function displayArea(coordinates, name) {
         fillOpacity : 0.5
     });
     
+    
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
@@ -848,17 +855,39 @@ function displayArea(coordinates, name) {
            	fillOpacity : 0.5
         });
  
-        //customOverlay.setContent('<div class="area">' + name + '</div>');
- 
+        //customOverlay.setContent('<div class="area">'+name+'</div>');
+
         customOverlay.setPosition(mouseEvent.latLng);
         customOverlay.setMap(map);
+        
+        gu_name = {gu_name:name}
+        $.ajax({
+    		url : 'InfraCnt.do',
+    		type : 'get',
+    		data : gu_name,
+    		dataType : 'json',
+    		success : (res)=>{
+    			console.log(res)
+    			$.each(res,(key, value)=>{
+    				let tag_id = "#"+key
+    				const $counter = document.querySelector(tag_id);
+    				const max = value
+    				counter($counter, max);
+    			})
+    		},
+    		error : ()=>{
+    		}
+    		
+    	})
+        
+        
+        
     });
  
     // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
-    kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent) {
- 
+    kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
         customOverlay.setPosition(mouseEvent.latLng);
-    });
+	});
  
     // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
     // 커스텀 오버레이를 지도에서 제거합니다 
@@ -868,6 +897,18 @@ function displayArea(coordinates, name) {
             fillOpacity : 0.5
         });
         customOverlay.setMap(null);
+   
+    });
+    
+    kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+        var content = '<div class="info">' + 
+                    '   <div class="title">' + name + '</div>' +
+                    '   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></div>' +
+                    '</div>';
+
+        infowindow.setContent(content); 
+        infowindow.setPosition(mouseEvent.latLng); 
+        infowindow.setMap(map);
     });
  
 }

@@ -33,26 +33,50 @@ body{
 .items_btn{
 	width: 100%;
 	background-color: white;
-	border-style: 1px;
+	border-left: none;
+	border-right: none;
+	border-width: thin;
+	border-color: #ccc;
 	text-align: left; 
 	line-height: 80%;
 }
 
+/* 아이템 버튼에 마우스를 올렸을 떄, 색상변경 */
+.items_btn:hover{
+	background-color:  #f2f8fd;
+	cursor: pointer;
+}
 
+/* 아이템 버튼 클릭후 색상 유지 */
+.items_btn:active{
+	background-color:  #f2f8fd;
+}
+
+/* 상새화면 */
 .aside2{
     width: 1200px;
-    background-color: orange;
+    background-color: white;
     overflow: auto;
-    text-align: center;
+}
+
+.aside2 div{
+	text-align: right;
 }
 
 .close_btn{
 	background-color: transparent;
+	border: none;
+	color: #495057;
+	position: relative;
+	z-index: 5;
+	cursor: pointer;
+	
 }
-
 
 .aside2 img{
 	width: 100%;
+	position: relative;
+	top:-43px;
 }
 
 #detail_table{
@@ -60,7 +84,6 @@ body{
 	border: 1px solid black;
 	margin-left: auto; margin-right: auto;
 	text-align: left;
-
 }
 
 #map{
@@ -89,6 +112,13 @@ body{
 .category button:hover{
 	background-image: linear-gradient(195deg, #66BB6A 0%, #43A047 100%);
 	cursor: pointer;
+}
+
+/* 카테고리 버튼에 마우스를 클릭하면 색상 변경*/
+/* 추가사항! 카테고리를 제외한 다른 버튼의 영향은 안받도록 로직 작성 */
+.category button:focus{
+	background-image: linear-gradient(195deg, #66BB6A 0%, #43A047 100%);
+	
 }
 
 .category_btn{

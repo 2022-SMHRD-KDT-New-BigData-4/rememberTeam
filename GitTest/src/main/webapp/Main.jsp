@@ -797,7 +797,7 @@ function displayArea_out(coordinates_out, name_out) {
        strokeColor : '#004c80',
        strokeOpacity : 0.8,
        fillColor : '#f8f9fa',
-       fillOpacity : 0.5
+       fillOpacity : 1
    });
 };
 // 광주 라인 폴리곤 생성
@@ -879,6 +879,22 @@ function displayArea(coordinates, name) {
     		}
     		
     	})
+    	$.ajax({
+		url : 'RSCnt.do',
+		type : 'get',
+		data : gu_name,
+		dataType : 'json',
+		success : (res)=>{
+			$.each(res,(key, value)=>{
+				let tag_id = "#"+key
+				const $counter = document.querySelector(tag_id);
+				const max = value
+				counter($counter, max);
+			})
+		},
+		error : ()=>{
+		}
+	})
         
         
         

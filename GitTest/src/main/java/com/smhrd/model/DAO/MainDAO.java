@@ -75,4 +75,17 @@ public class MainDAO {
 		
 		return cnt;
 	}
+	
+	public int MouseoverRsCnt(MainVO vo) {
+		
+		int cnt = 0;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		try {
+			cnt = sqlSession.selectOne("MouseoverRsCnt", vo);
+		} finally {
+			sqlSession.close();
+		}
+		
+		return cnt;
+	}
 }

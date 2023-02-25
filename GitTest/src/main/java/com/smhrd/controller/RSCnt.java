@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.smhrd.command.Command;
 import com.smhrd.model.DAO.MainDAO;
+import com.smhrd.model.VO.MainVO;
 
 public class RSCnt implements Command {
 
@@ -19,19 +20,34 @@ public class RSCnt implements Command {
 
 		Gson gson = new Gson();
 		MainDAO dao = new MainDAO();
+		Map<String, Object> temp = new HashMap<>();
 		
 		String jeonse = "전세";
 		String monthly = "월세";
+		String gu_name = request.getParameter("gu_name");
 		
-		int jeonseCnt = dao.RSCnt(jeonse);
-		int monthlyCnt = dao.RSCnt(monthly);
+		int jeonseCnt = 0;
+		int monthlyCnt = 0;
+		if (gu_name != null) {
+			
+			MainVO vo1 = new MainVO(gu_name, jeonse);
+			MainVO vo2 = new MainVO(gu_name, monthly);
+			
+			jeonseCnt = dao.MouseoverRsCnt(vo1);
+			monthlyCnt = dao.MouseoverRsCnt(vo2);
+			
+		} else {
+			
+			jeonseCnt = dao.RSCnt(jeonse);
+			monthlyCnt = dao.RSCnt(monthly);
+			
+		}
 		
-		Map<String, Object> temp = new HashMap<>();
 		temp.put("jeonse", jeonseCnt);
 		temp.put("monthly", monthlyCnt);
 		
 		String json = gson.toJson(temp);
-		System.out.println(json);
+		
 		try {
 			PrintWriter out = response.getWriter();
 			out.print(json);

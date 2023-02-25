@@ -32,4 +32,11 @@
 		 WHERE ADDR LIKE '%'||#{gu_name}||'%'
 	</select>
 	
+	<select id ="MouseoverRsCnt" parameterType="com.smhrd.model.VO.MainVO" resultType="int">
+		SELECT COUNT(*)
+		  FROM GJ_RS
+		 WHERE RS_CR = #{table}
+		   AND RS_ADDR LIKE '%'||#{gu_name}||'%'
+	</select>
+	
 </mapper>

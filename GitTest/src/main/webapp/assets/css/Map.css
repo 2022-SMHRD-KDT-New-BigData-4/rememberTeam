@@ -21,16 +21,46 @@ body{
 	justify-content: center;
 }
 
-
+/* 매물정보 리스트 */
 .aside1{
-    width: 550px;
-    background-color: red;
+    width: 750px;
+    background-color: white;
+    overflow: auto;
  
 }
 
+/* 매물 각각에 대한 자리 */
+.items_btn{
+	width: 100%;
+	background-color: white;
+	border-style: 1px;
+	text-align: left; 
+	line-height: 80%;
+}
+
+
 .aside2{
-    width: 550px;
+    width: 1200px;
     background-color: orange;
+    overflow: auto;
+    text-align: center;
+}
+
+.close_btn{
+	background-color: transparent;
+}
+
+
+.aside2 img{
+	width: 100%;
+}
+
+#detail_table{
+	width: 95%;
+	border: 1px solid black;
+	margin-left: auto; margin-right: auto;
+	text-align: left;
+
 }
 
 #map{

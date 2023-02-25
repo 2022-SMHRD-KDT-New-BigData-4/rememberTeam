@@ -25,4 +25,11 @@
 		 WHERE deal_year = #{year}
 		   AND deal_month = #{month}
 	</select>
+	
+	<select id = "MouseoverCnt" parameterType="com.smhrd.model.VO.MainVO" resultType="int">
+		SELECT COUNT(*)
+		  FROM ${table}
+		 WHERE ADDR LIKE '%'||#{gu_name}||'%'
+	</select>
+	
 </mapper>

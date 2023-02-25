@@ -727,7 +727,7 @@ $(document).ready(()=>{
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="./assets/js/material-dashboard.min.js?v=3.0.4"></script>
 
-<!-- 가운데 카카오 지도 불러오기, 마우스 드래그&휠 이동 막기 -->
+<!-- 가운데 카카오 지도 불러오기 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=311c2d3dcf5815fdf2481d7ae57fc8cb"></script>
 
 <script>
@@ -735,28 +735,71 @@ $(document).ready(()=>{
 	var container = document.getElementById('map');
 	var options = {
 		center: new kakao.maps.LatLng(35.14507159179403, 126.8351730541552),
-		level: 9
+		level: 9,
+		draggable : false, // 드래그 옵션 
+		scrollwheel : false, // 마우스 휠 옵션
+		disableDoubleClick : true, // 더블클릭 끄기 옵션
+		disableDoubleClickZoom : true // 더블클릭 줌 끄기 옵션
 	};
 
 	var map = new kakao.maps.Map(container, options),
 		customOverlay = new kakao.maps.CustomOverlay({}),
 		infowindow = new kakao.maps.InfoWindow({removable: true});
-		
-	// 마우스 드래그로 지도 이동 가능여부 설정
-	function setDraggable(draggable) {
-		map.setDraggable(draggable);    
-	}
 	
-	// 마우스 휠로 지도 확대,축소 가능여부를 설정
-	function setZoomable(zoomable) {
-		map.setZoomable(zoomable);    
-	}
-	setDraggable(false);
-	setZoomable(false);
 </script>
 	
-<script>	
-//행정구역 구분
+<script>
+
+// 광주 바깥쪽 폴리곤 생성
+$.getJSON("./assets/json/gj_out_map.geojson", function(geojson) {
+	 
+    var data_out = geojson.features;
+    var coordinates_out = []; 
+    var name_out = ''; 
+
+    $.each(data_out, function(index, val) {
+ 
+        coordinates_out = val.geometry.coordinates;
+        name_out = val.properties.CTP_KOR_NM;
+        displayArea_out(coordinates_out, name_out); 
+    })
+})
+
+var polygons=[]; 
+var polygons_out=[];
+
+
+function displayArea_out(coordinates_out, name_out) {
+	var path_out = [
+		new kakao.maps.LatLng(34.90,126.5),
+		new kakao.maps.LatLng(34.90,127.2),
+		new kakao.maps.LatLng(35.39,127.2),
+		new kakao.maps.LatLng(35.39,126.5)
+	]; 
+    var hole = [];
+    var points = [];
+    
+    $.each(coordinates_out[0][0], function(index, coordinates_out) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
+        var point = new Object(); 
+        point.x = coordinates_out[1];
+        point.y = coordinates_out[0];
+        points.push(point);
+        hole.push(new kakao.maps.LatLng(coordinates_out[1], coordinates_out[0]));	//new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
+    })
+
+    var polygon_out = new kakao.maps.Polygon({
+        map : map, 
+        path : [path_out, hole],
+        strokeWeight : 2,
+        strokeColor : '#004c80',
+        strokeOpacity : 0.8,
+        fillColor : '#f8f9fa',
+        fillOpacity : 1
+    });
+};
+
+
+//광주 행정구역 구분 폴리곤 생성
 $.getJSON("./assets/json/gj_map.geojson", function(geojson) {
  
     var data = geojson.features;
@@ -772,9 +815,6 @@ $.getJSON("./assets/json/gj_map.geojson", function(geojson) {
     })
 })
 
- 
-var polygons=[];                //function 안 쪽에 지역변수로 넣으니깐 폴리곤 하나 생성할 때마다 배열이 비어서 클릭했을 때 전체를 못 없애줌.  그래서 전역변수로 만듦.
-    
 //행정구역 폴리곤
 function displayArea(coordinates, name) {
  
@@ -797,14 +837,15 @@ function displayArea(coordinates, name) {
         strokeColor : '#004c80',
         strokeOpacity : 0.8,
         fillColor : '#fff',
-        fillOpacity : 0.7
+        fillOpacity : 0.5
     });
     
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
         polygon.setOptions({
-            fillColor : '#09f'
+            fillColor : '#09f',
+           	fillOpacity : 0.5
         });
  
         //customOverlay.setContent('<div class="area">' + name + '</div>');
@@ -823,7 +864,8 @@ function displayArea(coordinates, name) {
     // 커스텀 오버레이를 지도에서 제거합니다 
     kakao.maps.event.addListener(polygon, 'mouseout', function() {
         polygon.setOptions({
-            fillColor : '#fff'
+            fillColor : '#fff',
+            fillOpacity : 0.5
         });
         customOverlay.setMap(null);
     });

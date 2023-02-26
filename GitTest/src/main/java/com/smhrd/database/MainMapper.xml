@@ -18,7 +18,8 @@
 		  FROM GJ_RS
 		 WHERE RS_CR = #{rs}	
 	</select>
-		
+	
+	<!-- 실거래가 그래프 -->	
 	<select id="ofctCnt" parameterType="Map" resultType="int">
 		SELECT COUNT(*)
 		  FROM GJ_DEAL_OFCT
@@ -26,17 +27,25 @@
 		   AND deal_month = #{month}
 	</select>
 	
+	<!-- 지도 마우스오버 인프라 컬럼 카운트 -->
 	<select id = "MouseoverCnt" parameterType="com.smhrd.model.VO.MainVO" resultType="int">
 		SELECT COUNT(*)
 		  FROM ${table}
 		 WHERE ADDR LIKE '%'||#{gu_name}||'%'
 	</select>
 	
+	<!-- 지도 마우스오버 매물 컬럼 카운트 -->
 	<select id ="MouseoverRsCnt" parameterType="com.smhrd.model.VO.MainVO" resultType="int">
 		SELECT COUNT(*)
 		  FROM GJ_RS
 		 WHERE RS_CR = #{table}
 		   AND RS_ADDR LIKE '%'||#{gu_name}||'%'
+	</select>
+	
+	<!-- 인프라 컬럼 클릭 지도 마커 좌표 -->
+	<select id = "MainMarker" parameterType="String" resultType="com.smhrd.model.VO.MainVO">
+		SELECT LAT, LNG
+		  FROM ${table}
 	</select>
 	
 </mapper>

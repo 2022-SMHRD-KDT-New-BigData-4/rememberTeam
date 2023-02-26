@@ -27720,11 +27720,16 @@ pre[class*="language-"] {
 
 #map_layout {
 	display : flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
+	flex-direction: column
+
+	
 }
 
-
-
+#infra {
+	display : flex;
+	flex-direction: row-reverse
+}
 
 /*# sourceMappingURL=dashboard-free.css.map */

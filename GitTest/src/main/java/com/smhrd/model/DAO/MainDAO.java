@@ -1,6 +1,7 @@
 package com.smhrd.model.DAO;
 
 import java.sql.Array;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -60,7 +61,7 @@ public class MainDAO {
 
 		return cnt;
 	}
-
+	
 	public int[] MouseoverCnt(MainVO[] vo) {
 		
 		int cnt[] = new int[14];
@@ -87,5 +88,21 @@ public class MainDAO {
 		}
 		
 		return cnt;
+	}
+	
+	public List<Object> MainMarker(String table) {
+		
+		double lat = 0;
+		double lng = 0;
+		List<Object> list = null;
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		try {
+			list = sqlSession.selectList("MainMarker", table);
+		} finally {
+			sqlSession.close();
+		}
+		
+		return list;
 	}
 }

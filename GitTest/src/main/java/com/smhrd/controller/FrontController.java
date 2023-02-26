@@ -26,6 +26,7 @@ public class FrontController extends HttpServlet {
 
 		map.put("InfraCnt.do", new InfraCnt());
 		map.put("RSCnt.do", new RSCnt());
+		map.put("MainMarker.do", new MainMarker());
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

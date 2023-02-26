@@ -180,11 +180,9 @@
 
 		<div class="container-fluid py-4">
 
-
-
-			<h6> If you are not redirected automatically, follow 
-				<a href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard ">this link</a>.
-			</h6>
+			<div id="infra_div2" class="col-lg-3 z-index-2">
+				<h6 id="infra"> Column Count : 광주광역시 </h6> 
+			</div>
 			<div class="row123">
 			
 <!-- 왼쪽 매물 컬럼&그래프 레이아웃 -->
@@ -200,7 +198,7 @@
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">전세매물</p>
-										<h4 id="jeonse" class="mb-0">0</h4>
+										<h4 id="jeonse_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 								
@@ -217,7 +215,7 @@
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize ">월세매물</p>
-										<h4 id="monthly" class="mb-0">0</h4>
+										<h4 id="monthly_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -236,7 +234,22 @@
 <!-- 가운데 지도 레이아웃 -->
 
 				<div id="map_layout" class="col-lg-6 z-index-2">
-					<div id="map" style="width:600px;height:400px;">
+					<div><p>최고 검색량 출력 공간</p></div>
+					<div>
+						<form action="">
+							<select>
+								<option>a</option>
+								<option>b</option>
+								<option>c</option>
+							</select>
+							<select>
+								<option>a</option>
+								<option>b</option>
+								<option>c</option>
+							</select>
+						</form>
+					</div>
+					<div id="map" style="width:765px;height:600px;">
 					</div>
 				</div>
 				
@@ -250,14 +263,14 @@
 				<!-- 오른쪽 인프라 컬럼 레이아웃 왼쪽 컬럼열  -->
 				
 						<div class="col-lg-5 col-sm-5 ">
-							<div class="card  mb-2">
+							<div id="GJ_CC" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">weekend</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">자치단체</p>
-										<h4 id="GJ_CC" class="mb-0">0</h4>
+										<h4 id="GJ_CC_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -265,14 +278,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_PS" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">경찰서</p>
-										<h4 id="GJ_PS" class="mb-0">0</h4>
+										<h4 id="GJ_PS_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -280,28 +293,28 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_HS" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">병원</p>
-										<h4 id="GJ_HS" class="mb-0">0</h4>
+										<h4 id="GJ_HS_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
 								<hr class="dark horizontal my-0">
 								
 							</div>
-							<div class="card  mb-2">
+							<div id="GJ_METRO" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">지하철역</p>
-										<h4 id="GJ_METRO" class="mb-0">0</h4>
+										<h4 id="GJ_METRO_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -309,14 +322,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_CN" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">영화관</p>
-										<h4 id="GJ_CN" class="mb-0">0</h4>
+										<h4 id="GJ_CN_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -324,14 +337,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_LB" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">도서관</p>
-										<h4 id="GJ_LB" class="mb-0">0</h4>
+										<h4 id="GJ_LB_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -339,14 +352,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_SM" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">대형마트</p>
-										<h4 id="GJ_SM" class="mb-0">0</h4>
+										<h4 id="GJ_SM_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -359,14 +372,14 @@
 					
 						<div class="col-lg-5 col-sm-5 mt-sm-0 mt-4">
 						
-							<div class="card  mb-2">
+							<div id="GWANGJU_DONG" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">store</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize ">법정동수</p>
-										<h4 id="GWANGJU_DONG" class="mb-0">0</h4>
+										<h4 id="GWANGJU_DONG_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -374,14 +387,14 @@
 
 							</div>
 
-							<div class="card mb-2">
+							<div id="GJ_FS" class="card mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">person_add</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize ">소방서</p>
-										<h4 id="GJ_FS" class="mb-0 ">0</h4>
+										<h4 id="GJ_FS_Cnt" class="mb-0 ">0</h4>
 									</div>
 								</div>
 
@@ -389,14 +402,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_PH" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">약국</p>
-										<h4 id="GJ_PH" class="mb-0">0</h4>
+										<h4 id="GJ_PH_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -404,14 +417,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_BUS" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">버스정류장</p>
-										<h4 id="GJ_BUS" class="mb-0">0</h4>
+										<h4 id="GJ_BUS_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -419,14 +432,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_MS" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">박물관</p>
-										<h4 id="GJ_MS" class="mb-0">0</h4>
+										<h4 id="GJ_MS_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -434,14 +447,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_EX" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">전시관</p>
-										<h4 id="GJ_EX" class="mb-0">0</h4>
+										<h4 id="GJ_EX_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -449,14 +462,14 @@
 								
 							</div>
 							
-							<div class="card  mb-2">
+							<div id="GJ_CS" class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">leaderboard</i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize">편의점</p>
-										<h4 id="GJ_CS" class="mb-0">0</h4>
+										<h4 id="GJ_CS_Cnt" class="mb-0">0</h4>
 									</div>
 								</div>
 
@@ -687,7 +700,7 @@ $(document).ready(()=>{
 		dataType : 'json',
 		success : (res)=>{
 			$.each(res,(key, value)=>{
-				let tag_id = "#"+key
+				let tag_id = "#"+key+"_Cnt"
 				const $counter = document.querySelector(tag_id);
 				const max = value
 				counter($counter, max);
@@ -704,7 +717,7 @@ $(document).ready(()=>{
 		dataType : 'json',
 		success : (res)=>{
 			$.each(res,(key, value)=>{
-				let tag_id = "#"+key
+				let tag_id = "#"+key+"_Cnt"
 				const $counter = document.querySelector(tag_id);
 				const max = value
 				counter($counter, max);
@@ -737,7 +750,7 @@ $(document).ready(()=>{
 	var mapContainer = document.getElementById('map');
 	var mapOptions = {
 		center: new kakao.maps.LatLng(35.15507159179403, 126.8351730541552),
-		level: 9,
+		level: 8.5,
 		draggable : false, // 드래그 옵션 
 		scrollwheel : false, // 마우스 휠 옵션
 		disableDoubleClick : true, // 더블클릭 끄기 옵션
@@ -800,7 +813,6 @@ function displayArea_out(coordinates_out, name_out) {
        fillOpacity : 1
    });
 };
-// 광주 라인 폴리곤 생성
 
 
 //광주 행정구역 구분 폴리곤 생성
@@ -821,7 +833,6 @@ $.getJSON("./assets/json/gj_gu_line.geojson", function(geojson) {
 
 var polygons=[];
 
-//행정구역 폴리곤
 function displayArea(coordinates, name) {
  
     var path = [];            //폴리곤 그려줄 path
@@ -840,10 +851,10 @@ function displayArea(coordinates, name) {
         map : map, // 다각형을 표시할 지도 객체
         path : path,
         strokeWeight : 2,
-        strokeColor : '#004c80',
+        strokeColor : '#43A047',
         strokeOpacity : 0.8,
         fillColor : '#fff',
-        fillOpacity : 0.5
+        fillOpacity : 1
     });
     
     
@@ -851,7 +862,7 @@ function displayArea(coordinates, name) {
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
         polygon.setOptions({
-            fillColor : '#09f',
+            fillColor : '#43A047',
            	fillOpacity : 0.5
         });
  
@@ -867,9 +878,9 @@ function displayArea(coordinates, name) {
     		data : gu_name,
     		dataType : 'json',
     		success : (res)=>{
-    			console.log(res)
     			$.each(res,(key, value)=>{
-    				let tag_id = "#"+key
+    				$('#infra').text('Column Count : '+name)
+    				let tag_id = '#'+key+'_Cnt'
     				const $counter = document.querySelector(tag_id);
     				const max = value
     				counter($counter, max);
@@ -880,21 +891,21 @@ function displayArea(coordinates, name) {
     		
     	})
     	$.ajax({
-		url : 'RSCnt.do',
-		type : 'get',
-		data : gu_name,
-		dataType : 'json',
-		success : (res)=>{
-			$.each(res,(key, value)=>{
-				let tag_id = "#"+key
-				const $counter = document.querySelector(tag_id);
-				const max = value
-				counter($counter, max);
+			url : 'RSCnt.do',
+			type : 'get',
+			data : gu_name,
+			dataType : 'json',
+			success : (res)=>{
+				$.each(res,(key, value)=>{
+					let tag_id = "#"+key+"_Cnt"
+					const $counter = document.querySelector(tag_id);
+					const max = value
+					counter($counter, max);
 			})
-		},
-		error : ()=>{
-		}
-	})
+			},
+			error : ()=>{
+			}
+		})
         
         
         
@@ -910,7 +921,7 @@ function displayArea(coordinates, name) {
     kakao.maps.event.addListener(polygon, 'mouseout', function() {
         polygon.setOptions({
             fillColor : '#fff',
-            fillOpacity : 0.5
+            fillOpacity : 1
         });
         customOverlay.setMap(null);
    
@@ -928,6 +939,115 @@ function displayArea(coordinates, name) {
     });
  
 }
+</script>
+
+
+<!-- 컬럼 마커 -->
+<script>
+let isMarker = false;
+let markers = [];
+
+function Marker_ajax(data_marker) {
+	if (isMarker == false) {
+		$.ajax({
+			url : 'MainMarker.do',
+			type : 'get',
+			data : data_marker,
+			dataType : 'json',
+			success : (res)=>{
+				for (var i = 0; i<res.column.length; i++) {
+					var lat = res.column[i].lat;
+					var lng = res.column[i].lng;
+					var markerPosition  = new kakao.maps.LatLng(lat, lng);
+					var marker = new kakao.maps.Marker({
+		    			position: markerPosition
+					});
+					markers.push(marker);
+					marker.setMap(map);
+				}
+				isMarker = true;
+			},
+			error : ()=>{
+			}
+	})	
+	} else {
+		for (var i = 0; i<markers.length; i++){
+			markers[i].setMap(null)
+		}
+		isMarker = false;
+	}
+}
+
+$('#GJ_CC').click(function(){
+	let data_marker = {table:"GJ_CC"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_BUS').click(function(){
+	let data_marker = {table:"GJ_BUS"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_CN').click(function(){
+	let data_marker = {table:"GJ_CN"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_CS').click(function(){
+	let data_marker = {table:"GJ_CS"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_EX').click(function(){
+	let data_marker = {table:"GJ_EX"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_FS').click(function(){
+	let data_marker = {table:"GJ_FS"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_HS').click(function(){
+	let data_marker = {table:"GJ_HS"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_METRO').click(function(){
+	let data_marker = {table:"GJ_METRO"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_MS').click(function(){
+	let data_marker = {table:"GJ_MS"};
+	Marker_ajax(data_marker);		
+});
+	
+$('#GJ_PH').click(function(){
+	let data_marker = {table:"GJ_PH"};
+	Marker_ajax(data_marker);		
+});	
+
+$('#GJ_MS').click(function(){
+	let data_marker = {table:"GJ_CS"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_PS').click(function(){
+	let data_marker = {table:"GJ_PS"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_SM').click(function(){
+	let data_marker = {table:"GJ_SM"};
+	Marker_ajax(data_marker);		
+});
+
+$('#GJ_LB').click(function(){
+	let data_marker = {table:"GJ_LB"};
+	Marker_ajax(data_marker);		
+});
+
 </script>
 
 </body>

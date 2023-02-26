@@ -473,6 +473,16 @@
 	<!-- 파일을 따로 분리했기때문에 임폴트 작업 필요 -->
 	<script src="assets/js/kakaoMap.js"></script>
 	
+	<script>
+	
+	
+	$('#ex_btn').on('click', onClickCategory)
+
+				
+	
+
+	</script>
+	
 
 </body>
 </html>

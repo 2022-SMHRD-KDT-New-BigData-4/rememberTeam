@@ -15,33 +15,6 @@
 	// 3) 지도 생성
 	let map = new kakao.maps.Map(container, options)
 
-
-	// 클릭한 위치에 마커 생성
-	// let marker = new kakao.maps.Marker({
-		// 지도 중심좌표에 마커를 생성
-		// position : map.getCenter()
-	// })
-				
-	// 지도에 마커를 표시
-	// marker.setMap(map);
-				
-	// 지도에 클릭 이벤트를 등록
-	// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출
-	// kakao.maps.event.addListener(map, 'click', (mouseEvent) => {        
-				    
-	// 클릭한 위도, 경도 정보를 가져온다
-	// let latlng = mouseEvent.latLng; 
-				    
-	// 마커 위치를 클릭한 위치로 옮긴다
-	// 속성을 변경할거니까 set
-	// marker.setPosition(latlng);
-				    
-	// let message = '클릭한 위치의 위도는 ' + latlng.getLat() + ' 이고, ';
-	// message += '경도는 ' + latlng.getLng() + ' 입니다';
-				    
-				 // console.log(message)
-				    
-	// });
 				
 	// 마커를 담을 배열
 	let markers = []
@@ -57,7 +30,7 @@
 	function mapEX(){
 					
 		$.ajax({
-			url : 'gj_exServer',
+			url : 'GJ_EXServer',
 			dataType : 'json',
 			success : (res) => {
 				console.log(res)
@@ -85,8 +58,8 @@
     			
     			
     			// 마커 이미지 지정
-    			let imageSrc = 'https://cdn-icons-png.flaticon.com/512/9579/9579872.png', // 마커이미지의 주소입니다  
-    				selectimageSrc = 'https://cdn-icons-png.flaticon.com/512/9579/9579967.png',  
+    			let imageSrc = 'https://cdn-icons-png.flaticon.com/512/686/686094.png', // 마커이미지의 주소입니다  
+    				selectimageSrc = 'https://cdn-icons-png.flaticon.com/512/686/686216.png',  
     				imageSize = new kakao.maps.Size(25, 25), // 마커이미지의 크기입니다
     				imageOption = {offset: new kakao.maps.Point(11, 28)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
       
@@ -98,7 +71,8 @@
 				mapMaker(res,markerImage)
 				
 				// 오버레이 불러오는 함수
-				markerOverlay(res)
+				markerclickOverlay(res)
+				markerOverOverlay(res)
 
 				// 여러개 찍어보기
 //				for(let i = 0; i < res.length; i++){
@@ -180,8 +154,10 @@
 	function removeMarker() {
 		for ( let i = 0; i < markers.length; i++ ) {
 		markers[i].setMap(null);
-	}   
+	}
+	if(clickedOverlay != null){   
 		clickedOverlay.setMap(null);
+		}
 		markers = [];
 		del = true
 	}
@@ -193,7 +169,7 @@
         	removeMarker()
         	
     	} else {
-			
+			removeMarker()
         	mapEX();
     	}
 	}
@@ -219,7 +195,7 @@
 		}
 	}
 	
-	function markerOverlay(res){
+	function markerOverOverlay(res){
 		for(let i = 0; i < res.length; i++){
 					
 		// 마우스 올렸을 때 정보 보여주기
@@ -241,21 +217,40 @@
 			customOverlay.setMap(map);
 				
 		})
+
 					
-		// 클릭했을 때 정보 보여주기
-		kakao.maps.event.addListener(markers[i], 'click', function () {
+		// 커스텀 오버레이 닫기
+      	kakao.maps.event.addListener(markers[i], 'mouseout', function () {
+
+        	customOverlay.setMap(null);
+
+      	});
+      				
+
+		}
+	}
+	
+	function markerclickOverlay(res){
+		
+		for(let i = 0; i < res.length; i++){
+							
+			// 클릭했을 때 정보 보여주기
+			kakao.maps.event.addListener(markers[i], 'click', function () {
 			
 			// 다른 마커 클릭시 이전 마커 오버레이와 마커 하이라이트가 사라진다		
 			if(clickedOverlay != null && num != null){
 				clickedOverlay.setMap(null);
 				markers[num].setImage(markerImage);
+				console.log("1"+clickedOverlay)
 			}
+			
 			
 			// 맵을 클릭 시 이전 마커의 오버레이와 마커 하이라이트가 사라진다			
 			kakao.maps.event.addListener(map, 'click', function () {
 				if(clickedOverlay != null){
 					clickedOverlay.setMap(null);
 					markers[i].setImage(markerImage);
+					console.log("2"+clickedOverlay)
 				}
 			})			
 			//customOverlay.setMap(null);
@@ -281,20 +276,10 @@
 			// console.log(customOverlay)
 			
 			markers[i].setImage(selectmarkerImage);
-			
+			console.log("생성"+clickedOverlay)
 			num = i	
 
-
 		})
-					
-		// 커스텀 오버레이 닫기
-      	kakao.maps.event.addListener(markers[i], 'mouseout', function () {
-
-        	customOverlay.setMap(null);
-
-      	});
-      				
-
 		}
 	}
 	

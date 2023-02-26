@@ -28,6 +28,8 @@ public class GJ_EXServer extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
+		System.out.println("1");
+		
 		PrintWriter out = response.getWriter();
 		
 		Gson gson = new Gson();

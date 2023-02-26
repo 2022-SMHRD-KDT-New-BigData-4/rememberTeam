@@ -5,10 +5,57 @@
   
   
 <mapper namespace="com.smhrd.database.MapMapper">
+
+	<select id="selectGJ_BUS" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_bus
+	</select>
+	
+	<select id="selectGJ_CC" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_cc
+	</select>
+	
+	<select id="selectGJ_CN" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_cn
+	</select>
+	
+	<select id="selectGJ_CS" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_cs
+	</select>
+	
+	<select id="selectGJ_DEAL_OFST" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_deal_ofst
+	</select>
 	
 	<select id="selectGJ_EX" resultType="com.smhrd.model.VO.GJ_EX_VO">
 		select * from gj_ex
 	</select>
 	
+	<select id="selectGJ_FS" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_fs
+	</select>
+	
+	<select id="selectGJ_HS" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_hs
+	</select>
+	
+	<select id="selectGJ_METRO" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_metro
+	</select>
+	
+	<select id="selectGJ_MS" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_ms
+	</select>
+	
+	<select id="selectGJ_PH" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_ph
+	</select>
+	
+	<select id="selectGJ_PS" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_ps
+	</select>
+	
+	<select id="selectGJ_SM" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_sm
+	</select>
 	
 </mapper>

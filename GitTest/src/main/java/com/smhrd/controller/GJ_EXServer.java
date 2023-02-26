@@ -5,9 +5,6 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,22 +12,19 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
+import com.smhrd.command.Command;
 import com.smhrd.model.DAO.GJ_EX_DAO;
 import com.smhrd.model.VO.GJ_EX_VO;
 
-@WebServlet("/GJ_EXServer")
-public class GJ_EXServer extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class GJ_EXServer implements Command {
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		// 한글 인코딩
-		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
 		
-		System.out.println("1");
-		
-		PrintWriter out = response.getWriter();
+		PrintWriter out;
 		
 		Gson gson = new Gson();
 		
@@ -60,7 +54,15 @@ public class GJ_EXServer extends HttpServlet {
 	    	JA.add(JO);
 	    }
 		// System.out.println(JA);
-		out.print(JA);
-	}
+		try {
+			out = response.getWriter();
+			out.print(JA);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	return null;
+}
 
 }

@@ -178,7 +178,7 @@ function displayArea(coordinates, name) {
     		dataType : 'json',
     		success : (res)=>{
     			$.each(res,(key, value)=>{
-    				$('#infra').text('Column Count : '+name)
+    				$('#infra').text(name)
     				let tag_id = '#'+key+'_Cnt'
     				const $counter = document.querySelector(tag_id);
     				const max = value

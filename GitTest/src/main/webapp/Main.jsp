@@ -180,10 +180,10 @@
 
 
 		<div class="container-fluid py-4">
-			<div id="infra_div2" class="col-lg-3 z-index-2">
-				<h6 id="infra"> Column Count : 광주광역시 </h6> 
-			</div>
-			<div class="row123">
+			<div class="div_flex">
+			  <h6 id="infra" class="text-end me-xl-4">광주광역시</h6>
+			</div>   
+			<div class="row gx-0">
 			
 <!-- 왼쪽 매물 컬럼&그래프 레이아웃 -->
 
@@ -234,28 +234,22 @@
 <!-- 가운데 지도 레이아웃 -->
 
 				<div id="map_layout" class="col-lg-6 z-index-2">
-					<div><p>최고 검색량 출력 공간</p></div>
-					<div class="btn-group">
-  						<button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    						구
-  						</button>
-  						<ul class="dropdown-menu">
-    						<li><a class="dropdown-item" href="#">광산구</a></li>
-    						<li><a class="dropdown-item" href="#">동구</a></li>
-    						<li><a class="dropdown-item" href="#">서구</a></li>
-    						<li><a class="dropdown-item" href="#">남구</a></li>
-    						<li><a class="dropdown-item" href="#">북구</a></li>    					
-  						</ul>
-  						<button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    						동
-  						</button>
-  						<ul class="dropdown-menu">
-    						<li><a class="dropdown-item" href="#">Action</a></li>
-    						<li><a class="dropdown-item" href="#">Another action</a></li>
-    						<li><a class="dropdown-item" href="#">Something else here</a></li>
-    						<li><hr class="dropdown-divider"></li>
-    						<li><a class="dropdown-item" href="#">Separated link</a></li>
-  						</ul>
+					<p>최고 검색량 출력 공간</p>
+					<div class="div_flex">
+					 <select class="form-select mx-2" aria-label="Default select example">
+  						<option selected align="center">구</option>
+  						<option value="1" align="center">광산구</option>
+ 					  	<option value="2" align="center">동구</option>
+  						<option value="3" align="center">서구</option>
+  						<option value="3" align="center">남구</option>
+  						<option value="3" align="center">북구</option>
+					</select>
+					<select class="form-select mx-2" aria-label="Default select example">
+  						<option align="center" selected>동</option>
+  						<option value="1">One</option>
+ 					  	<option value="2">Two</option>
+  						<option value="3">Three</option>
+					</select>
 					</div>
 					<div id="map" style="width:765px;height:600px;">
 					</div>
@@ -685,7 +679,6 @@
 
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="./assets/js/material-dashboard.min.js?v=3.0.4"></script>
-
 
 
 

@@ -746,17 +746,6 @@ progress {
   margin-left: calc(-.5 * var(--bs-gutter-x));
   justify-content: space-evenly;
 }
-.row123 {
-  --bs-gutter-x: 0;
-  --bs-gutter-y: 0;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: calc(-1 * var(--bs-gutter-y));
-  margin-right: calc(-.5 * var(--bs-gutter-x));
-  margin-left: calc(-.5 * var(--bs-gutter-x));
-  justify-content: space-evenly
-  
-}
 
 .row>* {
   flex-shrink: 0;
@@ -4492,21 +4481,21 @@ fieldset:disabled .btn {
 
 .btn-group> :not(.btn-check:first-child)+.btn,
 .btn-group>.btn-group:not(:first-child) {
-  margin-left: -1px;
+  margin-left: 5px;
 }
 
 .btn-group>.btn:not(:last-child):not(.dropdown-toggle),
 .btn-group>.btn.dropdown-toggle-split:first-child,
 .btn-group>.btn-group:not(:last-child)>.btn {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .btn-group>.btn:nth-child(n + 3),
 .btn-group> :not(.btn-check)+.btn,
 .btn-group>.btn-group:not(:first-child)>.btn {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-top-left-radius: 7.5px;
+  border-bottom-left-radius: 7.5px;
 }
 
 .dropdown-toggle-split {
@@ -27727,11 +27716,9 @@ pre[class*="language-"] {
 	
 }
 
-#infra {
+
+.div_flex{
 	display : flex;
-	flex-direction: row-reverse
-}
-#infra_div1{
-	float : left;
+	justify-content: flex-end
 }
 /*# sourceMappingURL=dashboard-free.css.map */

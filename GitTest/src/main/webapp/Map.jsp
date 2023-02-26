@@ -14,18 +14,40 @@
 
 	<!-- 상단바 -->
 	<div class="header">
-        <div> 메뉴 아이콘 자리 </div>
-        <div>
-        	<div>이</div>
-        	<div>름</div>
-        	<div>자</div>
-        	<div>리</div>
+        <div class="menu_btn">
+        	<button type="button">
+        		<i class="fa-solid fa-bars fa-4x"></i>
+        	</button>
         </div>
-        <div>
-        	<form action="">
-        		<div>구</div>
-        		<div>동</div>
-        		<div>엔터</div>
+        <div class="logo">
+        	<div>일</div>
+        	<div>인</div>
+        	<div>일</div>
+        	<div>집</div>
+        </div>
+        <div class="search">
+        	<form action="#" method="get">
+        		<div class="search_gu">
+        			<select>
+        				<option>광산구</option>
+        				<option>남구</option>
+        				<option>동구</option>
+        				<option>북구</option>
+        				<option>서구</option>
+        			</select>
+        		</div>
+        		<div class="search_dong">
+        			<select>
+        				<option>선택한</option>
+        				<option>구에 해당하는</option>
+        				<option>동만 가져오기</option>
+        			</select>
+        		</div>
+        		<div>
+        			<button type="submit">
+	        			<i class="fa-solid fa-magnifying-glass fa-2x"></i>
+        			</button>
+        		</div>
         	</form>
         </div>
     </div>
@@ -472,7 +494,7 @@
 	
 	<!-- 파일을 따로 분리했기때문에 임폴트 작업 필요 -->
 	<script src="assets/js/kakaoMap.js"></script>
-	
+		
 	<script>
 	
 	
@@ -482,6 +504,8 @@
 	
 
 	</script>
+	
+	
 	
 
 </body>

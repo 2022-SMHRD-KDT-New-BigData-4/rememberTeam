@@ -7,9 +7,71 @@ body{
     overflow: hidden;
 }
 
+/* 상단바 */
 .header{
     height: 70px;
-    background-color: black;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+/* 메뉴 버튼 */
+.menu_btn{
+	flex-basis:30%;
+	display: flex;
+	align-items: center;
+}
+
+.menu_btn button{
+	background-color: transparent;
+	border: none;
+	color: #495057;
+	cursor: pointer;
+}
+
+
+.logo{
+	flex-basis: 40%;
+	display: flex;
+    flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo div{
+	width: 58px;
+	height: 53px;
+	border: none;
+	border-radius: 15px; 
+	background-color: orange;
+	margin: 5px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: xx-large;
+
+}
+
+.search{
+	flex-basis:30%;
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+	position: relative;
+	right: -300px;
+}
+
+.search form{
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+}
+
+.search div{
+	margin: 5px;
 }
 
 .wrap{
@@ -48,7 +110,7 @@ body{
 }
 
 /* 아이템 버튼 클릭후 색상 유지 */
-.items_btn:active{
+.items_btn:focus{
 	background-color:  #f2f8fd;
 }
 

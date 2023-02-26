@@ -6,6 +6,9 @@
   
 <mapper namespace="com.smhrd.database.MapMapper">
 	
+	<select id="selectGJ_EX" resultType="com.smhrd.model.VO.GJ_EX_VO">
+		select * from gj_ex
+	</select>
 	
 	
 </mapper>

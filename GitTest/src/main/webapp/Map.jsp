@@ -469,19 +469,10 @@
 	
 	<!-- 지도 가져오기 -->
 	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f4bb9f224f298dcd754083df04429703"></script>
-	<script>
-		// 1) 지도를 담을 영역을 가져오기
-		let container = document.getElementById('map'); 
-				
-		// 2) 지도에 넣어줄 기본 옵션
-		let options = {
-		center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-		level: 3 //지도의 레벨(확대, 축소 정도)
-		};
-				
-		// 3) 지도 생성
-		let map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-	</script>
+	
+	<!-- 파일을 따로 분리했기때문에 임폴트 작업 필요 -->
+	<script src="assets/js/kakaoMap.js"></script>
+	
 
 </body>
 </html>

@@ -60,14 +60,14 @@ body{
 	display: flex;
     flex-direction: row;
 	align-items: center;
-	position: relative;
-	right: -300px;
+	justify-content: flex-end;
 }
 
 .search form{
 	display: flex;
     flex-direction: row;
 	align-items: center;
+	padding-right: 20px;
 }
 
 .search div{

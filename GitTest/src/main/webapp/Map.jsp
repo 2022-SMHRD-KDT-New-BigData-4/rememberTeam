@@ -317,8 +317,8 @@
         <div class="nav">
             <div class="category">
             	<ul>
-            		<li class="category_btn">
-            			<button type="button" id="rs_btn">
+            		<li class="category_btn" data-order="0">
+            			<button type="button" id="rs_btn" >
 		            		<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
             				<br>
             				<span>매물</span>
@@ -329,7 +329,7 @@
             </div>
             <div class="category">
             	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="1">
 		            	<button type="button" id="cs_btn" style="display: none">
 		            		<i class="fa-solid fa-store fa-lg"></i>
 		            		<br>
@@ -340,7 +340,7 @@
             </div>
             <div class="category">
               	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="2">
 		            	<button type="button" id="sm_btn" style="display: none">
 		            		<i class="fa-solid fa-cart-shopping fa-lg"></i>
 		            		<br>
@@ -351,7 +351,7 @@
             </div>
             <div class="category">
                 <ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="3">
 		            	<button type="button" id="hs_btn" style="display: none">
 		            		<i class="fa-solid fa-hospital fa-lg"></i>
 		            		<br>
@@ -362,7 +362,7 @@
             </div>
             <div class="category">
                	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="4">
 		            	<button type="button" id="ph_btn" style="display: none">
 		            		<i class="fa-solid fa-pills fa-lg"></i>
 		            		<br>
@@ -373,7 +373,7 @@
             </div>
             <div class="category">
             	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="5">
 		            	<button type="button" id="ps_btn" style="display: none">
 		            		<i class="fa-solid fa-handcuffs fa-lg"></i>
 		            		<br>
@@ -384,7 +384,7 @@
             </div>
             <div class="category">
             	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="6">
 		            	<button type="button" id="fs_btn" style="display: none">
 		            		<i class="fa-solid fa-fire-extinguisher fa-lg"></i>
 		            		<br>
@@ -395,7 +395,7 @@
             </div>
             <div class="category">
             	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="7">
 		            	<button type="button" id="cc_btn" style="display: none">
 		            		<i class="fa-solid fa-building fa-lg"></i>
 		            		<br>
@@ -406,7 +406,7 @@
             </div>
             <div class="category">
              	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="8">
 		            	<button type="button" id="cn_btn" style="display: none">
 		            		<i class="fa-solid fa-ticket fa-lg"></i>
 		            		<br>
@@ -417,7 +417,7 @@
             </div>
             <div class="category">
               	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="9">
 		            	<button type="button" id="ms_btn" style="display: none">
 		            		<i class="fa-solid fa-building-columns fa-lg"></i>
 		            		<br>
@@ -428,8 +428,8 @@
             </div>
             <div class="category">
             	<ul>
-            		<li class="category_btn">
-		            	<button type="button" id="ex_btn" style="display: none">
+            		<li class="category_btn" data-order="10">
+		            	<button type="button" id="ex_btn" style="display: none" value="10">
 		            		<i class="fa-solid fa-palette fa-lg"></i>
 		            		<br>
 		            		<span>전시관</span>
@@ -439,7 +439,7 @@
             </div>
             <div class="category">
             	<ul>
-            		<li class="category_btn">
+            		<li class="category_btn" data-order="11">
 		            	<button type="button" id="lb_btn" style="display: none">
 		            		<i class="fa-solid fa-book fa-lg"></i>
 		            		<br>
@@ -501,7 +501,8 @@
 	<script>
 	
 	
-	$('#ex_btn').on('click', onClickCategory)
+	$('#ex_btn').on('click', clickEX)
+	$('#cc_btn').on('click', clickCC)
 
 				
 	

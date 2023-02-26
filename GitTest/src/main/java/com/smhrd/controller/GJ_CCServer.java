@@ -29,7 +29,7 @@ public class GJ_CCServer implements Command {
 
 		// DAO 꺼내오기
 		GJ_CC_DAO dao = new GJ_CC_DAO();
-		// System.out.println("1");
+		System.out.println("1");
 
 		// DAO가 가지고 있는 위치 호출
 		List<GJ_CC_VO> list = dao.selectGJ_CC();

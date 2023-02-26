@@ -14,6 +14,12 @@
 				
 	// 3) 지도 생성
 	let map = new kakao.maps.Map(container, options)
+	
+	// 내가 현재 보고있는 좌표를 중심으로 행동			
+    let moveLatLon = new kakao.maps.LatLng(map.getCenter().Ma, map.getCenter().La);
+    
+    // 지도 중심을 이동 시킵니다
+    map.setCenter(moveLatLon);
 
 				
 	// 마커를 담을 배열
@@ -23,9 +29,15 @@
 	let coords = null;
 	let customOverlay = null;
 	let clickedOverlay = null;
+	let overlays = []
 	let selectmarkerImage = null;
 	let markerImage = null;
 	let num = null;
+	let isClick = false;
+	// let currCategory = null;
+	// let currCategory = document.getElementsByClassName(category_btn);
+	
+	
 				
 	function mapEX(){
 					
@@ -49,11 +61,6 @@
 				// 하나만 찍어보기
 				// let markerPosition  = new kakao.maps.LatLng(object.sb[0][0].lat, object.sb[0][1].lng); 
 				
-				// 내가 현재 보고있는 좌표를 중심으로 행동			
-    			let moveLatLon = new kakao.maps.LatLng(map.getCenter().Ma, map.getCenter().La);
-    
-    			// 지도 중심을 이동 시킵니다
-    			map.setCenter(moveLatLon);
     			
     			
     			
@@ -71,8 +78,8 @@
 				mapMaker(res,markerImage)
 				
 				// 오버레이 불러오는 함수
-				markerclickOverlay(res)
 				markerOverOverlay(res)
+				markerclickOverlay(res)
 
 				// 여러개 찍어보기
 //				for(let i = 0; i < res.length; i++){
@@ -127,7 +134,7 @@
 //					markers.push(marker);
 //				}
 //				mapMaker(res, markerImage)
-				console.log("----------------")
+				console.log("GJ_EX")
 				
 				    
 //		});
@@ -150,6 +157,44 @@
 		})
 	}
 	
+	function mapCC(){
+					
+		$.ajax({
+			url : 'GJ_CCServer.do',
+			dataType : 'json',
+			success : (res) => {
+				console.log(res)
+
+    			let imageSrc = 'assets/images/communityCenter_default.svg', // 마커이미지의 주소입니다  
+    				selectimageSrc = 'assets/images/communityCenter_click.svg',  
+    				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기입니다
+    				imageOption = {offset: new kakao.maps.Point(11, 28)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+      
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+				selectmarkerImage = new kakao.maps.MarkerImage(selectimageSrc, imageSize, imageOption)
+				
+				// 마커 찍는 함수
+				mapMaker(res,markerImage)
+				
+				// 오버레이 불러오는 함수
+				markerOverOverlay(res)
+				markerclickOverlay(res)
+
+
+				console.log("GJ_CC")
+				
+													
+			},
+			error : (e) => {
+				console.log(e)
+			}
+		})
+	}
+	
+	
+	
+	
 	// 마커 초기화
 	function removeMarker() {
 		for ( let i = 0; i < markers.length; i++ ) {
@@ -163,7 +208,7 @@
 	}
 	
 	// 카테고리를 클릭했을 때 호출되는 함수
-	function onClickCategory() {
+	function clickEX() {
 		
     	if (del === false) {
         	removeMarker()
@@ -171,6 +216,15 @@
     	} else {
 			removeMarker()
         	mapEX();
+    	}
+	}
+	function clickCC(){
+		   if (del === false) {
+        	removeMarker()
+        	
+    	} else {
+			removeMarker()
+        	mapCC();
     	}
 	}
 	
@@ -202,7 +256,7 @@
 		kakao.maps.event.addListener(markers[i], 'mouseover', function () {
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element 입니다 
-			let content = '<span class="info-title">'+res[i].nm+'</span>';
+			let content = '<div class="tooltip_inner"><span class="txt_name">'+res[i].nm+'</span></div>';
 
 			// 커스텀 오버레이가 표시될 위치입니다 
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
@@ -214,16 +268,24 @@
     			yAnchor: 0
 			});
 			// 커스텀 오버레이를 지도에 표시합니다
+			if(isClick) {return;}
+			markers[i].setImage(selectmarkerImage);
 			customOverlay.setMap(map);
+			console.log("마우스오버")
 				
 		})
 
 					
 		// 커스텀 오버레이 닫기
       	kakao.maps.event.addListener(markers[i], 'mouseout', function () {
-
-        	customOverlay.setMap(null);
-
+			
+			if(isClick) {return;}
+			customOverlay.setMap(null);
+			
+			
+			markers[i].setImage(markerImage);
+        	console.log("마우스아웃")
+			
       	});
       				
 
@@ -241,7 +303,7 @@
 			if(clickedOverlay != null && num != null){
 				clickedOverlay.setMap(null);
 				markers[num].setImage(markerImage);
-				console.log("1"+clickedOverlay)
+				console.log("1")
 			}
 			
 			
@@ -250,9 +312,13 @@
 				if(clickedOverlay != null){
 					clickedOverlay.setMap(null);
 					markers[i].setImage(markerImage);
-					console.log("2"+clickedOverlay)
+					console.log("2")
 				}
-			})			
+			})
+			
+//			if(!isClick) {
+//       		isClick = true;
+//    			}			
 			//customOverlay.setMap(null);
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element 입니다 
@@ -268,7 +334,8 @@
     			yAnchor: 0
 			});
 			
-			
+			overlays.push(ctOverlay);
+			console.log("3")
 			clickedOverlay = ctOverlay
 			// clickedOverlay = customOverlay			
 			// 마커 클릭시 커스텀 오버레이를 지도에 표시
@@ -276,10 +343,14 @@
 			// console.log(customOverlay)
 			
 			markers[i].setImage(selectmarkerImage);
-			console.log("생성"+clickedOverlay)
+			console.log("i의마커이미지"+i)
 			num = i	
 
 		})
 		}
 	}
 	
+	function closeOverlay(pos) {
+     isClick = false;
+     overlays[pos].setMap(null);
+}

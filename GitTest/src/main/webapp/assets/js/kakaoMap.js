@@ -30,7 +30,7 @@
 	function mapEX(){
 					
 		$.ajax({
-			url : 'GJ_EXServer',
+			url : 'GJ_EXServer.do',
 			dataType : 'json',
 			success : (res) => {
 				console.log(res)
@@ -58,9 +58,9 @@
     			
     			
     			// 마커 이미지 지정
-    			let imageSrc = 'https://cdn-icons-png.flaticon.com/512/686/686094.png', // 마커이미지의 주소입니다  
-    				selectimageSrc = 'https://cdn-icons-png.flaticon.com/512/686/686216.png',  
-    				imageSize = new kakao.maps.Size(25, 25), // 마커이미지의 크기입니다
+    			let imageSrc = 'assets/images/artGallery_default.svg', // 마커이미지의 주소입니다  
+    				selectimageSrc = 'assets/images/artGallery_click.svg',  
+    				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기입니다
     				imageOption = {offset: new kakao.maps.Point(11, 28)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
       
 				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다

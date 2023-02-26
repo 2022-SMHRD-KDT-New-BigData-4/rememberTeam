@@ -85,7 +85,7 @@ body{
 
 /* 매물정보 리스트 */
 .aside1{
-    width: 750px;
+    width: 550px;
     background-color: white;
     overflow: auto;
  
@@ -114,7 +114,7 @@ body{
 	background-color:  #f2f8fd;
 }
 
-/* 상새화면 */
+/* 상세화면 */
 .aside2{
     width: 1200px;
     background-color: white;

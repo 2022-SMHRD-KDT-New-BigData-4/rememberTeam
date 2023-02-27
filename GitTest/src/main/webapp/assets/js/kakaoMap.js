@@ -50,6 +50,8 @@ function mapEX() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 4
 
 			// 마커 이미지 지정
 			let imageSrc = 'assets/images/artGallery_default.svg', // 마커이미지의 주소  
@@ -124,6 +126,8 @@ function mapCC() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 3
 
 			let imageSrc = 'assets/images/communityCenter_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/communityCenter_click.svg', // 활성화 됐을때 이미지
@@ -289,6 +293,8 @@ function mapPS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 3
 
 			let imageSrc = 'assets/images/police_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/police_click.svg', // 활성화 됐을때 이미지
@@ -320,6 +326,8 @@ function mapFS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 3
 
 			let imageSrc = 'assets/images/fire_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/fire_click.svg', // 활성화 됐을때 이미지
@@ -351,6 +359,9 @@ function mapCN() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 4
+
 
 			let imageSrc = 'assets/images/cinema_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/cinema_click.svg', // 활성화 됐을때 이미지
@@ -382,6 +393,8 @@ function mapMS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 4
 
 			let imageSrc = 'assets/images/musium_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/musium_click.svg', // 활성화 됐을때 이미지
@@ -413,6 +426,8 @@ function mapLB() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 4
 
 			let imageSrc = 'assets/images/library_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/library_click.svg', // 활성화 됐을때 이미지
@@ -540,6 +555,13 @@ function markerOverlay(res) {
 			else if(colorN == 2){
 				content = '<div class="colorNo2"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
+			else if(colorN == 3){
+				content = '<div class="colorNo3"><span class="txt_name">' + res[i].nm + '</span></div>';
+			}
+			else if(colorN == 4){
+				content = '<div class="colorNo4"><span class="txt_name">' + res[i].nm + '</span></div>';
+			}
+			
 			// 커스텀 오버레이가 표시될 위치 
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
 

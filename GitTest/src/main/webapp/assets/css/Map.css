@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/* 폰트 사용하기 */
+@font-face {
+    font-family: 'NEXONFootballGothicBA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 body{
     width: 100vw;
@@ -23,13 +30,19 @@ body{
 	align-items: center;
 }
 
-.menu_btn button{
+#menu_button{
+	background-color: transparent;
+	border: none;
+	color: #8ac926;
+	cursor: pointer;
+}
+
+#menu_close_button{
 	background-color: transparent;
 	border: none;
 	color: #495057;
 	cursor: pointer;
 }
-
 
 .logo{
 	flex-basis: 40%;
@@ -37,6 +50,7 @@ body{
     flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	font-family: 'NEXONFootballGothicBA1';
 }
 
 .logo div{
@@ -44,7 +58,7 @@ body{
 	height: 53px;
 	border: none;
 	border-radius: 15px; 
-	background-color: orange;
+	background-image: linear-gradient(195deg, #8ac926 0%, #8ac926 100%);
 	margin: 5px;
 	cursor: pointer;
 	display: flex;
@@ -75,7 +89,7 @@ body{
 }
 
 .wrap{
-    height: 100vh;
+    height: 900px;
     overflow: hidden;
     display: flex;
     flex-direction: row;
@@ -101,6 +115,10 @@ body{
 	border-color: #ccc;
 	text-align: left; 
 	line-height: 80%;
+}
+
+.items_btn h3{
+	color: blue;
 }
 
 /* 아이템 버튼에 마우스를 올렸을 떄, 색상변경 */
@@ -141,12 +159,34 @@ body{
 	top:-43px;
 }
 
-#detail_table{
+table{
+	position: relative;
+	top: -60px;
+	line-height:2;
 	width: 95%;
-	border: 1px solid black;
 	margin-left: auto; margin-right: auto;
 	text-align: left;
 }
+
+table h2{
+	margin-bottom: 0;
+	
+}
+
+table p{
+	color: blue;
+	margin: 0;
+}
+
+th {
+    border-bottom: 1px solid #e5e5e5;
+    width: 100px;
+	background-color: #fafafa;
+  }
+
+td {
+    border-bottom: 1px solid #e5e5e5;
+  }
 
 #map{
 	z-index: 0;
@@ -170,18 +210,52 @@ body{
 	background-color: white;
 }
 
-/* 카테고리 버튼에 마우스를 올리면 색상 변경*/
-.category button:hover{
-	background-image: linear-gradient(195deg, #66BB6A 0%, #43A047 100%);
+/* 카테고리 버튼에 마우스 올리면 배경 색상, 글자 색상 변경 */
+/* 매물의 경우 미리 켜져 있어야 되지 않을까,,? */
+#rs_btn{
+	color: #fff;
+	background-image: linear-gradient(195deg, #8ac926 0%, #8ac926 100%);
+}
+
+	/* 편의점, 대형마트 */
+#cs_btn:hover, #sm_btn:hover{
+	color: #fff;
+	background-image: linear-gradient(195deg, #6a4c93 0%, #6a4c93 100%);
 	cursor: pointer;
 }
 
+	/* 병원, 약국 */
+#hs_btn:hover, #ph_btn:hover{
+	color: #fff;
+	background-image: linear-gradient(195deg, #ffca3a 0%, #ffca3a 100%);
+	cursor: pointer;
+}
+
+	/* 경찰서, 소방서, 자치센터 */
+#ps_btn:hover, #fs_btn:hover, #cc_btn:hover{
+	color: #fff;
+	background-image: linear-gradient(195deg, #ff595e 0%, #ff595e 100%);
+	cursor: pointer;
+}
+
+	/* 영화관, 박물관, 전시관, 도서관 */
+#cn_btn:hover, #ms_btn:hover, #ex_btn:hover, #lb_btn:hover{
+	color: #fff;
+	background-image: linear-gradient(195deg, #1982c4 0%, #1982c4 100%);
+	cursor: pointer;
+}
+
+#up_btn:hover, #down_btn:hover{
+	color: #fff;
+	background-image: linear-gradient(195deg, #8ac926 0%, #8ac926 100%);
+	cursor: pointer;
+}
+
+
+
 /* 카테고리 버튼에 마우스를 클릭하면 색상 변경*/
 /* 추가사항! 카테고리를 제외한 다른 버튼의 영향은 안받도록 로직 작성 */
-.category button:focus{
-	background-image: linear-gradient(195deg, #66BB6A 0%, #43A047 100%);
-	
-}
+
 
 .category_btn{
 	list-style-type: none;

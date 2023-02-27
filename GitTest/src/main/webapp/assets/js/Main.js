@@ -1,34 +1,13 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	// 카카오 맵 생성
 var mapContainer = document.getElementById('map');
 var mapOptions = {
 	center: new kakao.maps.LatLng(35.15507159179403, 126.8351730541552),
 	level: 9,
-	draggable : true, // 드래그 옵션 
-	scrollwheel : true, // 마우스 휠 옵션
-	disableDoubleClick : false, // 더블클릭 끄기 옵션
-	disableDoubleClickZoom : false, // 더블클릭 줌 끄기 옵션
+	draggable : false, // 드래그 옵션 
+	scrollwheel : false, // 마우스 휠 옵션
+	disableDoubleClick : true, // 더블클릭 끄기 옵션
+	disableDoubleClickZoom : true, // 더블클릭 줌 끄기 옵션
 	$scale: false
 };
 
@@ -39,7 +18,7 @@ var map = new kakao.maps.Map(mapContainer, mapOptions),
 
 function gu_marker(imageSrc, lat, lng){
 	var imageSrc = imageSrc, // 마커이미지의 주소입니다    
-    	imageSize = new kakao.maps.Size(60, 69), // 마커이미지의 크기입니다
+    	imageSize = new kakao.maps.Size(40, 50), // 마커이미지의 크기입니다
     	imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
       
 	// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
@@ -64,43 +43,18 @@ gu_marker('./assets/img/buk_marker.png', 35.1736650058521, 126.91159126881855);
 gu_marker('./assets/img/gj_marker.png', 35.15907159179403, 126.8531730541552);
 
 
-//광주 바깥쪽 사각형 폴리곤 생성
+//광주 가장 바깥쪽 사각형 폴리곤 생성
 
 var path_line = [
-	new kakao.maps.LatLng(35.299584022211405, 126.760670992432),
-	new kakao.maps.LatLng(35.26830615409957, 126.70308604170746),
-	new kakao.maps.LatLng(35.24283713015217, 126.66942738309089),
-	new kakao.maps.LatLng(35.224280991904386, 126.6357588545557),
-	new kakao.maps.LatLng(35.20347118480104, 126.62179547926644),
-	new kakao.maps.LatLng(35.17115850415474, 126.61913501931716),
-	new kakao.maps.LatLng(35.13308144701702, 126.61790799485959),
-	new kakao.maps.LatLng(35.09389824882608, 126.63212835217921),
-	new kakao.maps.LatLng(35.06980146434709, 126.67854664149306),
-	new kakao.maps.LatLng(35.07452070843887, 126.72063073946558),
-	new kakao.maps.LatLng(35.05722096916501, 126.72349592621994),
-	new kakao.maps.LatLng(35.035336926166835, 126.740402675216),
-	new kakao.maps.LatLng(35.0273483586828, 126.78531164219359),
-	new kakao.maps.LatLng(35.0309100730191, 126.85263089486118),
-	new kakao.maps.LatLng(35.05057704331244, 126.90591018327176),
-	new kakao.maps.LatLng(35.04483689429121, 126.95642183293566),
-	new kakao.maps.LatLng(35.06330481899952, 127.00412200217448),
-	new kakao.maps.LatLng(35.09329664693523, 127.03781347109077),
-	new kakao.maps.LatLng(35.13713389640195, 127.05187873289621),
-	new kakao.maps.LatLng(35.18674586682249, 127.04909953772965),
-	new kakao.maps.LatLng(35.204060457396906, 127.01818561979786),
-	new kakao.maps.LatLng(35.213291536701476, 126.99428889330214),
-	new kakao.maps.LatLng(35.25482370579834, 126.97740765064721),
-	new kakao.maps.LatLng(35.27558272266637, 126.95067104809105),
-	new kakao.maps.LatLng(35.28941346164704, 126.92392727782325),
-	new kakao.maps.LatLng(35.28477265317356, 126.89016254578306),
-	new kakao.maps.LatLng(35.27550589002767, 126.85500296063067),
-	new kakao.maps.LatLng(35.26738884045405, 126.82406908087849),
-	new kakao.maps.LatLng(35.27887457991132, 126.79168460940566)
+	new kakao.maps.LatLng(35.30, 126.602),
+	new kakao.maps.LatLng(35.30, 127.065),
+	new kakao.maps.LatLng(35.00, 127.065),
+	new kakao.maps.LatLng(35.00, 126.602),
 ];
 
 
 
-$.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
+/* $.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
 	 
    var data_out = geojson.features;
    var coordinates_out = []; 
@@ -138,10 +92,10 @@ function displayArea_out(path_line, coordinates_out, name_out) {
        fillColor : '#f8f9fa',
        fillOpacity : 1
    });
-};
+}; */
 
-// 광주 바깥쪽 라인 폴리곤 생성
-$.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
+// 광주 바깥쪽 라인 사각형 폴리곤 생성
+/*$.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
 	 
    var data_line = geojson.features;
    var coordinates_line = []; 
@@ -178,9 +132,11 @@ function displayArea_line(coordinates_line, name_line) {
        strokeWeight : 2,
        strokeColor : '#004c80',
        strokeOpacity : 0.8,
+       fillColor : '#fff',
+       fillOpacity : 0.1
        
    });
-};
+};*/
 
 
 
@@ -221,9 +177,9 @@ function displayArea(coordinates, name) {
         path : path,
         strokeWeight : 2,
         strokeColor : '#43A047',
-        strokeOpacity : 0.2,
+        strokeOpacity : 1,
         fillColor : '#fff',
-        fillOpacity : 0.5
+        fillOpacity : 0.75
     });
     
     
@@ -752,3 +708,38 @@ $(".borderClass").hover(function(){
 	$(id_selector).removeClass("border")	
 }
 )
+
+// 구, 동 선택 select
+function change_gu(){
+	let choice_gu  = document.getElementById("choice_gu");
+	let gu = (choice_gu.options[choice_gu.selectedIndex].value);
+	console.log(gu)
+	
+	gu_name = {gu_name : gu}
+    $.ajax({
+    		url : 'SearchDong.do',
+    		type : 'get',
+    		data : gu_name,
+    		dataType : 'json',
+    		success : (res)=>{
+  				console.log(res)
+  				
+    		
+    		},
+    		error : ()=>{
+    		}
+    		
+    })
+}
+
+function change_dong(){
+    var arr = ["서울", "경기도", "인천"]
+
+    for (var i = 0; i < arr.length; i++) {
+        var optionLabel = arr[i];
+        var optionValue = i + 1;
+        var option = $("<option value=" + optionValue + ">" + optionLabel+"</option>");
+            $('#List').append(option);
+    }
+}
+

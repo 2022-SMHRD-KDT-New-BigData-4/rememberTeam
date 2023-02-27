@@ -19,14 +19,6 @@
 		 WHERE RS_CR = #{rs}	
 	</select>
 	
-	<!-- 실거래가 그래프 -->	
-	<select id="ofctCnt" parameterType="Map" resultType="int">
-		SELECT COUNT(*)
-		  FROM GJ_DEAL_OFCT
-		 WHERE deal_year = #{year}
-		   AND deal_month = #{month}
-	</select>
-	
 	<!-- 지도 마우스오버 인프라 컬럼 카운트 -->
 	<select id = "MouseoverCnt" parameterType="com.smhrd.model.VO.MainVO" resultType="int">
 		SELECT COUNT(*)
@@ -48,4 +40,39 @@
 		  FROM ${table}
 	</select>
 	
+	<!-- 월별 전월세 수량 -->	
+	<select id="dealCnt" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		  FROM ${tb_nm}
+		 WHERE DEAL_YEAR = #{year}
+		   AND DEAL_MONTH = #{month}
+		   AND DEAL_PR ${mon_jeon} 0
+	</select>
+	
+	<!-- 월별 줜월세 평균가 -->
+	<select id="dealAvg" parameterType="Map" resultType="double">
+		SELECT AVG(${mon_jeon_avg})
+		  FROM ${tb_nm}
+		 WHERE DEAL_YEAR = #{year}
+		   AND DEAL_MONTH = #{month}
+		   AND DEAL_PR ${mon_jeon} 0
+	</select>
+	
+	<!-- 구별 1년 줜월세 수량 -->
+	<select id="dealGuCnt" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		  FROM ${tb_nm}
+		 WHERE DEAL_YEAR = #{year}
+		   AND DEAL_PR ${mon_jeon} 0
+		   ANd GU = #{gu}
+	</select>
+	
+	<!-- 구별 1년 줜월세 평균가 -->
+	<select id="dealGuAvg" parameterType="Map" resultType="double">
+		SELECT AVG(${mon_jeon_avg})
+		  FROM ${tb_nm}
+		 WHERE DEAL_YEAR = #{year}
+		   AND DEAL_PR ${mon_jeon} 0
+		   ANd GU = #{gu}
+	</select>
 </mapper>

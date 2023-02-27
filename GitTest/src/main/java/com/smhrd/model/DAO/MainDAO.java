@@ -49,19 +49,6 @@ public class MainDAO {
 		return cnt;
 	}
 	
-	public int mainChart(Map<String, Object> ym) {
-		
-		int cnt = 0;
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		try {
-			cnt = sqlSession.selectOne("ofctCnt", ym);
-		} finally {
-			sqlSession.close();
-		}
-
-		return cnt;
-	}
-	
 	public int[] MouseoverCnt(MainVO[] vo) {
 		
 		int cnt[] = new int[14];
@@ -105,4 +92,64 @@ public class MainDAO {
 		
 		return list;
 	}
+	
+	// 월별 실거래 매물 수량 차트 
+		public int mainChartCnt(Map<String, Object> ym) {
+			
+			int cnt = 0;
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			try {
+				cnt = sqlSession.selectOne("dealCnt", ym);
+			} finally {
+				sqlSession.close();
+			}
+
+			return cnt;
+		}
+		
+		// 월별 실거래 매물 평균가 차트 
+		public double mainChartAvg(Map<String, Object> sqlParam) {
+			
+			double avg = 0;
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			try {
+				avg = sqlSession.selectOne("dealAvg", sqlParam);
+				// 소수점 2번째 반올림
+				avg = Double.parseDouble(String.format("%.1f", avg));
+			} finally {
+				sqlSession.close();
+			}
+
+			return avg;
+		}
+		
+		// 구별 1년 실거래 매룰 수량 차트
+		public int mainChartGUCnt(Map<String, Object> sqlParam) {
+			
+			int cnt = 0;
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			try {
+				cnt = sqlSession.selectOne("dealGuCnt", sqlParam);
+			} finally {
+				sqlSession.close();
+			}
+
+			return cnt;
+		}
+		
+		// 구별 1년 실거래 매룰 평균가 차트
+		public double mainChartGuAvg(Map<String, Object> sqlParam) {
+			
+			double avg = 0;
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			try {
+				avg = sqlSession.selectOne("dealGuAvg", sqlParam);
+				// 소수점 2번째 반올림
+				avg = Double.parseDouble(String.format("%.1f", avg));
+			} finally {
+				sqlSession.close();
+			}
+
+			return avg;
+		}
 }

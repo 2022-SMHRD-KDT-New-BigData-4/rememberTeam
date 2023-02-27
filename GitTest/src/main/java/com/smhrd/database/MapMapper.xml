@@ -54,4 +54,8 @@
 		select * from gj_sm
 	</select>
 	
+	<select id="selectGJ_LB" resultType="com.smhrd.model.VO.GJ_LB_VO">
+		select * from gj_lb
+	</select>
+	
 </mapper>

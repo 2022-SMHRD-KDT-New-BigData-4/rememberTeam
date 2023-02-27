@@ -1,4 +1,6 @@
-
+window.onload = function(){
+    $("#map:nth-child(2)").css("display","none")
+ }
 
 	// 카카오 맵 생성
 var mapContainer = document.getElementById('map');
@@ -8,7 +10,8 @@ var mapOptions = {
 	draggable : false, // 드래그 옵션 
 	scrollwheel : false, // 마우스 휠 옵션
 	disableDoubleClick : true, // 더블클릭 끄기 옵션
-	disableDoubleClickZoom : true // 더블클릭 줌 끄기 옵션
+	disableDoubleClickZoom : true, // 더블클릭 줌 끄기 옵션
+	$scale: false
 };
 
 var map = new kakao.maps.Map(mapContainer, mapOptions),
@@ -189,7 +192,7 @@ function displayArea(coordinates, name) {
     		}
     		
     	})
-    	$.ajax({
+    	/*$.ajax({
 			url : 'RSCnt.do',
 			type : 'get',
 			data : gu_name,
@@ -204,7 +207,7 @@ function displayArea(coordinates, name) {
 			},
 			error : ()=>{
 			}
-		})
+		})*/
         
         
         
@@ -541,7 +544,7 @@ $(document).ready(()=>{
 	})
 	
 	// 매물 컬럼 테이블 튜플 카운트 ajax
-	$.ajax({
+	/*$.ajax({
 		url : 'RSCnt.do',
 		type : 'get',
 		dataType : 'json',
@@ -555,7 +558,7 @@ $(document).ready(()=>{
 		},
 		error : ()=>{
 		}
-	})
+	})*/
 	
 	// 차트 ajax
 	chartAjax(mon_jeon);
@@ -563,17 +566,18 @@ $(document).ready(()=>{
 })
 
 
+// 메인 지도  마커
 
-
-
-
-
-
-
-let isMarker = false;
 let markers = [];
+let isMarker = false;
+let ex_id = "";
 
-function Marker_ajax(data_marker) {
+$(".borderClass").click(function(){
+	let id = $(this).attr("id")
+	if (ex_id != id){
+		clear_marker();
+	}
+	let data_marker = {table:id};
 	if (isMarker == false) {
 		$.ajax({
 			url : 'MainMarker.do',
@@ -591,100 +595,33 @@ function Marker_ajax(data_marker) {
 					markers.push(marker);
 					marker.setMap(map);
 				}
+				ex_id = id;
 				isMarker = true;
 			},
 			error : ()=>{
 			}
-	})	
+	}) 
 	} else {
-		for (var i = 0; i<markers.length; i++){
-			markers[i].setMap(null)
-		}
-		isMarker = false;
+		clear_marker();
 	}
+})
+
+function clear_marker(){
+	for (var i = 0; i<markers.length; i++){
+			markers[i].setMap(null)
+	}
+	isMarker = false;
 }
 
-$('#GJ_CC').click(function(){
-	let data_marker = {table:"GJ_CC"};
-	Marker_ajax(data_marker);		
-});
+// 컬럼 바깥쪽 아무 영역이나 클릭하면 마커를 지우기
 
-$('#GJ_BUS').click(function(){
-	let data_marker = {table:"GJ_BUS"};
-	Marker_ajax(data_marker);		
-});
+$("body").not('.borderClass').click(()=>{
+	clear_marker();
+})
 
-$('#GJ_CN').click(function(){
-	let data_marker = {table:"GJ_CN"};
-	Marker_ajax(data_marker);		
-});
 
-$('#GJ_CS').click(function(){
-	let data_marker = {table:"GJ_CS"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GJ_EX').click(function(){
-	let data_marker = {table:"GJ_EX"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GJ_FS').click(function(){
-	let data_marker = {table:"GJ_FS"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GJ_HS').click(function(){
-	let data_marker = {table:"GJ_HS"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GJ_METRO').click(function(){
-	let data_marker = {table:"GJ_METRO"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GJ_MS').click(function(){
-	let data_marker = {table:"GJ_MS"};
-	Marker_ajax(data_marker);		
-});
-	
-$('#GJ_PH').click(function(){
-	let data_marker = {table:"GJ_PH"};
-	Marker_ajax(data_marker);		
-});	
-
-$('#GJ_MS').click(function(){
-	let data_marker = {table:"GJ_CS"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GJ_PS').click(function(){
-	let data_marker = {table:"GJ_PS"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GJ_SM').click(function(){
-	let data_marker = {table:"GJ_SM"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GJ_LB').click(function(){
-	let data_marker = {table:"GJ_LB"};
-	Marker_ajax(data_marker);		
-});
-
-$('#GWANGJU_DONG').click(function(){
-	let data_marker = {table:"GWANGJU_DONG"};
-	Marker_ajax(data_marker);		
-});
 
 // 컬럼 마우스호버 테두리 추가
-
-	
-	
-	this.borderClass
-	
 
 $(".borderClass").hover(function(){
 	let id = $(this).attr('id')

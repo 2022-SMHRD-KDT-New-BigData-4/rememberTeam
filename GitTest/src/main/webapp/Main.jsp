@@ -290,7 +290,7 @@
 				<!-- 오른쪽 인프라 컬럼 레이아웃 왼쪽 컬럼열  -->
 				
 						<div class="col-lg-5 col-sm-5 ">
-							<div id="GJ_CC" class="card  mb-2">
+							<div id="GJ_CC" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-building fa-lg"></i>
@@ -305,7 +305,7 @@
 								
 							</div>
 							
-							<div id="GJ_PS" class="card  mb-2">
+							<div id="GJ_PS" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-handcuffs fa-lg"></i>
@@ -320,7 +320,7 @@
 								
 							</div>
 							
-							<div id="GJ_HS" class="card  mb-2">
+							<div id="GJ_HS" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-secondary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-hospital fa-lg"></i>
@@ -334,7 +334,7 @@
 								<hr class="dark horizontal my-0">
 								
 							</div>
-							<div id="GJ_METRO" class="card  mb-2">
+							<div id="GJ_METRO" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-success shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-train-subway"></i>
@@ -349,7 +349,7 @@
 								
 							</div>
 							
-							<div id="GJ_CN" class="card  mb-2">
+							<div id="GJ_CN" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-info shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-ticket fa-lg"></i>
@@ -364,7 +364,7 @@
 								
 							</div>
 							
-							<div id="GJ_LB" class="card  mb-2">
+							<div id="GJ_LB" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-info shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-book fa-lg"></i>
@@ -379,7 +379,7 @@
 								
 							</div>
 							
-							<div id="GJ_SM" class="card  mb-2">
+							<div id="GJ_SM" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-warning shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-cart-shopping fa-lg"></i>
@@ -399,7 +399,7 @@
 					
 						<div class="col-lg-5 col-sm-5 mt-sm-0 mt-4">
 						
-							<div id="GWANGJU_DONG" class="card  mb-2">
+							<div id="GWANGJU_DONG" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-success text-center border-radius-xl mt-n4 position-absolute">
 										<i class="material-icons opacity-10">store</i>
@@ -414,7 +414,7 @@
 
 							</div>
 
-							<div id="GJ_FS" class="card mb-2">
+							<div id="GJ_FS" class="card mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-info text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-fire-extinguisher fa-lg"></i>
@@ -429,7 +429,7 @@
 								
 							</div>
 							
-							<div id="GJ_PH" class="card  mb-2">
+							<div id="GJ_PH" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-secondary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-pills fa-lg"></i>
@@ -444,7 +444,7 @@
 								
 							</div>
 							
-							<div id="GJ_BUS" class="card  mb-2">
+							<div id="GJ_BUS" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-success shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-bus"></i>
@@ -459,7 +459,7 @@
 								
 							</div>
 							
-							<div id="GJ_MS" class="card  mb-2">
+							<div id="GJ_MS" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-info shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-building-columns fa-lg"></i>
@@ -474,7 +474,7 @@
 								
 							</div>
 							
-							<div id="GJ_EX" class="card  mb-2">
+							<div id="GJ_EX" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-info shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-palette fa-lg"></i>
@@ -489,7 +489,7 @@
 								
 							</div>
 							
-							<div id="GJ_CS" class="card  mb-2">
+							<div id="GJ_CS" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-warning shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-store fa-lg"></i>
@@ -705,7 +705,12 @@
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="./assets/js/material-dashboard.min.js?v=3.0.4"></script>
 
+<script>
 
+
+
+
+</script>
 
 
 </body>

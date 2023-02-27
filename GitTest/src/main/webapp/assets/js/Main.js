@@ -678,3 +678,21 @@ $('#GWANGJU_DONG').click(function(){
 	let data_marker = {table:"GWANGJU_DONG"};
 	Marker_ajax(data_marker);		
 });
+
+// 컬럼 마우스호버 테두리 추가
+
+	
+	
+	this.borderClass
+	
+
+$(".borderClass").hover(function(){
+	let id = $(this).attr('id')
+	let id_selector = "#"+id
+	$(id_selector).addClass("border")
+}, function(){
+	let id = $(this).attr('id')
+	let id_selector = "#"+id
+	$(id_selector).removeClass("border")	
+}
+)

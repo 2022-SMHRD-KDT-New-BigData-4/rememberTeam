@@ -47,8 +47,10 @@
         			</select>
         		</div>
         		<div>
-        			<button type="submit">
-	        			<i class="fa-solid fa-magnifying-glass fa-2x"></i>
+        			<button type="submit" id="search_enter">
+	        			<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
+	        			<br>
+            			<span>지도보기</span>
         			</button>
         		</div>
         	</form>
@@ -230,75 +232,74 @@
 				<table id="detail_table">
 				        <tr>
 				            <td colspan="4">
-				                <strong>매물 이름 넣기@@@@@</strong>
-				                <br>
-				                전월세 가격 넣기@@@@@
+				                <h2>매물 이름 넣기@@@@@</h2>
+				                <p>전월세 가격 넣기@@@@@</p>
 				            </td>
 				        </tr>
 				        <tr>
-				            <td>소재지</td>
+				            <th>소재지</th>
 				            <td colspan="3">@@@@@</td>
 				        </tr>
 				        <tr>
-				            <td>매물 타입</td>
+				            <th>매물 타입</th>
 				            <td>@@@@@</td>
-				            <td>계약 형태</td>
-				            <td>@@@@@</td>
-				        </tr>
-				        <tr>
-				            <td>월 관리비</td>
-				            <td>@@@@@</td>
-				            <td>관리비 포함 항목</td>
+				            <th>계약 형태</th>
 				            <td>@@@@@</td>
 				        </tr>
 				        <tr>
-				            <td>입주 가능일</td>
+				            <th>월 관리비</th>
 				            <td>@@@@@</td>
-				            <td>방향</td>
-				            <td>@@@@@</td>
-				        </tr>
-				        <tr>
-				            <td>공급 면적</td>
-				            <td>@@@@@</td>
-				            <td>전용 면적</td>
+				            <th>관리비 포함 항목</th>
 				            <td>@@@@@</td>
 				        </tr>
 				        <tr>
-				            <td>해당층/총층</td>
+				            <th>입주 가능일</th>
 				            <td>@@@@@</td>
-				            <td>총 세대수</td>
-				            <td>@@@@@</td>
-				        </tr>
-				        <tr>
-				            <td>주차 가능여부</td>
-				            <td>@@@@@</td>
-				            <td>총 주차대수</td>
+				            <th>방향</th>
 				            <td>@@@@@</td>
 				        </tr>
 				        <tr>
-				            <td>방수</td>
+				            <th>공급 면적</th>
 				            <td>@@@@@</td>
-				            <td>욕실수</td>
-				            <td>@@@@@</td>
-				        </tr>
-				        <tr>
-				            <td>옵션</td>
-				            <td>@@@@@</td>
-				            <td>에어컨 여부</td>
+				            <th>전용 면적</th>
 				            <td>@@@@@</td>
 				        </tr>
 				        <tr>
-				            <td>보안시설</td>
+				            <th>해당층/총층</th>
 				            <td>@@@@@</td>
-				            <td>매물번호</td>
+				            <th>총 세대수</th>
 				            <td>@@@@@</td>
 				        </tr>
 				        <tr>
-				            <td>매물특징</td>
+				            <th>주차 가능 여부</th>
+				            <td>@@@@@</td>
+				            <th>총 주차대수</th>
+				            <td>@@@@@</td>
+				        </tr>
+				        <tr>
+				            <th>방수</th>
+				            <td>@@@@@</td>
+				            <th>욕실수</th>
+				            <td>@@@@@</td>
+				        </tr>
+				        <tr>
+				            <th>옵션</th>
+				            <td>@@@@@</td>
+				            <th>에어컨 여부</th>
+				            <td>@@@@@</td>
+				        </tr>
+				        <tr>
+				            <th>보안시설</th>
+				            <td>@@@@@</td>
+				            <th>매물번호</th>
+				            <td>@@@@@</td>
+				        </tr>
+				        <tr>
+				            <th>매물특징</th>
 				            <td colspan="3">@@@@@</td>
 				        </tr>
 				        <tr>
-				            <td>공인중개사</td>
+				            <th>공인중개사</th>
 				            <td colspan="3">@@@@@</td>
 				        </tr>
 				    </table>
@@ -321,7 +322,7 @@
             			<button type="button" id="rs_btn" >
 		            		<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
             				<br>
-            				<span>매물</span>
+            				<span class="menu">매물</span>
             			</button>
             		</li>
             		
@@ -333,7 +334,7 @@
 		            	<button type="button" id="cs_btn" style="display: none">
 		            		<i class="fa-solid fa-store fa-lg"></i>
 		            		<br>
-		            		<span>편의점</span>
+		            		<span class="menu">편의점</span>
 		            	</button>
             		</li>
             	</ul>
@@ -344,7 +345,7 @@
 		            	<button type="button" id="sm_btn" style="display: none">
 		            		<i class="fa-solid fa-cart-shopping fa-lg"></i>
 		            		<br>
-		            		<span>대형마트</span>
+		            		<span class="menu">대형마트</span>
 		            	</button>
             		</li>
             	</ul>
@@ -355,7 +356,7 @@
 		            	<button type="button" id="hs_btn" style="display: none">
 		            		<i class="fa-solid fa-hospital fa-lg"></i>
 		            		<br>
-		            		<span>병원</span>
+		            		<span class="menu">병원</span>
 		            	</button>
             		</li>
             	</ul>
@@ -366,7 +367,7 @@
 		            	<button type="button" id="ph_btn" style="display: none">
 		            		<i class="fa-solid fa-pills fa-lg"></i>
 		            		<br>
-		            		<span>약국</span>
+		            		<span class="menu">약국</span>
 		            	</button>
             		</li>
             	</ul>
@@ -377,7 +378,7 @@
 		            	<button type="button" id="ps_btn" style="display: none">
 		            		<i class="fa-solid fa-handcuffs fa-lg"></i>
 		            		<br>
-		            		<span>경찰서</span>
+		            		<span class="menu">경찰서</span>
 		            	</button>
             		</li>
             	</ul>
@@ -388,7 +389,7 @@
 		            	<button type="button" id="fs_btn" style="display: none">
 		            		<i class="fa-solid fa-fire-extinguisher fa-lg"></i>
 		            		<br>
-		            		<span>소방서</span>
+		            		<span class="menu">소방서</span>
 		            	</button>
             		</li>
             	</ul>
@@ -399,7 +400,7 @@
 		            	<button type="button" id="cc_btn" style="display: none">
 		            		<i class="fa-solid fa-building fa-lg"></i>
 		            		<br>
-		            		<span>자치센터</span>
+		            		<span class="menu">자치센터</span>
 		            	</button>
             		</li>
             	</ul>
@@ -410,7 +411,7 @@
 		            	<button type="button" id="cn_btn" style="display: none">
 		            		<i class="fa-solid fa-ticket fa-lg"></i>
 		            		<br>
-		            		<span>영화관</span>
+		            		<span class="menu">영화관</span>
 		            	</button>
             		</li>
             	</ul>
@@ -421,7 +422,7 @@
 		            	<button type="button" id="ms_btn" style="display: none">
 		            		<i class="fa-solid fa-building-columns fa-lg"></i>
 		            		<br>
-		            		<span>박물관</span>
+		            		<span class="menu">박물관</span>
 		            	</button>
             		</li>
             	</ul>
@@ -432,7 +433,7 @@
 		            	<button type="button" id="ex_btn" style="display: none" value="10">
 		            		<i class="fa-solid fa-palette fa-lg"></i>
 		            		<br>
-		            		<span>전시관</span>
+		            		<span class="menu">전시관</span>
 		            	</button>
             		</li>
             	</ul>
@@ -443,7 +444,7 @@
 		            	<button type="button" id="lb_btn" style="display: none">
 		            		<i class="fa-solid fa-book fa-lg"></i>
 		            		<br>
-		            		<span>도서관</span>
+		            		<span class="menu">도서관</span>
 		            	</button>
             		</li>
             	</ul>

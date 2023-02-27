@@ -34,10 +34,11 @@
 	let markerImage = null;
 	let num = null;
 	let isClick = false;
+	let ctOverlay = null;
 	// let currCategory = null;
 	// let currCategory = document.getElementsByClassName(category_btn);
 	
-	
+	let cnt = 0;
 				
 	function mapEX(){
 					
@@ -46,31 +47,14 @@
 			dataType : 'json',
 			success : (res) => {
 				console.log(res)
-							
-							
-				// 가지고 온 데이터를 json형태로 바꿔주기
-				// let object = eval('('+res+')')
-				// let object = ( new Function( 'return ' + '('+res+')'))(); 
-				// console.log(object)
-				// console.log(res[0].lat, res[0].lng)
-				// console.log(res[1].lat, res[1].lng)
-				// console.log(res[1].nm)
-				
-						
-							
-				// 하나만 찍어보기
-				// let markerPosition  = new kakao.maps.LatLng(object.sb[0][0].lat, object.sb[0][1].lng); 
-				
-    			
-    			
     			
     			// 마커 이미지 지정
-    			let imageSrc = 'assets/images/artGallery_default.svg', // 마커이미지의 주소입니다  
-    				selectimageSrc = 'assets/images/artGallery_click.svg',  
-    				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기입니다
-    				imageOption = {offset: new kakao.maps.Point(11, 28)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+    			let imageSrc = 'assets/images/artGallery_default.svg', // 마커이미지의 주소  
+    				selectimageSrc = 'assets/images/artGallery_click.svg',  // 활성화 됐을때 보여지는 이미지
+    				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+    				imageOption = {offset: new kakao.maps.Point(11, 28)}; // 마커이미지의 옵션 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
       
-				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
 				markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
 				selectmarkerImage = new kakao.maps.MarkerImage(selectimageSrc, imageSize, imageOption)
 				
@@ -80,25 +64,6 @@
 				// 오버레이 불러오는 함수
 				markerOverOverlay(res)
 				markerclickOverlay(res)
-
-				// 여러개 찍어보기
-//				for(let i = 0; i < res.length; i++){
-//					coords = new kakao.maps.LatLng(res[i].lat, res[i].lng)
-//					console.log(res[i].lat, res[i].lng);
-//					console.log(coords);
-//					let marker = new kakao.maps.Marker({
-//						map : map,
-//						position : coords,
-//						image: markerImage // 마커이미지 설정 
-//					});
-								
-					// 지도의 중심을 결과값으로 받은 위치로 이동
-					// map.setCenter();
-
-					// marker 값을 markers 배열에 추가
-//					markers.push(marker);
-//				}
-
 				
 //				kakao.maps.event.addListener(map, 'zoom_changed', function() {
 //					for(let i = 0; markers.length; i++){
@@ -139,15 +104,6 @@
 				    
 //		});
 							
-				// position에 marker 표시
-							
-				// 이동할 위도 경도 위치를 생성합니다 
-										
-				// marker.setMap(map);
-				// markers.push(marker);
-				// console.log(map)
-				// console.log(map.getCenter()) -> 좌표 값
-				
 
 													
 			},
@@ -165,12 +121,12 @@
 			success : (res) => {
 				console.log(res)
 
-    			let imageSrc = 'assets/images/communityCenter_default.svg', // 마커이미지의 주소입니다  
-    				selectimageSrc = 'assets/images/communityCenter_click.svg',  
-    				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기입니다
-    				imageOption = {offset: new kakao.maps.Point(11, 28)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+    			let imageSrc = 'assets/images/communityCenter_default.svg', // 마커이미지의 주소
+    				selectimageSrc = 'assets/images/communityCenter_click.svg', // 활성화 됐을때 이미지
+    				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+    				imageOption = {offset: new kakao.maps.Point(11, 28)}; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
       
-				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+				// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
 				markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
 				selectmarkerImage = new kakao.maps.MarkerImage(selectimageSrc, imageSize, imageOption)
 				
@@ -208,39 +164,55 @@
 	}
 	
 	// 카테고리를 클릭했을 때 호출되는 함수
-	function clickEX() {
+	let clickMenu= "";
+	
+	function clickTest(e){
 		
-    	if (del === false) {
-        	removeMarker()
-        	
-    	} else {
+		console.log(e.target.innerText.trim())
+		if(e.target.innerText.trim() == clickMenu){
+				removeMarker()
+				clickMenu = "";
+		}else{
 			removeMarker()
-        	mapEX();
-    	}
-	}
-	function clickCC(){
-		   if (del === false) {
-        	removeMarker()
+			if(e.target.innerText.trim() == '전시관'){
+				mapEX();
+			}
+			else if(e.target.innerText.trim() == '자치센터'){
+				mapCC();
+			}
         	
-    	} else {
-			removeMarker()
-        	mapCC();
-    	}
+        	clickMenu = e.target.innerText.trim();
+		}
 	}
+	
+//	function clickTest1(e){
+//		console.log(e.target.textContent)
+//		if(e.target.textContent == clickMenu){
+//				removeMarker()
+//		}else{
+//			removeMarker()
+//			if(e.target.textContent === '전시관'){
+//				mapEX();
+//			}
+//			else if(e.target.textContent === '자치센터'){
+//				mapCC();
+//			}
+        	
+//       	clickMenu = e.target.textContent;
+//		}
+//	}
 	
 	function mapMaker(res, markerImage){
 		for(let i = 0; i < res.length; i++){
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng)
-			// console.log(res[i].lat, res[i].lng);
-			// console.log(coords);
 			let marker = new kakao.maps.Marker({
 				map : map,
 				position : coords,
 				image: markerImage // 마커이미지 설정 
 			});
 			
-		marker.setMap(map); // 지도 위에 마커를 표출합니다
-		markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+		marker.setMap(map); // 지도 위에 마커를 표출합
+		markers.push(marker);  // 배열에 생성된 마커를 추가
 		
 		// del의 상태에 따라 마커가 표시된다. del을 false로 해두면 버튼을 다시 클릭했을 시 마커가 사라진다.
 		del = false
@@ -254,21 +226,22 @@
 					
 		// 마우스 올렸을 때 정보 보여주기
 		kakao.maps.event.addListener(markers[i], 'mouseover', function () {
+			cnt = 1;
 			// 커스텀 오버레이에 표시할 내용입니다     
-			// HTML 문자열 또는 Dom Element 입니다 
+			// HTML 문자열 또는 Dom Element
 			let content = '<div class="tooltip_inner"><span class="txt_name">'+res[i].nm+'</span></div>';
 
-			// 커스텀 오버레이가 표시될 위치입니다 
+			// 커스텀 오버레이가 표시될 위치 
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
 
-			// 커스텀 오버레이를 생성합니다
+			// 커스텀 오버레이를 생성
 			customOverlay = new kakao.maps.CustomOverlay({
     			position: coords,
     			content: content,
     			yAnchor: 0
 			});
-			// 커스텀 오버레이를 지도에 표시합니다
-			if(isClick) {return;}
+			// 커스텀 오버레이를 지도에 표시
+//			if(isClick) {return;}
 			markers[i].setImage(selectmarkerImage);
 			customOverlay.setMap(map);
 			console.log("마우스오버")
@@ -278,13 +251,16 @@
 					
 		// 커스텀 오버레이 닫기
       	kakao.maps.event.addListener(markers[i], 'mouseout', function () {
-			
-			if(isClick) {return;}
+			  if(cnt==1){
+//				  	if(isClick) {return;}
 			customOverlay.setMap(null);
 			
 			
 			markers[i].setImage(markerImage);
         	console.log("마우스아웃")
+			  }
+			
+		
 			
       	});
       				
@@ -298,53 +274,72 @@
 							
 			// 클릭했을 때 정보 보여주기
 			kakao.maps.event.addListener(markers[i], 'click', function () {
-			
-			// 다른 마커 클릭시 이전 마커 오버레이와 마커 하이라이트가 사라진다		
-			if(clickedOverlay != null && num != null){
+				let test = 0;
+				if(test == 1){
 				clickedOverlay.setMap(null);
-				markers[num].setImage(markerImage);
-				console.log("1")
+			}else{
+				
 			}
-			
+				console.log(markers[i])
 			
 			// 맵을 클릭 시 이전 마커의 오버레이와 마커 하이라이트가 사라진다			
-			kakao.maps.event.addListener(map, 'click', function () {
-				if(clickedOverlay != null){
-					clickedOverlay.setMap(null);
+/*			kakao.maps.event.addListener(map, 'click', function () {
+				if(ctOverlay != null){
+					ctOverlay.setMap(null);
 					markers[i].setImage(markerImage);
 					console.log("2")
+					cnt=1
 				}
 			})
-			
+*/
+
+
+			cnt = 2;
 //			if(!isClick) {
-//       		isClick = true;
-//    			}			
+//       			isClick = true;
+//    		}			
 			//customOverlay.setMap(null);
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element 입니다 
-			let content = '<span class="info-title">'+res[i].nm+'</span>';
+			let content = '<span class="info" value=true>'+res[i].nm+'</span>';
 
 			// 커스텀 오버레이가 표시될 위치입니다 
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
 
 			// 커스텀 오버레이를 생성합니다
-			ctOverlay = new kakao.maps.CustomOverlay({
+			clickedOverlay = new kakao.maps.CustomOverlay({
     			position: coords,
     			content: content,
     			yAnchor: 0
 			});
 			
-			overlays.push(ctOverlay);
+//			overlays.push(clickedOverlay);
 			console.log("3")
-			clickedOverlay = ctOverlay
-			// clickedOverlay = customOverlay			
-			// 마커 클릭시 커스텀 오버레이를 지도에 표시
+//			clickedOverlay = ctOverlay
 			clickedOverlay.setMap(map);
+			ctOverlay = clickedOverlay
+//			clickedOverlay = customOverlay			
+			// 마커 클릭시 커스텀 오버레이를 지도에 표시
+//			clickedOverlay.setMap(map);
 			// console.log(customOverlay)
 			
 			markers[i].setImage(selectmarkerImage);
 			console.log("i의마커이미지"+i)
 			num = i	
+			
+			test=1;
+			// 다른 마커 클릭시 이전 마커 오버레이와 마커 하이라이트가 사라진다		
+			/*if(ctOverlay != null && num != null){
+				//console.log(ctOverlay)
+				clickedOverlay.setMap(null);
+				//ctOverlay.cc=""
+				//console.log(ctOverlay.cc)
+				markers[num].setImage(markerImage);
+				console.log("1")
+				cnt=1
+			}*/
+			
+			
 
 		})
 		}

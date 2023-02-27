@@ -269,7 +269,6 @@ function displayArea(coordinates, name) {
 
 // chart ajax 부분
 function chartAjax(mon_jeon){
-	console.log(mon_jeon);
 	let a = Chart.getChart('chart-line-cnt');
 	let b = Chart.getChart('chart-line-avg');
 	let c = Chart.getChart('chart-bar');
@@ -278,14 +277,13 @@ function chartAjax(mon_jeon){
 		b.destroy();
 		c.destroy();
 	}
-	
+	$('#loading-image').show();
 	$.ajax({
 		url : 'MainChart.do',
 		type : 'get',
 		dataType : 'json',
 		data : {"mon_jeon":mon_jeon}, // false가 들어오면 전세
 		success : (res)=>{
-			console.log(res)
 			// cnt 차트 함수 실행 부분
 	   		var ctx1 = document.getElementById("chart-line-cnt").getContext("2d");
 			var list1 = res.deal_cnt.mltCnt
@@ -305,8 +303,38 @@ function chartAjax(mon_jeon){
 			var list7 = res.deal_gu_cnt
 			var list8 = res.deal_gu_avg
 			chart_bar(ctx3,list7,list8)
-			
 		},
+		// chart 로딩 이미지
+		beforeSend: function () {
+              var width = 200;
+              var height = 200;
+              var left = 0;
+              var top = 0;
+
+				
+				// 화면 중앙 좌표 계산
+              top = ( $(window).height() - height ) / 2 + $(window).scrollTop(); 
+              left = ( $(window).width() - width ) / 2 + $(window).scrollLeft();
+
+ 
+
+              if($("#div_ajax_load_image").length != 0) {
+                     $("#div_ajax_load_image").css({
+                            "top": top+"px",
+                            "left": left+"px"
+                     });
+                     $("#div_ajax_load_image").show();
+              }
+              else {
+                     $('body').append('<div id="div_ajax_load_image" class="bg-gradient-success" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; background:#f0f0f0; filter:alpha(opacity=50); opacity:alpha*0.5; margin:auto; padding:0; "><img src="assets/img/loading-gif.gif" style="width:200px; height:200px;"></div>');
+              }
+
+       },
+        // 로딩 완료시 이미지 감춤
+		complete: function(){
+        $('#div_ajax_load_image').hide();
+        
+     	},
 		error : ()=>{
 			alert("Chart ajax 실패")
 		}
@@ -324,9 +352,9 @@ function chartAjax(mon_jeon){
           label: "연립다세대", // 차트 이름
           lineTension : 0.5, // 0이면 꺾은선 그래프, 숫자가 높을수록 둥글해짐
           pointRadius: 5, // 점 반지름 0이면 없음
-          pointBackgroundColor: "rgb(255, 153, 120)", // 점 배경 색깔
-          pointBorderColor: "blue", // 점 경계 색깔
-          borderColor: "blue", // 선의 색깔
+          pointBackgroundColor: "rgb(255, 89, 94)", // 점 배경 색깔
+//          pointBorderColor: "blue", // 점 경계 색깔
+          borderColor: "rgb(255, 89, 94)", // 선의 색깔
           borderWidth: 2, // 선의 두께
           fill: false, // 라인 그래프 밑의 배경을 채우는 옵션
 //        backgroundColor: "black", // 배켱 컬러 /transparent = 투명 
@@ -337,8 +365,8 @@ function chartAjax(mon_jeon){
             fill : false,      
             lineTension : 0.5,  
             pointRadius : 5,    
-            backgroundColor: 'rgb(255, 153, 0)',
-            borderColor: 'rgb(255, 153, 0)',
+            backgroundColor: 'rgb(255, 202, 58)',
+            borderColor: 'rgb(255, 202, 58)',
             data: list2
         }, {
             label: '단독다가구',
@@ -346,8 +374,8 @@ function chartAjax(mon_jeon){
             fill : false,         
             lineTension : 0.5,  
             pointRadius : 5,   
-            backgroundColor: "rgba(255, 255, 255, .8)",
-            borderColor: "rgba(255, 255, 255, .8)",
+            backgroundColor: "rgb(25,130,196)",
+            borderColor: "rgb(25,130,196)",
             data: list3
         }],
       },
@@ -371,7 +399,7 @@ function chartAjax(mon_jeon){
               drawOnChartArea: true,
               drawTicks: false,
               borderDash: [5, 5],
-              color: 'rgba(255, 255, 255, .2)'
+              color: 'rgba(255, 255, 255, .3)'
             },
             ticks: {
               display: true,
@@ -423,13 +451,14 @@ function chartAjax(mon_jeon){
             label: "구별 1년 거래량",
             tension: 0.4,
             barThickness : 'flex',
-            borderColor : "black",
+//            borderColor : "black",
             borderWidth: 1,
             borderRadius: 4,
             borderSkipped: false,
-            backgroundColor: "rgba(255, 255, 255, .8)",
+            backgroundColor: "rgb(106, 76, 147)",
             data: list1
-          }, {
+          }
+          /*, {
         	  type: 'line',
               label: '구별 1년 평균가',
               fill : false,      
@@ -438,7 +467,8 @@ function chartAjax(mon_jeon){
               backgroundColor: 'rgb(255, 153, 0)',
               borderColor: 'rgb(255, 153, 0)',
               data: list2
-          } ],
+          } */
+          ],
         },
         options: {
           responsive: true,
@@ -460,7 +490,7 @@ function chartAjax(mon_jeon){
                 drawOnChartArea: true,
                 drawTicks: false,
                 borderDash: [5, 5],
-                color: 'rgba(255, 255, 255, .2)'
+                color: 'rgba(255, 255, 255, .3)'
               },
               ticks: {
                 suggestedMin: 0,
@@ -484,7 +514,7 @@ function chartAjax(mon_jeon){
                 drawOnChartArea: true,
                 drawTicks: false,
                 borderDash: [5, 5],
-                color: 'rgba(255, 255, 255, .2)'
+                color: 'rgba(255, 255, 255, .3)'
               },
               ticks: {
                 display: true,

@@ -8,7 +8,9 @@
 
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-
+<!-- chart.js -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 
@@ -226,7 +228,30 @@
 
 						</div>
 					</div>
+											<!-- 차트 부분 -->
+					<div class="card-body p-2">
+					<input type="radio" class="btn-check" name="options" id="mon" autocomplete="off" checked>
+					<label class="btn btn-outline-success" for="mon">월세</label>
 
+					<input type="radio" class="btn-check" name="options" id="jeon" autocomplete="off">
+					<label class="btn btn-outline-success" for="jeon">전세</label>
+					<h6>월별 실거래 수량</h6>
+						<div class="chart bg-gradient-success">
+							<canvas id="chart-line-cnt" class="chart-canvas" height="200px" width="270px" style="display: block; box-sizing: border-box; height: 170px; width: 266.7px;"></canvas>
+						</div>
+					</div>
+					<div class="card-body p-2">
+					<h6>월별 실거래 평균가</h6>
+						<div class="chart bg-gradient-success">
+							<canvas id="chart-line-avg" class="chart-canvas" height="200px" width="270px" style="display: block; box-sizing: border-box; height: 170px; width: 266.7px;"></canvas>
+						</div>
+					</div>
+					<div class="card-body p-2">
+					<h6>구별 실거래 수량</h6>
+						<div class="chart bg-gradient-success">
+							<canvas id="chart-bar" class="chart-canvas" height="200px" width="270px" style="display: block; box-sizing: border-box; height: 170px; width: 266.7px;"></canvas>
+						</div>
+					</div>
 
 				</div>
 

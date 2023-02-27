@@ -38,6 +38,7 @@ public class FrontController extends HttpServlet {
 		map.put("GJ_PSServer.do", new GJ_PSServer());
 		map.put("GJ_RSServer.do", new GJ_RSServer());
 		map.put("GJ_SMServer.do", new GJ_SMServer());
+		map.put("MainChart.do", new MainChart());
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

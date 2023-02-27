@@ -267,7 +267,259 @@ function displayArea(coordinates, name) {
 		  }, 50);
 	}
 
+// chart ajax 부분
+function chartAjax(mon_jeon){
+	console.log(mon_jeon);
+	let a = Chart.getChart('chart-line-cnt');
+	let b = Chart.getChart('chart-line-avg');
+	let c = Chart.getChart('chart-bar');
+	if(a != null){
+		a.destroy();
+		b.destroy();
+		c.destroy();
+	}
+	
+	$.ajax({
+		url : 'MainChart.do',
+		type : 'get',
+		dataType : 'json',
+		data : {"mon_jeon":mon_jeon}, // false가 들어오면 전세
+		success : (res)=>{
+			console.log(res)
+			// cnt 차트 함수 실행 부분
+	   		var ctx1 = document.getElementById("chart-line-cnt").getContext("2d");
+			var list1 = res.deal_cnt.mltCnt
+	    	var list2 = res.deal_cnt.ofctCnt
+	    	var list3 = res.deal_cnt.sglfamCnt
+	 		chart_line(ctx1,list1,list2,list3)
+			
+			// avg 차트 함수 실행 부분
+			var ctx2 = document.getElementById("chart-line-avg").getContext("2d");
+			var list4 = res.deal_avg.mltAvg
+	    	var list5 = res.deal_avg.ofctAvg
+	    	var list6 = res.deal_avg.sglfamAvg
+	 		chart_line(ctx2,list4,list5,list6)
+			
+			// ??? 차트 함수 실행 부분
+			var ctx3 = document.getElementById("chart-bar").getContext("2d");
+			var list7 = res.deal_gu_cnt
+			var list8 = res.deal_gu_avg
+			chart_bar(ctx3,list7,list8)
+			
+		},
+		error : ()=>{
+			alert("Chart ajax 실패")
+		}
+	}) 
+}
 
+// 라인 차트 함수 
+ 	function chart_line(ctx,list1,list2,list3) {
+		
+    new Chart(ctx, {
+      type: "line",
+      data: {
+        labels: ["1월", "2월", "3월", "4월	", "5월", "6월", "7월", "8월", "9월","10월","11월","12월","1월"],
+        datasets: [{
+          label: "연립다세대", // 차트 이름
+          lineTension : 0.5, // 0이면 꺾은선 그래프, 숫자가 높을수록 둥글해짐
+          pointRadius: 5, // 점 반지름 0이면 없음
+          pointBackgroundColor: "rgb(255, 153, 120)", // 점 배경 색깔
+          pointBorderColor: "blue", // 점 경계 색깔
+          borderColor: "blue", // 선의 색깔
+          borderWidth: 2, // 선의 두께
+          fill: false, // 라인 그래프 밑의 배경을 채우는 옵션
+//        backgroundColor: "black", // 배켱 컬러 /transparent = 투명 
+          data: list1, // 데이터 리스트
+
+        }, {
+            label: '오피스텔',
+            fill : false,      
+            lineTension : 0.5,  
+            pointRadius : 5,    
+            backgroundColor: 'rgb(255, 153, 0)',
+            borderColor: 'rgb(255, 153, 0)',
+            data: list2
+        }, {
+            label: '단독다가구',
+            type : 'line',       
+            fill : false,         
+            lineTension : 0.5,  
+            pointRadius : 5,   
+            backgroundColor: "rgba(255, 255, 255, .8)",
+            borderColor: "rgba(255, 255, 255, .8)",
+            data: list3
+        }],
+      },
+      options: {
+        responsive: true, // 반응형 차트
+        maintainAspectRatio: false, // 반응형으로 크기가 재조정 될때 비율 유지
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5],
+              color: 'rgba(255, 255, 255, .2)'
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#f8f9fa',
+              padding: 10,
+              font: {
+                size: 14,
+                weight: 300,
+                family: "Roboto",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+ }
+ 	
+ 	// 바 차트 함수
+ 	function chart_bar(ctx, list1, list2) {
+ 	
+    new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: ["광산구", "동구", "서구", "남구", "북구"],
+          datasets: [{
+            label: "구별 1년 거래량",
+            tension: 0.4,
+            barThickness : 'flex',
+            borderColor : "black",
+            borderWidth: 1,
+            borderRadius: 4,
+            borderSkipped: false,
+            backgroundColor: "rgba(255, 255, 255, .8)",
+            data: list1
+          }, {
+        	  type: 'line',
+              label: '구별 1년 평균가',
+              fill : false,      
+              lineTension : 0.5,  
+              pointRadius : 5,    
+              backgroundColor: 'rgb(255, 153, 0)',
+              borderColor: 'rgb(255, 153, 0)',
+              data: list2
+          } ],
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            }
+          },
+          interaction: {
+            intersect: false,
+            mode: 'index',
+          },
+          scales: {
+            y: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: 'rgba(255, 255, 255, .2)'
+              },
+              ticks: {
+                suggestedMin: 0,
+                suggestedMax: 500,
+                beginAtZero: true,
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+                color: "#fff"
+              },
+            },
+            x: {
+              grid: {
+                drawBorder: false,
+                display: true,
+                drawOnChartArea: true,
+                drawTicks: false,
+                borderDash: [5, 5],
+                color: 'rgba(255, 255, 255, .2)'
+              },
+              ticks: {
+                display: true,
+                color: '#f8f9fa',
+                padding: 10,
+                font: {
+                  size: 14,
+                  weight: 300,
+                  family: "Roboto",
+                  style: 'normal',
+                  lineHeight: 2
+                },
+              }
+            },
+          },
+        },
+      });
+ 	}
+
+
+// 차트 월세 전세 토글 스위치
+ 	$(document).on("click","#mon",()=>{
+ 		mon_jeon = true;
+ 		chartAjax(mon_jeon)
+ 	})
+ 	
+ 	$(document).on("click","#jeon",()=>{
+ 		mon_jeon = false;
+ 		chartAjax(mon_jeon)
+ 	})
+ 
+ // 전월세 버튼 변수
+ let mon_jeon = true;
+ 	
+// 문서 준비완료시 ajax들
 $(document).ready(()=>{
 	// 인프라 컬럼 테이블 튜플 카운트 ajax
 	let gu_name = {gu_name : name}
@@ -305,7 +557,8 @@ $(document).ready(()=>{
 		}
 	})
 	
-	
+	// 차트 ajax
+	chartAjax(mon_jeon);
 	
 })
 

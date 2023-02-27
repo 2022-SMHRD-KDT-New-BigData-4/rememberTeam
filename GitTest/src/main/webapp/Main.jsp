@@ -259,25 +259,25 @@
 				
 <!-- 가운데 지도 레이아웃 -->
 
-				<div id="map_layout" class="col-lg-6">
+				<div id="map_layout">
 					<p>최고 검색량 출력 공간</p>
 					<div class="div_flex">
-					 <select class="form-select mx-2" aria-label="Default select example">
-  						<option selected align="center">구</option>
-  						<option value="1" align="center">광산구</option>
- 					  	<option value="2" align="center">동구</option>
-  						<option value="3" align="center">서구</option>
-  						<option value="3" align="center">남구</option>
-  						<option value="3" align="center">북구</option>
+					 <select id="choice_gu" onchange="change_gu()" class="form-select mx-2" aria-label="Default select example">
+  						<option selected align="center">구 선택</option>
+  						<option value="광산구" align="center">광산구</option>
+ 					  	<option value="동구" align="center">동구</option>
+  						<option value="서구" align="center">서구</option>
+  						<option value="남구" align="center">남구</option>
+  						<option value="북구" align="center">북구</option>
 					</select>
-					<select class="form-select mx-2" aria-label="Default select example">
-  						<option align="center" selected>동</option>
+					<select id="choice_dong" class="form-select mx-2" aria-label="Default select example">
+  						<option align="center" selected>동 선택</option>
   						<option value="1">One</option>
  					  	<option value="2">Two</option>
   						<option value="3">Three</option>
 					</select>
 					</div>
-					<div id="map" style="width:765px;height:600px;">
+					<div id="map" style="width:680px;height:565px;">
 					</div>
 				</div>
 				
@@ -285,7 +285,7 @@
 <!-- 오른쪽 인프라 컬럼 레이아웃 -->				
 				
 				
-				<div class="col-lg-3 z-index-2">
+				<div id="infra_div" class="z-index-2">
 					<div class="row mt-3">
 					
 				<!-- 오른쪽 인프라 컬럼 레이아웃 왼쪽 컬럼열  -->

@@ -123,7 +123,7 @@ public class MainDAO {
 			return avg;
 		}
 		
-		// 구별 1년 실거래 매룰 수량 차트
+		// 구별 1년 실거래 매물 수량 차트
 		public int mainChartGUCnt(Map<String, Object> sqlParam) {
 			
 			int cnt = 0;
@@ -137,7 +137,7 @@ public class MainDAO {
 			return cnt;
 		}
 		
-		// 구별 1년 실거래 매룰 평균가 차트
+		// 구별 1년 실거래 매물 평균가 차트
 		public double mainChartGuAvg(Map<String, Object> sqlParam) {
 			
 			double avg = 0;
@@ -151,5 +151,22 @@ public class MainDAO {
 			}
 
 			return avg;
+		}
+		
+		// 동 검색 select 옵션 추가
+		public List<String> SearchDong(String gu_name) {
+			
+			List<String> list = null;
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			
+			try {
+				list = sqlSession.selectList("SearchDong", gu_name);
+			} finally {
+				sqlSession.close();
+			}
+			
+			return list;
+			
+			
 		}
 }

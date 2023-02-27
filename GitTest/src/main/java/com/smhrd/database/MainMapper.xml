@@ -75,4 +75,12 @@
 		   AND DEAL_PR ${mon_jeon} 0
 		   ANd GU = #{gu}
 	</select>
+	
+	<!-- 동 검색 select 옵션 추가 -->
+	<select id="SearchDong" parameterType="String" resultType="String">
+		SELECT DONG
+		  FROM GWANGJU_DONG
+		 WHERE ADDR = #{gu_name}
+	</select>
+	
 </mapper>

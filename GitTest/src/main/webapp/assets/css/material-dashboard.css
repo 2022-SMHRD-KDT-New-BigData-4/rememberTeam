@@ -27711,8 +27711,8 @@ pre[class*="language-"] {
 	display : flex;
 	justify-content: flex-start;
 	align-items: center;
-	flex-direction: column
-
+	flex-direction: column;
+	width: 44%;
 	
 }
 
@@ -27724,7 +27724,13 @@ pre[class*="language-"] {
 #map:nth-child(2){
 	z-index: 10;
 }
-
-
+#infra_div {
+    flex: 0 0 auto;
+    width: 28%;
+}
+#map{
+	border: 2px solid transparent !important;
+	border-radius: 20% !important;
+}
 
 /*# sourceMappingURL=dashboard-free.css.map */

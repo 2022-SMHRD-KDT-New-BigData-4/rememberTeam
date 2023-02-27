@@ -502,8 +502,19 @@
 	<script>
 	
 	
-	$('#ex_btn').on('click', clickEX)
-	$('#cc_btn').on('click', clickCC)
+	$('#rs_btn').on('click', clickTest)
+	$('#cs_btn').on('click', clickTest)
+	$('#sm_btn').on('click', clickTest)
+	$('#hs_btn').on('click', clickTest)
+	$('#ph_btn').on('click', clickTest)
+	$('#ps_btn').on('click', clickTest)
+	$('#fs_btn').on('click', clickTest)
+	$('#cc_btn').on('click', clickTest)
+	$('#cn_btn').on('click', clickTest)
+	$('#ms_btn').on('click', clickTest)
+	$('#ex_btn').on('click', clickTest)
+	$('#lb_btn').on('click', clickTest)
+
 
 				
 	

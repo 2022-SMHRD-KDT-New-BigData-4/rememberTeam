@@ -35,11 +35,14 @@ let markerImage = null;
 let num = null;
 let isClick = false;
 let ctOverlay = null;
+let colorN = "";
+let content = "";
 // let currCategory = null;
 // let currCategory = document.getElementsByClassName(category_btn);
 
 let cnt = 0;
 
+// 전시관
 function mapEX() {
 
 	$.ajax({
@@ -51,7 +54,7 @@ function mapEX() {
 			// 마커 이미지 지정
 			let imageSrc = 'assets/images/artGallery_default.svg', // 마커이미지의 주소  
 				selectimageSrc = 'assets/images/artGallery_click.svg',  // 활성화 됐을때 보여지는 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -113,6 +116,7 @@ function mapEX() {
 	})
 }
 
+// 자치센터
 function mapCC() {
 
 	$.ajax({
@@ -123,7 +127,7 @@ function mapCC() {
 
 			let imageSrc = 'assets/images/communityCenter_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/communityCenter_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -135,6 +139,7 @@ function mapCC() {
 
 			// 오버레이 불러오는 함수
 			markerOverlay(res)
+			
 
 		},
 		error: (e) => {
@@ -143,6 +148,7 @@ function mapCC() {
 	})
 }
 
+// 편의점
 function mapCS() {
 
 	$.ajax({
@@ -151,9 +157,12 @@ function mapCS() {
 		success: (res) => {
 			console.log(res)
 
+			// 오버레이 바꾸기위한 조건
+			colorN = 1;
+
 			let imageSrc = 'assets/images/store_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/store_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -173,6 +182,7 @@ function mapCS() {
 	})
 }
 
+// 대형마트
 function mapSM() {
 
 	$.ajax({
@@ -180,10 +190,12 @@ function mapSM() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 1;
 
 			let imageSrc = 'assets/images/mart_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/mart_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -203,6 +215,7 @@ function mapSM() {
 	})
 }
 
+// 병원
 function mapHS() {
 
 	$.ajax({
@@ -211,9 +224,11 @@ function mapHS() {
 		success: (res) => {
 			console.log(res)
 
+			colorN = 2;
+
 			let imageSrc = 'assets/images/hospital_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/hospital_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -233,6 +248,7 @@ function mapHS() {
 	})
 }
 
+// 약국
 function mapPH() {
 
 	$.ajax({
@@ -240,10 +256,12 @@ function mapPH() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+			
+			colorN = 2;
 
 			let imageSrc = 'assets/images/pills_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/pills_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -263,6 +281,7 @@ function mapPH() {
 	})
 }
 
+// 경찰서
 function mapPS() {
 
 	$.ajax({
@@ -273,7 +292,7 @@ function mapPS() {
 
 			let imageSrc = 'assets/images/police_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/police_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -293,6 +312,7 @@ function mapPS() {
 	})
 }
 
+// 소방서
 function mapFS() {
 
 	$.ajax({
@@ -303,7 +323,7 @@ function mapFS() {
 
 			let imageSrc = 'assets/images/fire_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/fire_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -323,6 +343,7 @@ function mapFS() {
 	})
 }
 
+// 영화관
 function mapCN() {
 
 	$.ajax({
@@ -333,7 +354,7 @@ function mapCN() {
 
 			let imageSrc = 'assets/images/cinema_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/cinema_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -353,6 +374,7 @@ function mapCN() {
 	})
 }
 
+// 박물관
 function mapMS() {
 
 	$.ajax({
@@ -363,7 +385,7 @@ function mapMS() {
 
 			let imageSrc = 'assets/images/musium_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/musium_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -383,6 +405,7 @@ function mapMS() {
 	})
 }
 
+// 도서관
 function mapLB() {
 
 	$.ajax({
@@ -393,7 +416,7 @@ function mapLB() {
 
 			let imageSrc = 'assets/images/library_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/library_click.svg', // 활성화 됐을때 이미지
-				imageSize = new kakao.maps.Size(50, 50), // 마커이미지의 크기
+				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
 				imageOption = { offset: new kakao.maps.Point(11, 28) }; // 마커이미지의 옵션. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정
 
 			// 마커의 이미지정보를 가지고 있는 마커이미지를 생성
@@ -439,6 +462,8 @@ function clickTest(e) {
 		clickMenu = "";
 	} else {
 		removeMarker()
+		if(ctOverlay){
+		ctOverlay.setMap(null);}
 		
 		if (e.target.innerText.trim() == '매물') {
 			mapRS();
@@ -509,8 +534,12 @@ function markerOverlay(res) {
 			cnt = 1;
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element
-			let content = '<div class="tooltip_inner"><span class="txt_name">' + res[i].nm + '</span></div>';
-
+			if(colorN == 1){
+				content = '<div class="colorNo1"><span class="txt_name">' + res[i].nm + '</span></div>';
+			}
+			else if(colorN == 2){
+				content = '<div class="colorNo2"><span class="txt_name">' + res[i].nm + '</span></div>';
+			}
 			// 커스텀 오버레이가 표시될 위치 
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
 
@@ -518,7 +547,8 @@ function markerOverlay(res) {
 			customOverlay = new kakao.maps.CustomOverlay({
 				position: coords,
 				content: content,
-				yAnchor: 0
+				yAnchor: 2.0,
+				xAnchor: 0.08
 			});
 			// 커스텀 오버레이를 지도에 표시
 			//			if(isClick) {return;}
@@ -688,7 +718,3 @@ function markerclickOverlay(res) {
 	}
 }
 
-function closeOverlay(pos) {
-	isClick = false;
-	overlays[pos].setMap(null);
-}

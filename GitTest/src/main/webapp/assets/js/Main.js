@@ -1,4 +1,25 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// 카카오 맵 생성
 var mapContainer = document.getElementById('map');
 var mapOptions = {
@@ -43,7 +64,42 @@ gu_marker('./assets/img/buk_marker.png', 35.1736650058521, 126.91159126881855);
 gu_marker('./assets/img/gj_marker.png', 35.15907159179403, 126.8531730541552);
 
 
-//광주 바깥쪽 폴리곤 생성
+//광주 바깥쪽 사각형 폴리곤 생성
+
+var path_line = [
+	new kakao.maps.LatLng(35.299584022211405, 126.760670992432),
+	new kakao.maps.LatLng(35.26830615409957, 126.70308604170746),
+	new kakao.maps.LatLng(35.24283713015217, 126.66942738309089),
+	new kakao.maps.LatLng(35.224280991904386, 126.6357588545557),
+	new kakao.maps.LatLng(35.20347118480104, 126.62179547926644),
+	new kakao.maps.LatLng(35.17115850415474, 126.61913501931716),
+	new kakao.maps.LatLng(35.13308144701702, 126.61790799485959),
+	new kakao.maps.LatLng(35.09389824882608, 126.63212835217921),
+	new kakao.maps.LatLng(35.06980146434709, 126.67854664149306),
+	new kakao.maps.LatLng(35.07452070843887, 126.72063073946558),
+	new kakao.maps.LatLng(35.05722096916501, 126.72349592621994),
+	new kakao.maps.LatLng(35.035336926166835, 126.740402675216),
+	new kakao.maps.LatLng(35.0273483586828, 126.78531164219359),
+	new kakao.maps.LatLng(35.0309100730191, 126.85263089486118),
+	new kakao.maps.LatLng(35.05057704331244, 126.90591018327176),
+	new kakao.maps.LatLng(35.04483689429121, 126.95642183293566),
+	new kakao.maps.LatLng(35.06330481899952, 127.00412200217448),
+	new kakao.maps.LatLng(35.09329664693523, 127.03781347109077),
+	new kakao.maps.LatLng(35.13713389640195, 127.05187873289621),
+	new kakao.maps.LatLng(35.18674586682249, 127.04909953772965),
+	new kakao.maps.LatLng(35.204060457396906, 127.01818561979786),
+	new kakao.maps.LatLng(35.213291536701476, 126.99428889330214),
+	new kakao.maps.LatLng(35.25482370579834, 126.97740765064721),
+	new kakao.maps.LatLng(35.27558272266637, 126.95067104809105),
+	new kakao.maps.LatLng(35.28941346164704, 126.92392727782325),
+	new kakao.maps.LatLng(35.28477265317356, 126.89016254578306),
+	new kakao.maps.LatLng(35.27550589002767, 126.85500296063067),
+	new kakao.maps.LatLng(35.26738884045405, 126.82406908087849),
+	new kakao.maps.LatLng(35.27887457991132, 126.79168460940566)
+];
+
+
+
 $.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
 	 
    var data_out = geojson.features;
@@ -54,7 +110,7 @@ $.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
 
        coordinates_out = val.geometry.coordinates;
        name_out = val.properties.CTP_KOR_NM;
-       displayArea_out(coordinates_out, name_out); 
+       displayArea_out(path_line, coordinates_out, name_out); 
    })
 })
 
@@ -62,24 +118,17 @@ $.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
 var polygons_out=[];
 
 
-function displayArea_out(coordinates_out, name_out) {
+function displayArea_out(path_line, coordinates_out, name_out) {
 	var path_out = [
 		new kakao.maps.LatLng(34.90,126.5),
 		new kakao.maps.LatLng(34.90,127.2),
 		new kakao.maps.LatLng(35.39,127.2),
 		new kakao.maps.LatLng(35.39,126.5)
 	]; 
-   var hole = [];
+   var hole = path_line;
    var points = [];
    
-   $.each(coordinates_out[0][0], function(index, coordinates_out) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
-       var point = new Object(); 
-       point.x = coordinates_out[1];
-       point.y = coordinates_out[0];
-       points.push(point);
-       hole.push(new kakao.maps.LatLng(coordinates_out[1], coordinates_out[0]));	//new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
-   })
-
+   
    var polygon_out = new kakao.maps.Polygon({
        map : map, 
        path : [path_out, hole],
@@ -87,9 +136,52 @@ function displayArea_out(coordinates_out, name_out) {
        strokeColor : '#004c80',
        strokeOpacity : 0.8,
        fillColor : '#f8f9fa',
-       fillOpacity : 0.7
+       fillOpacity : 1
    });
 };
+
+// 광주 바깥쪽 라인 폴리곤 생성
+$.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
+	 
+   var data_line = geojson.features;
+   var coordinates_line = []; 
+   var name_line = ''; 
+
+   $.each(data_line, function(index, val) {
+
+       coordinates_line = val.geometry.coordinates;
+       name_line = val.properties.CTP_KOR_NM;
+       displayArea_line(coordinates_line, name_line); 
+   })
+})
+
+
+var polygons_line=[];
+
+
+function displayArea_line(coordinates_line, name_line) {
+	
+   var hole_line = [];
+   var points = [];
+   
+   $.each(coordinates_line[0][0], function(index, coordinates_line) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
+       var point = new Object(); 
+       point.x = coordinates_line[1];
+       point.y = coordinates_line[0];
+       points.push(point);
+       hole_line.push(new kakao.maps.LatLng(coordinates_line[1], coordinates_line[0]));	//new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
+   })
+
+   var polygon_line = new kakao.maps.Polygon({
+       map : map, 
+       path : [path_line, hole_line],
+       strokeWeight : 2,
+       strokeColor : '#004c80',
+       strokeOpacity : 0.8,
+       
+   });
+};
+
 
 
 //광주 행정구역 구분 폴리곤 생성

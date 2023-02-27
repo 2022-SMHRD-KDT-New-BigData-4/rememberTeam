@@ -270,11 +270,8 @@
   						<option value="남구" align="center">남구</option>
   						<option value="북구" align="center">북구</option>
 					</select>
-					<select id="choice_dong" class="form-select mx-2" aria-label="Default select example">
+					<select id="choice_dong" onchange="location = this.value" class="form-select mx-2" aria-label="Default select example">
   						<option align="center" selected>동 선택</option>
-  						<option value="1">One</option>
- 					  	<option value="2">Two</option>
-  						<option value="3">Three</option>
 					</select>
 					</div>
 					<div id="map" style="width:680px;height:565px;">

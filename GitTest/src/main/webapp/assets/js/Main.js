@@ -171,7 +171,7 @@ function displayArea(coordinates, name) {
         path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));            //new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
     })
     
-    // 다각형을 생성합니다 
+    // 다각형을 생성합니다
     var polygon = new kakao.maps.Polygon({
         map : map, // 다각형을 표시할 지도 객체
         path : path,
@@ -181,7 +181,6 @@ function displayArea(coordinates, name) {
         fillColor : '#fff',
         fillOpacity : 0.75
     });
-    
     
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
@@ -712,34 +711,25 @@ $(".borderClass").hover(function(){
 // 구, 동 선택 select
 function change_gu(){
 	let choice_gu  = document.getElementById("choice_gu");
-	let gu = (choice_gu.options[choice_gu.selectedIndex].value);
-	console.log(gu)
-	
-	gu_name = {gu_name : gu}
+	let gu = (choice_gu.options[choice_gu.selectedIndex].value);	
+	let gu_name = {gu_name : gu}
     $.ajax({
     		url : 'SearchDong.do',
     		type : 'get',
     		data : gu_name,
     		dataType : 'json',
     		success : (res)=>{
-  				console.log(res)
-  				
-    		
-    		},
+  				for (let i = 0; i<res.gu_name.length; i++){
+					let value = res.gu_name[i]
+					let dong_option = $("<option value=Map.jsp?dong_name=" + value + ">"+value+"</a></option>");
+            		$('#choice_dong').append(dong_option);
+				}
+				
+			},
     		error : ()=>{
     		}
     		
     })
 }
 
-function change_dong(){
-    var arr = ["서울", "경기도", "인천"]
-
-    for (var i = 0; i < arr.length; i++) {
-        var optionLabel = arr[i];
-        var optionValue = i + 1;
-        var option = $("<option value=" + optionValue + ">" + optionLabel+"</option>");
-            $('#List').append(option);
-    }
-}
 

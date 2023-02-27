@@ -3,17 +3,17 @@ package com.smhrd.model.VO;
 public class GJ_FS_VO {
 
 	private int fs_seq;
-	private String fs_nm;
-	private String fs_addr;
+	private String nm;
+	private String addr;
 	private long cortarNo;
 	private String dong;
 	private double lat;
 	private double lng;
 	
-	public GJ_FS_VO(int fs_seq, String fs_nm, String fs_addr, long cortarNo, String dong, double lat, double lng) {
+	public GJ_FS_VO(int fs_seq, String nm, String addr, long cortarNo, String dong, double lat, double lng) {
 		this.fs_seq = fs_seq;
-		this.fs_nm = fs_nm;
-		this.fs_addr = fs_addr;
+		this.nm = nm;
+		this.addr = addr;
 		this.cortarNo = cortarNo;
 		this.dong = dong;
 		this.lat = lat;
@@ -28,20 +28,20 @@ public class GJ_FS_VO {
 		this.fs_seq = fs_seq;
 	}
 
-	public String getFs_nm() {
-		return fs_nm;
+	public String getNm() {
+		return nm;
 	}
 
-	public void setFs_nm(String fs_nm) {
-		this.fs_nm = fs_nm;
+	public void setNm(String nm) {
+		this.nm = nm;
 	}
 
-	public String getFs_addr() {
-		return fs_addr;
+	public String getAddr() {
+		return addr;
 	}
 
-	public void setFs_addr(String fs_addr) {
-		this.fs_addr = fs_addr;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public long getCortarNo() {
@@ -75,8 +75,6 @@ public class GJ_FS_VO {
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
-	
-	
 	
 	
 	

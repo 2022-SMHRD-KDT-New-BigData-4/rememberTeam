@@ -46,8 +46,8 @@ public class GJ_FSServer implements Command {
 
 			hsm.put("lat", vo.getLat());
 			hsm.put("lng", vo.getLng());
-			hsm.put("nm", vo.getFs_nm());
-			hsm.put("addr", vo.getFs_addr());
+			hsm.put("nm", vo.getNm());
+			hsm.put("addr", vo.getAddr());
 			
 			JO = new JSONObject(hsm);
 			JA.add(JO);

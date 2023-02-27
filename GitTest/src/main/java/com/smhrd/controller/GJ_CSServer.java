@@ -47,8 +47,8 @@ public class GJ_CSServer implements Command {
 
 			hsm.put("lat", vo.getLat());
 			hsm.put("lng", vo.getLng());
-			hsm.put("nm", vo.getCs_nm());
-			hsm.put("addr", vo.getCs_addr());
+			hsm.put("nm", vo.getNm());
+			hsm.put("addr", vo.getAddr());
 
 			JO = new JSONObject(hsm);
 			JA.add(JO);

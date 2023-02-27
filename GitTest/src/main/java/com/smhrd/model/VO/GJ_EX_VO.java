@@ -3,17 +3,17 @@ package com.smhrd.model.VO;
 public class GJ_EX_VO {
 
 	private int ex_seq;
-	private String ex_nm;
-	private String ex_addr;
+	private String nm;
+	private String addr;
 	private long cortarNo;
 	private String dong;
 	private double lat;
 	private double lng;
-	
-	public GJ_EX_VO(int ex_seq, String ex_nm, String ex_addr, long cortarNo, String dong, double lat, double lng) {
+
+	public GJ_EX_VO(int ex_seq, String nm, String addr, long cortarNo, String dong, double lat, double lng) {
 		this.ex_seq = ex_seq;
-		this.ex_nm = ex_nm;
-		this.ex_addr = ex_addr;
+		this.nm = nm;
+		this.addr = addr;
 		this.cortarNo = cortarNo;
 		this.dong = dong;
 		this.lat = lat;
@@ -28,20 +28,20 @@ public class GJ_EX_VO {
 		this.ex_seq = ex_seq;
 	}
 
-	public String getEx_nm() {
-		return ex_nm;
+	public String getNm() {
+		return nm;
 	}
 
-	public void setEx_nm(String ex_nm) {
-		this.ex_nm = ex_nm;
+	public void setNm(String nm) {
+		this.nm = nm;
 	}
 
-	public String getEx_addr() {
-		return ex_addr;
+	public String getAddr() {
+		return addr;
 	}
 
-	public void setEx_addr(String ex_addr) {
-		this.ex_addr = ex_addr;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public long getCortarNo() {
@@ -75,6 +75,7 @@ public class GJ_EX_VO {
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
+	
 	
 	
 	

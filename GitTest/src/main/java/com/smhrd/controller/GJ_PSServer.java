@@ -46,8 +46,8 @@ public class GJ_PSServer implements Command {
 
 			hsm.put("lat", vo.getLat());
 			hsm.put("lng", vo.getLng());
-			hsm.put("nm", vo.getPs_nm());
-			hsm.put("addr", vo.getPs_addr());
+			hsm.put("nm", vo.getNm());
+			hsm.put("addr", vo.getAddr());
 
 			JO = new JSONObject(hsm);
 			JA.add(JO);

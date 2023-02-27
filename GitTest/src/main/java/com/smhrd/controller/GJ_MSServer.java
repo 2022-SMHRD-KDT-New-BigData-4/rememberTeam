@@ -46,8 +46,8 @@ public class GJ_MSServer implements Command {
 
 			hsm.put("lat", vo.getLat());
 			hsm.put("lng", vo.getLng());
-			hsm.put("nm", vo.getMs_nm());
-			hsm.put("addr", vo.getMs_addr());
+			hsm.put("nm", vo.getNm());
+			hsm.put("addr", vo.getAddr());
 
 			JO = new JSONObject(hsm);
 			JA.add(JO);

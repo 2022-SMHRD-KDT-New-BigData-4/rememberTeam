@@ -3,17 +3,17 @@ package com.smhrd.model.VO;
 public class GJ_HS_VO {
 
 	private int hs_seq;
-	private String hs_nm;
-	private String hs_addr;
+	private String nm;
+	private String addr;
 	private long cortarNo;
 	private String dong;
 	private double lat;
 	private double lng;
 	
-	public GJ_HS_VO(int hs_seq, String hs_nm, String hs_addr, long cortarNo, String dong, double lat, double lng) {
+	public GJ_HS_VO(int hs_seq, String nm, String addr, long cortarNo, String dong, double lat, double lng) {
 		this.hs_seq = hs_seq;
-		this.hs_nm = hs_nm;
-		this.hs_addr = hs_addr;
+		this.nm = nm;
+		this.addr = addr;
 		this.cortarNo = cortarNo;
 		this.dong = dong;
 		this.lat = lat;
@@ -28,20 +28,20 @@ public class GJ_HS_VO {
 		this.hs_seq = hs_seq;
 	}
 
-	public String getHs_nm() {
-		return hs_nm;
+	public String getNm() {
+		return nm;
 	}
 
-	public void setHs_nm(String hs_nm) {
-		this.hs_nm = hs_nm;
+	public void setNm(String nm) {
+		this.nm = nm;
 	}
 
-	public String getHs_addr() {
-		return hs_addr;
+	public String getAddr() {
+		return addr;
 	}
 
-	public void setHs_addr(String hs_addr) {
-		this.hs_addr = hs_addr;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public long getCortarNo() {

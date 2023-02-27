@@ -3,18 +3,17 @@ package com.smhrd.model.VO;
 public class GJ_METRO_VO {
 	
 	private int metro_seq;
-	private String metro_nm;
-	private String metro_addr;
+	private String nm;
+	private String addr;
 	private long cortarNo;
 	private String dong;
 	private double lat;
 	private double lng;
-	
-	public GJ_METRO_VO(int metro_seq, String metro_nm, String metro_addr, long cortarNo, String dong, double lat,
-			double lng) {
+
+	public GJ_METRO_VO(int metro_seq, String nm, String addr, long cortarNo, String dong, double lat, double lng) {
 		this.metro_seq = metro_seq;
-		this.metro_nm = metro_nm;
-		this.metro_addr = metro_addr;
+		this.nm = nm;
+		this.addr = addr;
 		this.cortarNo = cortarNo;
 		this.dong = dong;
 		this.lat = lat;
@@ -29,20 +28,20 @@ public class GJ_METRO_VO {
 		this.metro_seq = metro_seq;
 	}
 
-	public String getMetro_nm() {
-		return metro_nm;
+	public String getNm() {
+		return nm;
 	}
 
-	public void setMetro_nm(String metro_nm) {
-		this.metro_nm = metro_nm;
+	public void setNm(String nm) {
+		this.nm = nm;
 	}
 
-	public String getMetro_addr() {
-		return metro_addr;
+	public String getAddr() {
+		return addr;
 	}
 
-	public void setMetro_addr(String metro_addr) {
-		this.metro_addr = metro_addr;
+	public void setAddr(String addr) {
+		this.addr = addr;
 	}
 
 	public long getCortarNo() {
@@ -76,8 +75,6 @@ public class GJ_METRO_VO {
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
-	
-	
 	
 	
 	

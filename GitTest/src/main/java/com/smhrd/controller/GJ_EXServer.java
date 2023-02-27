@@ -47,7 +47,7 @@ public class GJ_EXServer implements Command {
 	    	
 	    	hsm.put("lat",vo.getLat());
 	    	hsm.put("lng",vo.getLng());
-	    	hsm.put("nm", vo.getEx_nm());
+	    	hsm.put("nm", vo.getNm());
 	    	
 	    	
 	    	JO = new JSONObject(hsm);

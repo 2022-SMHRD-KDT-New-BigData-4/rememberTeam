@@ -11,7 +11,6 @@ public class GJ_LB_VO {
 	private double lng;
 
 	public GJ_LB_VO(int lb_seq, String nm, String addr, long cortarNo, String dong, double lat, double lng) {
-		super();
 		this.lb_seq = lb_seq;
 		this.nm = nm;
 		this.addr = addr;

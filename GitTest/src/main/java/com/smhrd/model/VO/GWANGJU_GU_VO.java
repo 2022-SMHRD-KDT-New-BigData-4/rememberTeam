@@ -48,4 +48,5 @@ public class GWANGJU_GU_VO {
 	
 	
 	
+	
 }

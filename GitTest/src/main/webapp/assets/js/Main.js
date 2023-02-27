@@ -1,16 +1,13 @@
-window.onload = function(){
-    $("#map:nth-child(2)").css("display","none")
- }
 
 	// 카카오 맵 생성
 var mapContainer = document.getElementById('map');
 var mapOptions = {
 	center: new kakao.maps.LatLng(35.15507159179403, 126.8351730541552),
-	level: 8.5,
-	draggable : false, // 드래그 옵션 
-	scrollwheel : false, // 마우스 휠 옵션
-	disableDoubleClick : true, // 더블클릭 끄기 옵션
-	disableDoubleClickZoom : true, // 더블클릭 줌 끄기 옵션
+	level: 9,
+	draggable : true, // 드래그 옵션 
+	scrollwheel : true, // 마우스 휠 옵션
+	disableDoubleClick : false, // 더블클릭 끄기 옵션
+	disableDoubleClickZoom : false, // 더블클릭 줌 끄기 옵션
 	$scale: false
 };
 
@@ -47,7 +44,7 @@ gu_marker('./assets/img/gj_marker.png', 35.15907159179403, 126.8531730541552);
 
 
 //광주 바깥쪽 폴리곤 생성
-$.getJSON("./assets/json/gj_line.geojson", function(geojson) {
+$.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
 	 
    var data_out = geojson.features;
    var coordinates_out = []; 
@@ -90,13 +87,13 @@ function displayArea_out(coordinates_out, name_out) {
        strokeColor : '#004c80',
        strokeOpacity : 0.8,
        fillColor : '#f8f9fa',
-       fillOpacity : 1
+       fillOpacity : 0.7
    });
 };
 
 
 //광주 행정구역 구분 폴리곤 생성
-$.getJSON("./assets/json/gj_gu_line.geojson", function(geojson) {
+$.getJSON("./assets/geojson/gj_gu_line.geojson", function(geojson) {
  
     var data = geojson.features;
     var coordinates = [];    //좌표 저장할 배열
@@ -134,7 +131,7 @@ function displayArea(coordinates, name) {
         strokeColor : '#43A047',
         strokeOpacity : 0.2,
         fillColor : '#fff',
-        fillOpacity : 1
+        fillOpacity : 0.5
     });
     
     
@@ -223,7 +220,7 @@ function displayArea(coordinates, name) {
     kakao.maps.event.addListener(polygon, 'mouseout', function() {
         polygon.setOptions({
             fillColor : '#fff',
-            fillOpacity : 1
+            fillOpacity : 0.5
         });
         customOverlay.setMap(null);
    

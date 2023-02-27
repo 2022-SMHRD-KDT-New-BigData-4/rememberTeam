@@ -250,48 +250,43 @@ td {
 /* 매물의 경우 미리 켜져 있어야 되지 않을까,,? */
 #rs_btn{
 	color: #fff;
-	background-image: linear-gradient(195deg, #8ac926 0%, #8ac926 100%);
+	background-color: #8ac926;
 }
+
 
 	/* 편의점, 대형마트 */
 #cs_btn:hover, #sm_btn:hover{
 	color: #fff;
-	background-image: linear-gradient(195deg, #6a4c93 0%, #6a4c93 100%);
+	background-color: #6a4c93;
 	cursor: pointer;
 }
 
 	/* 병원, 약국 */
 #hs_btn:hover, #ph_btn:hover{
 	color: #fff;
-	background-image: linear-gradient(195deg, #ffca3a 0%, #ffca3a 100%);
+	background-color: #ffca3a;
 	cursor: pointer;
 }
 
 	/* 경찰서, 소방서, 자치센터 */
 #ps_btn:hover, #fs_btn:hover, #cc_btn:hover{
 	color: #fff;
-	background-image: linear-gradient(195deg, #ff595e 0%, #ff595e 100%);
+	background-color: #ff595e;
 	cursor: pointer;
 }
 
 	/* 영화관, 박물관, 전시관, 도서관 */
 #cn_btn:hover, #ms_btn:hover, #ex_btn:hover, #lb_btn:hover{
 	color: #fff;
-	background-image: linear-gradient(195deg, #1982c4 0%, #1982c4 100%);
+	background-color: #1982c4;
 	cursor: pointer;
 }
 
 #up_btn:hover, #down_btn:hover{
 	color: #fff;
-	background-image: linear-gradient(195deg, #8ac926 0%, #8ac926 100%);
+	background-color: #8ac926;
 	cursor: pointer;
 }
-
-
-
-/* 카테고리 버튼에 마우스를 클릭하면 색상 변경*/
-/* 추가사항! 카테고리를 제외한 다른 버튼의 영향은 안받도록 로직 작성 */
-
 
 .category_btn{
 	list-style-type: none;

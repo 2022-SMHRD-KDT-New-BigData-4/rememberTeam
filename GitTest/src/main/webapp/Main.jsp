@@ -267,7 +267,7 @@
 						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    지역 검색
 						  </button>
-						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						  <div id = "choice_dong" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						 
 						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
 						   		<label for="area4" class="drop-btn ms-0 mb-0">금남로4가</label>
@@ -308,9 +308,9 @@
   						<option value="남구" align="center">남구</option>
   						<option value="북구" align="center">북구</option>
 					</select>
-					<select id="choice_dong" onchange="location = this.value" class="form-select mx-2" aria-label="Default select example">
+					<!-- <select id="choice_dong" onchange="location = this.value" class="form-select mx-2" aria-label="Default select example">
   						<option align="center" selected>동 선택</option>
-					</select>
+					</select> -->
 					</div>
 					<div id="map" style="width:680px;height:565px;">
 					</div>

@@ -720,7 +720,9 @@ function change_gu(){
     		dataType : 'json',
     		success : (res)=>{
   				for (let i = 0; i<res.gu.length; i++){
-					let dong_option = $("<option value=Map.jsp?cortarNo=" + res.gu[i].cortarNo + ">"+res.gu[i].dong+"</a></option>");
+					let dong_code = res.gu[i].cortarNo
+					let dong_name = res.gu[i].dong
+					let dong_option = $('<input type="radio" name="area" id='+dong_code+' class="dropdown-item btn-check"><label for="'+dong_code+'" class="drop-btn ms-0 mb-0">'+dong_name+'</label>')
             		$('#choice_dong').append(dong_option);
 				}
 			},

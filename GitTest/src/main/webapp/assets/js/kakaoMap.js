@@ -3,13 +3,14 @@
 // 1) 지도를 담을 영역을 가져오자
 let container = document.getElementById('map')
 
-// main에서 받아온 쿼리 스트링 ㄲ
+// main에서 받아온 쿼리 스트링 꺼내오기
 const searchParams = new URLSearchParams(location.search);
 
 let cortarno = null;
 let dong_lng = null;
 let dong_lat = null;
 let center = "";
+let level = null;
 
 for (const param of searchParams) {
 	cortarno = Number(param[1]);
@@ -85,18 +86,18 @@ function displayArea(coordinates, name) {
         map : map, // 다각형을 표시할 지도 객체
         path : path,
         strokeWeight : 2,
-        strokeColor : '#43A047',
+        strokeColor : '#7bb422',
         strokeOpacity : 1,
         fillColor : '#fff',
-        fillOpacity : 0.5
+        fillOpacity : 0.2
     });
     
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
     kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
     		polygon.setOptions({
-                fillColor : '#ff595e',
-               	fillOpacity : 0.5
+                fillColor : '#8ac926',
+               	fillOpacity : 0.2
              })
     });
  
@@ -116,7 +117,11 @@ function displayArea(coordinates, name) {
     });
     
     kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-
+		let click_latlng = mouseEvent.latLng;
+		map.setCenter(new kakao.maps.LatLng(click_latlng.getLat(), click_latlng.getLng()));
+		level = map.getLevel();
+		console.log(level)
+		map.setLevel(4);
     });
 } 
 
@@ -871,5 +876,11 @@ function markerclickOverlay(res) {
 		})*/
 
 	}
+}
+
+function mapRS(){
+	
+	
+	
 }
 

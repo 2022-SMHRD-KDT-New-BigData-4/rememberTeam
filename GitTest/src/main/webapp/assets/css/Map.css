@@ -44,6 +44,7 @@ body{
 	cursor: pointer;
 }
 
+/* 로고 */
 .logo{
 	flex-basis: 40%;
 	display: flex;
@@ -69,6 +70,7 @@ body{
 
 }
 
+/* 검색창 */
 .search{
 	flex-basis:30%;
 	display: flex;
@@ -90,7 +92,7 @@ body{
 
 select{
   display: block;
-  width: 120px;
+  width: 70px;
   padding: 0.5rem 1rem 0.5rem 0;
   -moz-padding-start: -3px;
   line-height: 1.5rem;
@@ -124,6 +126,7 @@ select{
 	font-size: 4px;
 }
 
+/* map 부분 */
 .wrap{
     height: 900px;
     overflow: hidden;
@@ -224,13 +227,14 @@ td {
     border-bottom: 1px solid #e5e5e5;
   }
 
+/* map */
 #map{
 	z-index: 0;
     width: 100vw;
     height: 100vh;
 }
 
-
+/* 카테고리 버튼 */
 .nav{
     width: 60px;
     position: fixed;
@@ -253,6 +257,12 @@ td {
 	background-color: #8ac926;
 }
 
+#rs_btn:hover{
+	color: #fff;
+	background-color: #8ac926;
+	cursor: pointer;
+	
+}
 
 	/* 편의점, 대형마트 */
 #cs_btn:hover, #sm_btn:hover{
@@ -260,6 +270,7 @@ td {
 	background-color: #6a4c93;
 	cursor: pointer;
 }
+
 
 	/* 병원, 약국 */
 #hs_btn:hover, #ph_btn:hover{

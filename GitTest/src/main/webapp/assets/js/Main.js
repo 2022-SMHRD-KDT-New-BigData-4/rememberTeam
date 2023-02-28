@@ -324,7 +324,7 @@ function chartAjax(mon_jeon){
 		b.destroy();
 		c.destroy();
 	}
-	$('#loading-image').show();
+	$('.spinner-border').show();
 	$.ajax({
 		url : 'MainChart.do',
 		type : 'get',
@@ -365,22 +365,24 @@ function chartAjax(mon_jeon){
 
  
 
-              if($(".loader").length != 0) {
-                     $(".loader").css({
+              if($(".spinner-border").length != 0) {
+                     $(".spinner-border").css({
                             "top": top+"px",
                             "left": left+"px",
 
                      });
-                     $(".loader").show();
+                     $(".spinner-border").show();
               }
               else {
-                     $('body').append('<div class="loader" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "></div>');
+                     $('body').append('<div class="spinner-border" role="status" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "><span class="visually-hidden">Loading...</span></div>');
+                     
+                     
               }
 
        },
         // 로딩 완료시 이미지 감춤
 		complete: function(){
-        $('.loader').hide();
+        $('.spinner-border').hide();
         
      	},
 		error : ()=>{
@@ -702,10 +704,12 @@ $(".borderClass").hover(function(){
 	let id = $(this).attr('id')
 	let id_selector = "#"+id
 	$(id_selector).addClass("border")
+	$(id_selector).addClass("border-success")
 }, function(){
 	let id = $(this).attr('id')
 	let id_selector = "#"+id
-	$(id_selector).removeClass("border")	
+	$(id_selector).removeClass("border")
+	$(id_selector).removeClass("border-success")	
 }
 )
 

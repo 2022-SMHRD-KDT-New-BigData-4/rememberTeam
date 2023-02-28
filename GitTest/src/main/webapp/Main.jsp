@@ -282,7 +282,7 @@
 						</div>
 						
 					<div class="dropdown-center">
-						 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						 <button disabled class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    동 검색
 						 </button>
 						  <div id = "choice_dong" class="dropdown-menu" aria-labelledby="dropdownMenuButton">

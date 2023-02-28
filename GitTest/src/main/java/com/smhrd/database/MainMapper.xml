@@ -81,6 +81,7 @@
 		SELECT DONG
 		  FROM GWANGJU_DONG
 		 WHERE ADDR = #{gu_name}
+		 ORDER BY DONG
 	</select>
 	
 </mapper>

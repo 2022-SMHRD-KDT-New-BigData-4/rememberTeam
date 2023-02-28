@@ -733,7 +733,9 @@ function change_gu(){
 }
 
 $(document).on("click",".drop-btn",function(){
-	console.log($(this).text())
-	console.log($(this).attr("for"))
+	let cortarNo = $(this).attr("for")
+	console.log(cortarNo)
+	location.href='Map.jsp?cortarNo='+cortarNo
+	
  })
 

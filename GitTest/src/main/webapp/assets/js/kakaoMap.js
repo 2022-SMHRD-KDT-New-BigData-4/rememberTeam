@@ -3,22 +3,32 @@
 // 1) 지도를 담을 영역을 가져오자
 let container = document.getElementById('map')
 
-// main에서 
+// main에서 받아온 쿼리 스트링 ㄲ
 const searchParams = new URLSearchParams(location.search);
 
 let cortarno = null;
+let dong_lng = null;
+let dong_lat = null;
+let center = "";
 
 for (const param of searchParams) {
 	cortarno = Number(param[1]);
 	console.log(cortarno)
 }
+
+
 let dong_code = {dong_code:cortarno}
+
+// 동 검색에 따른 맵 센터 이동
 $.ajax({
 	url: 'GWANGJU_DONGServer.do',
 	data : dong_code,
 	dataType: 'json',
 	success: (res) => {
 		console.log(res)
+		dong_lng = res[0].lng
+		dong_lat = res[0].lat
+		map.setCenter(new kakao.maps.LatLng(dong_lat, dong_lng));
 	},
 	error: (e) => {
 		console.log(e)

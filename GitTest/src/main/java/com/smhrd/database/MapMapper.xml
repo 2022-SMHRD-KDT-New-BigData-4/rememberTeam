@@ -58,4 +58,8 @@
 		select * from gj_lb
 	</select>
 	
+	<select id="selectGWANGJU_DONG" resultType="com.smhrd.model.VO.GWANGJU_GU_VO" parameterType="long">
+		select * from gwangju_dong where cortarno = #{cortarno}
+	</select>
+	
 </mapper>

@@ -30,21 +30,29 @@
         </div>
         <div class="search">
         	<form action="#" method="get">
-        		<div>
-					 <select id="choice_gu" onchange="change_gu()">
-  						<option selected align="center">구 선택</option>
-  						<option value="광산구" align="center">광산구</option>
- 					  	<option value="동구" align="center">동구</option>
-  						<option value="서구" align="center">서구</option>
-  						<option value="남구" align="center">남구</option>
-  						<option value="북구" align="center">북구</option>
-					</select>
+        		<div class="search_gu">
+        			<select>
+        				<option>광산구</option>
+        				<option>남구</option>
+        				<option>동구</option>
+        				<option>북구</option>
+        				<option>서구</option>
+        			</select>
         		</div>
-				<div>
-					<select id="choice_dong" onchange="location = this.value">
-  						<option align="center" selected>동 선택</option>
-					</select>				
-				</div>
+        		<div class="search_dong">
+        			<select>
+        				<option>선택한</option>
+        				<option>구에 해당하는</option>
+        				<option>동만 가져오기</option>
+        			</select>
+        		</div>
+        		<div>
+        			<button type="submit" id="search_enter">
+	        			<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
+	        			<br>
+            			<span>지도보기</span>
+        			</button>
+        		</div>
         	</form>
         </div>
     </div>

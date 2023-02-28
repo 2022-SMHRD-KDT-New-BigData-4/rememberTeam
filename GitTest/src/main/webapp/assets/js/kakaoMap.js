@@ -3,6 +3,28 @@
 // 1) 지도를 담을 영역을 가져오자
 let container = document.getElementById('map')
 
+// main에서 
+const searchParams = new URLSearchParams(location.search);
+
+let cortarno = null;
+
+for (const param of searchParams) {
+	cortarno = param[1];
+	console.log(cortarno)
+}
+
+$.ajax({
+	url: 'GWANGJU_DONGServer.do',
+	data : cortarno,
+	dataType: 'json',
+	success: (res) => {
+		console.log(res)
+	},
+	error: (e) => {
+		console.log(e)
+	}
+})
+
 // 2) 지도에 넣어줄 기본 옵션
 let options = {
 	// 위도, 경도
@@ -42,6 +64,26 @@ let content = "";
 
 let cnt = 0;
 
+function mapRS() {
+
+	$.ajax({
+		url: 'GJ_RSServer.do',
+		dataType: 'json',
+		success: (res) => {
+			console.log(res)
+		},
+		error: (e) => {
+			console.log(e)
+		}
+	})
+}
+
+
+
+
+
+
+
 // 전시관
 function mapEX() {
 
@@ -50,7 +92,7 @@ function mapEX() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 4
 
 			// 마커 이미지 지정
@@ -126,7 +168,7 @@ function mapCC() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 3
 
 			let imageSrc = 'assets/images/communityCenter_default.svg', // 마커이미지의 주소
@@ -143,7 +185,7 @@ function mapCC() {
 
 			// 오버레이 불러오는 함수
 			markerOverlay(res)
-			
+
 
 		},
 		error: (e) => {
@@ -194,7 +236,7 @@ function mapSM() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 1;
 
 			let imageSrc = 'assets/images/mart_default.svg', // 마커이미지의 주소
@@ -260,7 +302,7 @@ function mapPH() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 2;
 
 			let imageSrc = 'assets/images/pills_default.svg', // 마커이미지의 주소
@@ -293,7 +335,7 @@ function mapPS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 3
 
 			let imageSrc = 'assets/images/police_default.svg', // 마커이미지의 주소
@@ -326,7 +368,7 @@ function mapFS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 3
 
 			let imageSrc = 'assets/images/fire_default.svg', // 마커이미지의 주소
@@ -359,7 +401,7 @@ function mapCN() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 4
 
 
@@ -393,7 +435,7 @@ function mapMS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 4
 
 			let imageSrc = 'assets/images/musium_default.svg', // 마커이미지의 주소
@@ -426,7 +468,7 @@ function mapLB() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 4
 
 			let imageSrc = 'assets/images/library_default.svg', // 마커이미지의 주소
@@ -477,9 +519,10 @@ function clickTest(e) {
 		clickMenu = "";
 	} else {
 		removeMarker()
-		if(ctOverlay){
-		ctOverlay.setMap(null);}
-		
+		if (ctOverlay) {
+			ctOverlay.setMap(null);
+		}
+
 		if (e.target.innerText.trim() == '매물') {
 			mapRS();
 		}
@@ -549,19 +592,19 @@ function markerOverlay(res) {
 			cnt = 1;
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element
-			if(colorN == 1){
+			if (colorN == 1) {
 				content = '<div class="colorNo1"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if(colorN == 2){
+			else if (colorN == 2) {
 				content = '<div class="colorNo2"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if(colorN == 3){
+			else if (colorN == 3) {
 				content = '<div class="colorNo3"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if(colorN == 4){
+			else if (colorN == 4) {
 				content = '<div class="colorNo4"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			
+
 			// 커스텀 오버레이가 표시될 위치 
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
 
@@ -576,12 +619,12 @@ function markerOverlay(res) {
 			//			if(isClick) {return;}
 			markers[i].setImage(selectmarkerImage);
 			customOverlay.setMap(map);
-				
-//				if(ctOverlay != null){
-//					ctOverlay.setMap(null);
-//					markers[i].setImage(markerImage);
-//				}
-			
+
+			//				if(ctOverlay != null){
+			//					ctOverlay.setMap(null);
+			//					markers[i].setImage(markerImage);
+			//				}
+
 			console.log("마우스오버")
 
 		})
@@ -593,11 +636,11 @@ function markerOverlay(res) {
 				//				  	if(isClick) {return;}
 				customOverlay.setMap(null);
 
-				if(ctOverlay != null){
+				if (ctOverlay != null) {
 					ctOverlay.setMap(null);
 					markers[i].setImage(markerImage);
 				}
-			
+
 
 				markers[i].setImage(markerImage);
 				console.log("마우스아웃")
@@ -606,40 +649,40 @@ function markerOverlay(res) {
 
 
 		});
-		
+
 		kakao.maps.event.addListener(markers[i], 'click', function() {
-			
+
 			console.log(markers[i])
 			console.log("3")
-			
-				
+
+
 			if (markers[i].check == 1) {
 				ctOverlay.setMap(null);
-				test =0;
+				test = 0;
 				console.log("Test1")
 				markers[num].setImage(markerImage);
-				markers[i].check=0
+				markers[i].check = 0
 			}
-			
+
 			else {
-				
-				if(ctOverlay != null){
+
+				if (ctOverlay != null) {
 					ctOverlay.setMap(null);
 					markers[num].setImage(markerImage);
 				}
-				
-				markers[i].check=1
+
+				markers[i].check = 1
 				console.log("Test2")
 				customOverlay.setMap(map);
 				ctOverlay = customOverlay
-					
+
 				markers[i].setImage(selectmarkerImage);
 				console.log("i의마커이미지" + i)
 				num = i
 				cnt = 2;
-			
+
 			}
-		
+
 
 			// 맵을 클릭 시 이전 마커의 오버레이와 마커 하이라이트가 사라진다			
 			/*			kakao.maps.event.addListener(map, 'click', function () {
@@ -653,8 +696,8 @@ function markerOverlay(res) {
 			
 
 */
-			
-			});
+
+		});
 
 
 	}
@@ -736,7 +779,7 @@ function markerclickOverlay(res) {
 
 
 		})*/
-		
+
 	}
 }
 

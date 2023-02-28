@@ -13,27 +13,30 @@ import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
 import com.smhrd.command.Command;
-import com.smhrd.model.DAO.GJ_CC_DAO;
-import com.smhrd.model.VO.GJ_CC_VO;
+import com.smhrd.model.DAO.GWANGJU_DONG_DAO;
+import com.smhrd.model.VO.GWANGJU_DONG_VO;
 
-public class GJ_CCServer implements Command {
+public class GWANGJU_DONGServer implements Command{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+
 		// 한글 인코딩
 		response.setContentType("text/html;charset=UTF-8");
+		
+//		long request.getParameter("dong_code");
 
 		PrintWriter out;
 
 		Gson gson = new Gson();
 
 		// DAO 꺼내오기
-		GJ_CC_DAO dao = new GJ_CC_DAO();
+		GWANGJU_DONG_DAO dao = new GWANGJU_DONG_DAO();
 		// System.out.println("1");
 
 		// DAO가 가지고 있는 위치 호출
-		List<GJ_CC_VO> list = dao.selectGJ_CC();
-
+		List<GWANGJU_DONG_VO> list = dao.selectGWANGJU_DONG();
+		// System.out.println(list);
 		JSONObject JO = new JSONObject(); // json객체 생성
 
 		// JsonArray 생성
@@ -41,13 +44,12 @@ public class GJ_CCServer implements Command {
 
 		HashMap<String, Object> hsm = new HashMap<String, Object>();
 
-		for (GJ_CC_VO vo : list) {
+		for (GWANGJU_DONG_VO vo : list) {
 			hsm = new HashMap<String, Object>();
 
 			hsm.put("lat", vo.getLat());
 			hsm.put("lng", vo.getLng());
-			hsm.put("nm", vo.getNm());
-			hsm.put("addr", vo.getAddr());
+			hsm.put("dong", vo.getCortarNo());
 
 			JO = new JSONObject(hsm);
 			JA.add(JO);
@@ -60,7 +62,7 @@ public class GJ_CCServer implements Command {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return null;
+
 	}
 }

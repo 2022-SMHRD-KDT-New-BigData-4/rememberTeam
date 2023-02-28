@@ -26,7 +26,7 @@ public class GJ_RSServer implements Command {
 		PrintWriter out;
 
 		Gson gson = new Gson();
-		System.out.println("1");
+		// System.out.println("1");
 
 		// DAO 꺼내오기
 		GJ_RS_DAO dao = new GJ_RS_DAO();

@@ -262,6 +262,44 @@
 				<div id="map_layout">
 					<p>최고 검색량 출력 공간</p>
 					<div class="div_flex">
+					<!-- dropdown 시작 -->
+					<div class="dropdown">
+						  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    지역 검색
+						  </button>
+						  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						 
+						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
+						   		<label for="area4" class="drop-btn ms-0 mb-0">금남로4가</label>
+		
+						   		<input type="radio" name="area" id="area5" class="dropdown-item btn-check" data-nclk="FAS.dong">
+						   		<label for="area4" class="drop-btn ms-0 mb-0">남동</label>
+						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
+						   		<label for="area4" class="drop-btn ms-0 mb-0">덕남동</label>
+		
+						   		<input type="radio" name="area" id="area5" class="dropdown-item btn-check" data-nclk="FAS.dong">
+						   		<label for="area4" class="drop-btn ms-0 mb-0" >남동</label>
+						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
+						   		<label for="area4" class="drop-btn ms-0 mb-0">덕남동</label>
+		
+						   		<input type="radio" name="area" id="area5" class="dropdown-item btn-check" data-nclk="FAS.dong">
+						   		<label for="area4" class="drop-btn ms-0 mb-0">남동</label>
+						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
+						   		<label for="area4" class="drop-btn ms-0 mb-0">덕남동</label>
+		
+						   		<input type="radio" name="area" id="area5" class="dropdown-item btn-check" data-nclk="FAS.dong">
+						   		<label for="area4" class="drop-btn ms-0 mb-0">남동</label>
+						   
+						  </div>
+						</div> <!-- dropdown 끝 -->
+						
+						<!-- dropdown 테스트 -->
+						<script type="text/javascript">
+							$(".drop-btn").click(function(){
+								console.log($(this).text())
+							})
+						</script>
+						
 					 <select id="choice_gu" onchange="change_gu()" class="form-select mx-2" aria-label="Default select example">
   						<option selected align="center">구 선택</option>
   						<option value="광산구" align="center">광산구</option>
@@ -579,6 +617,9 @@
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="./assets/js/material-dashboard.min.js?v=3.0.4"></script>
 
+<!-- 부트스트랩 js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script>
 
 

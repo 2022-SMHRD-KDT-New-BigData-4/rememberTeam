@@ -26,6 +26,7 @@ public class SearchDong implements Command {
 		
 		String gu_name = request.getParameter("gu_name");
 		
+		System.out.println(gu_name);
 		
 		List<GWANGJU_DONG_VO> list = dao.SearchDong(gu_name);
 		

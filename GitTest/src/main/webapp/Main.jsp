@@ -282,7 +282,7 @@
 <!-- 오른쪽 인프라 컬럼 레이아웃 -->				
 				
 				
-				<div id="infra_div" class="z-index-2">
+				<div class="col-lg-3 z-index-2">
 					<div class="row mt-3">
 					
 				<!-- 오른쪽 인프라 컬럼 레이아웃 왼쪽 컬럼열  -->

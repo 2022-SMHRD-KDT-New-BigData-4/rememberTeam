@@ -43,7 +43,7 @@ let options = {
 	// 지도를 보여줄 때 중심좌표를 어디로 보여줄 것인지
 	center: new kakao.maps.LatLng(35.160106466779226, 126.85162995083103),
 	// 지도의 확대 레벨 -> 확대, 축소의 정도
-	level: 3
+	level: 5
 }
 
 // 3) 지도 생성
@@ -98,7 +98,7 @@ function displayArea(coordinates, name) {
 	kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
 		polygon.setOptions({
 			fillColor: '#8ac926',
-			fillOpacity: 0.2
+			fillOpacity: 0.4
 		})
 	});
 
@@ -879,6 +879,8 @@ function markerclickOverlay(res) {
 	}
 }
 
+
+
 // 매물
 function mapRS() {
 	$.ajax({
@@ -886,6 +888,40 @@ function mapRS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
+
+			// 마커 클러스터러를 생성합니다 
+			var clusterer = new kakao.maps.MarkerClusterer({
+				map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+				averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+				minLevel: 0, // 클러스터 할 최소 지도 레벨
+				disableClickZoom: true, // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+				minClusterSize : 1,
+				
+			});
+
+			// 마커들을 저장할 변수 생성(마커 클러스터러 관련)
+			var clustererMarkers = [];
+
+			for (var i = 0; i < res.length; i++) {
+				// 지도에 마커를 생성하고 표시한다.
+				// console.log(res[i].lat,res[i].lng)
+				var marker = new kakao.maps.Marker({
+					position: new kakao.maps.LatLng(res[i].lat, res[i].lng) // 마커의 좌표
+					//map: map // 마커를 표시할 지도 객체
+				});
+
+				// 생성된 마커를 마커 저장하는 변수에 넣음(마커 클러스터러 관련)
+				clustererMarkers.push(marker);
+
+			}
+
+
+
+			console.log(clustererMarkers.length)
+			// 클러스터러에 마커들을 추가합니다(마커 클러스터러 관련)
+			clusterer.addMarkers(clustererMarkers);
+
+
 
 		},
 		error: (e) => {

@@ -709,20 +709,22 @@ $(".borderClass").hover(function(){
 )
 
 // 구, 동 선택 select
-function change_gu(){
-	let choice_gu  = document.getElementById("choice_gu");
-	let gu = (choice_gu.options[choice_gu.selectedIndex].value);	
-	let gu_name = {gu_name : gu}
-    $.ajax({
+$(".dropdown_gu").click(function(){
+	let gu_name = {gu_name : $(this).attr('for')}
+	$("#dropdownMenuButton_gu").text($(this).attr('for'));
+	$.ajax({
     		url : 'SearchDong.do',
     		type : 'get',
     		data : gu_name,
     		dataType : 'json',
     		success : (res)=>{
+				if ($(".dropdown_dong") != null){
+					$(".dropdown_dong").remove()				
+				}
   				for (let i = 0; i<res.gu.length; i++){
 					let dong_code = res.gu[i].cortarNo
 					let dong_name = res.gu[i].dong
-					let dong_option = $('<input type="radio" name="area" id='+dong_code+' class="dropdown-item btn-check"><label for="'+dong_code+'" class="drop-btn ms-0 mb-0">'+dong_name+'</label>')
+					let dong_option = $('<input type="radio" name="area" id='+dong_code+' class="dropdown-item btn-check"><label for="'+dong_code+'" class="dropdown_dong drop-btn ms-0 mb-0">'+dong_name+'</label>')
             		$('#choice_dong').append(dong_option);
 				}
 			},
@@ -730,9 +732,11 @@ function change_gu(){
     		}
     		
     })
-}
+})
 
-$(document).on("click",".drop-btn",function(){
+
+$(document).on("click",".dropdown_dong",function(){
+	
 	let cortarNo = $(this).attr("for")
 	console.log(cortarNo)
 	location.href='Map.jsp?cortarNo='+cortarNo

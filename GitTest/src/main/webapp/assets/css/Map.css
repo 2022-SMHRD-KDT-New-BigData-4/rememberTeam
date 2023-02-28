@@ -242,11 +242,10 @@ td {
 	color: #fff;
 	background-color: #8ac926;
 	cursor: pointer;
-	
 }
 
 	/* 편의점, 대형마트 */
-#cs_btn:hover, #sm_btn:hover{
+#cs_btn:hover, #sm_btn:hover, .ctg:hover {
 	color: #fff;
 	background-color: #6a4c93;
 	cursor: pointer;

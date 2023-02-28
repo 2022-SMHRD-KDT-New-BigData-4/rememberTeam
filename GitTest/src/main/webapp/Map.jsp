@@ -422,7 +422,7 @@
             <div class="category">
             	<ul>
             		<li class="category_btn" data-order="10">
-		            	<button type="button" id="ex_btn" style="display: none" value="10" value="전시관" class="ctg">
+		            	<button type="button" id="ex_btn" style="display: none" value="전시관" class="ctg">
 		            		<i class="fa-solid fa-palette fa-lg"></i>
 		            		<br>
 		            		<span class="menu">전시관</span>
@@ -483,10 +483,10 @@
 	<script src="https://kit.fontawesome.com/4a8c96245b.js" crossorigin="anonymous"></script>
 	
 	<!-- services와 clusterer, drawing 라이브러리 불러오기 -->
-	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=services,clusterer,drawing"></script>
 	
 	<!-- 지도 가져오기 -->
-	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f4bb9f224f298dcd754083df04429703&libraries=services,clusterer,drawing"></script>
+	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f4bb9f224f298dcd754083df04429703"></script>
 	
 	<!-- 파일을 따로 분리했기때문에 임폴트 작업 필요 -->
 	<script src="assets/js/kakaoMap.js"></script>
@@ -506,6 +506,8 @@
 	$('#ms_btn').on('click', clickTest);
 	$('#ex_btn').on('click', clickTest);
 	$('#lb_btn').on('click', clickTest);
+	
+	// $('#lb_btn').on('click', clickTest); -> 호버에 대한 기능을 따로 추가
 
 
 				

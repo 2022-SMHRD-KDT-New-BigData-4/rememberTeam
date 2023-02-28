@@ -45,13 +45,6 @@
   						<option align="center" selected>동 선택</option>
 					</select>				
 				</div>
-        		<div>
-        			<button type="submit" id="search_enter">
-	        			<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
-	        			<br>
-            			<span>지도보기</span>
-        			</button>
-        		</div>
         	</form>
         </div>
     </div>

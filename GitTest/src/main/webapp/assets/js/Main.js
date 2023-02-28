@@ -727,6 +727,8 @@ $(".dropdown_gu").click(function(){
 					let dong_option = $('<input type="radio" name="area" id='+dong_code+' class="dropdown-item btn-check"><label for="'+dong_code+'" class="dropdown_dong drop-btn ms-0 mb-0">'+dong_name+'</label>')
             		$('#choice_dong').append(dong_option);
 				}
+				// 구 클릭후 동 불러오기 완료시 동버튼 활성화
+				$("#dropdownMenuButton_dong").removeAttr("disabled");
 			},
     		error : ()=>{
     		}

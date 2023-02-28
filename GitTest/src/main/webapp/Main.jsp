@@ -269,36 +269,11 @@
 						  </button>
 						  <div id = "choice_dong" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						 
-						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
-						   		<label for="area4" class="drop-btn ms-0 mb-0">금남로4가</label>
-		
-						   		<input type="radio" name="area" id="area5" class="dropdown-item btn-check" data-nclk="FAS.dong">
-						   		<label for="area4" class="drop-btn ms-0 mb-0">남동</label>
-						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
-						   		<label for="area4" class="drop-btn ms-0 mb-0">덕남동</label>
-		
-						   		<input type="radio" name="area" id="area5" class="dropdown-item btn-check" data-nclk="FAS.dong">
-						   		<label for="area4" class="drop-btn ms-0 mb-0" >남동</label>
-						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
-						   		<label for="area4" class="drop-btn ms-0 mb-0">덕남동</label>
-		
-						   		<input type="radio" name="area" id="area5" class="dropdown-item btn-check" data-nclk="FAS.dong">
-						   		<label for="area4" class="drop-btn ms-0 mb-0">남동</label>
-						   		<input type="radio" name="area" id="area4" class="dropdown-item btn-check" data-nclk="FAS.dong">
-						   		<label for="area4" class="drop-btn ms-0 mb-0">덕남동</label>
-		
-						   		<input type="radio" name="area" id="area5" class="dropdown-item btn-check" data-nclk="FAS.dong">
-						   		<label for="area4" class="drop-btn ms-0 mb-0">남동</label>
-						   
+						   		
 						  </div>
 						</div> <!-- dropdown 끝 -->
 						
-						<!-- dropdown 테스트 -->
-						<script type="text/javascript">
-							$(".drop-btn").click(function(){
-								console.log($(this).text())
-							})
-						</script>
+						
 						
 					 <select id="choice_gu" onchange="change_gu()" class="form-select mx-2" aria-label="Default select example">
   						<option selected align="center">구 선택</option>

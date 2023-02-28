@@ -732,4 +732,8 @@ function change_gu(){
     })
 }
 
+$(document).on("click",".drop-btn",function(){
+	console.log($(this).text())
+	console.log($(this).attr("for"))
+ })
 

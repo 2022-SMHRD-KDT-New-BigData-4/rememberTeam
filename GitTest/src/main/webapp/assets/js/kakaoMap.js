@@ -9,13 +9,13 @@ const searchParams = new URLSearchParams(location.search);
 let cortarno = null;
 
 for (const param of searchParams) {
-	cortarno = param[1];
+	cortarno = Number(param[1]);
 	console.log(cortarno)
 }
-
+let dong_code = {dong_code:cortarno}
 $.ajax({
 	url: 'GWANGJU_DONGServer.do',
-	data : cortarno,
+	data : dong_code,
 	dataType: 'json',
 	success: (res) => {
 		console.log(res)

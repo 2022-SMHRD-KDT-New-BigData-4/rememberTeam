@@ -12,7 +12,7 @@ public class GWANGJU_DONG_DAO {
 	
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getFactory();
 
-	public List<GWANGJU_DONG_VO> selectGWANGJU_DONG() {
+	public List<GWANGJU_DONG_VO> selectGWANGJU_DONG(long cortarno) {
 		List<GWANGJU_DONG_VO> result = null;
 		// 1. session 가져오기
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
@@ -21,7 +21,7 @@ public class GWANGJU_DONG_DAO {
 			// 2. session 사용하기(mapper파일에 있는 기능 사용)
 			// <> : 제네릭 기법
 			// 클래스 내부에서 사용 가능한 자료형을 외부에서 지정할 수 있는 기법
-			result = sqlSession.selectList("selectGWANGJU_DONG");
+			result = sqlSession.selectList("selectGWANGJU_DONG", cortarno);
 		} finally {
 			// 3. session 반납
 			sqlSession.close();

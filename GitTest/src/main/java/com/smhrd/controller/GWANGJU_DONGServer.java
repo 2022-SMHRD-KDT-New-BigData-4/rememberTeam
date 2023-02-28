@@ -24,7 +24,8 @@ public class GWANGJU_DONGServer implements Command{
 		// 한글 인코딩
 		response.setContentType("text/html;charset=UTF-8");
 		
-//		long request.getParameter("dong_code");
+		long cortarno = Long.parseLong(request.getParameter("dong_code"));
+		//System.out.println("cortarno"+cortarno);
 
 		PrintWriter out;
 
@@ -32,11 +33,11 @@ public class GWANGJU_DONGServer implements Command{
 
 		// DAO 꺼내오기
 		GWANGJU_DONG_DAO dao = new GWANGJU_DONG_DAO();
-		// System.out.println("1");
 
 		// DAO가 가지고 있는 위치 호출
-		List<GWANGJU_DONG_VO> list = dao.selectGWANGJU_DONG();
-		// System.out.println(list);
+		List<GWANGJU_DONG_VO> list = dao.selectGWANGJU_DONG(cortarno);
+		//System.out.println("list"+list);
+		
 		JSONObject JO = new JSONObject(); // json객체 생성
 
 		// JsonArray 생성
@@ -49,7 +50,6 @@ public class GWANGJU_DONGServer implements Command{
 
 			hsm.put("lat", vo.getLat());
 			hsm.put("lng", vo.getLng());
-			hsm.put("dong", vo.getCortarNo());
 
 			JO = new JSONObject(hsm);
 			JA.add(JO);

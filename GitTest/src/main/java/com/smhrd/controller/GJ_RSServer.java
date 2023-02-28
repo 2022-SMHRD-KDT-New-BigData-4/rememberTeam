@@ -26,10 +26,10 @@ public class GJ_RSServer implements Command {
 		PrintWriter out;
 
 		Gson gson = new Gson();
+		System.out.println("1");
 
 		// DAO 꺼내오기
 		GJ_RS_DAO dao = new GJ_RS_DAO();
-		// System.out.println("1");
 
 		// DAO가 가지고 있는 위치 호출
 		List<GJ_RS_VO> list = dao.selectGJ_RS();

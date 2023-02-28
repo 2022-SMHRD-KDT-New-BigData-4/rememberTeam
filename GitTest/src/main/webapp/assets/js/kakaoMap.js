@@ -18,18 +18,19 @@ for (const param of searchParams) {
 }
 
 
-let dong_code = {dong_code:cortarno}
+let dong_code = { dong_code: cortarno }
 
 // 동 검색에 따른 맵 센터 이동
 $.ajax({
 	url: 'GWANGJU_DONGServer.do',
-	data : dong_code,
+	data: dong_code,
 	dataType: 'json',
 	success: (res) => {
 		console.log(res)
 		dong_lng = res[0].lng
 		dong_lat = res[0].lat
 		map.setCenter(new kakao.maps.LatLng(dong_lat, dong_lng));
+		mapRS()
 	},
 	error: (e) => {
 		console.log(e)
@@ -52,78 +53,78 @@ let map = new kakao.maps.Map(container, options)
 
 //광주 행정구역 구분 폴리곤 생성
 $.getJSON("./assets/geojson/dong_line.geojson", function(geojson) {
- 
-    var data = geojson.features;
-    var coordinates = [];    //좌표 저장할 배열
-    var name = '';            //행정 구 이름
- 
-    $.each(data, function(index, val) {
- 
-        coordinates = val.geometry.coordinates;
-        name = val.properties.EMD_KOR_NM;
-        displayArea(coordinates, name);
- 
-    })
+
+	var data = geojson.features;
+	var coordinates = [];    //좌표 저장할 배열
+	var name = '';            //행정 구 이름
+
+	$.each(data, function(index, val) {
+
+		coordinates = val.geometry.coordinates;
+		name = val.properties.EMD_KOR_NM;
+		displayArea(coordinates, name);
+
+	})
 })
 
-var polygons=[];
+var polygons = [];
 
 function displayArea(coordinates, name) {
- 
-    var path = [];            //폴리곤 그려줄 path
-    var points = [];        //중심좌표 구하기 위한 지역구 좌표들
-    
-    $.each(coordinates[0][0], function(index, coordinate) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
-        var point = new Object(); 
-        point.x = coordinate[1];
-        point.y = coordinate[0];
-        points.push(point);
-        path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));            //new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
-    })
-    
-    // 다각형을 생성합니다
-    var polygon = new kakao.maps.Polygon({
-        map : map, // 다각형을 표시할 지도 객체
-        path : path,
-        strokeWeight : 2,
-        strokeColor : '#7bb422',
-        strokeOpacity : 1,
-        fillColor : '#fff',
-        fillOpacity : 0.2
-    });
-    
-    // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
-    // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
-    kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
-    		polygon.setOptions({
-                fillColor : '#8ac926',
-               	fillOpacity : 0.2
-             })
-    });
- 
-    // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
-    kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
-        //customOverlay.setPosition(mouseEvent.latLng);
+
+	var path = [];            //폴리곤 그려줄 path
+	var points = [];        //중심좌표 구하기 위한 지역구 좌표들
+
+	$.each(coordinates[0][0], function(index, coordinate) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
+		var point = new Object();
+		point.x = coordinate[1];
+		point.y = coordinate[0];
+		points.push(point);
+		path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));            //new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
+	})
+
+	// 다각형을 생성합니다
+	var polygon = new kakao.maps.Polygon({
+		map: map, // 다각형을 표시할 지도 객체
+		path: path,
+		strokeWeight: 2,
+		strokeColor: '#7bb422',
+		strokeOpacity: 1,
+		fillColor: '#fff',
+		fillOpacity: 0.2
 	});
- 
-    // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
-    // 커스텀 오버레이를 지도에서 제거합니다 
-    kakao.maps.event.addListener(polygon, 'mouseout', function() {
-        polygon.setOptions({
-            fillColor : '#fff',
-            fillOpacity : 0.5
-        });
-   
-    });
-    
-    kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+
+	// 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
+	// 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
+	kakao.maps.event.addListener(polygon, 'mouseover', function(mouseEvent) {
+		polygon.setOptions({
+			fillColor: '#8ac926',
+			fillOpacity: 0.2
+		})
+	});
+
+	// 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
+	kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent) {
+		//customOverlay.setPosition(mouseEvent.latLng);
+	});
+
+	// 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
+	// 커스텀 오버레이를 지도에서 제거합니다 
+	kakao.maps.event.addListener(polygon, 'mouseout', function() {
+		polygon.setOptions({
+			fillColor: '#fff',
+			fillOpacity: 0.5
+		});
+
+	});
+
+	kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
 		let click_latlng = mouseEvent.latLng;
 		map.setCenter(new kakao.maps.LatLng(click_latlng.getLat(), click_latlng.getLng()));
 		level = map.getLevel();
 		console.log(level)
 		map.setLevel(4);
-    });
-} 
+	});
+}
 
 
 
@@ -878,9 +879,20 @@ function markerclickOverlay(res) {
 	}
 }
 
-function mapRS(){
-	
-	
-	
+// 매물
+function mapRS() {
+	$.ajax({
+		url: 'GJ_RSServer.do',
+		dataType: 'json',
+		success: (res) => {
+			console.log(res)
+
+		},
+		error: (e) => {
+			console.log(e)
+		}
+	})
+
+
 }
 

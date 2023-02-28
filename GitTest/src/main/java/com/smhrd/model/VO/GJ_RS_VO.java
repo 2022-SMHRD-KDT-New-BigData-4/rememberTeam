@@ -33,6 +33,9 @@ public class GJ_RS_VO {
 	private String rs_img;
 	private String rs_keyword;
 	
+	public GJ_RS_VO() {
+		
+	}
 	public GJ_RS_VO(int rs_num, String rs_type, String rs_nm, String rs_addr, double lat, double lng, String rs_cr,
 			String rs_pr, String rs_dr, int ct_area, int ex_area, String ml_yn, int m_cost, String cost_incs,
 			String rs_md, String rs_park_yn, int rs_tp, String rs_room, String rs_bath, String rs_fl, int rs_nh,

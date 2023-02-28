@@ -50,6 +50,10 @@
 		select * from gj_ps
 	</select>
 	
+	<select id="selectGJ_RS" resultType="com.smhrd.model.VO.GJ_RS_VO">
+		select * from gj_rs
+	</select>
+	
 	<select id="selectGJ_SM" resultType="com.smhrd.model.VO.GJ_SM_VO">
 		select * from gj_sm
 	</select>

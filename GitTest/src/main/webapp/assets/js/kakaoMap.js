@@ -533,57 +533,179 @@ function clickTest(e) {
 		else if (e.currentTarget.value == '편의점') {
 			mapCS();
 			click_cs(e.currentTarget);
-			cs_color_cnt = 0;
+			cs_color_cnt = 1;
+			// 다시 초기화
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '대형마트') {
 			mapSM();
 			click_sm(e.currentTarget);
-			sm_color_cnt = 0;
+			sm_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '병원') {
 			mapHS();
 			click_hs(e.currentTarget);
-			hs_color_cnt = 0;
+			hs_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '약국') {
 			mapPH();
 			click_ph(e.currentTarget);
-			ph_color_cnt = 0;
+			ph_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '경찰서') {
 			mapPS();
 			click_ps(e.currentTarget);
-			ps_color_cnt = 0;
+			ps_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '소방서') {
 			mapFS();
 			click_fs(e.currentTarget);
-			fs_color_cnt = 0;
+			fs_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '자치센터') {
 			mapCC();
 			click_cc(e.currentTarget);
-			cc_color_cnt = 0;
+			cc_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '영화관') {
 			mapCN();
 			click_cn(e.currentTarget);
-			cn_color_cnt = 0;
+			cn_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '박물관') {
 			mapMS();
 			click_ms(e.currentTarget);
-			ms_color_cnt = 0;
+			ms_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '전시관') {
 			mapEX();
 			click_ex(e.currentTarget);
-			ex_color_cnt = 0;
+			ex_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
 		else if (e.currentTarget.value == '도서관') {
 			mapLB();
 			click_lb(e.currentTarget);
-			lb_color_cnt = 0;
+			lb_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
 		}
 	
 		clickMenu = e.currentTarget.value;

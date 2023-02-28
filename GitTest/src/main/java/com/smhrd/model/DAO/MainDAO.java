@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.smhrd.database.SqlSessionManager;
+import com.smhrd.model.VO.GWANGJU_DONG_VO;
 import com.smhrd.model.VO.MainVO;
 
 
@@ -154,9 +155,9 @@ public class MainDAO {
 		}
 		
 		// 동 검색 select 옵션 추가
-		public List<String> SearchDong(String gu_name) {
+		public List<GWANGJU_DONG_VO> SearchDong(String gu_name) {
 			
-			List<String> list = null;
+			List<GWANGJU_DONG_VO> list = null;
 			SqlSession sqlSession = sqlSessionFactory.openSession(true);
 			
 			try {

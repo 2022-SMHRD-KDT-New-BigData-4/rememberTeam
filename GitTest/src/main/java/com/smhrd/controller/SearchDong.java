@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.smhrd.command.Command;
 import com.smhrd.model.DAO.MainDAO;
+import com.smhrd.model.VO.GWANGJU_DONG_VO;
 
 public class SearchDong implements Command {
 
@@ -25,11 +26,10 @@ public class SearchDong implements Command {
 		
 		String gu_name = request.getParameter("gu_name");
 		
-		System.out.println("셀렉트 : "+gu_name);
 		
-		List<String> list = dao.SearchDong(gu_name);
+		List<GWANGJU_DONG_VO> list = dao.SearchDong(gu_name);
 		
-		temp.put("gu_name", list);
+		temp.put("gu", list);
 		
 		String json = gson.toJson(temp);
 		

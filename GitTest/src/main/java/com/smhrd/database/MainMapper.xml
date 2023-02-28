@@ -77,8 +77,8 @@
 	</select>
 	
 	<!-- 동 검색 select 옵션 추가 -->
-	<select id="SearchDong" parameterType="String" resultType="String">
-		SELECT DONG
+	<select id="SearchDong" parameterType="String" resultType="com.smhrd.model.VO.GWANGJU_DONG_VO">
+		SELECT CORTARNO, DONG
 		  FROM GWANGJU_DONG
 		 WHERE ADDR = #{gu_name}
 		 ORDER BY DONG

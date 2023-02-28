@@ -719,12 +719,10 @@ function change_gu(){
     		data : gu_name,
     		dataType : 'json',
     		success : (res)=>{
-  				for (let i = 0; i<res.gu_name.length; i++){
-					let value = res.gu_name[i]
-					let dong_option = $("<option value=Map.jsp?dong_name=" + value + ">"+value+"</a></option>");
+  				for (let i = 0; i<res.gu.length; i++){
+					let dong_option = $("<option value=Map.jsp?cortarNo=" + res.gu[i].cortarNo + ">"+res.gu[i].dong+"</a></option>");
             		$('#choice_dong').append(dong_option);
 				}
-				
 			},
     		error : ()=>{
     		}

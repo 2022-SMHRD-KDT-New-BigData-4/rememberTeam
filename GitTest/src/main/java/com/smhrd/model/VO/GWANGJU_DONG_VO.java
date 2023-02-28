@@ -15,7 +15,11 @@ public class GWANGJU_DONG_VO {
 		this.lng = lng;
 		this.gu = gu;
 	}
-
+	public GWANGJU_DONG_VO(long cortarNo, String dong) {
+		this.cortarNo = cortarNo;
+		this.dong = dong;
+	}
+	
 	public long getCortarNo() {
 		return cortarNo;
 	}

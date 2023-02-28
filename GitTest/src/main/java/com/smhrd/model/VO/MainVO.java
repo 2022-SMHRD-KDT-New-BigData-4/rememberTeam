@@ -12,6 +12,7 @@ public class MainVO {
 		this.gu_name = gu_name;
 		this.table = table;
 	}
+
 	
 	public MainVO(double lat, double lng) {
 		this.lat = lat;

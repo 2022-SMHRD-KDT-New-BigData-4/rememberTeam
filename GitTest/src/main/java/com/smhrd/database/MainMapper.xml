@@ -84,4 +84,11 @@
 		 ORDER BY DONG
 	</select>
 	
+	<!-- 메인 맵 클릭 시 구 cortarNo 가져오기 -->
+	<select id ="MainMapClick" parameterType="String" resultType="long">
+		SELECT CORTARNO
+		  FROM GWANGJU_GU
+		 WHERE GU = #{name}
+	</select>
+	
 </mapper>

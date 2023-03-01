@@ -28,6 +28,7 @@ public class FrontController extends HttpServlet {
 		map.put("RSCnt.do", new RSCnt());
 		map.put("MainMarker.do", new MainMarker());
 		map.put("SearchDong.do", new SearchDong());
+		map.put("MainMapClick.do", new MainMapClick());
 		map.put("GJ_CCServer.do", new GJ_CCServer());
 		map.put("GJ_CNServer.do", new GJ_CNServer());
 		map.put("GJ_CSServer.do", new GJ_CSServer());

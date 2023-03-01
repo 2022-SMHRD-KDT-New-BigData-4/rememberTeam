@@ -274,14 +274,20 @@ function displayArea(coordinates, name) {
     });
     
     kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-        var content = '<div class="info">' + 
-                    '   <div class="title">' + name + '</div>' +
-                    '   <div class="size">총 면적 : 약 ' + Math.floor(polygon.getArea()) + ' m<sup>2</sup></div>' +
-                    '</div>';
-
-        infowindow.setContent(content); 
-        infowindow.setPosition(mouseEvent.latLng); 
-        infowindow.setMap(map);
+		let MainMapClick = {name : name}
+		$.ajax({
+			url : 'MainMapClick.do',
+			type : 'get', 
+			data : MainMapClick,
+			dataType : 'json',
+			success : (res)=>{
+				location.href="Map.jsp?cortarNo="+res
+				
+			},
+			error : ()=>{
+				
+			}
+		})
     });
  
 }
@@ -649,12 +655,23 @@ let markers = [];
 let isMarker = false;
 let ex_id = "";
 
+
+var clusterer = new kakao.maps.MarkerClusterer({
+      				map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
+        			averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
+        			minLevel: 9, // 클러스터 할 최소 지도 레벨
+        			disableClickZoom : true  
+        			});
+     			
 $(".borderClass").click(function(){
 	let id = $(this).attr("id")
 	if (ex_id != id){
 		clear_marker();
+		clusterer.removeMarkers(markers);
+		clusterer.clear();
 	}
 	let data_marker = {table:id};
+	
 	if (isMarker == false) {
 		$.ajax({
 			url : 'MainMarker.do',
@@ -662,6 +679,8 @@ $(".borderClass").click(function(){
 			data : data_marker,
 			dataType : 'json',
 			success : (res)=>{
+				
+				
 				for (var i = 0; i<res.column.length; i++) {
 					var lat = res.column[i].lat;
 					var lng = res.column[i].lng;
@@ -670,8 +689,9 @@ $(".borderClass").click(function(){
 		    			position: markerPosition
 					});
 					markers.push(marker);
-					marker.setMap(map);
 				}
+				clusterer.addMarkers(markers);
+
 				ex_id = id;
 				isMarker = true;
 			},
@@ -680,8 +700,12 @@ $(".borderClass").click(function(){
 	}) 
 	} else {
 		clear_marker();
+		clusterer.removeMarkers(markers);
+		clusterer.clear();
 	}
 })
+
+
 
 function clear_marker(){
 	for (var i = 0; i<markers.length; i++){
@@ -690,10 +714,12 @@ function clear_marker(){
 	isMarker = false;
 }
 
+
 // 컬럼 바깥쪽 아무 영역이나 클릭하면 마커를 지우기
 
 $("body").not('.borderClass').click(()=>{
 	clear_marker();
+	clusterer.clear();
 })
 
 

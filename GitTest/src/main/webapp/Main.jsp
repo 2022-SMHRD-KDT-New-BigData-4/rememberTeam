@@ -281,7 +281,6 @@
 					</div>
 					<div class="card-body p-2">
 					
-					<!-- 카드 -->
 					<div class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-warning shadow-success text-center border-radius-xl mt-n4 position-absolute">
@@ -298,7 +297,6 @@
 								<hr class="horizontal my-0 dark">
 
 							</div>
-					<!--  카드끝 -->
 					
 					
 						
@@ -316,7 +314,7 @@
 					<div class="div_flex">
 					<!-- dropdown 시작 -->
 					<div class="dropdown-center">
-						 <button class="btn btn-success dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						 <button class="btn btn-success dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    구 검색
 						 </button>
 						 <div id = "choice_gu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -334,7 +332,7 @@
 						</div>
 						
 					<div class="dropdown-center">
-						 <button disabled class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						 <button disabled class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    동 검색
 						 </button>
 						  <div id = "choice_dong" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -344,7 +342,9 @@
 					<!-- dropdown 끝 -->
 					
 					</div>
-					<div id="map" style="width:680px;height:565px;">
+					<div class="card-header p-3 pt-2">
+						<div id="map" style="width:680px;height:565px;">
+						</div>
 					</div>
 				</div>
 				
@@ -579,7 +579,7 @@
 						<div class="col-lg-6 mb-lg-0 mb-4">
 							<div
 								class="copyright text-center text-sm text-muted text-lg-start">
-								©
+							
 								<script>
             document.write(new Date().getFullYear())
           </script>
@@ -624,7 +624,7 @@
 	<script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
 	<script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
 	<!-- 가운데 카카오 지도 불러오기 -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=311c2d3dcf5815fdf2481d7ae57fc8cb"></script>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=311c2d3dcf5815fdf2481d7ae57fc8cb&libraries=clusterer"></script>
 	<script src="./assets/js/Main.js"></script>
 
 

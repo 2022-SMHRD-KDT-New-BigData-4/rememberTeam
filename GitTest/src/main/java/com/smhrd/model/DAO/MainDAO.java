@@ -170,4 +170,18 @@ public class MainDAO {
 			
 			
 		}
+		
+		// 메인 맵 지도 클릭 시 구 번호를 가지고 오기
+		public long MainMapClick(String name) {
+			
+			long result = 0;
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			try {
+				result = sqlSession.selectOne("MainMapClick", name); 
+			} finally {
+				sqlSession.close();
+			}
+			
+			return result;
+		}
 }

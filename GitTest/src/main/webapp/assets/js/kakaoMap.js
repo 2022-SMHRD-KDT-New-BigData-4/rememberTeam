@@ -43,7 +43,7 @@ let options = {
 	// 지도를 보여줄 때 중심좌표를 어디로 보여줄 것인지
 	center: new kakao.maps.LatLng(35.160106466779226, 126.85162995083103),
 	// 지도의 확대 레벨 -> 확대, 축소의 정도
-	level: 3
+	level: 5
 }
 
 
@@ -185,7 +185,7 @@ function mapEX() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 4
 
 			// 마커 이미지 지정
@@ -261,7 +261,7 @@ function mapCC() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 3
 
 			let imageSrc = 'assets/images/communityCenter_default.svg', // 마커이미지의 주소
@@ -298,7 +298,7 @@ function mapCS() {
 
 			// 오버레이 바꾸기위한 조건
 			colorN = 1;
-		
+
 			let imageSrc = 'assets/images/store_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/store_click.svg', // 활성화 됐을때 이미지
 				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
@@ -329,7 +329,7 @@ function mapSM() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 1;
 
 			let imageSrc = 'assets/images/mart_default.svg', // 마커이미지의 주소
@@ -395,7 +395,7 @@ function mapPH() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 2;
 
 			let imageSrc = 'assets/images/pills_default.svg', // 마커이미지의 주소
@@ -428,7 +428,7 @@ function mapPS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 3
 
 			let imageSrc = 'assets/images/police_default.svg', // 마커이미지의 주소
@@ -461,7 +461,7 @@ function mapFS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 3
 
 			let imageSrc = 'assets/images/fire_default.svg', // 마커이미지의 주소
@@ -494,7 +494,7 @@ function mapCN() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 4
 
 
@@ -528,7 +528,7 @@ function mapMS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 4
 
 			let imageSrc = 'assets/images/musium_default.svg', // 마커이미지의 주소
@@ -561,7 +561,7 @@ function mapLB() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-			
+
 			colorN = 4
 
 			let imageSrc = 'assets/images/library_default.svg', // 마커이미지의 주소
@@ -605,25 +605,25 @@ function removeMarker() {
 let clickMenu = "";
 
 function clickTest(e) {
-	
+
 	// console.log(e.target.innerText.trim())
 	//e.target.innerText = e.target.innerText.replace(" ","")
 	// console.log(e)
 	// console.log(e.currentTarget.value)
-	
+
 	if (e.currentTarget.value == clickMenu) {
 		removeMarker()
 		clickMenu = "";
-		
+
 		// -> 여기는 마커는 지워주고 색상은 변경함
-		if(e.currentTarget.value == '매물'){
-			
+		if (e.currentTarget.value == '매물') {
+
 		}
 		else if (e.currentTarget.value == '편의점') {
 			click_cs(e.currentTarget);
-			
+
 		}
-		else if (e.currentTarget.value == '대형마트') {			
+		else if (e.currentTarget.value == '대형마트') {
 			click_sm(e.currentTarget);
 		}
 		else if (e.currentTarget.value == '병원') {
@@ -653,15 +653,15 @@ function clickTest(e) {
 		else if (e.currentTarget.value == '도서관') {
 			click_lb(e.currentTarget);
 		}
-	
-	// -> 여기는 마커도 생성하고 색상도 변경함	
+
+		// -> 여기는 마커도 생성하고 색상도 변경함	
 	} else {
 		console.log(e.currentTarget.value)
 		removeMarker()
-		if(ctOverlay){
-		ctOverlay.setMap(null);
+		if (ctOverlay) {
+			ctOverlay.setMap(null);
 		}
-		
+
 		if (e.currentTarget.value == '매물') {
 			mapRS();
 		}
@@ -842,9 +842,9 @@ function clickTest(e) {
 			ms_color_cnt = 0;	// -> 박물관
 			ex_color_cnt = 0;	// -> 전시관
 		}
-	
+
 		clickMenu = e.currentTarget.value;
-		
+
 	}
 }
 
@@ -877,19 +877,19 @@ function markerOverlay(res) {
 			cnt = 1;
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element
-			if(colorN == 1){
+			if (colorN == 1) {
 				content = '<div class="colorNo1"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if(colorN == 2){
+			else if (colorN == 2) {
 				content = '<div class="colorNo2"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if(colorN == 3){
+			else if (colorN == 3) {
 				content = '<div class="colorNo3"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if(colorN == 4){
+			else if (colorN == 4) {
 				content = '<div class="colorNo4"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			
+
 			// 커스텀 오버레이가 표시될 위치 
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
 
@@ -904,12 +904,12 @@ function markerOverlay(res) {
 			//			if(isClick) {return;}
 			markers[i].setImage(selectmarkerImage);
 			customOverlay.setMap(map);
-				
-//				if(ctOverlay != null){
-//					ctOverlay.setMap(null);
-//					markers[i].setImage(markerImage);
-//				}
-			
+
+			//				if(ctOverlay != null){
+			//					ctOverlay.setMap(null);
+			//					markers[i].setImage(markerImage);
+			//				}
+
 			console.log("마우스오버")
 
 		})
@@ -934,24 +934,24 @@ function markerOverlay(res) {
 
 
 		});
-		
+
 		kakao.maps.event.addListener(markers[i], 'click', function() {
-			
+
 			console.log(markers[i])
 			console.log("3")
-			
-				
+
+
 			if (markers[i].check == 1) {
 				ctOverlay.setMap(null);
-				test =0;
+				test = 0;
 				console.log("Test1")
 				markers[num].setImage(markerImage);
-				markers[i].check=0
+				markers[i].check = 0
 			}
-			
+
 			else {
-				
-				if(ctOverlay != null){
+
+				if (ctOverlay != null) {
 					ctOverlay.setMap(null);
 					markers[num].setImage(markerImage);
 				}
@@ -960,7 +960,7 @@ function markerOverlay(res) {
 				console.log("Test2")
 				customOverlay.setMap(map);
 				ctOverlay = customOverlay
-					
+
 				markers[i].setImage(selectmarkerImage);
 				console.log("i의마커이미지" + i)
 				num = i
@@ -1003,8 +1003,24 @@ function mapRS() {
 				averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
 				minLevel: 0, // 클러스터 할 최소 지도 레벨
 				disableClickZoom: true, // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
-				minClusterSize : 1,
-				
+				minClusterSize: 1,
+				gridSize: 100,
+				styles: [{
+					minWidth: '30px',
+					height: '30px',
+					padding: '0px 6px',
+					color: 'rgb(122,122,122)',
+					fontSize: '15px',
+					lineHeight: '26px',
+					textAlign: 'center',
+					border: '2px solid rgb(122,122,122)',
+					borderRadius: '30px',
+					backgroundColor: 'rgba(255, 255, 255, 0.8)',
+					whiteSpace: 'nowrap',
+					position: 'relative',
+					zIndex: '2'
+				}]
+
 			});
 
 			// 마커들을 저장할 변수 생성(마커 클러스터러 관련)
@@ -1028,6 +1044,29 @@ function mapRS() {
 			console.log(clustererMarkers.length)
 			// 클러스터러에 마커들을 추가합니다(마커 클러스터러 관련)
 			clusterer.addMarkers(clustererMarkers);
+			
+			let bf_overlay = ""
+
+			kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
+				
+				// 클러스터러 커스텀 오버레이를 가져옵니다.
+				const overlay = cluster.getClusterMarker().getContent();
+				
+								// 이전 클릭한 클러스터러 초기화
+				if(bf_overlay){
+					bf_overlay.style.backgroundColor = "rgba(255, 255, 255, 0.8)"
+					bf_overlay.style.color = "rgb(122, 122, 122)"
+				}
+				
+				// 클러스터러 스타일 출력
+				// console.log(overlay.style);
+				
+				// 클릭한 클러스터러 스타일 적용
+				overlay.style.backgroundColor = "rgba(122, 122, 122, 0.8)"
+				overlay.style.color = "rgb(255, 255, 255)"
+				
+				bf_overlay = overlay
+			});
 
 
 

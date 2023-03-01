@@ -1100,8 +1100,9 @@ function mapRS() {
 				// console.log(res[i].lat,res[i].lng)
 				
 				var marker = new kakao.maps.Marker({
-					position: positions[i].latlng // positions에 저장된 위경도 가져오기
+					position: positions[i].latlng, // positions에 저장된 위경도 가져오기
 					//map: map // 마커를 표시할 지도 객체
+					title : positions[i].num
 				});
 				let pos = positions[i]
 				// 해당 마커에 대한 정보 뽑아오기위한 매핑
@@ -1111,10 +1112,11 @@ function mapRS() {
 				clustererMarkers.push(marker);
 
 			}
+			// console.log(positions[0].latlng)
 			// console.log(mappingData[3208].marker);
 			// console.log()
 
-			console.log(clustererMarkers.length)
+			// console.log(clustererMarkers.length)
 			// 클러스터러에 마커들을 추가합니다(마커 클러스터러 관련)
 			clusterer.addMarkers(clustererMarkers);
 
@@ -1142,10 +1144,16 @@ function mapRS() {
 
 				bf_overlay = overlay
 				
-				console.log(positions)
+				// console.log(positions)
 				// 클러스터에 포함된 마커들을 배열로 반환
 				console.log(cluster.getMarkers());
-
+				console.log(cluster.getMarkers().length);
+				
+				for(let i = 0; i < cluster.getMarkers().length; i++){
+					console.log(Number(cluster.getMarkers()[i].Gb));
+					console.log(mappingData[Number(cluster.getMarkers()[i].Gb)]);
+				}
+				
 			});
 
 

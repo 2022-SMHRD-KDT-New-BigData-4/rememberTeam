@@ -485,9 +485,6 @@
 	<!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=311c2d3dcf5815fdf2481d7ae57fc8cb&libraries=services,clusterer,drawing"></script>
 	
-	<!-- 지도 가져오기 -->
-	<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f4bb9f224f298dcd754083df04429703"></script>
-	
 	<!-- 파일을 따로 분리했기때문에 임폴트 작업 필요 -->
 	<script src="assets/js/kakaoMap.js"></script>
 		

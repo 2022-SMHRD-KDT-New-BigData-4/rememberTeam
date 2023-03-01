@@ -314,7 +314,7 @@
 					<div class="div_flex">
 					<!-- dropdown 시작 -->
 					<div class="dropdown-center">
-						 <button class="btn btn-success dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						 <button class="btn btn-outline-success btn:hover dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    구 검색
 						 </button>
 						 <div id = "choice_gu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -332,7 +332,7 @@
 						</div>
 						
 					<div class="dropdown-center">
-						 <button disabled class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						 <button disabled class="btn btn-outline-success btn:hover dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    동 검색
 						 </button>
 						  <div id = "choice_dong" class="dropdown-menu" aria-labelledby="dropdownMenuButton">

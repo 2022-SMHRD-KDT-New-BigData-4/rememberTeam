@@ -3,53 +3,23 @@
 // 1) 지도를 담을 영역을 가져오자
 let container = document.getElementById('map')
 
-// main에서 받아온 쿼리 스트링 꺼내오기
-const searchParams = new URLSearchParams(location.search);
-
-let cortarno = null;
-let dong_lng = null;
-let dong_lat = null;
-let center = "";
-let level = null;
-
-for (const param of searchParams) {
-	cortarno = Number(param[1]);
-	console.log(cortarno)
-}
-
-
-let dong_code = { dong_code: cortarno }
-
-// 동 검색에 따른 맵 센터 이동
-$.ajax({
-	url: 'GWANGJU_DONGServer.do',
-	data: dong_code,
-	dataType: 'json',
-	success: (res) => {
-		console.log(res)
-		dong_lng = res[0].lng
-		dong_lat = res[0].lat
-		map.setCenter(new kakao.maps.LatLng(dong_lat, dong_lng));
-		mapRS()
-	},
-	error: (e) => {
-		console.log(e)
-	}
-})
-
 // 2) 지도에 넣어줄 기본 옵션
 let options = {
 	// 위도, 경도
 	// 지도를 보여줄 때 중심좌표를 어디로 보여줄 것인지
 	center: new kakao.maps.LatLng(35.160106466779226, 126.85162995083103),
 	// 지도의 확대 레벨 -> 확대, 축소의 정도
-	level: 5
+	level: 3
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-BigData-4/rememberTeam
 // 3) 지도 생성
 let map = new kakao.maps.Map(container, options)
 
+<<<<<<< HEAD
 
 //광주 행정구역 구분 폴리곤 생성
 $.getJSON("./assets/geojson/dong_line.geojson", function(geojson) {
@@ -128,6 +98,8 @@ function displayArea(coordinates, name) {
 
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-BigData-4/rememberTeam
 // 내가 현재 보고있는 좌표를 중심으로 행동			
 let moveLatLon = new kakao.maps.LatLng(map.getCenter().Ma, map.getCenter().La);
 
@@ -155,26 +127,6 @@ let content = "";
 
 let cnt = 0;
 
-function mapRS() {
-
-	$.ajax({
-		url: 'GJ_RSServer.do',
-		dataType: 'json',
-		success: (res) => {
-			console.log(res)
-		},
-		error: (e) => {
-			console.log(e)
-		}
-	})
-}
-
-
-
-
-
-
-
 // 전시관
 function mapEX() {
 
@@ -183,7 +135,7 @@ function mapEX() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 4
 
 			// 마커 이미지 지정
@@ -259,7 +211,7 @@ function mapCC() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 3
 
 			let imageSrc = 'assets/images/communityCenter_default.svg', // 마커이미지의 주소
@@ -276,7 +228,7 @@ function mapCC() {
 
 			// 오버레이 불러오는 함수
 			markerOverlay(res)
-
+			
 
 		},
 		error: (e) => {
@@ -296,7 +248,7 @@ function mapCS() {
 
 			// 오버레이 바꾸기위한 조건
 			colorN = 1;
-
+		
 			let imageSrc = 'assets/images/store_default.svg', // 마커이미지의 주소
 				selectimageSrc = 'assets/images/store_click.svg', // 활성화 됐을때 이미지
 				imageSize = new kakao.maps.Size(30, 30), // 마커이미지의 크기
@@ -327,7 +279,7 @@ function mapSM() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 1;
 
 			let imageSrc = 'assets/images/mart_default.svg', // 마커이미지의 주소
@@ -393,7 +345,7 @@ function mapPH() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 2;
 
 			let imageSrc = 'assets/images/pills_default.svg', // 마커이미지의 주소
@@ -426,7 +378,7 @@ function mapPS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 3
 
 			let imageSrc = 'assets/images/police_default.svg', // 마커이미지의 주소
@@ -459,7 +411,7 @@ function mapFS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 3
 
 			let imageSrc = 'assets/images/fire_default.svg', // 마커이미지의 주소
@@ -492,7 +444,7 @@ function mapCN() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 4
 
 
@@ -526,7 +478,7 @@ function mapMS() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 4
 
 			let imageSrc = 'assets/images/musium_default.svg', // 마커이미지의 주소
@@ -559,7 +511,7 @@ function mapLB() {
 		dataType: 'json',
 		success: (res) => {
 			console.log(res)
-
+			
 			colorN = 4
 
 			let imageSrc = 'assets/images/library_default.svg', // 마커이미지의 주소
@@ -603,57 +555,249 @@ function removeMarker() {
 let clickMenu = "";
 
 function clickTest(e) {
-
-	console.log(e.target.innerText.trim())
-	if (e.target.innerText.trim() == clickMenu) {
+	
+	// console.log(e.target.innerText.trim())
+	//e.target.innerText = e.target.innerText.replace(" ","")
+	// console.log(e)
+	// console.log(e.currentTarget.value)
+	
+	if (e.currentTarget.value == clickMenu) {
 		removeMarker()
 		clickMenu = "";
-	} else {
-		removeMarker()
-		if (ctOverlay) {
-			ctOverlay.setMap(null);
+		
+		// -> 여기는 마커는 지워주고 색상은 변경함
+		if(e.currentTarget.value == '매물'){
+			
 		}
-
-		if (e.target.innerText.trim() == '매물') {
+		else if (e.currentTarget.value == '편의점') {
+			click_cs(e.currentTarget);
+			
+		}
+		else if (e.currentTarget.value == '대형마트') {			
+			click_sm(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '병원') {
+			click_hs(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '약국') {
+			click_ph(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '경찰서') {
+			click_ps(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '소방서') {
+			click_fs(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '자치센터') {
+			click_cc(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '영화관') {
+			click_cn(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '박물관') {
+			click_ms(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '전시관') {
+			click_ex(e.currentTarget);
+		}
+		else if (e.currentTarget.value == '도서관') {
+			click_lb(e.currentTarget);
+		}
+	
+	// -> 여기는 마커도 생성하고 색상도 변경함	
+	} else {
+		console.log(e.currentTarget.value)
+		removeMarker()
+		if(ctOverlay){
+		ctOverlay.setMap(null);
+		}
+		
+		if (e.currentTarget.value == '매물') {
 			mapRS();
 		}
-		else if (e.target.innerText.trim() == '편의점') {
+		else if (e.currentTarget.value == '편의점') {
 			mapCS();
+			click_cs(e.currentTarget);
+			cs_color_cnt = 1;
+			// 다시 초기화
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '대형마트') {
+		else if (e.currentTarget.value == '대형마트') {
 			mapSM();
+			click_sm(e.currentTarget);
+			sm_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '병원') {
+		else if (e.currentTarget.value == '병원') {
 			mapHS();
+			click_hs(e.currentTarget);
+			hs_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '약국') {
+		else if (e.currentTarget.value == '약국') {
 			mapPH();
+			click_ph(e.currentTarget);
+			ph_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '경찰서') {
+		else if (e.currentTarget.value == '경찰서') {
 			mapPS();
+			click_ps(e.currentTarget);
+			ps_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '소방서') {
+		else if (e.currentTarget.value == '소방서') {
 			mapFS();
+			click_fs(e.currentTarget);
+			fs_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '자치센터') {
+		else if (e.currentTarget.value == '자치센터') {
 			mapCC();
+			click_cc(e.currentTarget);
+			cc_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '영화관') {
+		else if (e.currentTarget.value == '영화관') {
 			mapCN();
+			click_cn(e.currentTarget);
+			cn_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '박물관') {
+		else if (e.currentTarget.value == '박물관') {
 			mapMS();
+			click_ms(e.currentTarget);
+			ms_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ex_color_cnt = 0;	// -> 전시관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '전시관') {
+		else if (e.currentTarget.value == '전시관') {
 			mapEX();
+			click_ex(e.currentTarget);
+			ex_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			lb_color_cnt = 0; 	// -> 도서관
 		}
-		else if (e.target.innerText.trim() == '도서관') {
+		else if (e.currentTarget.value == '도서관') {
 			mapLB();
+			click_lb(e.currentTarget);
+			lb_color_cnt = 1;
+			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			cs_color_cnt = 0; 	// -> 편의점
+			sm_color_cnt = 0; 	// -> 대형마트
+			hs_color_cnt = 0;	// -> 병원
+			ph_color_cnt = 0;	// -> 약국
+			ps_color_cnt = 0;	// -> 경찰서
+			fs_color_cnt = 0;	// -> 소방서
+			cc_color_cnt = 0;	// -> 자치센터
+			cn_color_cnt = 0;	// -> 영화관
+			ms_color_cnt = 0;	// -> 박물관
+			ex_color_cnt = 0;	// -> 전시관
 		}
-
-		clickMenu = e.target.innerText.trim();
+	
+		clickMenu = e.currentTarget.value;
+		
 	}
 }
+
 
 
 function mapMaker(res, markerImage) {
@@ -683,19 +827,19 @@ function markerOverlay(res) {
 			cnt = 1;
 			// 커스텀 오버레이에 표시할 내용입니다     
 			// HTML 문자열 또는 Dom Element
-			if (colorN == 1) {
+			if(colorN == 1){
 				content = '<div class="colorNo1"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if (colorN == 2) {
+			else if(colorN == 2){
 				content = '<div class="colorNo2"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if (colorN == 3) {
+			else if(colorN == 3){
 				content = '<div class="colorNo3"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-			else if (colorN == 4) {
+			else if(colorN == 4){
 				content = '<div class="colorNo4"><span class="txt_name">' + res[i].nm + '</span></div>';
 			}
-
+			
 			// 커스텀 오버레이가 표시될 위치 
 			coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
 
@@ -710,12 +854,12 @@ function markerOverlay(res) {
 			//			if(isClick) {return;}
 			markers[i].setImage(selectmarkerImage);
 			customOverlay.setMap(map);
-
-			//				if(ctOverlay != null){
-			//					ctOverlay.setMap(null);
-			//					markers[i].setImage(markerImage);
-			//				}
-
+				
+//				if(ctOverlay != null){
+//					ctOverlay.setMap(null);
+//					markers[i].setImage(markerImage);
+//				}
+			
 			console.log("마우스오버")
 
 		})
@@ -727,11 +871,11 @@ function markerOverlay(res) {
 				//				  	if(isClick) {return;}
 				customOverlay.setMap(null);
 
-				if (ctOverlay != null) {
+				if(ctOverlay != null){
 					ctOverlay.setMap(null);
 					markers[i].setImage(markerImage);
 				}
-
+			
 
 				markers[i].setImage(markerImage);
 				console.log("마우스아웃")
@@ -740,40 +884,40 @@ function markerOverlay(res) {
 
 
 		});
-
+		
 		kakao.maps.event.addListener(markers[i], 'click', function() {
-
+			
 			console.log(markers[i])
 			console.log("3")
-
-
+			
+				
 			if (markers[i].check == 1) {
 				ctOverlay.setMap(null);
-				test = 0;
+				test =0;
 				console.log("Test1")
 				markers[num].setImage(markerImage);
-				markers[i].check = 0
+				markers[i].check=0
 			}
-
+			
 			else {
-
-				if (ctOverlay != null) {
+				
+				if(ctOverlay != null){
 					ctOverlay.setMap(null);
 					markers[num].setImage(markerImage);
 				}
-
-				markers[i].check = 1
+				
+				markers[i].check=1
 				console.log("Test2")
 				customOverlay.setMap(map);
 				ctOverlay = customOverlay
-
+					
 				markers[i].setImage(selectmarkerImage);
 				console.log("i의마커이미지" + i)
 				num = i
 				cnt = 2;
-
+			
 			}
-
+		
 
 			// 맵을 클릭 시 이전 마커의 오버레이와 마커 하이라이트가 사라진다			
 			/*			kakao.maps.event.addListener(map, 'click', function () {
@@ -787,13 +931,14 @@ function markerOverlay(res) {
 			
 
 */
-
-		});
+			
+			});
 
 
 	}
 }
 
+<<<<<<< HEAD
 
 // 매물
 function mapRS() {
@@ -844,5 +989,85 @@ function mapRS() {
 	})
 
 
+=======
+function markerclickOverlay(res) {
+
+	for (let i = 0; i < res.length; i++) {
+
+		// 클릭했을 때 정보 보여주기
+		/*
+		kakao.maps.event.addListener(markers[i], 'click', function() {
+			
+			console.log(markers[i])
+		
+			
+			let content = '<span class="info" >' + res[i].nm + '</span>';
+
+				// 커스텀 오버레이가 표시될 위치입니다 
+				coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
+
+				// 커스텀 오버레이를 생성합니다
+				clickedOverlay = new kakao.maps.CustomOverlay({
+					position: coords,
+					content: content,
+					yAnchor: 0
+				});
+
+
+				console.log("3")
+				//			clickedOverlay = ctOverlay
+			
+				
+			
+				
+			if (markers[i].check == 1) {
+				ctOverlay.setMap(null);
+				test =0;
+				console.log("Test1")
+				markers[i].setImage(markerImage);
+				markers[i].check=0
+			}
+			else {
+				
+				if(ctOverlay != null){
+					ctOverlay.setMap(null);
+				}
+				
+				markers[i].check=1
+				console.log("Test2")
+				clickedOverlay.setMap(map);
+				ctOverlay = clickedOverlay
+					
+				markers[i].setImage(selectmarkerImage);
+				console.log("i의마커이미지" + i)
+				num = i
+			
+			}
+		
+
+			// 맵을 클릭 시 이전 마커의 오버레이와 마커 하이라이트가 사라진다			
+			/*			kakao.maps.event.addListener(map, 'click', function () {
+							if(ctOverlay != null){
+								ctOverlay.setMap(null);
+								markers[i].setImage(markerImage);
+								console.log("2")
+								cnt=1
+							}
+						})
+			
+
+
+			cnt = 2;
+
+
+			// 다른 마커 클릭시 이전 마커 오버레이와 마커 하이라이트가 사라진다		
+
+
+
+
+		})*/
+		
+	}
+>>>>>>> branch 'master' of https://github.com/2022-SMHRD-KDT-New-BigData-4/rememberTeam
 }
 

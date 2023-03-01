@@ -182,9 +182,19 @@
 
 
 		<div class="container-fluid py-4">
+		
 			<div class="div_flex">
-			  <h6 id="infra" class="text-end me-xl-4">광주광역시</h6>
-			</div>   
+			<div style="padding-left : 17%">
+			<input type="radio" class="btn-check" name="options" id="mon" autocomplete="off" checked>
+					<label class="btn btn-outline-success btn-sm mb-1 ms-5" for="mon">월세</label>
+
+					<input type="radio" class="btn-check" name="options" id="jeon" autocomplete="off">
+					<label class="btn btn-outline-success btn-sm mb-1" for="jeon">전세</label>
+			</div>
+				<h6 id="infra" class="text-end me-xl-4" style="padding-right : 1.7%">광주광역시</h6>
+			</div>
+			
+			   
 			<div class="row gx-0">
 			
 <!-- 왼쪽 매물 컬럼&그래프 레이아웃 -->
@@ -229,29 +239,71 @@
 						</div>
 					</div> -->
 											<!-- 차트 부분 -->
+					
 					<div class="card-body p-2">
-					<span class="h6">월별 실거래 수량</span>
-					<input type="radio" class="btn-check" name="options" id="mon" autocomplete="off" checked>
-					<label class="btn btn-outline-success btn-sm mb-1 ms-5" for="mon">월세</label>
-
-					<input type="radio" class="btn-check" name="options" id="jeon" autocomplete="off">
-					<label class="btn btn-outline-success btn-sm mb-1" for="jeon">전세</label>
-						<div class="chart bg-gradient-success">
+					
+					<div class="card  mb-2">
+								<div class="card-header p-3 pt-2 bg-transparent">
+									<div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
+										<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
+									</div>
+									<div class="text-end pt-1">
+									<h6>월별 실거래 수량</h6>
+									<div class="chart bg-gradient-success">
 							<canvas id="chart-line-cnt" class="chart-canvas" height="200px" width="200px" style="display: block; box-sizing: border-box; height: 170px; width: 200px;"></canvas>
 						</div>
+									</div>
+								</div>
+
+								<hr class="horizontal my-0 dark">
+
+							</div>
+					
 					</div>
 					<div class="card-body p-2">
-					<h6>월별 실거래 평균가</h6>
-						<div class="chart bg-gradient-success">
-							<canvas id="chart-line-avg" class="chart-canvas" height="200px" width="200px" style="display: block; box-sizing: border-box; height: 170px; width: 200px;"></canvas>
-						</div>
+					<div class="card  mb-2">
+								<div class="card-header p-3 pt-2 bg-transparent">
+									<div class="icon icon-lg icon-shape bg-gradient-light shadow-success text-center border-radius-xl mt-n4 position-absolute">
+										<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
+									</div>
+									<div class="text-end pt-1">
+									<h6>월별 실거래 평균가</h6>
+									<div class="chart bg-gradient-success">
+										<canvas id="chart-line-avg" class="chart-canvas" height="200px" width="200px" style="display: block; box-sizing: border-box; height: 170px; width: 200px;"></canvas>
+									</div>
+									</div>
+								</div>
+
+								<hr class="horizontal my-0 dark">
+
+							</div>
+					
 					</div>
 					<div class="card-body p-2">
-					<h6>구별 실거래 수량</h6>
-						<div class="chart bg-gradient-success">
-							<canvas id="chart-bar" class="chart-canvas" height="200px" width="200px" style="display: block; box-sizing: border-box; height: 170px; width: 200px;"></canvas>
-						</div>
+					
+					<!-- 카드 -->
+					<div class="card  mb-2">
+								<div class="card-header p-3 pt-2 bg-transparent">
+									<div class="icon icon-lg icon-shape bg-gradient-warning shadow-success text-center border-radius-xl mt-n4 position-absolute">
+										<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
+									</div>
+									<div class="text-end pt-1">
+									<h6>구별 실거래 수량</h6>
+										<div class="chart bg-gradient-success">
+											<canvas id="chart-bar" class="chart-canvas" height="200px" width="200px" style="display: block; box-sizing: border-box; height: 170px; width: 200px;"></canvas>
+										</div>
+									</div>
+								</div>
+
+								<hr class="horizontal my-0 dark">
+
+							</div>
+					<!--  카드끝 -->
+					
+					
+						
 					</div>
+					
 					<!-- 차트 부분 끝 -->
 
 				</div>
@@ -264,7 +316,7 @@
 					<div class="div_flex">
 					<!-- dropdown 시작 -->
 					<div class="dropdown-center">
-						 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_gu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						 <button class="btn btn-success dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    구 검색
 						 </button>
 						 <div id = "choice_gu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -282,7 +334,7 @@
 						</div>
 						
 					<div class="dropdown-center">
-						 <button disabled class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						 <button disabled class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						    동 검색
 						 </button>
 						  <div id = "choice_dong" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -306,7 +358,7 @@
 				<!-- 오른쪽 인프라 컬럼 레이아웃 왼쪽 컬럼열  -->
 				
 						<div class="col-lg-5 col-sm-5 ">
-							<div id="GJ_CC" class="card  mb-2 borderClass off">
+							<div id="GJ_CC" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-building fa-lg"></i>
@@ -321,7 +373,7 @@
 								
 							</div>
 							
-							<div id="GJ_PS" class="card  mb-2 borderClass off">
+							<div id="GJ_PS" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-solid fa-handcuffs fa-lg"></i>
@@ -520,17 +572,10 @@
 								
 							</div>
 						</div>
-					</div>
-
-				</div>
-			</div>
-
-
-<!-- footer -->
-
-			<footer class="footer py-4  ">
+						<div>
+						<footer class="footer py-4  ">
 				<div class="container-fluid">
-					<div class="row align-items-center justify-content-lg-between">
+					<div class="row align-items-center justify-content-lg-between" style="margin-left: 20px; margin-right: 20px;">
 						<div class="col-lg-6 mb-lg-0 mb-4">
 							<div
 								class="copyright text-center text-sm text-muted text-lg-start">
@@ -545,7 +590,7 @@
 						<div class="col-lg-6">
 							<ul
 								class="nav nav-footer justify-content-center justify-content-lg-end">
-								<li class="nav-item"><span class="nav-link text-muted" target="_blank">Remember Team : </span></li>
+								<li class="nav-item"><span class="nav-link text-muted" target="_blank">Remember Team</span></li>
 								<li class="nav-item"><span class="nav-link text-muted" target="_blank">이경진</span></li>
 								<li class="nav-item"><span class="nav-link text-muted" target="_blank">이소정</span></li>
 								<li class="nav-item"><span class="nav-link text-muted" target="_blank">박은혁</span></li>
@@ -555,6 +600,15 @@
 					</div>
 				</div>
 			</footer>
+						</div>
+					</div>
+
+				</div>
+				
+			</div>
+
+
+<!-- footer -->
 
 		</div>
 

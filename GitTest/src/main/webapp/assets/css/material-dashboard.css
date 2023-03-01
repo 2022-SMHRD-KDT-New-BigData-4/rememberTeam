@@ -27724,7 +27724,7 @@ pre[class*="language-"] {
 
 .div_flex{
 	display : flex;
-	justify-content: flex-end
+	justify-content: space-between
 }
 
 #map:nth-child(2){
@@ -27786,4 +27786,7 @@ pre[class*="language-"] {
   background-color: var(--bs-btn-bg);
   transition: all 0.15s ease-in;
 }
+
+
+
 /*# sourceMappingURL=dashboard-free.css.map */

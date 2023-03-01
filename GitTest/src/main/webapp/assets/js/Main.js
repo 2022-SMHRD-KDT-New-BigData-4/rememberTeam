@@ -324,7 +324,7 @@ function chartAjax(mon_jeon){
 		b.destroy();
 		c.destroy();
 	}
-	$('#loading-image').show();
+	$('.spinner-border').show();
 	$.ajax({
 		url : 'MainChart.do',
 		type : 'get',
@@ -365,21 +365,24 @@ function chartAjax(mon_jeon){
 
  
 
-              if($("#div_ajax_load_image").length != 0) {
-                     $("#div_ajax_load_image").css({
+              if($(".spinner-border").length != 0) {
+                     $(".spinner-border").css({
                             "top": top+"px",
-                            "left": left+"px"
+                            "left": left+"px",
+
                      });
-                     $("#div_ajax_load_image").show();
+                     $(".spinner-border").show();
               }
               else {
-                     $('body').append('<div id="div_ajax_load_image" class="bg-gradient-success" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; background:#f0f0f0; filter:alpha(opacity=50); opacity:alpha*0.5; margin:auto; padding:0; "><img src="assets/img/loading-gif.gif" style="width:200px; height:200px;"></div>');
+                     $('body').append('<div class="spinner-border" role="status" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "><span class="visually-hidden">Loading...</span></div>');
+                     
+                     
               }
 
        },
         // 로딩 완료시 이미지 감춤
 		complete: function(){
-        $('#div_ajax_load_image').hide();
+        $('.spinner-border').hide();
         
      	},
 		error : ()=>{
@@ -701,10 +704,12 @@ $(".borderClass").hover(function(){
 	let id = $(this).attr('id')
 	let id_selector = "#"+id
 	$(id_selector).addClass("border")
+	$(id_selector).addClass("border-success")
 }, function(){
 	let id = $(this).attr('id')
 	let id_selector = "#"+id
-	$(id_selector).removeClass("border")	
+	$(id_selector).removeClass("border")
+	$(id_selector).removeClass("border-success")	
 }
 )
 

@@ -46,8 +46,8 @@ let options = {
 	level: 5
 }
 
-// 3) 지도 생성
 
+// 3) 지도 생성
 let map = new kakao.maps.Map(container, options)
 
 
@@ -125,11 +125,6 @@ function displayArea(coordinates, name) {
 		map.setLevel(4);
 	});
 }
-
-
-
-
-
 
 
 
@@ -798,87 +793,6 @@ function markerOverlay(res) {
 
 	}
 }
-
-function markerclickOverlay(res) {
-
-	for (let i = 0; i < res.length; i++) {
-
-		// 클릭했을 때 정보 보여주기
-		/*
-		kakao.maps.event.addListener(markers[i], 'click', function() {
-			
-			console.log(markers[i])
-		
-			
-			let content = '<span class="info" >' + res[i].nm + '</span>';
-
-				// 커스텀 오버레이가 표시될 위치입니다 
-				coords = new kakao.maps.LatLng(res[i].lat, res[i].lng);
-
-				// 커스텀 오버레이를 생성합니다
-				clickedOverlay = new kakao.maps.CustomOverlay({
-					position: coords,
-					content: content,
-					yAnchor: 0
-				});
-
-
-				console.log("3")
-				//			clickedOverlay = ctOverlay
-			
-				
-			
-				
-			if (markers[i].check == 1) {
-				ctOverlay.setMap(null);
-				test =0;
-				console.log("Test1")
-				markers[i].setImage(markerImage);
-				markers[i].check=0
-			}
-			else {
-				
-				if(ctOverlay != null){
-					ctOverlay.setMap(null);
-				}
-				
-				markers[i].check=1
-				console.log("Test2")
-				clickedOverlay.setMap(map);
-				ctOverlay = clickedOverlay
-					
-				markers[i].setImage(selectmarkerImage);
-				console.log("i의마커이미지" + i)
-				num = i
-			
-			}
-		
-
-			// 맵을 클릭 시 이전 마커의 오버레이와 마커 하이라이트가 사라진다			
-			/*			kakao.maps.event.addListener(map, 'click', function () {
-							if(ctOverlay != null){
-								ctOverlay.setMap(null);
-								markers[i].setImage(markerImage);
-								console.log("2")
-								cnt=1
-							}
-						})
-			
-
-
-			cnt = 2;
-
-
-			// 다른 마커 클릭시 이전 마커 오버레이와 마커 하이라이트가 사라진다		
-
-
-
-
-		})*/
-
-	}
-}
-
 
 
 // 매물

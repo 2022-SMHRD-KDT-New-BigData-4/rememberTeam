@@ -152,6 +152,7 @@ let isClick = false;
 let ctOverlay = null;
 let colorN = "";
 let content = "";
+let clusterer = "";
 // let currCategory = null;
 // let currCategory = document.getElementsByClassName(category_btn);
 
@@ -613,7 +614,11 @@ function clickTest(e) {
 
 	if (e.currentTarget.value == clickMenu) {
 		removeMarker()
+		if(e.currentTarget.value == clickMenu && clickMenu == '매물'){
+			mapRS();
+		}
 		clickMenu = "";
+		
 
 		// -> 여기는 마커는 지워주고 색상은 변경함
 		if (e.currentTarget.value == '매물') {
@@ -663,7 +668,9 @@ function clickTest(e) {
 		}
 
 		if (e.currentTarget.value == '매물') {
-			mapRS();
+			//mapRS();
+			clusterer.clear();
+			
 		}
 		else if (e.currentTarget.value == '편의점') {
 			mapCS();
@@ -998,7 +1005,7 @@ function mapRS() {
 			console.log(res)
 
 			// 마커 클러스터러를 생성합니다 
-			var clusterer = new kakao.maps.MarkerClusterer({
+			clusterer = new kakao.maps.MarkerClusterer({
 				map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
 				averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
 				minLevel: 0, // 클러스터 할 최소 지도 레벨

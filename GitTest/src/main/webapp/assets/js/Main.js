@@ -293,13 +293,6 @@ function displayArea(coordinates, name) {
  
  
  
- 
- 
- 
- 
- 
- 
- 
   // 컬럼 숫자 애니메이션 카운트
 function counter($counter, max) {
 	let now = max;
@@ -313,7 +306,7 @@ function counter($counter, max) {
 		}
 
 		// 적용될 수치, 점점 줄어듬
-		const step = now / 4;
+		const step = now / 8;
 
 		now -= step;
 	}, 50);
@@ -373,13 +366,12 @@ function chartAjax(mon_jeon){
               if($(".spinner-border").length != 0) {
                      $(".spinner-border").css({
                             "top": top+"px",
-                            "left": left+"px",
-
+                            "left": left+"px"
                      });
                      $(".spinner-border").show();
               }
               else {
-                     $('body').append('<div class="spinner-border" role="status" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "><span class="visually-hidden">Loading...</span></div>');
+                     $('body').append('<div class="spinner-border text-success" role="status" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "><span class="visually-hidden">Loading...</span></div>');
                      
                      
               }
@@ -461,7 +453,7 @@ function chartAjax(mon_jeon){
               color: '#f8f9fa',
               padding: 10,
               font: {
-                size: 14,
+                size: 11,
                 weight: 300,
                 family: "Roboto",
                 style: 'normal',
@@ -482,7 +474,7 @@ function chartAjax(mon_jeon){
               color: '#f8f9fa',
               padding: 10,
               font: {
-                size: 14,
+                size: 11,
                 weight: 300,
                 family: "Roboto",
                 style: 'normal',
@@ -553,7 +545,7 @@ function chartAjax(mon_jeon){
                 beginAtZero: true,
                 padding: 10,
                 font: {
-                  size: 14,
+                  size: 11,
                   weight: 300,
                   family: "Roboto",
                   style: 'normal',
@@ -576,7 +568,7 @@ function chartAjax(mon_jeon){
                 color: '#f8f9fa',
                 padding: 10,
                 font: {
-                  size: 14,
+                  size: 11,
                   weight: 300,
                   family: "Roboto",
                   style: 'normal',

@@ -159,7 +159,7 @@
 					
 					<div class="card  mb-2">
 								<div class="card-header p-3 pt-2 bg-transparent">
-									<div class="icon icon-lg icon-shape bg-gradient-warning shadow-success text-center border-radius-xl mt-n4 position-absolute">
+									<div class="icon icon-lg icon-shape bg-gradient-zzz shadow-success text-center border-radius-xl mt-n4 position-absolute">
 										<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
 									</div>
 									<div class="text-end pt-1">
@@ -472,6 +472,9 @@
 							</div>
 						</div>
 						<div>
+						
+			<!-- footer -->
+						
 						<footer class="footer py-4  ">
 				<div class="container-fluid">
 					<div class="row align-items-center justify-content-lg-between" style="margin-left: 20px; margin-right: 20px;">

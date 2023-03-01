@@ -22619,6 +22619,10 @@ label,
   background-image: linear-gradient(195deg, #00296b 0%, #00296b 100%);
 }
 
+.bg-gradient-zzz {
+  background-image: linear-gradient(195deg, #663300 0%, #663300 100%);
+} 
+
 .bg-gradient-faded-primary {
   background-image: radial-gradient(370px circle at 80% 50%, rgba(233, 30, 99, 0.6) 0, #c1134e 100%);
 }

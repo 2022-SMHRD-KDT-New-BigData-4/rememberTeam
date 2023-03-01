@@ -52,6 +52,7 @@ public class GJ_RSServer implements Command {
 			hsm.put("addr", vo.getRs_addr());
 			hsm.put("cr", vo.getRs_cr());
 			hsm.put("dr", vo.getRs_dr());
+			hsm.put("pr", vo.getRs_pr());
 			hsm.put("ct_area", vo.getCt_area());
 			hsm.put("ex_area", vo.getEx_area());
 			hsm.put("ml_yn", vo.getMl_yn());

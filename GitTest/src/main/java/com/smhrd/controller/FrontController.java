@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.smhrd.command.Command;
+import com.smhrd.model.DAO.GWANGJU_GU_DAO;
 
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -43,6 +44,7 @@ public class FrontController extends HttpServlet {
 		map.put("MainChart.do", new MainChart());
 		map.put("GJ_LBServer.do", new GJ_LBServer());
 		map.put("GWANGJU_DONGServer.do", new GWANGJU_DONGServer());
+		map.put("GWANGJU_GUServer.do", new GWANGJU_GUServer());
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

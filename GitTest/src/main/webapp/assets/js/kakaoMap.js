@@ -11,31 +11,64 @@ let dong_lng = null;
 let dong_lat = null;
 let center = "";
 let level = null;
+let cortar = ""
+let dong_code = 0;
+let gu_code = 0;
+
 
 for (const param of searchParams) {
+	//console.log(param[1])
 	cortarno = Number(param[1]);
-	console.log(cortarno)
+	str = param[1].substr(-5, 5);
+	//console.log(str);
+	cortar = Number(str);
 }
 
+if (cortar > 0) {
+	dong_code = { dong_code: cortarno }
+	// 동 검색에 따른 맵 센터 이동
+	$.ajax({
+		url: 'GWANGJU_DONGServer.do',
+		data: dong_code,
+		dataType: 'json',
+		success: (res) => {
+			console.log(res)
+			dong_lng = res[0].lng
+			dong_lat = res[0].lat
+			map.setCenter(new kakao.maps.LatLng(dong_lat, dong_lng));
 
-let dong_code = { dong_code: cortarno }
+		},
+		error: (e) => {
+			console.log(e)
+		}
+	})
+} else{
+	gu_code = { gu_code: cortarno }
+	console.log(gu_code)
+	// 동 검색에 따른 맵 센터 이동
+	$.ajax({
+		url: 'GWANGJU_GUServer.do',
+		data: gu_code,
+		dataType: 'json',
+		success: (res) => {
+			console.log(res)
+			gu_lng = res[0].lng
+			gu_lat = res[0].lat
+			map.setCenter(new kakao.maps.LatLng(gu_lat, gu_lng));
 
-// 동 검색에 따른 맵 센터 이동
-$.ajax({
-	url: 'GWANGJU_DONGServer.do',
-	data: dong_code,
-	dataType: 'json',
-	success: (res) => {
-		console.log(res)
-		dong_lng = res[0].lng
-		dong_lat = res[0].lat
-		map.setCenter(new kakao.maps.LatLng(dong_lat, dong_lng));
-		mapRS()
-	},
-	error: (e) => {
-		console.log(e)
-	}
-})
+		},
+		error: (e) => {
+			console.log(e)
+		}
+	})
+
+}
+
+mapRS()
+
+
+
+
 
 // 2) 지도에 넣어줄 기본 옵션
 let options = {
@@ -614,11 +647,11 @@ function clickTest(e) {
 
 	if (e.currentTarget.value == clickMenu) {
 		removeMarker()
-		if(e.currentTarget.value == clickMenu && clickMenu == '매물'){
+		if (e.currentTarget.value == clickMenu && clickMenu == '매물') {
 			mapRS();
 		}
 		clickMenu = "";
-		
+
 
 		// -> 여기는 마커는 지워주고 색상은 변경함
 		if (e.currentTarget.value == '매물') {
@@ -670,7 +703,7 @@ function clickTest(e) {
 		if (e.currentTarget.value == '매물') {
 			//mapRS();
 			clusterer.clear();
-			
+
 		}
 		else if (e.currentTarget.value == '편의점') {
 			mapCS();
@@ -986,7 +1019,7 @@ function markerOverlay(res) {
 							}
 						})
 			
-
+	
 */
 
 		});
@@ -1002,7 +1035,7 @@ function mapRS() {
 		url: 'GJ_RSServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log(res)
+			// console.log(res)
 
 			// 마커 클러스터러를 생성합니다 
 			clusterer = new kakao.maps.MarkerClusterer({
@@ -1051,28 +1084,31 @@ function mapRS() {
 			console.log(clustererMarkers.length)
 			// 클러스터러에 마커들을 추가합니다(마커 클러스터러 관련)
 			clusterer.addMarkers(clustererMarkers);
-			
+
 			let bf_overlay = ""
 
 			kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
-				
+
+				console.log("클러스터러 클릭!!")
+
 				// 클러스터러 커스텀 오버레이를 가져옵니다.
 				const overlay = cluster.getClusterMarker().getContent();
-				
-								// 이전 클릭한 클러스터러 초기화
-				if(bf_overlay){
+
+				// 이전 클릭한 클러스터러 초기화
+				if (bf_overlay) {
 					bf_overlay.style.backgroundColor = "rgba(255, 255, 255, 0.8)"
 					bf_overlay.style.color = "rgb(122, 122, 122)"
 				}
-				
+
 				// 클러스터러 스타일 출력
 				// console.log(overlay.style);
-				
+
 				// 클릭한 클러스터러 스타일 적용
 				overlay.style.backgroundColor = "rgba(122, 122, 122, 0.8)"
 				overlay.style.color = "rgb(255, 255, 255)"
-				
+
 				bf_overlay = overlay
+
 			});
 
 

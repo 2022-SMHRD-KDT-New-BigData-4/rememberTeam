@@ -13,10 +13,10 @@ import org.json.simple.JSONObject;
 
 import com.google.gson.Gson;
 import com.smhrd.command.Command;
-import com.smhrd.model.DAO.GWANGJU_DONG_DAO;
-import com.smhrd.model.VO.GWANGJU_DONG_VO;
+import com.smhrd.model.DAO.GWANGJU_GU_DAO;
+import com.smhrd.model.VO.GWANGJU_GU_VO;
 
-public class GWANGJU_DONGServer implements Command{
+public class GWANGJU_GUServer implements Command{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
@@ -24,18 +24,21 @@ public class GWANGJU_DONGServer implements Command{
 		// 한글 인코딩
 		response.setContentType("text/html;charset=UTF-8");
 		
-		long cortarno = Long.parseLong(request.getParameter("dong_code"));
-		System.out.println("cortarno"+cortarno);
+		// System.out.println("1");
+		String cortar = request.getParameter("gu_code");
+		// System.out.println(cortar);
+		long cortarno = Long.parseLong(request.getParameter("gu_code"));
+		// System.out.println("cortarno"+cortarno);
 
 		PrintWriter out;
 
 		Gson gson = new Gson();
 
 		// DAO 꺼내오기
-		GWANGJU_DONG_DAO dao = new GWANGJU_DONG_DAO();
+		GWANGJU_GU_DAO dao = new GWANGJU_GU_DAO();
 
 		// DAO가 가지고 있는 위치 호출
-		List<GWANGJU_DONG_VO> list = dao.selectGWANGJU_DONG(cortarno);
+		List<GWANGJU_GU_VO> list = dao.selectGWANGJU_GU(cortarno);
 		//System.out.println("list"+list);
 		
 		JSONObject JO = new JSONObject(); // json객체 생성
@@ -45,11 +48,11 @@ public class GWANGJU_DONGServer implements Command{
 
 		HashMap<String, Object> hsm = new HashMap<String, Object>();
 
-		for (GWANGJU_DONG_VO vo : list) {
+		for (GWANGJU_GU_VO vo : list) {
 			hsm = new HashMap<String, Object>();
 
-			hsm.put("lat", vo.getLat());
-			hsm.put("lng", vo.getLng());
+			hsm.put("lat", vo.getCenterlat());
+			hsm.put("lng", vo.getCenterlng());
 
 			JO = new JSONObject(hsm);
 			JA.add(JO);

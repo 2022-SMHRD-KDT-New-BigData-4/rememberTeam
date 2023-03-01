@@ -3,6 +3,40 @@
 // 1) 지도를 담을 영역을 가져오자
 let container = document.getElementById('map')
 
+// main에서 받아온 쿼리 스트링 꺼내오기
+const searchParams = new URLSearchParams(location.search);
+
+let cortarno = null;
+let dong_lng = null;
+let dong_lat = null;
+let center = "";
+let level = null;
+
+for (const param of searchParams) {
+	cortarno = Number(param[1]);
+	console.log(cortarno)
+}
+
+
+let dong_code = { dong_code: cortarno }
+
+// 동 검색에 따른 맵 센터 이동
+$.ajax({
+	url: 'GWANGJU_DONGServer.do',
+	data: dong_code,
+	dataType: 'json',
+	success: (res) => {
+		console.log(res)
+		dong_lng = res[0].lng
+		dong_lat = res[0].lat
+		map.setCenter(new kakao.maps.LatLng(dong_lat, dong_lng));
+		mapRS()
+	},
+	error: (e) => {
+		console.log(e)
+	}
+})
+
 // 2) 지도에 넣어줄 기본 옵션
 let options = {
 	// 위도, 경도
@@ -127,6 +161,26 @@ let content = "";
 
 let cnt = 0;
 
+function mapRS() {
+
+	$.ajax({
+		url: 'GJ_RSServer.do',
+		dataType: 'json',
+		success: (res) => {
+			console.log(res)
+		},
+		error: (e) => {
+			console.log(e)
+		}
+	})
+}
+
+
+
+
+
+
+
 // 전시관
 function mapEX() {
 
@@ -228,7 +282,7 @@ function mapCC() {
 
 			// 오버레이 불러오는 함수
 			markerOverlay(res)
-			
+
 
 		},
 		error: (e) => {
@@ -871,11 +925,11 @@ function markerOverlay(res) {
 				//				  	if(isClick) {return;}
 				customOverlay.setMap(null);
 
-				if(ctOverlay != null){
+				if (ctOverlay != null) {
 					ctOverlay.setMap(null);
 					markers[i].setImage(markerImage);
 				}
-			
+
 
 				markers[i].setImage(markerImage);
 				console.log("마우스아웃")
@@ -905,8 +959,8 @@ function markerOverlay(res) {
 					ctOverlay.setMap(null);
 					markers[num].setImage(markerImage);
 				}
-				
-				markers[i].check=1
+
+				markers[i].check = 1
 				console.log("Test2")
 				customOverlay.setMap(map);
 				ctOverlay = customOverlay
@@ -915,9 +969,9 @@ function markerOverlay(res) {
 				console.log("i의마커이미지" + i)
 				num = i
 				cnt = 2;
-			
+
 			}
-		
+
 
 			// 맵을 클릭 시 이전 마커의 오버레이와 마커 하이라이트가 사라진다			
 			/*			kakao.maps.event.addListener(map, 'click', function () {
@@ -931,14 +985,13 @@ function markerOverlay(res) {
 			
 
 */
-			
-			});
+
+		});
 
 
 	}
 }
 
-<<<<<<< HEAD
 
 // 매물
 function mapRS() {

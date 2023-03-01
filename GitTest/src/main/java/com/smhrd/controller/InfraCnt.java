@@ -30,20 +30,19 @@ public class InfraCnt implements Command{
 		
 		
 		
-		if (gu_name != null) {
+		if (gu_name == null || gu_name.equals("광주광역시")) {
 			
+			infraCnt = dao.InfraCnt(table);
+
+		} else {
+
 			MainVO[] vo = new MainVO[14];
-			
-			for (int i = 0; i<vo.length; i++) {
+
+			for (int i = 0; i < vo.length; i++) {
 				vo[i] = new MainVO(gu_name, table[i]);
 			}
 			infraCnt = dao.MouseoverCnt(vo);
-			
-		} else {
-
-			infraCnt = dao.InfraCnt(table);
-			
-			}
+		}
 		
 		for(int i=0;i<table.length;i++) {
 			temp.put(table[i], infraCnt[i]);

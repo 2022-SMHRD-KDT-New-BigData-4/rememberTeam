@@ -4,35 +4,35 @@ var mapContainer = document.getElementById('map');
 var mapOptions = {
 	center: new kakao.maps.LatLng(35.15507159179403, 126.8351730541552),
 	level: 9,
-	draggable : false, // 드래그 옵션 
-	scrollwheel : false, // 마우스 휠 옵션
-	disableDoubleClick : true, // 더블클릭 끄기 옵션
-	disableDoubleClickZoom : true, // 더블클릭 줌 끄기 옵션
+	draggable: false, // 드래그 옵션 
+	scrollwheel: false, // 마우스 휠 옵션
+	disableDoubleClick: true, // 더블클릭 끄기 옵션
+	disableDoubleClickZoom: true, // 더블클릭 줌 끄기 옵션
 	$scale: false
 };
 
 var map = new kakao.maps.Map(mapContainer, mapOptions),
 	customOverlay = new kakao.maps.CustomOverlay({}),
-    infowindow = new kakao.maps.InfoWindow({removable: true});
+	infowindow = new kakao.maps.InfoWindow({ removable: true });
 
 
-function gu_marker(imageSrc, lat, lng){
+function gu_marker(imageSrc, lat, lng) {
 	var imageSrc = imageSrc, // 마커이미지의 주소입니다    
-    	imageSize = new kakao.maps.Size(40, 50), // 마커이미지의 크기입니다
-    	imageOption = {offset: new kakao.maps.Point(27, 69)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
-      
+		imageSize = new kakao.maps.Size(40, 50), // 마커이미지의 크기입니다
+		imageOption = { offset: new kakao.maps.Point(27, 69) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
 	// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
 	var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption),
-    	markerPosition = new kakao.maps.LatLng(lat, lng); // 마커가 표시될 위치입니다
+		markerPosition = new kakao.maps.LatLng(lat, lng); // 마커가 표시될 위치입니다
 
 	// 마커를 생성합니다
 	var marker = new kakao.maps.Marker({
-    	position: markerPosition, 
-    	image: markerImage // 마커이미지 설정 
+		position: markerPosition,
+		image: markerImage // 마커이미지 설정 
 	});
 
 	// 마커가 지도 위에 표시되도록 설정합니다
-	marker.setMap(map);  
+	marker.setMap(map);
 }
 
 gu_marker('./assets/img/gs_marker.png', 35.13964747415601, 126.79364410635142);
@@ -142,45 +142,45 @@ function displayArea_line(coordinates_line, name_line) {
 
 //광주 행정구역 구분 폴리곤 생성
 $.getJSON("./assets/geojson/gj_gu_line.geojson", function(geojson) {
- 
-    var data = geojson.features;
-    var coordinates = [];    //좌표 저장할 배열
-    var name = '';            //행정 구 이름
- 
-    $.each(data, function(index, val) {
- 
-        coordinates = val.geometry.coordinates;
-        name = val.properties.SIG_KOR_NM;
-        displayArea(coordinates, name);
- 
-    })
+
+	var data = geojson.features;
+	var coordinates = [];    //좌표 저장할 배열
+	var name = '';            //행정 구 이름
+
+	$.each(data, function(index, val) {
+
+		coordinates = val.geometry.coordinates;
+		name = val.properties.SIG_KOR_NM;
+		displayArea(coordinates, name);
+
+	})
 })
 
-var polygons=[];
+var polygons = [];
 
 function displayArea(coordinates, name) {
- 
-    var path = [];            //폴리곤 그려줄 path
-    var points = [];        //중심좌표 구하기 위한 지역구 좌표들
-    
-    $.each(coordinates[0][0], function(index, coordinate) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
-        var point = new Object(); 
-        point.x = coordinate[1];
-        point.y = coordinate[0];
-        points.push(point);
-        path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));            //new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
-    })
-    
-    // 다각형을 생성합니다
-    var polygon = new kakao.maps.Polygon({
-        map : map, // 다각형을 표시할 지도 객체
-        path : path,
-        strokeWeight : 2,
-        strokeColor : '#43A047',
-        strokeOpacity : 1,
-        fillColor : '#fff',
-        fillOpacity : 0.75
-    });
+
+	var path = [];            //폴리곤 그려줄 path
+	var points = [];        //중심좌표 구하기 위한 지역구 좌표들
+
+	$.each(coordinates[0][0], function(index, coordinate) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
+		var point = new Object();
+		point.x = coordinate[1];
+		point.y = coordinate[0];
+		points.push(point);
+		path.push(new kakao.maps.LatLng(coordinate[1], coordinate[0]));            //new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
+	})
+
+	// 다각형을 생성합니다
+	var polygon = new kakao.maps.Polygon({
+		map: map, // 다각형을 표시할 지도 객체
+		path: path,
+		strokeWeight: 2,
+		strokeColor: '#43A047',
+		strokeOpacity: 1,
+		fillColor: '#fff',
+		fillOpacity: 0.75
+	});
     
     // 다각형에 mouseover 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 변경합니다 
     // 지역명을 표시하는 커스텀오버레이를 지도위에 표시합니다
@@ -225,7 +225,6 @@ function displayArea(coordinates, name) {
     		dataType : 'json',
     		success : (res)=>{
     			$.each(res,(key, value)=>{
-    				$('#infra').text(name)
     				let tag_id = '#'+key+'_Cnt'
     				const $counter = document.querySelector(tag_id);
     				const max = value
@@ -255,41 +254,41 @@ function displayArea(coordinates, name) {
         
         
         
-    });
- 
-    // 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
-    kakao.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
-        customOverlay.setPosition(mouseEvent.latLng);
 	});
- 
-    // 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
-    // 커스텀 오버레이를 지도에서 제거합니다 
-    kakao.maps.event.addListener(polygon, 'mouseout', function() {
-        polygon.setOptions({
-            fillColor : '#fff',
-            fillOpacity : 0.5
-        });
-        customOverlay.setMap(null);
-   
-    });
-    
-    kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
-		let MainMapClick = {name : name}
+
+	// 다각형에 mousemove 이벤트를 등록하고 이벤트가 발생하면 커스텀 오버레이의 위치를 변경합니다 
+	kakao.maps.event.addListener(polygon, 'mousemove', function(mouseEvent) {
+		customOverlay.setPosition(mouseEvent.latLng);
+	});
+
+	// 다각형에 mouseout 이벤트를 등록하고 이벤트가 발생하면 폴리곤의 채움색을 원래색으로 변경합니다
+	// 커스텀 오버레이를 지도에서 제거합니다 
+	kakao.maps.event.addListener(polygon, 'mouseout', function() {
+		polygon.setOptions({
+			fillColor: '#fff',
+			fillOpacity: 0.5
+		});
+		customOverlay.setMap(null);
+
+	});
+
+	kakao.maps.event.addListener(polygon, 'click', function(mouseEvent) {
+		let MainMapClick = { name: name }
 		$.ajax({
-			url : 'MainMapClick.do',
-			type : 'get', 
-			data : MainMapClick,
-			dataType : 'json',
-			success : (res)=>{
-				location.href="Map.jsp?cortarNo="+res
-				
+			url: 'MainMapClick.do',
+			type: 'get',
+			data: MainMapClick,
+			dataType: 'json',
+			success: (res) => {
+				location.href = "Map.jsp?cortarNo=" + res
+
 			},
-			error : ()=>{
-				
+			error: () => {
+
 			}
 		})
-    });
- 
+	});
+
 }
  
  
@@ -302,23 +301,23 @@ function displayArea(coordinates, name) {
  
  
   // 컬럼 숫자 애니메이션 카운트
-  function counter($counter, max) {
-			let now = max;
+function counter($counter, max) {
+	let now = max;
 
-		  const handle = setInterval(() => {
-		    $counter.innerHTML = Math.ceil(max - now);
-		  
-		    // 목표에 도달하면 정지
-		    if (now < 1) {
-		      clearInterval(handle);
-		    }
-		  
-		    // 적용될 수치, 점점 줄어듬
-		    const step = now / 4;
+	const handle = setInterval(() => {
+		$counter.innerHTML = Math.ceil(max - now);
 
-		    now -= step;
-		  }, 50);
-	}
+		// 목표에 도달하면 정지
+		if (now < 1) {
+			clearInterval(handle);
+		}
+
+		// 적용될 수치, 점점 줄어듬
+		const step = now / 4;
+
+		now -= step;
+	}, 50);
+}
 
 // chart ajax 부분
 function chartAjax(mon_jeon){
@@ -663,30 +662,30 @@ var clusterer = new kakao.maps.MarkerClusterer({
         			disableClickZoom : true  
         			});
      			
-$(".borderClass").click(function(){
+$(".borderClass").click(function() {
 	let id = $(this).attr("id")
-	if (ex_id != id){
+	if (ex_id != id) {
 		clear_marker();
 		clusterer.removeMarkers(markers);
 		clusterer.clear();
 	}
-	let data_marker = {table:id};
-	
+	let data_marker = { table: id };
+
 	if (isMarker == false) {
 		$.ajax({
-			url : 'MainMarker.do',
-			type : 'get',
-			data : data_marker,
-			dataType : 'json',
-			success : (res)=>{
-				
-				
-				for (var i = 0; i<res.column.length; i++) {
+			url: 'MainMarker.do',
+			type: 'get',
+			data: data_marker,
+			dataType: 'json',
+			success: (res) => {
+
+
+				for (var i = 0; i < res.column.length; i++) {
 					var lat = res.column[i].lat;
 					var lng = res.column[i].lng;
-					var markerPosition  = new kakao.maps.LatLng(lat, lng);
+					var markerPosition = new kakao.maps.LatLng(lat, lng);
 					var marker = new kakao.maps.Marker({
-		    			position: markerPosition
+						position: markerPosition
 					});
 					markers.push(marker);
 				}
@@ -695,9 +694,9 @@ $(".borderClass").click(function(){
 				ex_id = id;
 				isMarker = true;
 			},
-			error : ()=>{
+			error: () => {
 			}
-	}) 
+		})
 	} else {
 		clear_marker();
 		clusterer.removeMarkers(markers);
@@ -707,9 +706,9 @@ $(".borderClass").click(function(){
 
 
 
-function clear_marker(){
-	for (var i = 0; i<markers.length; i++){
-			markers[i].setMap(null)
+function clear_marker() {
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(null)
 	}
 	isMarker = false;
 }
@@ -717,7 +716,7 @@ function clear_marker(){
 
 // 컬럼 바깥쪽 아무 영역이나 클릭하면 마커를 지우기
 
-$("body").not('.borderClass').click(()=>{
+$("body").not('.borderClass').click(() => {
 	clear_marker();
 	clusterer.clear();
 })
@@ -726,53 +725,83 @@ $("body").not('.borderClass').click(()=>{
 
 // 컬럼 마우스호버 테두리 추가
 
-$(".borderClass").hover(function(){
+$(".borderClass").hover(function() {
 	let id = $(this).attr('id')
-	let id_selector = "#"+id
+	let id_selector = "#" + id
 	$(id_selector).addClass("border")
 	$(id_selector).addClass("border-success")
-}, function(){
+}, function() {
 	let id = $(this).attr('id')
-	let id_selector = "#"+id
+	let id_selector = "#" + id
 	$(id_selector).removeClass("border")
-	$(id_selector).removeClass("border-success")	
+	$(id_selector).removeClass("border-success")
 }
 )
 
 // 구, 동 선택 select
-$(".dropdown_gu").click(function(){
-	let gu_name = {gu_name : $(this).attr('for')}
+$(".dropdown_gu").click(function() {
+	let gu_name = { gu_name: $(this).attr('for') }
 	$("#dropdownMenuButton_gu").text($(this).attr('for'));
 	$.ajax({
-    		url : 'SearchDong.do',
-    		type : 'get',
-    		data : gu_name,
-    		dataType : 'json',
-    		success : (res)=>{
-				if ($(".dropdown_dong") != null){
-					$(".dropdown_dong").remove()				
-				}
-  				for (let i = 0; i<res.gu.length; i++){
-					let dong_code = res.gu[i].cortarNo
-					let dong_name = res.gu[i].dong
-					let dong_option = $('<input type="radio" name="area" id='+dong_code+' class="dropdown-item btn-check"><label for="'+dong_code+'" class="dropdown_dong drop-btn ms-0 mb-0">'+dong_name+'</label>')
-            		$('#choice_dong').append(dong_option);
-				}
-				// 구 클릭후 동 불러오기 완료시 동버튼 활성화
-				$("#dropdownMenuButton_dong").removeAttr("disabled");
-			},
-    		error : ()=>{
-    		}
-    		
-    })
+		url: 'SearchDong.do',
+		type: 'get',
+		data: gu_name,
+		dataType: 'json',
+		success: (res) => {
+			if ($(".dropdown_dong") != null) {
+				$(".dropdown_dong").remove()
+			}
+			for (let i = 0; i < res.gu.length; i++) {
+				let dong_code = res.gu[i].cortarNo
+				let dong_name = res.gu[i].dong
+				let dong_option = $('<input type="radio" name="area" id=' + dong_code + ' class="dropdown-item btn-check"><label for="' + dong_code + '" class="dropdown_dong drop-btn ms-0 mb-0">' + dong_name + '</label>')
+				$('#choice_dong').append(dong_option);
+			}
+			// 구 클릭후 동 불러오기 완료시 동버튼 활성화
+			$("#dropdownMenuButton_dong").removeAttr("disabled");
+		},
+		error: () => {
+		}
+
+	})
 })
 
 
-$(document).on("click",".dropdown_dong",function(){
-	
+$(document).on("click", ".dropdown_dong", function() {
+
 	let cortarNo = $(this).attr("for")
 	console.log(cortarNo)
-	location.href='Map.jsp?cortarNo='+cortarNo
-	
- })
+	location.href = 'Map.jsp?cortarNo=' + cortarNo
 
+})
+
+// 오른쪽 인프라 컬럼 위 버튼
+$(".dropdown_infra").click(function(){
+	let nm = $(this).attr('for')
+	gu_name = {gu_name : nm};
+	$("#dropdownMenuButton_infra").text(nm);
+	$.ajax({
+		url: 'InfraCnt.do',
+		type: 'get',
+		data: gu_name,
+		dataType: 'json',
+		success: (res) => {
+			$.each(res, (key, value) => {
+				let tag_id = '#' + key + '_Cnt'
+				const $counter = document.querySelector(tag_id);
+				const max = value
+				counter($counter, max);
+			})
+		},
+		error: () => {
+		}
+
+	})
+})
+		
+		
+		
+		
+		
+		
+		

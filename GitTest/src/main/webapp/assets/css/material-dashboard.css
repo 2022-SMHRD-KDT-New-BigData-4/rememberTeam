@@ -4,6 +4,15 @@
    * Copyright 2011-2022 Twitter, Inc.
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    */
+	
+@font-face {
+    font-family: 'NEXONFootballGothic';
+    font-weight: 300; 
+    font-style: normal; 
+    src: url(https://cdn.jsdelivr.net/gh/webfontworld/NEXONGothic/NEXONFootballGothicLA1.woff2) format('woff2');
+    font-display: swap;
+}
+
 :root {
   --bs-blue: #63B3ED;
   --bs-indigo: #596CFF;
@@ -49,7 +58,7 @@
   --bs-black-rgb: 0, 0, 0;
   --bs-body-color-rgb: , 128, 154;
   --bs-body-bg-rgb: 255, 255, 255;
-  --bs-font-sans-serif: "Roboto", Helvetica, Arial, sans-serif;
+  --bs-font-sans-serif: NEXONFootballGothic, "Roboto", Helvetica, Arial, sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -3950,11 +3959,11 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-light {
-  --bs-btn-color: #f0f2f5;
-  --bs-btn-border-color: #f0f2f5;
+  --bs-btn-color: #000000;
+  --bs-btn-border-color: #000000;
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: #f0f2f5;
-  --bs-btn-hover-border-color: #f0f2f5;
+  --bs-btn-hover-border-color: #fff;
   --bs-btn-focus-shadow-rgb: 240, 242, 245;
   --bs-btn-active-color: #000;
   --bs-btn-active-bg: #f0f2f5;
@@ -3962,7 +3971,7 @@ fieldset:disabled .btn {
   --bs-btn-active-shadow: none;
   --bs-btn-disabled-color: #f0f2f5;
   --bs-btn-disabled-bg: transparent;
-  --bs-btn-disabled-border-color: #f0f2f5;
+  --bs-btn-disabled-border-color: #000;
   --bs-gradient: none;
 }
 
@@ -20636,10 +20645,10 @@ fieldset:disabled .btn {
 }
 
 .btn-outline-success:hover:not(.active) {
-  background-color: transparent;
-  opacity: .75;
+  background-color: #4CAF50;
+  opacity: 0.75;
   box-shadow: none;
-  color: #4CAF50;
+  color: #000;
 }
 
 .btn-info,
@@ -27722,18 +27731,11 @@ pre[class*="language-"] {
 	
 }
 
-.div_flex{
-	display : flex;
-	justify-content: space-between
-}
 
 #map:nth-child(2){
 	z-index: 10;
 }
-#infra_div {
-    flex: 0 0 auto;
-    width: 28%;
-}
+
 #map{
 	border: 2px solid transparent !important;
 	border-radius: 20% !important;

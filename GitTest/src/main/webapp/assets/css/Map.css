@@ -245,7 +245,7 @@ td {
 }
 
 	/* 편의점, 대형마트 */
-#cs_btn:hover, #sm_btn:hover, .ctg:hover {
+#cs_btn:hover, #sm_btn:hover{
 	color: #fff;
 	background-color: #6a4c93;
 	cursor: pointer;
@@ -459,5 +459,4 @@ td {
   width: 0;
   z-index: 0;
 }
-
 

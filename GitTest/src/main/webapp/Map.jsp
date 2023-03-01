@@ -30,21 +30,33 @@
         </div>
         <div class="search">
         	<form action="#" method="get">
-        		<div>
-					 <select id="choice_gu" onchange="change_gu()">
-  						<option selected align="center">구 선택</option>
-  						<option value="광산구" align="center">광산구</option>
- 					  	<option value="동구" align="center">동구</option>
-  						<option value="서구" align="center">서구</option>
-  						<option value="남구" align="center">남구</option>
-  						<option value="북구" align="center">북구</option>
-					</select>
-        		</div>
-				<div>
-					<select id="choice_dong" onchange="location = this.value">
-  						<option align="center" selected>동 선택</option>
-					</select>				
-				</div>
+					<!-- dropdown 시작 -->
+					<div class="dropdown-center">
+						 <button class="btn btn-outline-success btn:hover dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    구 검색
+						 </button>
+						 <div id = "choice_gu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						 	<input type="radio" name="area" id="광산구" class="dropdown-item btn-check">
+						 	<label for="광산구" class="dropdown_gu drop-btn ms-0 mb-0">광산구</label>	
+						 	<input type="radio" name="area" id="동구" class="dropdown-item btn-check">
+						 	<label for="동구" class="dropdown_gu drop-btn ms-0 mb-0">동구</label>	
+						 	<input type="radio" name="area" id="서구" class="dropdown-item btn-check">
+						 	<label for="서구" class="dropdown_gu drop-btn ms-0 mb-0">서구</label>	
+						 	<input type="radio" name="area" id="남구" class="dropdown-item btn-check">
+						 	<label for="남구" class="dropdown_gu drop-btn ms-0 mb-0">남구</label>	
+						 	<input type="radio" name="area" id="북구" class="dropdown-item btn-check">
+						 	<label for="북구" class="dropdown_gu drop-btn ms-0 mb-0">북구</label>
+						 </div>
+						</div>
+						
+					<div class="dropdown-center">
+						 <button disabled class="btn btn-outline-success btn:hover dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    동 검색
+						 </button>
+						  <div id = "choice_dong" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						 		  		
+						  </div>
+					</div> 
         	</form>
         </div>
     </div>
@@ -475,9 +487,10 @@
     
 	<!-- jQuery 사용 -->
 	<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-	
+
 	<!-- js 파일 불러오기 -->
 	<script src="assets/js/mapStyle.js"></script>
+	
 	
 	<!-- icon 사용 -->
 	<script src="https://kit.fontawesome.com/4a8c96245b.js" crossorigin="anonymous"></script>
@@ -503,6 +516,7 @@
 	$('#ms_btn').on('click', clickTest);
 	$('#ex_btn').on('click', clickTest);
 	$('#lb_btn').on('click', clickTest);
+	
 	
 	// $('#lb_btn').on('click', clickTest); -> 호버에 대한 기능을 따로 추가
 

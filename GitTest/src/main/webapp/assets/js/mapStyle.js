@@ -18,7 +18,7 @@ $('#up_btn').click(()=>{
 // 메뉴 버튼을 누르면 매물 리스트는 닫히고
 // 다시 누르면 매물 리스트 활성화
 // 일단은 같은 모양의 버튼을 2개 생성한 후 id를 다르게 부여하여 서로 다른 버튼으로 생성
-// 페이지에서 봤을때는 메뉴 모양이 변하지 않음 
+// 페이지에서 봤을때는 메뉴 모양이 변하지 않음 -> 색상 변경으로 활성화 비활성화 구분
 $('#menu_button').click(()=>{
 	$('#menu_button').css('display', 'none')
 	$('#menu_close_button').css('display','block')
@@ -66,46 +66,12 @@ function change_gu(){
     })
 }
 
-// 카테고리 버튼 클릭시 색상 유지
-// 매물버튼은 독립적으로
-// 카테고리 버튼을 제외하고 영향을 받지 않도록
+// 카테고리 버튼 클릭시 색상 유지(활성화)를 위한 작업
+// 매물버튼은 독립적으로 설계
+// 매물을 제외한 카테고리 버튼은 상호적으로 설계 하지만 다른 곳 클릭시 영향을 받지 않도록 함
 
-// 편의점
-/*
-$("#cs_btn").click(function(){
-	
-	console.log("편의점 클릭")
-	
-	
-	let color = $("#cs_btn").css("color")
-	console.log($("#cs_btn").css("color"))
-	if(color==="rgb(0, 0, 0)"){
-		$("#cs_btn").css("background-color", "white")
-		$("#cs_btn").css("color", "black")			
-	}else{
-		$("#cs_btn").css("background-color", "#6a4c93")
-		$("#cs_btn").css("color", "#fff")			
-	}	
-	
-})
-*/
-// 대형마트
-/*
-$("#sm_btn").click(function(){
-	console.log("대형마트 클릭")
-	
-	$("#sm_btn").css("background-color", "#6a4c93")
-	$("#sm_btn").css("color", "#fff")
-	$(".category button").not("#sm_btn, #rs_btn").css("background-image", "white")
-	$(".category button").not("#sm_btn, #rs_btn").css("color", "black")	
-	
-	
-	
-})
-*/
-//let cntColor = 0;
 /* 카테고리 버튼에 활성화 느낌(색상)을 주기 위한 로직 작성을 위한 변수 */
-let rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+let rs_color_cnt = 1;	// -> 매물
 let cs_color_cnt = 0; 	// -> 편의점
 let sm_color_cnt = 0; 	// -> 대형마트
 let hs_color_cnt = 0;	// -> 병원
@@ -118,6 +84,23 @@ let ms_color_cnt = 0;	// -> 박물관
 let ex_color_cnt = 0;	// -> 전시관
 let lb_color_cnt = 0; 	// -> 도서관
 
+// 매물
+function click_rs(target){	
+	if(rs_color_cnt==0){
+		console.log('매물 활성화')
+		target.style.backgroundColor="#8ac926";
+		target.style.color="white";
+		rs_color_cnt++;
+	}else{
+		
+		console.log('매물 비활성화')
+		target.style.backgroundColor="white";
+		target.style.color="black";
+		rs_color_cnt--;
+	}
+}
+
+// 도서관부터 편의점까지로 실제 카테고리 순서와는 거꾸로 작성함
 // 도서관
 function click_lb(target){	
 	$('.ctg').not("#rs_btn").css('backgroundColor','white');
@@ -282,7 +265,6 @@ function click_cs(target){
 		cs_color_cnt--;
 	}
 }
-
 
 
 

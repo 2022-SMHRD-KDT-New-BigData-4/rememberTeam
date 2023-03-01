@@ -637,13 +637,12 @@ function clickTest(e) {
 		clickMenu = "";
 
 
-		// -> 여기는 마커는 지워주고 색상은 변경함
+		// -> 여기는 마커는 지워주고 색상은 변경함 (비활성화)
 		if (e.currentTarget.value == '매물') {
-
+			click_rs(e.currentTarget);
 		}
 		else if (e.currentTarget.value == '편의점') {
 			click_cs(e.currentTarget);
-
 		}
 		else if (e.currentTarget.value == '대형마트') {
 			click_sm(e.currentTarget);
@@ -676,7 +675,7 @@ function clickTest(e) {
 			click_lb(e.currentTarget);
 		}
 
-		// -> 여기는 마커도 생성하고 색상도 변경함	
+		// -> 여기는 마커도 생성하고 색상도 변경함 (활성화)
 	} else {
 		console.log(e.currentTarget.value)
 		removeMarker()
@@ -687,14 +686,15 @@ function clickTest(e) {
 		if (e.currentTarget.value == '매물') {
 			//mapRS();
 			clusterer.clear();
-
+			click_rs(e.currentTarget);
+			rs_color_cnt = 0;
 		}
 		else if (e.currentTarget.value == '편의점') {
 			mapCS();
 			click_cs(e.currentTarget);
 			cs_color_cnt = 1;
 			// 다시 초기화
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원
 			ph_color_cnt = 0;	// -> 약국
@@ -710,7 +710,7 @@ function clickTest(e) {
 			mapSM();
 			click_sm(e.currentTarget);
 			sm_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물
 			cs_color_cnt = 0; 	// -> 편의점
 			hs_color_cnt = 0;	// -> 병원
 			ph_color_cnt = 0;	// -> 약국
@@ -726,7 +726,7 @@ function clickTest(e) {
 			mapHS();
 			click_hs(e.currentTarget);
 			hs_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			ph_color_cnt = 0;	// -> 약국
@@ -742,7 +742,7 @@ function clickTest(e) {
 			mapPH();
 			click_ph(e.currentTarget);
 			ph_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원
@@ -758,7 +758,7 @@ function clickTest(e) {
 			mapPS();
 			click_ps(e.currentTarget);
 			ps_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원
@@ -774,7 +774,7 @@ function clickTest(e) {
 			mapFS();
 			click_fs(e.currentTarget);
 			fs_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원
@@ -790,7 +790,7 @@ function clickTest(e) {
 			mapCC();
 			click_cc(e.currentTarget);
 			cc_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원
@@ -806,7 +806,7 @@ function clickTest(e) {
 			mapCN();
 			click_cn(e.currentTarget);
 			cn_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물 
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원
@@ -822,7 +822,7 @@ function clickTest(e) {
 			mapMS();
 			click_ms(e.currentTarget);
 			ms_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물 
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원
@@ -838,7 +838,7 @@ function clickTest(e) {
 			mapEX();
 			click_ex(e.currentTarget);
 			ex_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물 
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원
@@ -854,7 +854,7 @@ function clickTest(e) {
 			mapLB();
 			click_lb(e.currentTarget);
 			lb_color_cnt = 1;
-			rs_color_cnt = 0;	// -> 매물 (이건 맨 마지막에 작성하자!)
+			rs_color_cnt = 0;	// -> 매물 
 			cs_color_cnt = 0; 	// -> 편의점
 			sm_color_cnt = 0; 	// -> 대형마트
 			hs_color_cnt = 0;	// -> 병원

@@ -87,7 +87,7 @@
 										<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
 									</div>
 									<div class="text-end pt-1">
-									<h6>월별 실거래 평균가</h6>
+									<h6>월별 실거래 평균가 (단위:만원)</h6>
 									<div class="chart bg-gradient-success">
 										<canvas id="chart-line-avg" class="chart-canvas" height="200px" width="200px" style="display: block; box-sizing: border-box; height: 170px; width: 200px;"></canvas>
 									</div>

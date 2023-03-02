@@ -272,7 +272,14 @@ function chartAjax(mon_jeon){
 
 // 라인 차트 함수 
  	function chart_line(ctx,list1,list2,list3) {
-		
+		 
+	// 차트 기본 폰트
+	Chart.defaults.font.family = 'NEXONFootballGothic';
+	// 차트 기본 글자 크기
+	Chart.defaults.font.size = 11;
+	// 차트 기본 글자 굵기
+	Chart.defaults.font.weight = "bold";
+	
     new Chart(ctx, {
       type: "line",
       data: {
@@ -281,13 +288,10 @@ function chartAjax(mon_jeon){
           label: "연립다세대", // 차트 이름
           lineTension : 0.5, // 0이면 꺾은선 그래프, 숫자가 높을수록 둥글해짐
           pointRadius: 5, // 점 반지름 0이면 없음
-          pointBackgroundColor: "rgb(255, 89, 94)", // 점 배경 색깔
-//          pointBorderColor: "blue", // 점 경계 색깔
+          backgroundColor: "rgb(255, 89, 94)", // 점 배경 색깔
           borderColor: "rgb(255, 89, 94)", // 선의 색깔
-          borderWidth: 2, // 선의 두께
           fill: false, // 라인 그래프 밑의 배경을 채우는 옵션
-//        backgroundColor: "black", // 배켱 컬러 /transparent = 투명 
-          data: list1, // 데이터 리스트
+          data: list1 // 데이터 리스트
 
         }, {
             label: '오피스텔',
@@ -313,7 +317,7 @@ function chartAjax(mon_jeon){
         maintainAspectRatio: false, // 반응형으로 크기가 재조정 될때 비율 유지
         plugins: {
           legend: {
-            display: false,
+            display: true,
           }
         },
         interaction: {
@@ -335,10 +339,6 @@ function chartAjax(mon_jeon){
               color: '#f8f9fa',
               padding: 10,
               font: {
-                size: 11,
-                weight: 300,
-                family: "Roboto",
-                style: 'normal',
                 lineHeight: 2
               },
             }
@@ -356,10 +356,6 @@ function chartAjax(mon_jeon){
               color: '#f8f9fa',
               padding: 10,
               font: {
-                size: 11,
-                weight: 300,
-                family: "Roboto",
-                style: 'normal',
                 lineHeight: 2
               },
             }
@@ -371,7 +367,14 @@ function chartAjax(mon_jeon){
  	
  	// 바 차트 함수
  	function chart_bar(ctx, list1, list2) {
- 	
+		 
+ 	// 차트 기본 폰트
+ 	Chart.defaults.font.family = 'NEXONFootballGothic';
+ 	// 차트 기본 글자 크기
+ 	Chart.defaults.font.size = 11;
+ 	// 차트 기본 글자 굵기
+	Chart.defaults.font.weight = "bold";
+	
     new Chart(ctx, {
         type: "bar",
         data: {
@@ -380,15 +383,12 @@ function chartAjax(mon_jeon){
             label: "구별 1년 거래량",
             tension: 0.4,
             barThickness : 'flex',
-//            borderColor : "black",
             borderWidth: 1,
             borderRadius: 4,
             borderSkipped: false,
             backgroundColor: "rgb(106, 76, 147)",
             data: list1
-          }
-          
-          ],
+          }],
         },
         options: {
           responsive: true,
@@ -418,10 +418,6 @@ function chartAjax(mon_jeon){
                 beginAtZero: true,
                 padding: 10,
                 font: {
-                  size: 11,
-                  weight: 300,
-                  family: "Roboto",
-                  style: 'normal',
                   lineHeight: 2
                 },
                 color: "#fff"
@@ -441,10 +437,6 @@ function chartAjax(mon_jeon){
                 color: '#f8f9fa',
                 padding: 10,
                 font: {
-                  size: 11,
-                  weight: 300,
-                  family: "Roboto",
-                  style: 'normal',
                   lineHeight: 2
                 },
               }

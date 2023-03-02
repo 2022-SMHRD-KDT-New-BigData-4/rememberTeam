@@ -70,4 +70,8 @@
 		select * from gwangju_gu where cortarNo = #{cortarno}
 	</select>
 	
+	<select id="MapSearchDong" resultType="com.smhrd.model.VO.GWANGJU_DONG_VO">
+		select * from gwangju_dong 	
+	
+	</select>
 </mapper>

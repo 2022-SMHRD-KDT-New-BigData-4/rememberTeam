@@ -28,7 +28,20 @@ public class GWANGJU_DONG_DAO {
 		}
 		// 4. 결과값 반환
 		return result;
-
+		}
+	
+	public List<GWANGJU_DONG_VO> MapSearchDong(){
+		
+		List<GWANGJU_DONG_VO> list = null;
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		try {
+			list = sqlSession.selectList("MapSearchDong");
+		} finally {
+			sqlSession.close();
+		}
+		
+		return list;
 	}
 
 }

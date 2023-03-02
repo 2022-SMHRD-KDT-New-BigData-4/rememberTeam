@@ -21,6 +21,12 @@ public class GWANGJU_DONG_VO {
 		this.dong = dong;
 	}
 	
+	public GWANGJU_DONG_VO(String dong, String addr) {
+		this.dong = dong;
+		this.addr = addr;
+	}
+	
+	
 	public long getCortarNo() {
 		return cortarNo;
 	}

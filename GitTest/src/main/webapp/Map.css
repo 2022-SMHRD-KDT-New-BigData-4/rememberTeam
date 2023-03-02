@@ -1,0 +1,492 @@
+@charset "UTF-8";
+/* 폰트 사용하기 */
+@font-face {
+    font-family: 'NEXONFootballGothicBA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXONFootballGothicBA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* 상단바 */
+.header{
+    height: 70px;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+/* 메뉴 버튼 */
+.menu_btn{
+	flex-basis:45%;
+	display: flex;
+	align-items: center;
+}
+
+#menu_button{
+	background-color: transparent;
+	border: none;
+	color: #8ac926;
+	cursor: pointer;
+}
+
+#menu_close_button{
+	background-color: transparent;
+	border: none;
+	color: #495057;
+	cursor: pointer;
+}
+
+/* 로고 */
+.logo{
+	flex-basis: 10%;
+	display: flex;
+    flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	font-family: 'NEXONFootballGothicBA1';
+}
+
+.logo div{
+	width: 58px;
+	height: 53px;
+	border: none;
+	border-radius: 15px; 
+	background-image: linear-gradient(195deg, #8ac926 0%, #8ac926 100%);
+	margin: 5px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-size: xx-large;
+
+}
+
+/* 검색창 */
+.search{
+	flex-basis:45%;
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.search_txt {
+  	width: 230px;
+  	border: 1px solid #8ac926;
+  	border-radius: 30px;
+  	padding: 15px;
+	padding-left : 25px;
+  	font-size: 14px;
+	margin-right: 10px;
+
+}
+
+.search_txt:focus{
+	outline:2px solid #8ac926;
+	}
+
+.search_btn {
+  position : absolute;
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  top: 17px;
+  right: 23px;
+  border-color: #8ac926;
+  background-color: white;
+}
+
+/* map 부분 */
+.wrap{
+    height: 900px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+	/* 3. 메인축 정렬 : justify-content */
+	justify-content: center;
+}
+
+/* 매물정보 리스트 */
+.aside1{
+    width: 550px;
+    background-color: white;
+    overflow: auto;
+ 
+}
+
+/* 매물 각각에 대한 자리 */
+.items_btn{
+	width: 100%;
+	background-color: white;
+	border-left: none;
+	border-right: none;
+	border-width: thin;
+	border-color: #ccc;
+	text-align: left; 
+	line-height: 80%;
+}
+
+.items_btn h3{
+	color: blue;
+}
+
+/* 아이템 버튼에 마우스를 올렸을 떄, 색상변경 */
+.items_btn:hover{
+	background-color:  #f2f8fd;
+	cursor: pointer;
+}
+
+/* 아이템 버튼 클릭후 색상 유지 */
+.items_btn:focus{
+	background-color:  #f2f8fd;
+}
+
+/* 상세화면 */
+.aside2{
+    width: 1200px;
+    background-color: white;
+    overflow: auto;
+}
+
+.aside2 div{
+	text-align: right;
+}
+
+.close_btn{
+	background-color: transparent;
+	border: none;
+	color: #495057;
+	position: relative;
+	z-index: 5;
+	cursor: pointer;
+	
+}
+
+.aside2 img{
+	width: 100%;
+	position: relative;
+	top:-43px;
+}
+
+table{
+	position: relative;
+	top: -60px;
+	line-height:2;
+	width: 95%;
+	margin-left: auto; margin-right: auto;
+	text-align: left;
+}
+
+table h2{
+	margin-bottom: 0;
+	
+}
+
+table p{
+	color: blue;
+	margin: 0;
+}
+
+th {
+    border-bottom: 1px solid #e5e5e5;
+    width: 100px;
+	background-color: #fafafa;
+  }
+
+td {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+/* map */
+#map{
+	z-index: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 카테고리 버튼 */
+.nav{
+    width: 60px;
+    position: fixed;
+    top: 110px;
+    right: 45px;
+}
+
+.category button{
+	width: 58px;
+	height: 53px;
+	border: none;
+	border-radius: 15px; 
+	background-color: white;
+}
+
+/* test */
+.bgColorNone{
+	background-color: white;
+	color: black;
+}
+
+.rs_bg{
+	background-color: #8ac926 !important;
+	color: white !important;
+}
+
+.cs_sm_bg{
+	background-color: #6a4c93 !important;
+	color: white !important;
+}
+
+.hs_ph_bg{
+	background-color: #ffca3a !important;
+	color: white !important;
+}
+
+.ps_fs_cc_bg{
+	background-color: #ff595e !important;
+	color: white !important;
+}
+
+.cn_ms_ex_lb_bg{
+	background-color: #1982c4 !important;
+	color: white !important;
+}
+
+
+/* 카테고리 버튼에 마우스 올리면 배경 색상, 글자 색상 변경 */
+/* 매물의 경우 미리 켜져 있어야 되지 않을까,,? */
+#rs_btn{
+	color: #fff;
+	background-color: #8ac926;
+}
+
+#rs_btn:hover{
+	color: #fff;
+	background-color: #8ac926;
+	cursor: pointer;
+}
+
+	/* 편의점, 대형마트 */
+#cs_btn:hover, #sm_btn:hover{
+	color: #fff;
+	background-color: #6a4c93;
+	cursor: pointer;
+}
+
+	/* 병원, 약국 */
+#hs_btn:hover, #ph_btn:hover{
+	color: #fff;
+	background-color: #ffca3a;
+	cursor: pointer;
+}
+
+	/* 경찰서, 소방서, 자치센터 */
+#ps_btn:hover, #fs_btn:hover, #cc_btn:hover{
+	color: #fff;
+	background-color: #ff595e;
+	cursor: pointer;
+}
+
+	/* 영화관, 박물관, 전시관, 도서관 */
+#cn_btn:hover, #ms_btn:hover, #ex_btn:hover, #lb_btn:hover{
+	color: #fff;
+	background-color: #1982c4;
+	cursor: pointer;
+}
+
+#up_btn:hover, #down_btn:hover{
+	color: #fff;
+	background-color: #8ac926;
+	cursor: pointer;
+}
+
+.category_btn{
+	list-style-type: none;
+	margin: -12px;
+}
+
+.category_btn  span{
+	font-size: 10px;
+	align-content: center;
+}
+
+.colorNo1 {
+  background-color: #eef3fd;
+  border: #6a4c93 solid 1px;
+  border-radius: 5px;
+  color: #7c4c93;
+  font-size: 12px;
+  font-weight: 500;
+  height: auto;
+  letter-spacing: -0.25px;
+  margin-top: 6.8px;
+  padding: 5px 11px;
+  position: relative;
+  width: fit-content;
+  z-index: 100;
+}
+
+
+.colorNo1::after {
+  border-color: #eef3fd transparent;
+  border-style: solid;
+  border-width: 8px 6px 0px 6.5px;  /* 상 우 하 좌*/
+  content: '';
+  display: block;
+  left: 1px;
+  position: absolute;
+  bottom: -6.5px;
+  width: 0;
+  z-index: 1;
+}
+
+.colorNo1::before {
+  border-color: #7689fd transparent;
+  border-style: solid;
+  border-width: 8px 6px 0px 6.5px;;
+  content: '';
+  display: block;
+  left: 1px;
+  position: absolute;
+  bottom: -8px;
+  width: 0;
+  z-index: 0;
+}
+
+.colorNo2 {
+  background-color: #fff3d4;
+  border: #ffca3a solid 1px;
+  border-radius: 5px;
+  color: #ffc011;
+  font-size: 12px;
+  font-weight: 500;
+  height: auto;
+  letter-spacing: -0.25px;
+  margin-top: 6.8px;
+  padding: 5px 11px;
+  position: relative;
+  width: fit-content;
+  z-index: 100;
+}
+
+
+.colorNo2::after {
+  border-color: #fff3d4 transparent;
+  border-style: solid;
+  border-width: 8px 6px 0px 6.5px;  /* 상 우 하 좌*/
+  content: '';
+  display: block;
+  left: 1px;
+  position: absolute;
+  bottom: -6.5px;
+  width: 0;
+  z-index: 1;
+}
+
+.colorNo2::before {
+  border-color: #ffdf87 transparent;
+  border-style: solid;
+  border-width: 8px 6px 0px 6.5px;;
+  content: '';
+  display: block;
+  left: 1px;
+  position: absolute;
+  bottom: -8px;
+  width: 0;
+  z-index: 0;
+}
+
+.colorNo3 {
+  background-color: #ffd9da;
+  border: #ff595e solid 1px;
+  border-radius: 5px;
+  color: #ff262d;
+  font-size: 12px;
+  font-weight: 500;
+  height: auto;
+  letter-spacing: -0.25px;
+  margin-top: 6.8px;
+  padding: 5px 11px;
+  position: relative;
+  width: fit-content;
+  z-index: 100;
+}
+
+
+.colorNo3::after {
+  border-color: #ffd9da transparent;
+  border-style: solid;
+  border-width: 8px 6px 0px 6.5px;  /* 상 우 하 좌*/
+  content: '';
+  display: block;
+  left: 1px;
+  position: absolute;
+  bottom: -6.5px;
+  width: 0;
+  z-index: 1;
+}
+
+.colorNo3::before {
+  border-color: #ff8c8f transparent;
+  border-style: solid;
+  border-width: 8px 6px 0px 6.5px;;
+  content: '';
+  display: block;
+  left: 1px;
+  position: absolute;
+  bottom: -8px;
+  width: 0;
+  z-index: 0;
+}
+
+.colorNo4 {
+  background-color: #cbe7f9;
+  border: #1982c4 solid 1px;
+  border-radius: 5px;
+  color: #105580;
+  font-size: 12px;
+  font-weight: 500;
+  height: auto;
+  letter-spacing: -0.25px;
+  margin-top: 6.8px;
+  padding: 5px 11px;
+  position: relative;
+  width: fit-content;
+  z-index: 100;
+}
+
+
+.colorNo4::after {
+  border-color: #cbe7f9 transparent;
+  border-style: solid;
+  border-width: 8px 6px 0px 6.5px;  /* 상 우 하 좌*/
+  content: '';
+  display: block;
+  left: 1px;
+  position: absolute;
+  bottom: -6.5px;
+  width: 0;
+  z-index: 1;
+}
+
+.colorNo4::before {
+  border-color: #43a8e7 transparent;
+  border-style: solid;
+  border-width: 8px 6px 0px 6.5px;;
+  content: '';
+  display: block;
+  left: 1px;
+  position: absolute;
+  bottom: -8px;
+  width: 0;
+  z-index: 0;
+}
+

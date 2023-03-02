@@ -29,12 +29,16 @@
         	<div>집</div>
         </div>
         <div class="search">
-			<form action="#" method="get">
-				<input class="search_txt" type="text" placeholder="찾으시는 동을 입력해 주세요" onfocus="this.placeholder=''" onblur="this.placeholder='찾으시는 동을 입력해 주세요'">
-				<button class="search_btn" type="submit">
-					<i class="fa-solid fa-magnifying-glass"></i>
-				</button>
-			</form>
+			<input list="search_matching" class="search_txt" type="text" placeholder="찾으시는 동을 입력해 주세요" onfocus="this.placeholder=''" onblur="this.placeholder='찾으시는 동을 입력해 주세요'">
+				<datalist id ="search_matching">
+  					<option value="사과">
+  					<option value="바나나">
+  					<option value="포도">
+  					<option value="오렌지">
+				</datalist>
+			<button class="search_btn" type="submit">
+				<i class="fa-solid fa-magnifying-glass"></i>
+			</button>
         </div>
     </div>
     

@@ -7,11 +7,6 @@
 <html lang="en">
 <head>
 
-<!-- jQuery CDN -->
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-<!-- chart.js -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
 
@@ -19,25 +14,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="apple-touch-icon" sizes="76x76"
-	href="./assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 
 <title>LET ME GO HOME.. PLZ... </title>
 
-
-
-<!--     Fonts and icons     -->
-<link rel="stylesheet" type="text/css"
-	href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
-
-<!-- Nucleo Icons -->
-<link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-<link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
-
-<!-- Font Awesome Icons -->
-<script src="https://kit.fontawesome.com/42d5adcbca.js"
-	crossorigin="anonymous"></script>
 
 <!-- Material Icons -->
 <link
@@ -71,44 +51,7 @@
 <!-- 왼쪽 매물 컬럼&그래프 레이아웃 -->
 
 				<div class="col-lg-3 z-index-2">
-					<!-- <div class="row mt-3">
 					
-						<div class="col-lg-5 col-sm-5">
-							<div class="card  mb-2">
-								<div class="card-header p-3 pt-2 bg-transparent">
-									<div class="icon icon-lg icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-xl mt-n4 position-absolute">
-										<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
-									</div>
-									<div class="text-end pt-1">
-										<p class="text-sm mb-0 text-capitalize">전세매물</p>
-										<h4 id="jeonse_Cnt" class="mb-0">0</h4>
-									</div>
-								</div>
-								
-								<hr class="dark horizontal my-0">
-								
-							</div>
-						</div>
-						
-						<div class="col-lg-5 col-sm-5 mt-sm-0 mt-4">
-							<div class="card  mb-2">
-								<div class="card-header p-3 pt-2 bg-transparent">
-									<div class="icon icon-lg icon-shape bg-gradient-light shadow-success text-center border-radius-xl mt-n4 position-absolute">
-										<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
-									</div>
-									<div class="text-end pt-1">
-										<p class="text-sm mb-0 text-capitalize ">월세매물</p>
-										<h4 id="monthly_Cnt" class="mb-0">0</h4>
-									</div>
-								</div>
-
-								<hr class="horizontal my-0 dark">
-
-							</div>
-
-
-						</div>
-					</div> -->
 											<!-- 차트 부분 -->
 					
 					<div class="card-body p-2 mt-6">
@@ -518,7 +461,7 @@
 			</div>
 
 
-<!-- footer -->
+	<!-- footer 끝 -->
 
 		</div>
 
@@ -526,28 +469,21 @@
 	</main>
 
 
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+<!-- chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-	<!--   Core JS Files   -->
-	<script src="./assets/js/core/popper.min.js"></script>
-	<script src="./assets/js/core/bootstrap.min.js"></script>
-	<!-- 가운데 카카오 지도 불러오기 -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=311c2d3dcf5815fdf2481d7ae57fc8cb&libraries=clusterer"></script>
-	
+<!--   Core JS Files   -->
+<script src="./assets/js/core/popper.min.js"></script>
+<script src="./assets/js/core/bootstrap.min.js"></script>
 
+<!-- 가운데 카카오 지도 불러오기 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=311c2d3dcf5815fdf2481d7ae57fc8cb&libraries=clusterer"></script>
 
-<!-- Github buttons -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-
-
-<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/material-dashboard.min.js?v=3.0.4"></script>
-
-<!-- 부트스트랩 js CDN -->
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+<!-- 자바스크립트 -->
+<script src="./assets/js/Main.js"></script>
 
 </body>
-<script src="./assets/js/Main.js"></script>
 
 </html>

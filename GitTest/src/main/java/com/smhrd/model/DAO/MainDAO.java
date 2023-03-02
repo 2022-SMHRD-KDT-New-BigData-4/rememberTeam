@@ -36,19 +36,6 @@ public class MainDAO {
 
 	}
 
-	// 매물 컬럼 테이블 전월세 카운트
-	public int RSCnt(String rs) {
-
-		int cnt = 0;
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		try {
-			cnt = sqlSession.selectOne("RSCnt", rs);
-		} finally {
-			sqlSession.close();
-		}
-
-		return cnt;
-	}
 	
 	public int[] MouseoverCnt(MainVO[] vo) {
 		

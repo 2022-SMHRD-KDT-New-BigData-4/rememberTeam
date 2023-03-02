@@ -12,13 +12,6 @@
 		  FROM ${table}
 	</select>
 	
-	<!-- 매물 테이블 전세/월세 카운트 -->
-	<select id="RSCnt" parameterType="String" resultType="int">
-		SELECT COUNT(*)
-		  FROM GJ_RS
-		 WHERE RS_CR = #{rs}	
-	</select>
-	
 	<!-- 지도 마우스오버 인프라 컬럼 카운트 -->
 	<select id = "MouseoverCnt" parameterType="com.smhrd.model.VO.MainVO" resultType="int">
 		SELECT COUNT(*)

@@ -1,5 +1,4 @@
-
-	// 카카오 맵 생성
+// 카카오 맵 생성
 var mapContainer = document.getElementById('map');
 var mapOptions = {
 	center: new kakao.maps.LatLng(35.15507159179403, 126.8351730541552),
@@ -41,103 +40,6 @@ gu_marker('./assets/img/seo_marker.png', 35.15202881090633, 126.8901121635609);
 gu_marker('./assets/img/nam_marker.png', 35.13290738235676, 126.90244876848048);
 gu_marker('./assets/img/buk_marker.png', 35.1736650058521, 126.91159126881855);
 gu_marker('./assets/img/gj_marker.png', 35.15907159179403, 126.8531730541552);
-
-
-//광주 가장 바깥쪽 사각형 폴리곤 생성
-
-var path_line = [
-	new kakao.maps.LatLng(35.30, 126.602),
-	new kakao.maps.LatLng(35.30, 127.065),
-	new kakao.maps.LatLng(35.00, 127.065),
-	new kakao.maps.LatLng(35.00, 126.602),
-];
-
-
-
-/* $.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
-	 
-   var data_out = geojson.features;
-   var coordinates_out = []; 
-   var name_out = ''; 
-
-   $.each(data_out, function(index, val) {
-
-       coordinates_out = val.geometry.coordinates;
-       name_out = val.properties.CTP_KOR_NM;
-       displayArea_out(path_line, coordinates_out, name_out); 
-   })
-})
-
-
-var polygons_out=[];
-
-
-function displayArea_out(path_line, coordinates_out, name_out) {
-	var path_out = [
-		new kakao.maps.LatLng(34.90,126.5),
-		new kakao.maps.LatLng(34.90,127.2),
-		new kakao.maps.LatLng(35.39,127.2),
-		new kakao.maps.LatLng(35.39,126.5)
-	]; 
-   var hole = path_line;
-   var points = [];
-   
-   
-   var polygon_out = new kakao.maps.Polygon({
-       map : map, 
-       path : [path_out, hole],
-       strokeWeight : 2,
-       strokeColor : '#004c80',
-       strokeOpacity : 0.8,
-       fillColor : '#f8f9fa',
-       fillOpacity : 1
-   });
-}; */
-
-// 광주 바깥쪽 라인 사각형 폴리곤 생성
-/*$.getJSON("./assets/geojson/gj_line.geojson", function(geojson) {
-	 
-   var data_line = geojson.features;
-   var coordinates_line = []; 
-   var name_line = ''; 
-
-   $.each(data_line, function(index, val) {
-
-       coordinates_line = val.geometry.coordinates;
-       name_line = val.properties.CTP_KOR_NM;
-       displayArea_line(coordinates_line, name_line); 
-   })
-})
-
-
-var polygons_line=[];
-
-
-function displayArea_line(coordinates_line, name_line) {
-	
-   var hole_line = [];
-   var points = [];
-   
-   $.each(coordinates_line[0][0], function(index, coordinates_line) {        //console.log(coordinates)를 확인해보면 보면 [0]번째에 배열이 주로 저장이 됨.  그래서 [0]번째 배열에서 꺼내줌.
-       var point = new Object(); 
-       point.x = coordinates_line[1];
-       point.y = coordinates_line[0];
-       points.push(point);
-       hole_line.push(new kakao.maps.LatLng(coordinates_line[1], coordinates_line[0]));	//new kakao.maps.LatLng가 없으면 인식을 못해서 path 배열에 추가
-   })
-
-   var polygon_line = new kakao.maps.Polygon({
-       map : map, 
-       path : [path_line, hole_line],
-       strokeWeight : 2,
-       strokeColor : '#004c80',
-       strokeOpacity : 0.8,
-       fillColor : '#fff',
-       fillOpacity : 0.1
-       
-   });
-};*/
-
 
 
 //광주 행정구역 구분 폴리곤 생성
@@ -212,10 +114,7 @@ function displayArea(coordinates, name) {
         	});
     	}
  		$("#dropdownMenuButton_infra").text(name);
-        //customOverlay.setContent('<div class="area">'+name+'</div>');
-
-        customOverlay.setPosition(mouseEvent.latLng);
-        customOverlay.setMap(map);
+        
         
         gu_name = {gu_name:name}
         $.ajax({
@@ -235,23 +134,6 @@ function displayArea(coordinates, name) {
     		}
     		
     	})
-    	/*$.ajax({
-			url : 'RSCnt.do',
-			type : 'get',
-			data : gu_name,
-			dataType : 'json',
-			success : (res)=>{
-				$.each(res,(key, value)=>{
-					let tag_id = "#"+key+"_Cnt"
-					const $counter = document.querySelector(tag_id);
-					const max = value
-					counter($counter, max);
-			})
-			},
-			error : ()=>{
-			}
-		})*/
-        
         
         
 	});
@@ -505,16 +387,7 @@ function chartAjax(mon_jeon){
             backgroundColor: "rgb(106, 76, 147)",
             data: list1
           }
-          /*, {
-        	  type: 'line',
-              label: '구별 1년 평균가',
-              fill : false,      
-              lineTension : 0.5,  
-              pointRadius : 5,    
-              backgroundColor: 'rgb(255, 153, 0)',
-              borderColor: 'rgb(255, 153, 0)',
-              data: list2
-          } */
+          
           ],
         },
         options: {
@@ -617,23 +490,6 @@ $(document).ready(()=>{
 		}
 	})
 	
-	// 매물 컬럼 테이블 튜플 카운트 ajax
-	/*$.ajax({
-		url : 'RSCnt.do',
-		type : 'get',
-		dataType : 'json',
-		success : (res)=>{
-			$.each(res,(key, value)=>{
-				let tag_id = "#"+key+"_Cnt"
-				const $counter = document.querySelector(tag_id);
-				const max = value
-				counter($counter, max);
-			})
-		},
-		error : ()=>{
-		}
-	})*/
-	
 	// 차트 ajax
 	chartAjax(mon_jeon);
 	
@@ -660,7 +516,6 @@ $(".borderClass").click(function() {
 	if (ex_id != id) {
 		markers = [];
 		clear_marker();
-		//clusterer.removeMarkers(markers);
 		clusterer.clear();
 	}
 	let data_marker = { table: id };
@@ -684,7 +539,6 @@ $(".borderClass").click(function() {
 				}
 				clusterer.addMarkers(markers);
 				console.log("222")
-				//markers = null;
 				ex_id = id;
 				isMarker = true;
 			},
@@ -708,7 +562,8 @@ function clear_marker() {
 }
 
 
-// 컬럼 바깥쪽 아무 영역이나 클릭하면 마커를 지우기
+
+// 컬럼 바깥쪽 아무 영역이나 클릭하면 클러스터러를 지우기
 
 $("body").not('.borderClass').click(() => {
 	clusterer.clear();
@@ -791,10 +646,3 @@ $(".dropdown_infra").click(function(){
 
 	})
 })
-		
-		
-		
-		
-		
-		
-		

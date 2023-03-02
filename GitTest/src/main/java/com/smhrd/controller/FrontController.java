@@ -30,7 +30,6 @@ public class FrontController extends HttpServlet {
 		map = new HashMap<>();
 
 		map.put("InfraCnt.do", new InfraCnt());
-		map.put("RSCnt.do", new RSCnt());
 		map.put("MainMarker.do", new MainMarker());
 		map.put("SearchDong.do", new SearchDong());
 		map.put("MainMapClick.do", new MainMapClick());

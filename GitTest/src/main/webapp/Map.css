@@ -152,6 +152,7 @@ body{
 
 /* 상세화면 */
 .aside2{
+	position: absolute;
     width: 1200px;
     background-color: white;
     overflow: auto;

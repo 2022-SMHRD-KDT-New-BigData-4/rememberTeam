@@ -1013,10 +1013,11 @@ function markerOverlay(res) {
 }
 
 let itemStrCheck = false;
+let detailItemCheck = false;
 let itemsClass = null;
-let new_buttonTag = null;
-let aside2 = null;
-let new_divTag = null;
+// let new_buttonTag = null;
+// let aside2 = null;
+// let new_divTag = null;
 let id_check = 0;
 
 // 매물
@@ -1211,6 +1212,12 @@ function mapRS() {
 					id_check = Number($(this).attr("id"));
 					//console.log(id_check)
 					//console.log(mappingData[id_check].pos)
+					
+					if(detailItemCheck == true){
+						$('#detailClass').empty();
+						detailItemCheck = false;
+					}
+					
 					let mappos1 = mappingData[id_check].pos
 					// 사이드바 상세 메뉴
 					detailItem = '<div class = "hide">'
@@ -1306,6 +1313,8 @@ function mapRS() {
 					new_div2Tag.innerHTML = detailItem;
 
 					detailClass.appendChild(new_div2Tag)
+					
+					detailItemCheck = true;
 
 				});
 

@@ -42,30 +42,6 @@ $('.close_btn').click(()=>{
 	$('.aside2').css('display', 'none')	
 })
 
-// 구, 동 선택 select
-function change_gu(){
-	let choice_gu  = document.getElementById("choice_gu");
-	let gu = (choice_gu.options[choice_gu.selectedIndex].value);	
-	let gu_name = {gu_name : gu}
-    $.ajax({
-    		url : 'SearchDong.do',
-    		type : 'get',
-    		data : gu_name,
-    		dataType : 'json',
-    		success : (res)=>{
-  				for (let i = 0; i<res.gu_name.length; i++){
-					let value = res.gu_name[i]
-					let dong_option = $("<option value=Map.jsp?dong_name=" + value + ">"+value+"</a></option>");
-            		$('#choice_dong').append(dong_option);
-				}
-				
-			},
-    		error : ()=>{
-    		}
-    		
-    })
-}
-
 // 카테고리 버튼 클릭시 색상 유지(활성화)를 위한 작업
 // 매물버튼은 독립적으로 설계
 // 매물을 제외한 카테고리 버튼은 상호적으로 설계 하지만 다른 곳 클릭시 영향을 받지 않도록 함

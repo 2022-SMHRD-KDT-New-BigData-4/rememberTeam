@@ -1177,17 +1177,17 @@ function mapRS() {
 					// 사이드바 메뉴
 					itemStr = '<div class="items">'
 						+ '<a href="javascript:void(0);" role="button">'
-						+ '<h1>' + mappos.nm + '</h1>'
-						+ '<h3>' + mappos.pr + '</h3>'
+						+ '<h2 class="h2">' + mappos.nm + '</h2>'
+						+ '<h3 class="h3">' + mappos.pr + '</h3>'
 						+ '<span>'
 						+ '<strong>' + mappos.type + ' ' + '</strong>'
 						+ mappos.m_cost
 						+ '</span>'
-						+ '<p>'
+						+ '<p class="line">'
 						+ '<span>' + mappos.ct_area + '/' + '</span>' + '<span>' + mappos.ex_area + '</span>'
 						+ '</p>'
-						+ '<p>' + mappos.md + '</p>'
-						+ '<p>' + mappos.keyword + '</p>'
+						+ '<p class="line">' + mappos.md + '</p>'
+						+ '<p class="line">' + mappos.keyword + '</p>'
 						+ '</a>'
 						+ '</div>'
 

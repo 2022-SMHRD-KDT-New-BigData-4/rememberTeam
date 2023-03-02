@@ -124,15 +124,19 @@ body{
 }
 
 /* 매물 각각에 대한 자리 */
-.items{
+.items_div .items{
 	width: 100%;
 	background-color: white;
-	border-left: none;
-	border-right: none;
-	border-width: thin;
 	border-color: #ccc;
-	text-align: left; 
-	line-height: 80%;
+	text-align: left;
+	max-height: 100%;
+	max-width: 100%;
+	/*line-height: 0.8em;*/
+}
+.items_div{
+	width: 500px;
+	height: 170px;
+	display: flex;
 }
 
 .items h3{
@@ -141,9 +145,10 @@ body{
 
 /* 아이템 버튼에 마우스를 올렸을 떄, 색상변경 */
 .items:hover{
-	background-color:  #f2f8fd;
+	background-color: #e5e5e5;
 	cursor: pointer;
 }
+
 
 /* 아이템 버튼 클릭후 색상 유지 */
 .items:focus{
@@ -459,14 +464,26 @@ td {
 }
 
 .items_div{
-	margin: 1px 1px 1px 10px;
+	margin: 1px 0px 1px 10px;
 	padding: 2px;
-	border-bottom: 2px solid blue;
+	border-bottom: 2px solid #e5e5e5;
 }
 
 a{
 	text-decoration: none;
 	color: black;
+}
+
+.line{
+	margin: 1px;
+}
+
+.h2{
+	margin:3px 0px 3px 0px;
+}
+
+.h3{
+	margin:0px 0px 3px 0px;
 }
 
 #loading {

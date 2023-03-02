@@ -645,9 +645,10 @@ $(document).ready(()=>{
 let markers = [];
 let isMarker = false;
 let ex_id = "";
+var clusterer = "";
 
 
-var clusterer = new kakao.maps.MarkerClusterer({
+	clusterer = new kakao.maps.MarkerClusterer({
       				map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체 
         			averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정 
         			minLevel: 9, // 클러스터 할 최소 지도 레벨
@@ -657,8 +658,9 @@ var clusterer = new kakao.maps.MarkerClusterer({
 $(".borderClass").click(function() {
 	let id = $(this).attr("id")
 	if (ex_id != id) {
+		markers = [];
 		clear_marker();
-		clusterer.removeMarkers(markers);
+		//clusterer.removeMarkers(markers);
 		clusterer.clear();
 	}
 	let data_marker = { table: id };
@@ -670,8 +672,7 @@ $(".borderClass").click(function() {
 			data: data_marker,
 			dataType: 'json',
 			success: (res) => {
-
-
+			
 				for (var i = 0; i < res.column.length; i++) {
 					var lat = res.column[i].lat;
 					var lng = res.column[i].lng;
@@ -682,7 +683,8 @@ $(".borderClass").click(function() {
 					markers.push(marker);
 				}
 				clusterer.addMarkers(markers);
-
+				console.log("222")
+				//markers = null;
 				ex_id = id;
 				isMarker = true;
 			},
@@ -690,8 +692,8 @@ $(".borderClass").click(function() {
 			}
 		})
 	} else {
+		markers = [];
 		clear_marker();
-		clusterer.removeMarkers(markers);
 		clusterer.clear();
 	}
 })
@@ -709,7 +711,6 @@ function clear_marker() {
 // 컬럼 바깥쪽 아무 영역이나 클릭하면 마커를 지우기
 
 $("body").not('.borderClass').click(() => {
-	clear_marker();
 	clusterer.clear();
 })
 

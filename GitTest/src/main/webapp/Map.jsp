@@ -29,7 +29,12 @@
         	<div>집</div>
         </div>
         <div class="search">
-			<!-- 잠시 공백 -->
+			<form action="#" method="get">
+				<input class="search_txt" type="text" placeholder="찾으시는 동을 입력해 주세요" onfocus="this.placeholder=''" onblur="this.placeholder='찾으시는 동을 입력해 주세요'">
+				<button class="search_btn" type="submit">
+					<i class="fa-solid fa-magnifying-glass"></i>
+				</button>
+			</form>
         </div>
     </div>
     

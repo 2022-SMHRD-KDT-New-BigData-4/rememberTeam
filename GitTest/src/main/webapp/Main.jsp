@@ -189,7 +189,7 @@
 					
 					</div>
 					<div class="card-header p-3 pt-2">
-						<div id="map" style="width:680px;height:565px;">
+						<div id="MainMap" style="width:680px;height:565px;">
 						</div>
 					</div>
 				</div>

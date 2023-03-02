@@ -220,7 +220,7 @@ td {
 }
 
 /* 카테고리 버튼 */
-.nav{
+.category_line{
     width: 60px;
     position: fixed;
     top: 110px;

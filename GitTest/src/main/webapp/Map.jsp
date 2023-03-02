@@ -8,6 +8,8 @@
 
 <!-- css 파일 불러오기 -->
 <link rel="stylesheet" href="assets/css/Map.css">
+<link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.4"
+	rel="stylesheet" />
 
 </head>
 <body>
@@ -62,7 +64,7 @@
         
         
         <!-- 카테고리 -->
-        <div class="nav">
+        <div class="category_line">
             <div class="category">
             	<ul>
             		<li class="category_btn" data-order="0">
@@ -243,6 +245,11 @@
 	
 	<!-- 파일을 따로 분리했기때문에 임폴트 작업 필요 -->
 	<script src="assets/js/kakaoMap.js"></script>
+	
+	
+	<script src="./assets/js/core/popper.min.js"></script>
+	<script src="./assets/js/core/bootstrap.min.js"></script>
+	
 		
 	<script>
 	

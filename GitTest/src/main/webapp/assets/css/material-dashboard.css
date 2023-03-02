@@ -27740,7 +27740,7 @@ pre[class*="language-"] {
 	z-index: 10;
 }
 
-#map{
+#MainMap{
 	border: 2px solid transparent !important;
 	border-radius: 20% !important;
 }
@@ -27797,5 +27797,13 @@ pre[class*="language-"] {
 #best{
 	color: #4CAF50;
 }
+
+.category_line{
+    width: 60px;
+    position: fixed;
+    top: 110px;
+    right: 45px;
+}
+
 
 /*# sourceMappingURL=dashboard-free.css.map */

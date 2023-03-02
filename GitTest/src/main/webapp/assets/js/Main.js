@@ -1,5 +1,5 @@
 // 카카오 맵 생성
-var mapContainer = document.getElementById('map');
+var mapContainer = document.getElementById('MainMap');
 var mapOptions = {
 	center: new kakao.maps.LatLng(35.15507159179403, 126.8351730541552),
 	level: 9,

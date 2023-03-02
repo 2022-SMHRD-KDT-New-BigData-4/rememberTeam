@@ -117,7 +117,7 @@ body{
 
 /* 매물정보 리스트 */
 .aside1{
-    width: 550px;
+    width: 500px;
     background-color: white;
     overflow: auto;
  
@@ -131,11 +131,13 @@ body{
 	text-align: left;
 	max-height: 100%;
 	max-width: 100%;
+	padding: 1px 3px 1px 3px
 	/*line-height: 0.8em;*/
 }
 .items_div{
-	width: 390px;
-	display: flex;
+	width: 500px;
+	/*display: flex;*/
+	clear:both;
 }
 
 .items h3{
@@ -159,7 +161,8 @@ body{
     width: 1200px;
     background-color: white;
     overflow: auto;
-    visibility: visible
+    clear:both;
+	visibility: hidden;
 }
 
 .aside2 div{
@@ -484,8 +487,8 @@ a{
 	margin-bottom: 0;
 }
 
-.h3{
-	margin:0px 0px 0px 0px;
+div{
+	display: block;
 }
 
 #loading {

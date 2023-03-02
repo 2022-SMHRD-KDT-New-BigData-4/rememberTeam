@@ -79,7 +79,8 @@ function click_rs(target){
 // 도서관부터 편의점까지로 실제 카테고리 순서와는 거꾸로 작성함
 // 도서관
 function click_lb(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(lb_color_cnt==0){
 		target.style.backgroundColor="#1982c4";
 		target.style.color="white";
@@ -93,7 +94,8 @@ function click_lb(target){
 
 // 전시관
 function click_ex(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(ex_color_cnt==0){
 		target.style.backgroundColor="#1982c4";
 		target.style.color="white";
@@ -107,7 +109,8 @@ function click_ex(target){
 
 // 박물관
 function click_ms(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(ms_color_cnt==0){
 		target.style.backgroundColor="#1982c4";
 		target.style.color="white";
@@ -121,7 +124,8 @@ function click_ms(target){
 
 // 영화관
 function click_cn(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(cn_color_cnt==0){
 		target.style.backgroundColor="#1982c4";
 		target.style.color="white";
@@ -135,7 +139,8 @@ function click_cn(target){
 
 // 자치센터
 function click_cc(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(cc_color_cnt==0){
 		target.style.backgroundColor="#ff595e";
 		target.style.color="white";
@@ -149,7 +154,8 @@ function click_cc(target){
 
 // 소방서
 function click_fs(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(fs_color_cnt==0){
 		target.style.backgroundColor="#ff595e";
 		target.style.color="white";
@@ -163,7 +169,8 @@ function click_fs(target){
 
 // 경찰서
 function click_ps(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(ps_color_cnt==0){
 		target.style.backgroundColor="#ff595e";
 		target.style.color="white";
@@ -177,7 +184,8 @@ function click_ps(target){
 
 // 약국
 function click_ph(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(ph_color_cnt==0){
 		target.style.backgroundColor="#ffca3a";
 		target.style.color="white";
@@ -191,7 +199,8 @@ function click_ph(target){
 
 // 병원
 function click_hs(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(hs_color_cnt==0){
 		target.style.backgroundColor="#ffca3a";
 		target.style.color="white";
@@ -205,7 +214,8 @@ function click_hs(target){
 
 // 대형마트
 function click_sm(target){	
-	$('.ctg').not("#rs_btn").addClass("abc");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(sm_color_cnt==0){
 		target.style.backgroundColor="#6a4c93";
 		target.style.color="white";
@@ -219,14 +229,15 @@ function click_sm(target){
 
 // 편의점
 function click_cs(target){	
-	$('.ctg').not("#rs_btn").addClass("bgColorNone");
+	$('.ctg').not("#rs_btn").css('backgroundColor','white');
+	$('.ctg').not("#rs_btn").css('color','black');
 	if(cs_color_cnt==0){
-		$('#cs_btn').removeClass("bgColorNone");
-		$('#cs_btn').addClass("cs_sm_bg");
+		target.style.backgroundColor="#6a4c93";
+		target.style.color="white";
 		cs_color_cnt++;
 	}else{
-		$('#cs_btn').removeClass("cs_sm_bg");	
-		$('#cs_btn').addClass("bgColorNone");
+		target.style.backgroundColor="white";
+		target.style.color="black";
 		cs_color_cnt--;
 	}
 }

@@ -47,7 +47,7 @@
         
         
         <!-- 매물 상세화면 -->
-        <div class="aside2" style="display: none">
+        <div id = "detailClass"class="aside2" >
         	<div>
         		<button type="button" class="close_btn">
 					<i class="fa-solid fa-xmark fa-3x"></i>

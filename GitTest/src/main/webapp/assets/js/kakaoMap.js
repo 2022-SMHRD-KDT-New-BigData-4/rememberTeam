@@ -1012,6 +1012,11 @@ function markerOverlay(res) {
 	}
 }
 
+let itemStrCheck = false;
+let itemsClass = null;
+let new_buttonTag = null;
+let aside2 = null;
+let new_divTag = null;
 
 // 매물
 function mapRS() {
@@ -1093,21 +1098,21 @@ function mapRS() {
 				// points.push(new kakao.maps.LatLng(data.lat, data.lng));
 				
 			}
-			
+
 			// console.log(positions[0].latlng)
 			for (var i = 0; i < res.length; i++) {
 				// 지도에 마커를 생성하고 표시한다.
 				// console.log(res[i].lat,res[i].lng)
-				
+
 				var marker = new kakao.maps.Marker({
 					position: positions[i].latlng, // positions에 저장된 위경도 가져오기
 					//map: map // 마커를 표시할 지도 객체
-					title : positions[i].num
+					title: positions[i].num
 				});
 				let pos = positions[i]
 				// 해당 마커에 대한 정보 뽑아오기위한 매핑
-				mappingData[positions[i].num]={marker, pos};
-				
+				mappingData[positions[i].num] = { marker, pos };
+
 				// 생성된 마커를 마커 저장하는 변수에 넣음(마커 클러스터러 관련)
 				clustererMarkers.push(marker);
 
@@ -1124,7 +1129,7 @@ function mapRS() {
 
 			kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 
-				console.log("클러스터러 클릭!!")
+				// console.log("클러스터러 클릭!!")
 
 				// 클러스터러 커스텀 오버레이를 가져옵니다.
 				const overlay = cluster.getClusterMarker().getContent();
@@ -1143,49 +1148,153 @@ function mapRS() {
 				overlay.style.color = "rgb(255, 255, 255)"
 
 				bf_overlay = overlay
-				
+
 				// console.log(positions)
 				// 클러스터에 포함된 마커들을 배열로 반환
-				console.log(cluster.getMarkers());
-				console.log(cluster.getMarkers().length);
-				for(let i = 0; i < cluster.getMarkers().length; i++){
-					
+				//console.log(cluster.getMarkers());
+				//console.log(cluster.getMarkers().length);
+
+				// 다른 버튼 클릭하면 이전 매물 정보는 삭제
+				if (itemStrCheck == true) {
+					$('#itemsClass').empty(); 
+					itemStrCheck = false;
+					//console.log("1111")
+				}
+
+				for (let i = 0; i < cluster.getMarkers().length; i++) {
+
 					let rsNum = Number(cluster.getMarkers()[i].Gb)
 					// console.log(Number(cluster.getMarkers()[i].Gb));
 					//console.log(mappingData[rsNum].pos);
 					let mappos = mappingData[rsNum].pos
 					//console.log(mappos)
+
+					itemsClass = document.getElementById('itemsClass');
+					new_div1Tag = document.createElement('div');
+					detailClass = document.getElementById('detailClass');
+					new_div2Tag = document.createElement('div');
+
+					// 사이드바 메뉴
+					itemStr = '<div class="items">'
+						+ '<a href="javascript:void(0);" role="button">'
+						+ '<h1>' + mappos.nm + '</h1>'
+						+ '<h3>' + mappos.pr + '</h3>'
+						+ '<span>'
+						+ '<strong>' + mappos.type + ' ' + '</strong>'
+						+ mappos.m_cost
+						+ '</span>'
+						+ '<p>'
+						+ '<span>' + mappos.ct_area + '/' + '</span>' + '<span>' + mappos.ex_area + '</span>'
+						+ '</p>'
+						+ '<p>' + mappos.md + '</p>'
+						+ '<p>' + mappos.keyword + '</p>'
+						+ '</a>'
+						+ '</div>'
+
+					// 사이드바 상세 메뉴
+						detailItem = '<div class = "hide" id="'+mappos.num+'">'
+					            +'<div>'
+        					   		+'<button type="button" class="close_btn">'
+					       	   		+'<i class="fa-solid fa-xmark fa-3x"></i>'
+							 		+'</button>'
+        						+'</div>'
+	        					+'<img src="'+mappos.img+'">'
+        						+'<div>'
+									+'<table id="detail_table">'
+				        				+'<tr>'
+				            				+'<td colspan="4">'
+				                				+'<h2>'+mappos.nm+'</h2>'
+				                				+'<p>'+mappos.pr+'</p>'
+				            				+'</td>'
+				        				+'</tr>'
+				        				+'<tr>'
+				            				+'<th>소재지</th>'
+				            				+'<td colspan="3">'+mappos.addr+'</td>'
+				        				+'</tr>'
+				        				+'<tr>'
+				            				+'<th>매물 타입</th>'
+				            				+'<td>'+mappos.type+'</td>'
+				            				+'<th>계약 형태</th>'
+				            				+'<td>'+mappos.cr+'</td>'
+				        				+'</tr>'
+				        				+'<tr>'
+				            				+'<th>월 관리비</th>'
+				            				+'<td>'+mappos.m_cost+'</td>'
+				            				+'<th>관리비 포함 항목</th>'
+				            				+'<td>'+mappos.cost_incs+'</td>'
+				        				+'</tr>'
+				        				+'<tr>'
+				            				+'<th>입주 가능일</th>'
+				            				+'<td>'+mappos.md+'</td>'
+				            				+'<th>방향</th>'
+				            				+'<td>'+mappos.dr+'</td>'
+				        				+'</tr>'
+				        				+'<tr>'
+				            				+'<th>공급 면적</th>'
+				            				+'<td>'+mappos.ct_area+'</td>'
+				            				+'<th>전용 면적</th>'
+				            				+'<td>'+mappos.ex_area+'</td>'
+				        				+'</tr>'
+				        				+'<tr>'
+				            				+'<th>해당층/총층</th>'
+				            				+'<td>'+mappos.fl+'</td>'
+				            				+'<th>총 세대수</th>'
+				            				+'<td>'+mappos.nh+'</td>'
+				        				+'</tr>'
+				        				+'<tr>'
+				            				+'<th>주차 가능 여부</th>'
+				    if(mappos.park_yn == 'Y'){
+						detailItem += '<td>가능</td>'
+					}else if(mappos.park_yn == 'N'){
+						detailItem += '<td>불가능</td>'
+					}
+						detailItem += '<th>총 주차대수</th>'
+				            				+'<td>'+mappos.tp+'</td>'
+				        			+'</tr>'
+				        			+'<tr>'
+				            			+'<th>방수</th>'
+				            			+'<td>'+mappos.room+'</td>'
+				            			+'<th>욕실수</th>'
+				            			+'<td>'+map.bath+'</td>'
+				        			+'</tr>'
+				        			+'<tr>'
+				            			+'<th>옵션</th>'
+				            			+'<td>'+mappos.option+'</td>'
+				            			+'<th>에어컨 여부</th>'
+				            			+'<td>'+mappos.aircon+'</td>'
+				        			+'</tr>'
+				        			+'<tr>'
+				            			+'<th>보안시설</th>'
+				            			+'<td>'+mappos.security+'</td>'
+				            			+'<th>매물번호</th>'
+				            			+'<td>'+mappos.num+'</td>'
+				        			+'</tr>'
+				        			+'<tr>'
+				            			+'<th>매물특징</th>'
+				            			+'<td colspan="3">'+mappos.sp+'</td>'
+				        			+'</tr>'
+				        			+'<tr>'
+				            			+'<th>공인중개사</th>'
+				            			+'<td colspan="3">'+mappos.estate+'</td>'
+				        			+'</tr>'
+				    			+'</table>'
+        					+'</div>'
+        					+'</div>'
 					
-					//if(itemStr != null){
-						
-					//}
 					
+					new_div1Tag.setAttribute('class', 'items_div');
+					new_div1Tag.innerHTML = itemStr;
+
+					itemsClass.appendChild(new_div1Tag);
 					
-					let itemsClass = document.getElementById('itemsClass');
-					let new_buttonTag = document.createElement('button');
+					new_div2Tag.setAttribute('class', 'items_class');
+					new_div2Tag.innerHTML = detailItem;
 					
-					itemStr ='<div class="items">'
-								+'<h1>'+mappos.nm+'</h1>'
-	           				 		+'<h3>'+mappos.pr+'</h3>'
-	            			 		+'<span>'
-	            			 			+'<strong>'+mappos.type+' '+'</strong>'
-	            			 			+mappos.m_cost
-	            			 		+'</span>'
-	            					+'<p>'
-	            					+'<span>'+mappos.ct_area+'/'+'</span>'+'<span>'+mappos.ex_area+'</span>'
-	            					+'</p>'
-	            					+'<p>'+mappos.md+'</p>'
-	           				    	+'<p>'+mappos.keyword+'</p>'
-	           				 +'</div>'
-					
-					new_buttonTag.setAttribute('class', 'items_btn');
-  					new_buttonTag.innerHTML = itemStr;
-  					
-  					itemsClass.appendChild(new_buttonTag);
-					
-					
+					detailClass.appendChild(new_div2Tag)
+
 				}
-				
+				itemStrCheck = true;
+
 			});
 
 
@@ -1200,6 +1309,7 @@ function mapRS() {
 }
 
 function search(num) {
-    var obj = mappingData[num]; 
-    console.log(obj); // marker, 매물 정보를 가져올 수 있습니다.
+	var obj = mappingData[num];
+	console.log(obj); // marker, 매물 정보를 가져올 수 있습니다.
 }
+

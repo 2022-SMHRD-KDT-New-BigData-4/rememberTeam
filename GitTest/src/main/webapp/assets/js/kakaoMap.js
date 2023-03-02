@@ -1148,10 +1148,15 @@ function mapRS() {
 				// 클러스터에 포함된 마커들을 배열로 반환
 				console.log(cluster.getMarkers());
 				console.log(cluster.getMarkers().length);
-				
 				for(let i = 0; i < cluster.getMarkers().length; i++){
-					console.log(Number(cluster.getMarkers()[i].Gb));
-					console.log(mappingData[Number(cluster.getMarkers()[i].Gb)]);
+					
+					let rsNum = Number(cluster.getMarkers()[i].Gb)
+					// console.log(Number(cluster.getMarkers()[i].Gb));
+					console.log(mappingData[rsNum].pos);
+					
+					//let  = document.getElementById('');
+					
+					
 				}
 				
 			});

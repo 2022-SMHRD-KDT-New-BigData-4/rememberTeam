@@ -211,7 +211,7 @@ function displayArea(coordinates, name) {
         	   	fillOpacity : 0.5
         	});
     	}
- 
+ 		$("#dropdownMenuButton_infra").text(name);
         //customOverlay.setContent('<div class="area">'+name+'</div>');
 
         customOverlay.setPosition(mouseEvent.latLng);

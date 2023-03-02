@@ -184,4 +184,22 @@ public class MainDAO {
 			
 			return result;
 		}
+		
+		// 지역번호로 동 검색
+		public GWANGJU_DONG_VO DongSelectOne(long cortarNo) {
+			
+			GWANGJU_DONG_VO dong = null;
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			
+			try {
+				dong = sqlSession.selectOne("DongSelectOne", cortarNo);
+			} finally {
+				sqlSession.close();
+			}
+			
+			return dong;
+		}
+		
+		
+		
 }

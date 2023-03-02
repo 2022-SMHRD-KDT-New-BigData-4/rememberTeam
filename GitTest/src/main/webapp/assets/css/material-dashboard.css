@@ -27793,6 +27793,9 @@ pre[class*="language-"] {
   transition: all 0.15s ease-in;
 }
 
-
+/* 검색량 폰트 컬러 */
+#best{
+	color: #4CAF50;
+}
 
 /*# sourceMappingURL=dashboard-free.css.map */

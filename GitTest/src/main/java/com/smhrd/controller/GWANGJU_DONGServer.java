@@ -26,7 +26,11 @@ public class GWANGJU_DONGServer implements Command{
 		
 		long cortarno = Long.parseLong(request.getParameter("dong_code"));
 		System.out.println("cortarno"+cortarno);
-
+		
+		// 동 검색량 컨트롤러
+		BestSearch best = new BestSearch();
+		best.searchDongCnt(request,cortarno);
+		
 		PrintWriter out;
 
 		Gson gson = new Gson();

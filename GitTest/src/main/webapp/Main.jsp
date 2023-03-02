@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<!-- jstl taglib -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -188,7 +189,14 @@
 				<div class="my-3">
 					<img src="./assets/img/logo.png" width="200px" height="120px">
 				</div>
-					<p>최고 검색량 출력 공간</p>
+					<!-- 검색량 시작 -->
+					<c:if test="${empty bestDongNm}">
+						<h5>지역을 검색해 광주광역시 전월세 매물을 확인해보세요!</h5>
+					</c:if>
+					<c:if test="${!empty bestDongNm}">
+						<h5>오늘 가장 많이 검색이 된 지역은 <span id="best">${bestDongNm}</span> 입니다.</h5>
+					</c:if>
+					<!-- 검색량 끝 -->
 					<div class="author justify-content-between">
 					<!-- dropdown 시작 -->
 					<div class="dropdown-center">

@@ -2,9 +2,11 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +22,8 @@ public class FrontController extends HttpServlet {
 
 	HashMap<String, Command> map = null;
 	
+	// 동 검색량 담을 맵
+	Map<Long, Integer> searchDong = new HashMap<>();
 	
 	public void init(ServletConfig config) throws ServletException {
 	
@@ -48,6 +52,13 @@ public class FrontController extends HttpServlet {
 	}
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// 서버 초기에 application 스코프에 담기
+		ServletContext application = request.getServletContext();
+		if(application.getAttribute("searchDong")==null) {
+			application.setAttribute("searchDong", searchDong);
+		}
+		
 		// 1. 들어온 요청이 어떤 요청인지 판단
 		// getRequestURI() : 요청된 주소값 자체를 가져오는 메소드
 		String uri = request.getRequestURI();

@@ -1152,9 +1152,36 @@ function mapRS() {
 					
 					let rsNum = Number(cluster.getMarkers()[i].Gb)
 					// console.log(Number(cluster.getMarkers()[i].Gb));
-					console.log(mappingData[rsNum].pos);
+					//console.log(mappingData[rsNum].pos);
+					let mappos = mappingData[rsNum].pos
+					//console.log(mappos)
 					
-					//let  = document.getElementById('');
+					//if(itemStr != null){
+						
+					//}
+					
+					
+					let itemsClass = document.getElementById('itemsClass');
+					let new_buttonTag = document.createElement('button');
+					
+					itemStr ='<div class="items">'
+								+'<h1>'+mappos.nm+'</h1>'
+	           				 		+'<h3>'+mappos.pr+'</h3>'
+	            			 		+'<span>'
+	            			 			+'<strong>'+mappos.type+' '+'</strong>'
+	            			 			+mappos.m_cost
+	            			 		+'</span>'
+	            					+'<p>'
+	            					+'<span>'+mappos.ct_area+'/'+'</span>'+'<span>'+mappos.ex_area+'</span>'
+	            					+'</p>'
+	            					+'<p>'+mappos.md+'</p>'
+	           				    	+'<p>'+mappos.keyword+'</p>'
+	           				 +'</div>'
+					
+					new_buttonTag.setAttribute('class', 'items_btn');
+  					new_buttonTag.innerHTML = itemStr;
+  					
+  					itemsClass.appendChild(new_buttonTag);
 					
 					
 				}

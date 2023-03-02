@@ -1017,6 +1017,7 @@ let itemsClass = null;
 let new_buttonTag = null;
 let aside2 = null;
 let new_divTag = null;
+let id_check = 0;
 
 // 매물
 function mapRS() {
@@ -1096,7 +1097,7 @@ function mapRS() {
 				});
 
 				// points.push(new kakao.maps.LatLng(data.lat, data.lng));
-				
+
 			}
 
 			// console.log(positions[0].latlng)
@@ -1156,7 +1157,7 @@ function mapRS() {
 
 				// 다른 버튼 클릭하면 이전 매물 정보는 삭제
 				if (itemStrCheck == true) {
-					$('#itemsClass').empty(); 
+					$('#itemsClass').empty();
 					itemStrCheck = false;
 					//console.log("1111")
 				}
@@ -1175,125 +1176,140 @@ function mapRS() {
 					new_div2Tag = document.createElement('div');
 
 					// 사이드바 메뉴
-					itemStr = '<div class="items">'
+					itemStr = '<div class="items" id="' + mappos.num + '">'
 						+ '<a href="javascript:void(0);" role="button">'
 						+ '<h2 class="h2">' + mappos.nm + '</h2>'
 						+ '<h3 class="h3">' + mappos.pr + '</h3>'
 						+ '<span>'
 						+ '<strong>' + mappos.type + ' ' + '</strong>'
-						+ mappos.m_cost
-						+ '</span>'
+					if (mappos.m_cost == 0) {
+						itemStr += '-'
+					} else {
+						itemStr += mappos.m_cost
+					}
+					itemStr += '원</span>'
 						+ '<p class="line">'
-						+ '<span>' + mappos.ct_area + '/' + '</span>' + '<span>' + mappos.ex_area + '</span>'
+						+ '<span>' + mappos.ct_area + '㎡/' + '</span>' + '<span>' + mappos.ex_area + '㎡</span>'
 						+ '</p>'
 						+ '<p class="line">' + mappos.md + '</p>'
 						+ '<p class="line">' + mappos.keyword + '</p>'
 						+ '</a>'
 						+ '</div>'
 
-					// 사이드바 상세 메뉴
-						detailItem = '<div class = "hide" id="'+mappos.num+'">'
-					            +'<div>'
-        					   		+'<button type="button" class="close_btn">'
-					       	   		+'<i class="fa-solid fa-xmark fa-3x"></i>'
-							 		+'</button>'
-        						+'</div>'
-	        					+'<img src="'+mappos.img+'">'
-        						+'<div>'
-									+'<table id="detail_table">'
-				        				+'<tr>'
-				            				+'<td colspan="4">'
-				                				+'<h2>'+mappos.nm+'</h2>'
-				                				+'<p>'+mappos.pr+'</p>'
-				            				+'</td>'
-				        				+'</tr>'
-				        				+'<tr>'
-				            				+'<th>소재지</th>'
-				            				+'<td colspan="3">'+mappos.addr+'</td>'
-				        				+'</tr>'
-				        				+'<tr>'
-				            				+'<th>매물 타입</th>'
-				            				+'<td>'+mappos.type+'</td>'
-				            				+'<th>계약 형태</th>'
-				            				+'<td>'+mappos.cr+'</td>'
-				        				+'</tr>'
-				        				+'<tr>'
-				            				+'<th>월 관리비</th>'
-				            				+'<td>'+mappos.m_cost+'</td>'
-				            				+'<th>관리비 포함 항목</th>'
-				            				+'<td>'+mappos.cost_incs+'</td>'
-				        				+'</tr>'
-				        				+'<tr>'
-				            				+'<th>입주 가능일</th>'
-				            				+'<td>'+mappos.md+'</td>'
-				            				+'<th>방향</th>'
-				            				+'<td>'+mappos.dr+'</td>'
-				        				+'</tr>'
-				        				+'<tr>'
-				            				+'<th>공급 면적</th>'
-				            				+'<td>'+mappos.ct_area+'</td>'
-				            				+'<th>전용 면적</th>'
-				            				+'<td>'+mappos.ex_area+'</td>'
-				        				+'</tr>'
-				        				+'<tr>'
-				            				+'<th>해당층/총층</th>'
-				            				+'<td>'+mappos.fl+'</td>'
-				            				+'<th>총 세대수</th>'
-				            				+'<td>'+mappos.nh+'</td>'
-				        				+'</tr>'
-				        				+'<tr>'
-				            				+'<th>주차 가능 여부</th>'
-				    if(mappos.park_yn == 'Y'){
-						detailItem += '<td>가능</td>'
-					}else if(mappos.park_yn == 'N'){
-						detailItem += '<td>불가능</td>'
-					}
-						detailItem += '<th>총 주차대수</th>'
-				            				+'<td>'+mappos.tp+'</td>'
-				        			+'</tr>'
-				        			+'<tr>'
-				            			+'<th>방수</th>'
-				            			+'<td>'+mappos.room+'</td>'
-				            			+'<th>욕실수</th>'
-				            			+'<td>'+map.bath+'</td>'
-				        			+'</tr>'
-				        			+'<tr>'
-				            			+'<th>옵션</th>'
-				            			+'<td>'+mappos.option+'</td>'
-				            			+'<th>에어컨 여부</th>'
-				            			+'<td>'+mappos.aircon+'</td>'
-				        			+'</tr>'
-				        			+'<tr>'
-				            			+'<th>보안시설</th>'
-				            			+'<td>'+mappos.security+'</td>'
-				            			+'<th>매물번호</th>'
-				            			+'<td>'+mappos.num+'</td>'
-				        			+'</tr>'
-				        			+'<tr>'
-				            			+'<th>매물특징</th>'
-				            			+'<td colspan="3">'+mappos.sp+'</td>'
-				        			+'</tr>'
-				        			+'<tr>'
-				            			+'<th>공인중개사</th>'
-				            			+'<td colspan="3">'+mappos.estate+'</td>'
-				        			+'</tr>'
-				    			+'</table>'
-        					+'</div>'
-        					+'</div>'
-					
-					
+
 					new_div1Tag.setAttribute('class', 'items_div');
 					new_div1Tag.innerHTML = itemStr;
 
 					itemsClass.appendChild(new_div1Tag);
-					
-					new_div2Tag.setAttribute('class', 'items_class');
-					new_div2Tag.innerHTML = detailItem;
-					
-					detailClass.appendChild(new_div2Tag)
+
 
 				}
+
 				itemStrCheck = true;
+
+				$('.items').click(function() {
+					id_check = Number($(this).attr("id"));
+					//console.log(id_check)
+					//console.log(mappingData[id_check].pos)
+					let mappos1 = mappingData[id_check].pos
+					// 사이드바 상세 메뉴
+					detailItem = '<div class = "hide">'
+						+ '<div>'
+						+ '<button type="button" class="close_btn">'
+						+ '<i class="fa-solid fa-xmark fa-3x"></i>'
+						+ '</button>'
+						+ '</div>'
+						+ '<img src="' + mappos1.img + '">'
+						+ '<div>'
+						+ '<table id="detail_table">'
+						+ '<tr>'
+						+ '<td colspan="4">'
+						+ '<h2>' + mappos1.nm + '</h2>'
+						+ '<p>' + mappos1.pr + '</p>'
+						+ '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>소재지</th>'
+						+ '<td colspan="3">' + mappos1.addr + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>매물 타입</th>'
+						+ '<td>' + mappos1.type + '</td>'
+						+ '<th>계약 형태</th>'
+						+ '<td>' + mappos1.cr + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>월 관리비</th>'
+						+ '<td>' + mappos1.m_cost + '</td>'
+						+ '<th>관리비 포함 항목</th>'
+						+ '<td>' + mappos1.cost_incs + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>입주 가능일</th>'
+						+ '<td>' + mappos1.md + '</td>'
+						+ '<th>방향</th>'
+						+ '<td>' + mappos1.dr + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>공급 면적</th>'
+						+ '<td>' + mappos1.ct_area + '</td>'
+						+ '<th>전용 면적</th>'
+						+ '<td>' + mappos1.ex_area + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>해당층/총층</th>'
+						+ '<td>' + mappos1.fl + '</td>'
+						+ '<th>총 세대수</th>'
+						+ '<td>' + mappos1.nh + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>주차 가능 여부</th>'
+					if (mappos1.park_yn == 'Y') {
+						detailItem += '<td>가능</td>'
+					} else if (mappos1.park_yn == 'N') {
+						detailItem += '<td>불가능</td>'
+					}
+					detailItem += '<th>총 주차대수</th>'
+						+ '<td>' + mappos1.tp + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>방수</th>'
+						+ '<td>' + mappos1.room + '</td>'
+						+ '<th>욕실수</th>'
+						+ '<td>' + mappos1.bath + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>옵션</th>'
+						+ '<td>' + mappos1.option + '</td>'
+						+ '<th>에어컨 여부</th>'
+						+ '<td>' + mappos1.aircon + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>보안시설</th>'
+						+ '<td>' + mappos1.security + '</td>'
+						+ '<th>매물번호</th>'
+						+ '<td>' + mappos1.num + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>매물특징</th>'
+						+ '<td colspan="3">' + mappos1.sp + '</td>'
+						+ '</tr>'
+						+ '<tr>'
+						+ '<th>공인중개사</th>'
+						+ '<td colspan="3">' + mappos1.estate + '</td>'
+						+ '</tr>'
+						+ '</table>'
+						+ '</div>'
+						+ '</div>'
+
+					new_div2Tag.setAttribute('class', 'items_class');
+					new_div2Tag.innerHTML = detailItem;
+
+					detailClass.appendChild(new_div2Tag)
+
+				});
+
+
 
 			});
 
@@ -1301,37 +1317,37 @@ function mapRS() {
 
 
 		},
-		beforeSend: function () {
-              var width = 200;
-              var height = 200;
-              var left = 0;
-              var top = 0;
+		beforeSend: function() {
+			var width = 200;
+			var height = 200;
+			var left = 0;
+			var top = 0;
 
-				
-				// 화면 중앙 좌표 계산
-              top = ( $(window).height() - height ) / 2 + $(window).scrollTop(); 
-              left = ( $(window).width() - width ) / 2 + $(window).scrollLeft();
 
- 
+			// 화면 중앙 좌표 계산
+			top = ($(window).height() - height) / 2 + $(window).scrollTop();
+			left = ($(window).width() - width) / 2 + $(window).scrollLeft();
 
-              if($("#loading").length != 0) {
-                     $("#loading").css({
-                            "top": top+"px",
-                            "left": left+"px"
-                     });
-                     $("#loading").show();
-              }
-              else {
-                     $('body').append('<div id="loading" role="status" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "><span class="visually-hidden"></span></div>');
-                     
-                     
-              }
 
-       },
-       complete: function(){
-        $('#loading').hide();
-        
-     	},
+
+			if ($("#loading").length != 0) {
+				$("#loading").css({
+					"top": top + "px",
+					"left": left + "px"
+				});
+				$("#loading").show();
+			}
+			else {
+				$('body').append('<div id="loading" role="status" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "><span class="visually-hidden"></span></div>');
+
+
+			}
+
+		},
+		complete: function() {
+			$('#loading').hide();
+
+		},
 		error: (e) => {
 			console.log(e)
 		}

@@ -470,8 +470,8 @@ td {
 }
 
 a{
+	color: var(#344767);
 	text-decoration: none;
-	color: black;
 }
 
 .line{

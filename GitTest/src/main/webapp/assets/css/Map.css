@@ -464,10 +464,6 @@ td {
 	border-bottom: 2px solid blue;
 }
 
-.items_div::after{
-	border-bottom: 2px solid blue;
-}
-
 a{
 	text-decoration: none;
 	color: black;

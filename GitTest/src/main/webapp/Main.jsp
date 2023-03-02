@@ -56,8 +56,27 @@
 					
 					<div class="card-body p-2 mt-6">
 					<div class="author justify-content-sm-end">
+					<div class="dropdown-center">
+						 <button class="btn btn-sm btn-outline-success btn:hover dropdown-toggle mb-1" type="button" id="dropdownMenuButton_year" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    연도선택
+						 </button>
+						 <div id = "choice_year" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						 	<input type="radio" name="area" id="2023" class="dropdown-item btn-check">
+						 	<label for="2023" class="dropdown-year drop-btn ms-0 mb-0">2023</label>	
+						 	<input type="radio" name="area" id="2022" class="dropdown-item btn-check">
+						 	<label for="2022" class="dropdown-year drop-btn ms-0 mb-0">2022</label>	
+						 	<input type="radio" name="area" id="2021" class="dropdown-item btn-check">
+						 	<label for="2021" class="dropdown-year drop-btn ms-0 mb-0">2021</label>	
+						 	<input type="radio" name="area" id="2020" class="dropdown-item btn-check">
+						 	<label for="2020" class="dropdown-year drop-btn ms-0 mb-0">2020</label>	
+						 	<input type="radio" name="area" id="2019" class="dropdown-item btn-check">
+						 	<label for="2019" class="dropdown-year drop-btn ms-0 mb-0">2019</label>
+						 	<input type="radio" name="area" id="2018" class="dropdown-item btn-check">
+						 	<label for="2018" class="dropdown-year drop-btn ms-0 mb-0">2018</label>
+						 </div>
+						</div>
 			<input type="radio" class="btn-check" name="options" id="mon" autocomplete="off" checked>
-					<label class="btn btn-outline-success btn-sm mb-1 ms-5" for="mon">월세</label>
+					<label class="btn btn-outline-success btn-sm mb-1 ms-3" for="mon">월세</label>
 
 					<input type="radio" class="btn-check" name="options" id="jeon" autocomplete="off">
 					<label class="btn btn-outline-success btn-sm mb-1" for="jeon">전세</label>

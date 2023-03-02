@@ -33,12 +33,17 @@ public class MainChart implements Command {
 
 		// ajax에서 보내준 데이터 받음
 		String mon_jeon = request.getParameter("mon_jeon");
+		int year = Integer.parseInt(request.getParameter("year"));
 
 		// 반복문에 사용할 테이블이름 배열
 		String[] tb_nm = { "GJ_DEAL_OFCT", "GJ_DEAL_MLT", "GJ_DEAL_SGLFAM" };
 		// 반복문에 사용할 구이름 배열
 		String[] gu_nm = { "광산구", "동구", "서구", "남구", "북구" };
-
+		
+		
+		// 연도를 매개변수 맵에 담음
+		sqlParam.put("year", year);
+		
 		// ajax 에서 받음 데이터 판단
 		if (mon_jeon.equals("true")) { // true = 월세
 			// sql 월세 전세 판단 매개변수 맵에 담음
@@ -58,9 +63,7 @@ public class MainChart implements Command {
 		List<Integer> mltCnt = new ArrayList<>();
 		List<Integer> sglfamCnt = new ArrayList<>();
 
-		// 년에 따른 반복
-		for (int year = 2022; year <= 2023; year++) {
-			sqlParam.put("year", year);
+		
 			// 테이블 이름에 따른 반복
 			for (int i = 0; i < tb_nm.length; i++) {
 				sqlParam.put("tb_nm", tb_nm[i]);
@@ -78,12 +81,11 @@ public class MainChart implements Command {
 						sglfamCnt.add(dao.mainChartCnt(sqlParam));
 					}
 					// 현재 데이터가 2023/01 까지 있어서 break 역할
-					if (year == 2023 && month == 1) {
+					if (year == 2023 && month == 2) {
 						month = 13;
 					}
 				}
 			}
-		}
 
 ///////////////////////////////////////////////// avg 차트 데이터 jdbc
 		// jdbc후 avg 담을 리스트
@@ -91,9 +93,6 @@ public class MainChart implements Command {
 		List<Double> mltAvg = new ArrayList<>();
 		List<Double> sglfamAvg = new ArrayList<>();
 
-		// 년에 따른 반복
-		for (int year = 2022; year <= 2023; year++) {
-			sqlParam.put("year", year);
 			// 테이블 이름에 따른 반복
 			for (int i = 0; i < tb_nm.length; i++) {
 				sqlParam.put("tb_nm", tb_nm[i]);
@@ -111,12 +110,11 @@ public class MainChart implements Command {
 						sglfamAvg.add(dao.mainChartAvg(sqlParam));
 					}
 					// 현재 데이터가 2023/01 까지 있어서 break 역할
-					if (year == 2023 && month == 1) {
+					if (year == 2023 && month == 2) {
 						month = 13;
 					}
 				}
 			}
-		}
 
 ////////////////////////////////////////// 구별 1년 수량, 평균가 로직
 
@@ -124,9 +122,6 @@ public class MainChart implements Command {
 		List<Integer> guCnt = new ArrayList<>();
 		List<Double> guAvg = new ArrayList<>();
 
-		// 년에 따른 반복 2022년만
-		for (int year = 2022; year < 2023; year++) {
-			sqlParam.put("year", year);
 				// 구에 따른 반복
 				for (int gu = 0; gu < gu_nm.length; gu++) {
 					sqlParam.put("gu", gu_nm[gu]);
@@ -143,7 +138,6 @@ public class MainChart implements Command {
 					guAvg.add(avg);
 				
 			}
-		}
 
 		guCnt.forEach(i -> System.out.println(i));
 		System.out.println("==========");

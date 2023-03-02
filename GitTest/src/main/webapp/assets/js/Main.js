@@ -195,7 +195,7 @@ function counter($counter, max) {
 }
 
 // chart ajax 부분
-function chartAjax(mon_jeon){
+function chartAjax(mon_jeon,year){
 	let a = Chart.getChart('chart-line-cnt');
 	let b = Chart.getChart('chart-line-avg');
 	let c = Chart.getChart('chart-bar');
@@ -209,7 +209,7 @@ function chartAjax(mon_jeon){
 		url : 'MainChart.do',
 		type : 'get',
 		dataType : 'json',
-		data : {"mon_jeon":mon_jeon}, // false가 들어오면 전세
+		data : {"mon_jeon":mon_jeon,"year":year}, // false가 들어오면 전세
 		success : (res)=>{
 			// cnt 차트 함수 실행 부분
 	   		var ctx1 = document.getElementById("chart-line-cnt").getContext("2d");
@@ -447,19 +447,29 @@ function chartAjax(mon_jeon){
  	}
 
 
-// 차트 월세 전세 토글 스위치
+ let mon_jeon = true;
+ let year = 2023;
+ 
+// 차트 전월세 토글 스위치
  	$(document).on("click","#mon",()=>{
  		mon_jeon = true;
- 		chartAjax(mon_jeon)
+ 		chartAjax(mon_jeon,year)
  	})
  	
  	$(document).on("click","#jeon",()=>{
  		mon_jeon = false;
- 		chartAjax(mon_jeon)
+ 		chartAjax(mon_jeon,year)
  	})
+
  
- // 전월세 버튼 변수
- let mon_jeon = true;
+// 차트 연도 선택 select
+$(".dropdown-year").click(function() {
+	year = $(this).attr('for')
+	$("#dropdownMenuButton_year").text(year);
+	$("#dropdownMenuButton_year").removeClass("btn-outline-success")
+	$("#dropdownMenuButton_year").addClass("btn-success")
+	chartAjax(mon_jeon,year)
+})
  	
 // 문서 준비완료시 ajax들
 $(document).ready(()=>{
@@ -483,7 +493,7 @@ $(document).ready(()=>{
 	})
 	
 	// 차트 ajax
-	chartAjax(mon_jeon);
+	chartAjax(mon_jeon,year);
 	
 })
 

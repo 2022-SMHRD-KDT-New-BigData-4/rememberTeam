@@ -135,7 +135,6 @@ body{
 }
 .items_div{
 	width: 390px;
-	height: 170px;
 	display: flex;
 }
 
@@ -479,12 +478,14 @@ a{
 	margin: 1px;
 }
 
-.h2{
-	margin:3px 0px 3px 0px;
+.h2, .h3{
+	margin:0px 0px 0px 0px;
+	line-height: 1;
+	margin-bottom: 0;
 }
 
 .h3{
-	margin:0px 0px 3px 0px;
+	margin:0px 0px 0px 0px;
 }
 
 #loading {

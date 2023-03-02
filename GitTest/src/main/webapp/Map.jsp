@@ -39,7 +39,7 @@
     	<!-- 매물 리스트 -->
         <div class="aside1">
         
-        <button type="button" class="items_btn">
+        <button id = "itemsBtn" type="button" class="items_btn">
         	<div class="items">
 	            <h1>매물 이름</h1>
 	            <h3>전월세 가격 (색상 다르게 지정)</h3>

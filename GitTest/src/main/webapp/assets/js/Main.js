@@ -582,6 +582,8 @@ $(".borderClass").hover(function() {
 $(".dropdown_gu").click(function() {
 	let gu_name = { gu_name: $(this).attr('for') }
 	$("#dropdownMenuButton_gu").text($(this).attr('for'));
+	$("#dropdownMenuButton_gu").removeClass("btn-outline-success")
+	$("#dropdownMenuButton_gu").addClass("btn-success")
 	$.ajax({
 		url: 'SearchDong.do',
 		type: 'get',
@@ -620,6 +622,8 @@ $(".dropdown_infra").click(function(){
 	let nm = $(this).attr('for')
 	gu_name = {gu_name : nm};
 	$("#dropdownMenuButton_infra").text(nm);
+	$("#dropdownMenuButton_infra").removeClass("btn-outline-success")
+	$("#dropdownMenuButton_infra").addClass("btn-success")
 	$.ajax({
 		url: 'InfraCnt.do',
 		type: 'get',
@@ -638,3 +642,10 @@ $(".dropdown_infra").click(function(){
 
 	})
 })
+
+
+
+
+
+
+

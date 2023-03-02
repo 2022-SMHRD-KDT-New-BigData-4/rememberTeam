@@ -3745,7 +3745,7 @@ fieldset:disabled .btn {
   --bs-btn-hover-bg: #67bb6a;
   --bs-btn-hover-border-color: #5eb762;
   --bs-btn-focus-shadow-rgb: 65, 149, 68;
-  --bs-btn-active-color: #000;
+  --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #70bf73;
   --bs-btn-active-border-color: #5eb762;
   --bs-btn-active-shadow: none;
@@ -3897,7 +3897,7 @@ fieldset:disabled .btn {
   --bs-btn-hover-bg: #4CAF50;
   --bs-btn-hover-border-color: #4CAF50;
   --bs-btn-focus-shadow-rgb: 76, 175, 80;
-  --bs-btn-active-color: #000;
+  --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #4CAF50;
   --bs-btn-active-border-color: #4CAF50;
   --bs-btn-active-shadow: none;

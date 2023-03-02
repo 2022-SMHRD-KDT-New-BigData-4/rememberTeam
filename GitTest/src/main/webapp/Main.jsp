@@ -143,9 +143,7 @@
 					<div class="author justify-content-between">
 					<!-- dropdown 시작 -->
 					<div class="dropdown-center">
-						 <button class="btn btn-outline-success btn:hover dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						    구 검색
-						 </button>
+						 <button class="btn btn-outline-success btn:hover dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">구 검색</button>
 						 <div id = "choice_gu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 						 	<input type="radio" name="area" id="광산구" class="dropdown-item btn-check">
 						 	<label for="광산구" class="dropdown_gu drop-btn ms-0 mb-0">광산구</label>	

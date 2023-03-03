@@ -27735,10 +27735,11 @@ pre[class*="language-"] {
 	
 }
 
-
+/*
 #map:nth-child(2){
 	z-index: 10;
 }
+*/
 
 #MainMap{
 	border: 2px solid transparent !important;

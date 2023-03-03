@@ -242,6 +242,7 @@ td {
     position: fixed;
     top: 110px;
     right: 45px;
+    z-index: 999;
 }
 
 .category button{

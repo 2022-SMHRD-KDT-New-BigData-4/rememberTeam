@@ -67,9 +67,10 @@ if (cortar > 0) {
 // 매물 함수 호출
 mapRS()
 
+const dongbtnElement = document.getElementById('dropdownMenuButton_dong');
+console.log(dongbtnElement.innerText)
 
-
-
+//$(".dropdown_dong").click(function)
 
 
 

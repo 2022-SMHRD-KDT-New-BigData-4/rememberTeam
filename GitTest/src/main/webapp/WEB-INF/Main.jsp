@@ -19,11 +19,6 @@
 <title>LET ME GO HOME.. PLZ... </title>
 
 
-<!-- Material Icons -->
-<link
-	href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
-	rel="stylesheet">
-
 <!-- CSS Files -->
 <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.4"
 	rel="stylesheet" />
@@ -337,7 +332,7 @@
 							<div id="GWANGJU_DONG" class="card  mb-2 borderClass">
 								<div class="card-header p-3 pt-2 bg-transparent">
 									<div class="icon icon-lg icon-shape bg-gradient-primary shadow-success text-center border-radius-xl mt-n4 position-absolute">
-										<i class="material-icons opacity-10">store</i>
+										<i class="fa-solid fa-house fa-lg"></i>
 									</div>
 									<div class="text-end pt-1">
 										<p class="text-sm mb-0 text-capitalize ">법정동수</p>

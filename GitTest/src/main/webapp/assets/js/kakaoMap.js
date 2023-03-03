@@ -64,7 +64,13 @@ if (cortar > 0) {
 
 }
 
+// 매물 함수 호출
 mapRS()
+
+
+
+
+
 
 
 
@@ -1257,7 +1263,7 @@ function mapRS() {
 						+ '</tr>'
 						+ '<tr>'
 						+ '<th> 월 관리비</th>'
-						+ '<td> ' + mappos1.m_cost + '</td>'
+						+ '<td> ' + mappos1.m_cost + '(원)</td>'
 						+ '<th> 관리비 포함 항목</th>'
 						+ '<td> ' + mappos1.cost_incs + '</td>'
 						+ '</tr>'
@@ -1269,9 +1275,9 @@ function mapRS() {
 						+ '</tr>'
 						+ '<tr>'
 						+ '<th> 공급 면적</th>'
-						+ '<td> ' + mappos1.ct_area + '</td>'
+						+ '<td> ' + mappos1.ct_area + '㎡</td>'
 						+ '<th> 전용 면적</th>'
-						+ '<td> ' + mappos1.ex_area + '</td>'
+						+ '<td> ' + mappos1.ex_area + '㎡</td>'
 						+ '</tr>'
 						+ '<tr>'
 						+ '<th> 해당층/총층</th>'
@@ -1286,13 +1292,13 @@ function mapRS() {
 					} else if (mappos1.park_yn == 'N') {
 						detailItem += '<td> 불가능</td>'
 					}
-					detailItem += '<th> 총 주차대수</th>'
+					detailItem += '<th> 총 주차 대수</th>'
 						+ '<td> ' + mappos1.tp + '</td>'
 						+ '</tr>'
 						+ '<tr>'
-						+ '<th> 방수</th>'
+						+ '<th> 방 수</th>'
 						+ '<td> ' + mappos1.room + '</td>'
-						+ '<th> 욕실수</th>'
+						+ '<th> 욕실 수</th>'
 						+ '<td> ' + mappos1.bath + '</td>'
 						+ '</tr>'
 						+ '<tr>'
@@ -1304,11 +1310,11 @@ function mapRS() {
 						+ '<tr>'
 						+ '<th> 보안시설</th>'
 						+ '<td> ' + mappos1.security + '</td>'
-						+ '<th> 매물번호</th>'
-						+ '<td> ' + mappos1.num + '</td>'
+						+ '<th></th>'
+						+ '<td></td>'
 						+ '</tr>'
 						+ '<tr>'
-						+ '<th> 매물특징</th>'
+						+ '<th> 매물 특징</th>'
 						+ '<td colspan="3"> ' + mappos1.sp + '</td>'
 						+ '</tr>'
 						+ '<tr>'

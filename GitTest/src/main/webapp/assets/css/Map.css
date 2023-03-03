@@ -177,7 +177,7 @@ body{
     background-color: white;
     overflow: auto;
     clear:both;
-	/*visibility: hidden;*/
+	display:block;
 }
 
 .aside2 div{
@@ -198,6 +198,7 @@ body{
 	width: 100%;
 	position: relative;
 	top:-43px;
+	padding-bottom: 40px;
 }
 
 table{

@@ -528,6 +528,7 @@ a{
   	white-space: nowrap; 		
   	word-break:break-all;
   	width: 300px;
+  	margin-top: 0.25rem !important;
   /*height: 20px;*/
 }
 

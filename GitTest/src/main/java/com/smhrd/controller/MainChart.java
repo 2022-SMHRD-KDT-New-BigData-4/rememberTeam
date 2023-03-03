@@ -133,15 +133,13 @@ public class MainChart implements Command {
 						cnt += dao.mainChartGUCnt(sqlParam);
 						avg += dao.mainChartGuAvg(sqlParam);
 				}
+					// 소수점 첫번째 반올림(분명 넘어올때 했는데 다시)
 					avg = Double.parseDouble(String.format("%.1f", avg));
+					// 리스트 담기
 					guCnt.add(cnt);
 					guAvg.add(avg);
 				
 			}
-
-		guCnt.forEach(i -> System.out.println(i));
-		System.out.println("==========");
-		guAvg.forEach(i -> System.out.println(i));
 
 ////////////////////////////////////////// json변환 로직		
 

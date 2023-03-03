@@ -162,7 +162,7 @@ function displayArea(coordinates, name) {
 			data: MainMapClick,
 			dataType: 'json',
 			success: (res) => {
-				location.href = "Map.jsp?cortarNo=" + res
+				location.href = "GoMap.do?cortarNo=" + res
 
 			},
 			error: () => {

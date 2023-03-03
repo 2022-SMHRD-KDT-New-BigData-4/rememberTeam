@@ -24,7 +24,7 @@
         		<i class="fa-solid fa-bars fa-4x"></i>
         	</button>
         </div>
-        <div class="logo" onClick="location.href='Main.jsp'">
+        <div class="logo" onClick="location.href='GoMain.do'">
         	<div>일</div>
         	<div>인</div>
         	<div>일</div>

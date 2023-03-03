@@ -71,6 +71,7 @@ public class FrontController extends HttpServlet {
 		// 가져오는 path를 잘라도 /가 있기 때문에 +1을 해주기
 		String finaluri = uri.substring(path.length() + 1);
 		System.out.println("요청된 Servlet : " + finaluri);
+		System.out.println("==================");
 
 		String finalpath = null;
 		// 1. GoMain.do로 들어오면
@@ -93,7 +94,7 @@ public class FrontController extends HttpServlet {
 		} else if (finalpath.contains("redirect:/")) {
 			response.sendRedirect(finalpath.substring(10));
 		} else {
-			RequestDispatcher rd = request.getRequestDispatcher(finalpath + ".jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/" + finalpath + ".jsp");
 			rd.forward(request, response);
 		}
 

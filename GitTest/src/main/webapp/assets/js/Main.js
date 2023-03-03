@@ -623,7 +623,7 @@ $(document).on("click", ".dropdown_dong", function() {
 
 	let cortarNo = $(this).attr("for")
 	console.log(cortarNo)
-	location.href = 'Map.jsp?cortarNo=' + cortarNo
+	location.href = 'GoMap.do?cortarNo=' + cortarNo
 
 })
 

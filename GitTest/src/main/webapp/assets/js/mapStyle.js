@@ -279,6 +279,7 @@ $(".dropdown_gu").click(function() {
 				$("#dropdownMenuButton_dong").text($(this).text())
 				$("#dropdownMenuButton_dong").removeClass("btn-outline-success")
 				$("#dropdownMenuButton_dong").addClass("btn-success")
+				map.setCenter(new kakao.maps.LatLng(dong_coordinate[dong_nm].lat, dong_coordinate[dong_nm].lng));
 
 			})
 			// 구 클릭후 동 불러오기 완료시 동버튼 활성화

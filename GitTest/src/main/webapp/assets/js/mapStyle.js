@@ -243,6 +243,7 @@ function click_cs(target){
 }
 
 // 구, 동 선택 select
+// 구, 동 선택 select
 $(".dropdown_gu").click(function() {
 	let gu_name = { gu_name: $(this).attr('for') }
 	$("#dropdownMenuButton_gu").text($(this).attr('for'));

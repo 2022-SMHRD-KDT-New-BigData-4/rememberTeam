@@ -88,7 +88,7 @@
             	<ul>
             		<li class="category_btn" data-order="0">
             			<button type="button" id="rs_btn" value="매물" class="ctg">
-		            		<i class="fa-sharp fa-solid fa-map-location-dot fa-lg"></i>
+		            		<i class="fa-sharp fa-solid fa-map-location-dot fa-lg mt-3"></i>
             				<br>
             				<span class="menu">매물</span>
             			</button>
@@ -100,7 +100,7 @@
             	<ul>
             		<li class="category_btn" data-order="1">
 		            	<button type="button" id="cs_btn" style="display: none" value="편의점" class="ctg">
-		            		<i class="fa-solid fa-store fa-lg"></i>
+		            		<i class="fa-solid fa-store fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">편의점</span>
 		            	</button>
@@ -111,7 +111,7 @@
               	<ul>
             		<li class="category_btn" data-order="2">
 		            	<button type="button" id="sm_btn" style="display: none" value="대형마트" class="ctg">
-		            		<i class="fa-solid fa-cart-shopping fa-lg"></i>
+		            		<i class="fa-solid fa-cart-shopping fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">대형마트</span>
 		            	</button>
@@ -122,7 +122,7 @@
                 <ul>
             		<li class="category_btn" data-order="3">
 		            	<button type="button" id="hs_btn" style="display: none" value="병원" class="ctg">
-		            		<i class="fa-solid fa-hospital fa-lg"></i>
+		            		<i class="fa-solid fa-hospital fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">병원</span>
 		            	</button>
@@ -133,7 +133,7 @@
                	<ul>
             		<li class="category_btn" data-order="4">
 		            	<button type="button" id="ph_btn" style="display: none" value="약국" class="ctg">
-		            		<i class="fa-solid fa-pills fa-lg"></i>
+		            		<i class="fa-solid fa-pills fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">약국</span>
 		            	</button>
@@ -144,7 +144,7 @@
             	<ul>
             		<li class="category_btn" data-order="5">
 		            	<button type="button" id="ps_btn" style="display: none" value="경찰서" class="ctg">
-		            		<i class="fa-solid fa-handcuffs fa-lg"></i>
+		            		<i class="fa-solid fa-handcuffs fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">경찰서</span>
 		            	</button>
@@ -155,7 +155,7 @@
             	<ul>
             		<li class="category_btn" data-order="6">
 		            	<button type="button" id="fs_btn" style="display: none" value="소방서" class="ctg">
-		            		<i class="fa-solid fa-fire-extinguisher fa-lg"></i>
+		            		<i class="fa-solid fa-fire-extinguisher fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">소방서</span>
 		            	</button>
@@ -166,7 +166,7 @@
             	<ul>
             		<li class="category_btn" data-order="7">
 		            	<button type="button" id="cc_btn" style="display: none" value="자치센터" class="ctg">
-		            		<i class="fa-solid fa-building fa-lg"></i>
+		            		<i class="fa-solid fa-building fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">자치센터</span>
 		            	</button>
@@ -177,7 +177,7 @@
              	<ul>
             		<li class="category_btn" data-order="8">
 		            	<button type="button" id="cn_btn" style="display: none" value="영화관" class="ctg">
-		            		<i class="fa-solid fa-ticket fa-lg"></i>
+		            		<i class="fa-solid fa-ticket fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">영화관</span>
 		            	</button>
@@ -188,7 +188,7 @@
               	<ul>
             		<li class="category_btn" data-order="9">
 		            	<button type="button" id="ms_btn" style="display: none" value="박물관" class="ctg">
-		            		<i class="fa-solid fa-building-columns fa-lg"></i>
+		            		<i class="fa-solid fa-building-columns fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">박물관</span>
 		            	</button>
@@ -199,7 +199,7 @@
             	<ul>
             		<li class="category_btn" data-order="10">
 		            	<button type="button" id="ex_btn" style="display: none" value="전시관" class="ctg">
-		            		<i class="fa-solid fa-palette fa-lg"></i>
+		            		<i class="fa-solid fa-palette fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">전시관</span>
 		            	</button>
@@ -210,7 +210,7 @@
             	<ul>
             		<li class="category_btn" data-order="11">
 		            	<button type="button" id="lb_btn" style="display: none" value="도서관" class="ctg">
-		            		<i class="fa-solid fa-book fa-lg"></i>
+		            		<i class="fa-solid fa-book fa-lg mt-3"></i>
 		            		<br>
 		            		<span class="menu">도서관</span>
 		            	</button>

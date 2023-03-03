@@ -127,7 +127,7 @@ body{
     height: 100%;
     position: absolute;
     top: 0;
-    padding-top: 69px;
+    padding-top: 70px;
     z-index: 90;
 }
 
@@ -136,6 +136,7 @@ body{
     background-color: white;
     overflow-y: auto;
  	display:none;
+ 	border: 2px solid #666;
 }
 
 /* 매물 각각에 대한 자리 */
@@ -159,11 +160,10 @@ body{
 
 
 /* 아이템 버튼에 마우스를 올렸을 떄, 색상변경 */
-.items:hover{
+.items_div:hover{
 	background-color: #e5e5e5;
 	cursor: pointer;
 }
-
 
 /* 아이템 버튼 클릭후 색상 유지 */
 .items:focus{

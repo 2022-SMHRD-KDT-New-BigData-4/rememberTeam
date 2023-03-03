@@ -1189,12 +1189,7 @@ function mapRS() {
 						+ '<h3 class="price">' + mappos.pr + '</h3>'
 						+ '<span class="text">'
 						+ '<strong>' + mappos.type + ' ' + '</strong>'
-					if (mappos.m_cost == 0) {
-						itemStr += '-'
-					} else {
-						itemStr += mappos.m_cost
-					}
-					itemStr += '원</span>'
+						+ mappos.dr+'</span>'
 						+ '<p class="line">'
 						+ '<span>' + mappos.ct_area + '㎡/' + '</span>' + '<span>' + mappos.ex_area + '㎡</span>'
 						+ '</p>'

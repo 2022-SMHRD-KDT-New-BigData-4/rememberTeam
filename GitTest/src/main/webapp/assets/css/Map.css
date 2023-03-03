@@ -39,6 +39,10 @@ body{
 	border: none;
 	color: #8ac926;
 	cursor: pointer;
+	/* 230303 추가 */
+	position: relative;
+    left: 20px;
+    top: 2px;
 }
 
 #menu_close_button{
@@ -46,6 +50,10 @@ body{
 	border: none;
 	color: #495057;
 	cursor: pointer;
+	/* 230303 추가 */
+	position: relative;
+    left: 20px;
+    top: 2px;
 }
 
 /* 로고 */

@@ -14,7 +14,10 @@ let level = null;
 let cortar = ""
 let dong_code = 0;
 let gu_code = 0;
-
+let dong_num = 0;
+let itemStrCheck = false;
+let detailItemCheck = false;
+let itemsClass = null;
 
 for (const param of searchParams) {
 	//console.log(param[1])
@@ -26,6 +29,7 @@ for (const param of searchParams) {
 
 if (cortar > 0) {
 	dong_code = { dong_code: cortarno }
+	dong_num = cortarno
 	// 동 검색에 따른 맵 센터 이동
 	$.ajax({
 		url: 'GWANGJU_DONGServer.do',
@@ -67,9 +71,60 @@ if (cortar > 0) {
 // 매물 함수 호출
 mapRS()
 
+// 구, 동 선택 select
+// 구, 동 선택 select
+let dong_coordinate = {};
 
+$(".dropdown_gu").click(function() {
+	let gu_name = { gu_name: $(this).attr('for') }
+	$("#dropdownMenuButton_gu").text($(this).attr('for'));
+	$("#dropdownMenuButton_gu").removeClass("btn-outline-success")
+	$("#dropdownMenuButton_gu").addClass("btn-success")
+	$.ajax({
+		url: 'SearchDong.do',
+		type: 'get',
+		data: gu_name,
+		dataType: 'json',
+		success: (res) => {
+			console.log(res)
+			if ($(".dropdown_dong") != null) {
+				$(".dropdown_dong").remove()
+			}
+			for (let i = 0; i < res.gu.length; i++) {
+				dong_lat = res.gu[i].lat
+				dong_lng = res.gu[i].lng
+				dong_code = res.gu[i].cortarNo
+				let dong_name = res.gu[i].dong
+				let dong_cor = { lat: dong_lat, lng: dong_lng }
+				dong_coordinate[dong_name] = dong_cor
+				let dong_option = $('<input type="radio" name="area" id=' + dong_code + ' class="dropdown-item btn-check"><label for="' + dong_code + '" class="dropdown_dong drop-btn ms-0 mb-0">' + dong_name + '</label>')
+				$('#choice_dong').append(dong_option);
+			}
+			$(".dropdown_dong").click(function() {
+				let dong_nm = $(this).text()
+				dong_num = Number($(this)[0].htmlFor)
+				$("#dropdownMenuButton_dong").text($(this).text())
+				$("#dropdownMenuButton_dong").removeClass("btn-outline-success")
+				$("#dropdownMenuButton_dong").addClass("btn-success")
+				map.setCenter(new kakao.maps.LatLng(dong_coordinate[dong_nm].lat, dong_coordinate[dong_nm].lng));
+				// console.log(dong_num)
+				/*if (itemStrCheck == true) {
+					$(".items_div").remove();
+					itemStrCheck = false;
+					console.log("2222")
+				}*/
+				dongRS()
+			})
+			// 구 클릭후 동 불러오기 완료시 동버튼 활성화
+			$("#dropdownMenuButton_dong").removeAttr("disabled");
+		},
+		error: () => {
+		}
 
+	})
+})
 
+// console.log(dong_num)
 
 // 2) 지도에 넣어줄 기본 옵션
 let options = {
@@ -1013,13 +1068,16 @@ function markerOverlay(res) {
 	}
 }
 
-let itemStrCheck = false;
-let detailItemCheck = false;
-let itemsClass = null;
+
 // let new_buttonTag = null;
 // let aside2 = null;
 // let new_divTag = null;
 let id_check = 0;
+// 배열 생성
+let positions = new Array();
+let item = new Array();
+let mappingData = {};
+
 
 // 매물
 function mapRS() {
@@ -1057,11 +1115,6 @@ function mapRS() {
 
 			// 마커들을 저장할 변수 생성(마커 클러스터러 관련)
 			var clustererMarkers = [];
-
-			// 배열 생성
-			var positions = new Array();
-			var item = new Array();
-			var mappingData = {};
 
 			// var points = new Array();
 			// console.log(res[0])
@@ -1123,12 +1176,18 @@ function mapRS() {
 			// console.log(positions[0].latlng)
 			// console.log(mappingData[3208].marker);
 			// console.log()
+			console.log(positions)
 
 			// console.log(clustererMarkers.length)
 			// 클러스터러에 마커들을 추가합니다(마커 클러스터러 관련)
 			clusterer.addMarkers(clustererMarkers);
 
 			let bf_overlay = ""
+
+			/////////여기 함수
+			dongRS()
+
+
 
 			kakao.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 
@@ -1184,7 +1243,7 @@ function mapRS() {
 						+ '<h3 class="price">' + mappos.pr + '</h3>'
 						+ '<span class="text">'
 						+ '<strong>' + mappos.type + ' ' + '</strong>'
-						+ mappos.dr+'</span>'
+						+ mappos.dr + '</span>'
 						+ '<p class="line">'
 						+ '<span>' + mappos.ct_area + '㎡/' + '</span>' + '<span>' + mappos.ex_area + '㎡</span>'
 						+ '</p>'
@@ -1203,27 +1262,27 @@ function mapRS() {
 				}
 
 				itemStrCheck = true;
-				
+
 				// 클러스터러 클릭시 사이드바 활성화
 				$("#menu_button").css("display", "none")
-				$("#menu_close_button").css("display","block")
-				$(".aside1").css("display","block")
-				
+				$("#menu_close_button").css("display", "block")
+				$(".aside1").css("display", "block")
+
 				// 상세설명창은 닫기
 				$(".aside2").css("display", "none")
-				
-				
+
+
 
 				$('.items').click(function() {
 					id_check = Number($(this).attr("id"));
 					//console.log(id_check)
 					//console.log(mappingData[id_check].pos)
-					
-					if(detailItemCheck == true){
+
+					if (detailItemCheck == true) {
 						$('#detailClass').empty();
 						detailItemCheck = false;
 					}
-					
+
 					let mappos1 = mappingData[id_check].pos
 					// 사이드바 상세 메뉴
 					detailItem = '<div class = "hide">'
@@ -1317,7 +1376,7 @@ function mapRS() {
 					new_div2Tag.innerHTML = detailItem;
 
 					detailClass.appendChild(new_div2Tag)
-					
+
 					detailItemCheck = true;
 
 				});
@@ -1373,3 +1432,182 @@ function search(num) {
 	console.log(obj); // marker, 매물 정보를 가져올 수 있습니다.
 }
 
+let i_num = [];
+
+// 동 이동에 따른 매물 리스트 보여주기
+function dongRS() {
+
+	let dong_corN = 0;
+
+	for (let i = 0; i < positions.length; i++) {
+		if (dong_num == positions[i].cortarno) {
+			dong_corN++;
+			i_num.push(i);
+		}
+	}
+
+				if (itemStrCheck == true) {
+					$("#itemsClass").empty();
+					itemStrCheck = false;
+					console.log("3333")
+				}
+
+	for (let i = 0; i < i_num.length; i++) {
+
+		let rsNum = Number(positions[i_num[i]].num)
+		let mappos = mappingData[rsNum].pos
+
+
+
+		itemsClass = document.getElementById('itemsClass');
+		new_div1Tag = document.createElement('div');
+		detailClass = document.getElementById('detailClass');
+		new_div2Tag = document.createElement('div');
+
+		// 사이드바 메뉴
+		itemStr = '<div class="items" id="' + mappos.num + '">'
+			+ '<a href="javascript:void(0);" role="button">'
+			+ '<h2 class="title">' + mappos.nm + '</h2>'
+			+ '<h3 class="price">' + mappos.pr + '</h3>'
+			+ '<span class="text">'
+			+ '<strong>' + mappos.type + ' ' + '</strong>'
+			+ mappos.dr + '</span>'
+			+ '<p class="line">'
+			+ '<span>' + mappos.ct_area + '㎡/' + '</span>' + '<span>' + mappos.ex_area + '㎡</span>'
+			+ '</p>'
+			+ '<p class="line">' + mappos.md + '</p>'
+			+ '<p class="line">' + mappos.keyword + '</p>'
+			+ '</a>'
+			+ '</div>'
+
+
+		new_div1Tag.setAttribute('class', 'items_div');
+		new_div1Tag.innerHTML = itemStr;
+
+		itemsClass.appendChild(new_div1Tag);
+
+
+	}
+
+	itemStrCheck = true;
+
+	// 클러스터러 클릭시 사이드바 활성화
+	$("#menu_button").css("display", "none")
+	$("#menu_close_button").css("display", "block")
+	$(".aside1").css("display", "block")
+
+	// 상세설명창은 닫기
+	$(".aside2").css("display", "none")
+
+
+
+	$('.items').click(function() {
+		id_check = Number($(this).attr("id"));
+		//console.log(id_check)
+		//console.log(mappingData[id_check].pos)
+
+		if (detailItemCheck == true) {
+			$('#detailClass').empty();
+			detailItemCheck = false;
+		}
+
+		let mappos1 = mappingData[id_check].pos
+		// 사이드바 상세 메뉴
+		detailItem = '<div class = "hide">'
+			+ '<div>'
+			+ '<button type="button" class="close_btn">'
+			+ '<i class="fa-solid fa-xmark fa-2x"></i>'
+			+ '</button>'
+			+ '</div>'
+			+ '<img src="' + mappos1.img + '">'
+			+ '<div>'
+			+ '<table id="detail_table">'
+			+ '<tr>'
+			+ '<td colspan="4">'
+			+ '<h2>' + mappos1.nm + '</h2>'
+			+ '<p>' + mappos1.pr + '</p>'
+			+ '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 소재지</th>'
+			+ '<td colspan="3"> ' + mappos1.addr + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 매물 타입</th>'
+			+ '<td> ' + mappos1.type + '</td>'
+			+ '<th> 계약 형태</th>'
+			+ '<td> ' + mappos1.cr + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 월 관리비</th>'
+			+ '<td> ' + mappos1.m_cost + '(원)</td>'
+			+ '<th> 관리비 포함 항목</th>'
+			+ '<td> ' + mappos1.cost_incs + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 입주 가능일</th>'
+			+ '<td> ' + mappos1.md + '</td>'
+			+ '<th> 방향</th>'
+			+ '<td> ' + mappos1.dr + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 공급 면적</th>'
+			+ '<td> ' + mappos1.ct_area + '㎡</td>'
+			+ '<th> 전용 면적</th>'
+			+ '<td> ' + mappos1.ex_area + '㎡</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 해당층/총층</th>'
+			+ '<td> ' + mappos1.fl + '</td>'
+			+ '<th> 총 세대수</th>'
+			+ '<td> ' + mappos1.nh + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 주차 가능 여부</th>'
+		if (mappos1.park_yn == 'Y') {
+			detailItem += '<td> 가능</td>'
+		} else if (mappos1.park_yn == 'N') {
+			detailItem += '<td> 불가능</td>'
+		}
+		detailItem += '<th> 총 주차 대수</th>'
+			+ '<td> ' + mappos1.tp + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 방 수</th>'
+			+ '<td> ' + mappos1.room + '</td>'
+			+ '<th> 욕실 수</th>'
+			+ '<td> ' + mappos1.bath + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 보안시설</th>'
+			+ '<td> ' + mappos1.security + '</td>'
+			+ '<th> 에어컨 여부</th>'
+			+ '<td> ' + mappos1.aircon + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 옵션</th>'
+			+ '<td colspan="3"> ' + mappos1.option + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 매물 특징</th>'
+			+ '<td colspan="3"> ' + mappos1.sp + '</td>'
+			+ '</tr>'
+			+ '<tr>'
+			+ '<th> 공인중개사</th>'
+			+ '<td colspan="3"> ' + mappos1.estate + '</td>'
+			+ '</tr>'
+			+ '</table>'
+			+ '</div>'
+			+ '</div>'
+
+		new_div2Tag.setAttribute('class', 'items_class');
+		new_div2Tag.innerHTML = detailItem;
+
+		detailClass.appendChild(new_div2Tag)
+
+		detailItemCheck = true;
+
+	});
+
+
+}

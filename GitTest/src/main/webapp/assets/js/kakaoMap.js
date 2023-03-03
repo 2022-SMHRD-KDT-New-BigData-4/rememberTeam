@@ -1207,6 +1207,16 @@ function mapRS() {
 				}
 
 				itemStrCheck = true;
+				
+				// 클러스터러 클릭시 사이드바 활성화
+				$("#menu_button").css("display", "none")
+				$("#menu_close_button").css("display","block")
+				$(".aside1").css("display","block")
+				
+				// 상세설명창은 닫기
+				$(".aside2").css("display", "none")
+				
+				
 
 				$('.items').click(function() {
 					id_check = Number($(this).attr("id"));

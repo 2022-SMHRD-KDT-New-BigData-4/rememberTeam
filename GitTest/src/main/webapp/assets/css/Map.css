@@ -135,7 +135,7 @@ body{
     width: 350px;
     background-color: white;
     overflow-y: auto;
- 
+ 	display:none;
 }
 
 /* 매물 각각에 대한 자리 */
@@ -184,7 +184,7 @@ body{
 	text-align: right;
 }
 
-#close_btn{
+.close_btn{
 	background-color: transparent;
 	border: none;
 	color: #495057;

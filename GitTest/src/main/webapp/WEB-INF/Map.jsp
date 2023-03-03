@@ -17,11 +17,11 @@
 	<!-- 상단바 -->
 	<div class="header">
         <div class="menu_btn">
-        	<button type="button" id="menu_button" style="display: none">
-        		<i class="fa-solid fa-bars fa-4x"></i>
+        	<button type="button" id="menu_button">
+        		<i class="fa-solid fa-bars fa-3x"></i>
         	</button>
-        	<button type="button" id="menu_close_button">
-        		<i class="fa-solid fa-bars fa-4x"></i>
+        	<button type="button" id="menu_close_button" style="display: none">
+        		<i class="fa-solid fa-bars fa-3x"></i>
         	</button>
         </div>
         <div class="logo" onClick="location.href='GoMain.do'">

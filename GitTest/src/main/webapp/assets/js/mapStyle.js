@@ -242,6 +242,36 @@ function click_cs(target){
 	}
 }
 
+// 구, 동 선택 select
+$(".dropdown_gu").click(function() {
+	let gu_name = { gu_name: $(this).attr('for') }
+	$("#dropdownMenuButton_gu").text($(this).attr('for'));
+	$("#dropdownMenuButton_gu").removeClass("btn-outline-success")
+	$("#dropdownMenuButton_gu").addClass("btn-success")
+	$.ajax({
+		url: 'SearchDong.do',
+		type: 'get',
+		data: gu_name,
+		dataType: 'json',
+		success: (res) => {
+			if ($(".dropdown_dong") != null) {
+				$(".dropdown_dong").remove()
+			}
+			for (let i = 0; i < res.gu.length; i++) {
+				let dong_code = res.gu[i].cortarNo
+				let dong_name = res.gu[i].dong
+				let dong_option = $('<input type="radio" name="area" id=' + dong_code + ' class="dropdown-item btn-check"><label for="' + dong_code + '" class="dropdown_dong drop-btn ms-0 mb-0">' + dong_name + '</label>')
+				$('#choice_dong').append(dong_option);
+			}
+			// 구 클릭후 동 불러오기 완료시 동버튼 활성화
+			$("#dropdownMenuButton_dong").removeAttr("disabled");
+		},
+		error: () => {
+		}
+
+	})
+})
+/*
 // 자동완성 기능
 $('.search_txt').click(function() {
    $.ajax({
@@ -266,7 +296,7 @@ $('.search_txt').click(function() {
 
    })
 });
-
+*/
 
 
 

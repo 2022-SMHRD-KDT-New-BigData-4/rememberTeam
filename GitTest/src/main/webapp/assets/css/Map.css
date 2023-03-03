@@ -39,6 +39,10 @@ body{
 	border: none;
 	color: #8ac926;
 	cursor: pointer;
+	/* 230303 추가 */
+	position: relative;
+    left: 20px;
+    top: 2px;
 }
 
 #menu_close_button{
@@ -46,6 +50,10 @@ body{
 	border: none;
 	color: #495057;
 	cursor: pointer;
+	/* 230303 추가 */
+	position: relative;
+    left: 20px;
+    top: 2px;
 }
 
 /* 로고 */
@@ -146,7 +154,7 @@ body{
 /* 매물 각각에 대한 자리 */
 .items_div .items{
 	width: 100%;
-	background-color: white;
+	/*background-color: white;*/
 	border-color: #ccc;
 	text-align: left;
 	max-height: 100%;

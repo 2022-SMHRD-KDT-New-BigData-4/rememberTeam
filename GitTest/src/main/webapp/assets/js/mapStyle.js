@@ -34,13 +34,13 @@ $('#menu_close_button').click(()=>{
 
 // 매물 리스트에서 클릭시 상세화면 활성화
 $('.items').click(()=>{
-	$('.aside2').css('visibility', 'visible')
+	$('.aside2').css('display', 'block')
 })
 
 // 상세화면에서 닫기 버튼을 누르면 상세화면 닫힘
-$('.close_btn').click(()=>{
-	$('.aside2').css('visibility', 'hidden')	
-})
+//$('.close_btn').click(()=>{
+//	$('.aside2').css(, 'hidden')	
+//})
 
 // 카테고리 버튼 클릭시 색상 유지(활성화)를 위한 작업
 // 매물버튼은 독립적으로 설계

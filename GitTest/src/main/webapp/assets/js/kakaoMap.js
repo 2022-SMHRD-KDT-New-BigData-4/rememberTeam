@@ -1432,12 +1432,12 @@ function search(num) {
 	console.log(obj); // marker, 매물 정보를 가져올 수 있습니다.
 }
 
-let i_num = [];
 
 // 동 이동에 따른 매물 리스트 보여주기
 function dongRS() {
 
 	let dong_corN = 0;
+	let i_num = [];
 
 	for (let i = 0; i < positions.length; i++) {
 		if (dong_num == positions[i].cortarno) {
@@ -1446,17 +1446,16 @@ function dongRS() {
 		}
 	}
 
-				if (itemStrCheck == true) {
-					$("#itemsClass").empty();
-					itemStrCheck = false;
-					console.log("3333")
-				}
+	if (itemStrCheck == true) {
+		$("#itemsClass").empty();
+		itemStrCheck = false;
+		console.log("3333")
+	}
 
 	for (let i = 0; i < i_num.length; i++) {
 
 		let rsNum = Number(positions[i_num[i]].num)
 		let mappos = mappingData[rsNum].pos
-
 
 
 		itemsClass = document.getElementById('itemsClass');

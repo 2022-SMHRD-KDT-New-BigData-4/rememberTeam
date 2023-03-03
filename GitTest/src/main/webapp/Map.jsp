@@ -46,15 +46,18 @@
     
     
     <div class="wrap">
+    	
+    	<div class="aside-wrap">
+    		<!-- 매물 리스트 -->
+        	<div id = "itemsClass" class="aside1">
+       		</div>
+        
+        	<!-- 매물 상세화면 -->
+        	<div id = "detailClass" class="aside2" >
+        	</div>
+    	</div>
     
-    	<!-- 매물 리스트 -->
-        <div id = "itemsClass" class="aside1">
-        </div>
-        
-        
-        <!-- 매물 상세화면 -->
-        <div id = "detailClass" class="aside2" >
-        </div>
+    	
         
         
         <!-- 지도 화면 -->

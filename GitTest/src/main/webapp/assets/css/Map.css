@@ -21,6 +21,11 @@ body{
     overflow: hidden;
     display: flex;
     flex-direction: row;
+    /*230303 추가*/
+    width: 100%;
+    position: absolute;
+    flex-direction: row;
+    z-index: 999;
 }
 
 /* 메뉴 버튼 */
@@ -107,19 +112,30 @@ body{
 
 /* map 부분 */
 .wrap{
-    height: 900px;
     overflow: hidden;
-    display: flex;
+    /*display: flex;*/
     flex-direction: row;
 	/* 3. 메인축 정렬 : justify-content */
 	justify-content: center;
 }
 
 /* 매물정보 리스트 */
+
+.aside-wrap {
+	display: flex;
+    justify-content: space-between;
+    border: 10px solid red;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    padding-top: 60px;
+    z-index: 90;
+}
+
 .aside1{
-    width: 500px;
+    width: 350px;
     background-color: white;
-    overflow: auto;
+    overflow-y: auto;
  
 }
 
@@ -135,14 +151,13 @@ body{
 	/*line-height: 0.8em;*/
 }
 .items_div{
-	width: 500px;
+	/*width: 500px;*/
 	/*display: flex;*/
 	clear:both;
+	padding: 25px 20px;
+    border-bottom: 1px solid #ddd;
 }
 
-.items h3{
-	color: blue;
-}
 
 /* 아이템 버튼에 마우스를 올렸을 떄, 색상변경 */
 .items:hover{
@@ -158,11 +173,11 @@ body{
 
 /* 상세화면 */
 .aside2{
-    width: 1200px;
-    background-color: white;
+    width: 450px;
+    background-color: blue;
     overflow: auto;
     clear:both;
-	visibility: hidden;
+	/*visibility: hidden;*/
 }
 
 .aside2 div{
@@ -466,25 +481,45 @@ td {
   z-index: 0;
 }
 
-.items_div{
-	margin: 1px 0px 1px 10px;
-	padding: 2px;
-	border-bottom: 2px solid #e5e5e5;
-}
-
 a{
 	color: var(#344767);
 	text-decoration: none;
 }
 
 .line{
-	margin: 1px;
+	line-height: 5px;
+	color: #666;
 }
 
+/*
 .h2, .h3{
 	margin:0px 0px 0px 0px;
 	line-height: 1;
 	margin-bottom: 0;
+}
+*/
+
+.title {
+	color: #222;
+	font-size: 25px;
+	overflow: hidden;  		
+  text-overflow: ellipsis;  	 
+  white-space: nowrap; 		
+  word-break:break-all;
+  width: 300px;
+  /*height: 20px;*/
+}
+
+.price {
+	font-size: 20px;
+	color: #27c100;
+}
+
+.text {
+	display: inline-block;
+	font-size: 18px;
+	color: #666;
+	margin-bottom: 10px;
 }
 
 div{

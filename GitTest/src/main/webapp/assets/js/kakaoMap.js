@@ -1179,9 +1179,9 @@ function mapRS() {
 					// 사이드바 메뉴
 					itemStr = '<div class="items" id="' + mappos.num + '">'
 						+ '<a href="javascript:void(0);" role="button">'
-						+ '<h2 class="h2">' + mappos.nm + '</h2>'
-						+ '<h3 class="h3">' + mappos.pr + '</h3>'
-						+ '<span>'
+						+ '<h2 class="title">' + mappos.nm + '</h2>'
+						+ '<h3 class="price">' + mappos.pr + '</h3>'
+						+ '<span class="text">'
 						+ '<strong>' + mappos.type + ' ' + '</strong>'
 					if (mappos.m_cost == 0) {
 						itemStr += '-'

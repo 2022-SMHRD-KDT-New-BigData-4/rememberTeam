@@ -18,7 +18,6 @@ body{
 .header{
     height: 70px;
     background-color: white;
-    overflow: hidden;
     display: flex;
     flex-direction: row;
     /*230303 추가*/

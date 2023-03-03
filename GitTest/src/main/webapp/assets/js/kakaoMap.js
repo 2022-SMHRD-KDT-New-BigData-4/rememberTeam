@@ -1222,7 +1222,7 @@ function mapRS() {
 					// 사이드바 상세 메뉴
 					detailItem = '<div class = "hide">'
 						+ '<div>'
-						+ '<button type="button" id="close_btn">'
+						+ '<button type="button" class="close_btn">'
 						+ '<i class="fa-solid fa-xmark fa-3x"></i>'
 						+ '</button>'
 						+ '</div>'

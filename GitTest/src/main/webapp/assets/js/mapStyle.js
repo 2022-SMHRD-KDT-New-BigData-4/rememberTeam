@@ -244,6 +244,8 @@ function click_cs(target){
 
 // 구, 동 선택 select
 // 구, 동 선택 select
+let dong_coordinate = {};
+
 $(".dropdown_gu").click(function() {
 	let gu_name = { gu_name: $(this).attr('for') }
 	$("#dropdownMenuButton_gu").text($(this).attr('for'));
@@ -255,17 +257,25 @@ $(".dropdown_gu").click(function() {
 		data: gu_name,
 		dataType: 'json',
 		success: (res) => {
+			console.log(res)
 			if ($(".dropdown_dong") != null) {
 				$(".dropdown_dong").remove()
 			}
 			for (let i = 0; i < res.gu.length; i++) {
+				let dong_lat = res.gu[i].lat
+				let dong_lng = res.gu[i].lng
 				let dong_code = res.gu[i].cortarNo
 				let dong_name = res.gu[i].dong
+				let dong_cor = {lat : dong_lat, lng : dong_lng}
+				dong_coordinate[dong_name]=dong_cor
 				let dong_option = $('<input type="radio" name="area" id=' + dong_code + ' class="dropdown-item btn-check"><label for="' + dong_code + '" class="dropdown_dong drop-btn ms-0 mb-0">' + dong_name + '</label>')
 				$('#choice_dong').append(dong_option);
 			}
 			$(".dropdown_dong").click(function(){
-				console.log("동버튼클릭")
+				console.log(dong_coordinate)
+				let dong_nm = $(this).text()
+				console.log(dong_nm)
+				console.log(dong_coordinate[dong_nm])
 				$("#dropdownMenuButton_dong").text($(this).text())
 				$("#dropdownMenuButton_dong").removeClass("btn-outline-success")
 				$("#dropdownMenuButton_dong").addClass("btn-success")

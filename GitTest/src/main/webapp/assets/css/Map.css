@@ -148,7 +148,7 @@ body{
     background-color: white;
     overflow-y: auto;
  	display:none;
- 	border: 2px solid #666;
+ 	border: 2px solid #e5e5e5;
 }
 
 /* 매물 각각에 대한 자리 */
@@ -209,8 +209,10 @@ body{
 .aside2 img{
 	width: 100%;
 	position: relative;
-	top:-43px;
-	padding-bottom: 40px;
+	top:-54px;
+	padding-bottom: 22px;
+	width: 523px;
+	height: 349.375px;
 }
 
 table{

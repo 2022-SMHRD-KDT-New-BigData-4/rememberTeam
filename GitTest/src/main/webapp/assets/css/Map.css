@@ -189,7 +189,7 @@ body{
 	border: none;
 	color: #495057;
 	position: relative;
-	z-index: 5;
+	z-index: 95;
 	cursor: pointer;
 	
 }
@@ -505,10 +505,10 @@ a{
 	color: #222;
 	font-size: 25px;
 	overflow: hidden;  		
-  text-overflow: ellipsis;  	 
-  white-space: nowrap; 		
-  word-break:break-all;
-  width: 300px;
+  	text-overflow: ellipsis;  	 
+  	white-space: nowrap; 		
+  	word-break:break-all;
+  	width: 300px;
   /*height: 20px;*/
 }
 
@@ -522,10 +522,6 @@ a{
 	font-size: 18px;
 	color: #666;
 	margin-bottom: 10px;
-}
-
-div{
-	display: block;
 }
 
 #loading {

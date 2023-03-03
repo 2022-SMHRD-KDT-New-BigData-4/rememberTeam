@@ -80,7 +80,11 @@ body{
 	display: flex;
     flex-direction: row;
 	align-items: center;
-	justify-content: flex-end;
+	/* 230303 수정 */
+    /* align-items: flex-end; */
+    position: relative;
+    left: 540px;
+    top: 13px;
 }
 
 .search_txt {

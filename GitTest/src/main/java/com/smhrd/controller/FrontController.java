@@ -61,17 +61,13 @@ public class FrontController extends HttpServlet {
 		// 1. 들어온 요청이 어떤 요청인지 판단
 		// getRequestURI() : 요청된 주소값 자체를 가져오는 메소드
 		String uri = request.getRequestURI();
-		System.out.println("요청된 주소 : " + uri);
 
 		// 프로젝트 이름만 분리하기 -> getContextPath()
 		String path = request.getContextPath();
-		System.out.println("프로젝트 이름 : " + path);
 
 		// 요청된 Servlet의 이름
 		// 가져오는 path를 잘라도 /가 있기 때문에 +1을 해주기
 		String finaluri = uri.substring(path.length() + 1);
-		System.out.println("요청된 Servlet : " + finaluri);
-		System.out.println("==================");
 
 		String finalpath = null;
 		// 1. GoMain.do로 들어오면

@@ -26,7 +26,6 @@ public class InfraCnt implements Command{
 		String[] table = {"GJ_EX", "GJ_LB", "GJ_BUS", "GJ_CC", "GJ_CN", "GJ_CS", "GWANGJU_DONG", "GJ_FS", "GJ_HS", "GJ_METRO", "GJ_MS", "GJ_PH", "GJ_PS", "GJ_SM"};
 		String gu_name = request.getParameter("gu_name");
 		int [] infraCnt = new int[14];
-		System.out.println(gu_name);
 		
 		
 		

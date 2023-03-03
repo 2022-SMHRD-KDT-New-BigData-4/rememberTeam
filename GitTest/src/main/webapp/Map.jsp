@@ -31,16 +31,32 @@
         	<div>집</div>
         </div>
         <div class="search">
-			<input list="search_matching" class="search_txt" type="text" placeholder="찾으시는 동을 입력해 주세요" onfocus="this.placeholder=''" onblur="this.placeholder='찾으시는 동을 입력해 주세요'">
-				<datalist id ="search_matching">
-  					<option value="사과">
-  					<option value="바나나">
-  					<option value="포도">
-  					<option value="오렌지">
-				</datalist>
-			<button class="search_btn" type="submit">
-				<i class="fa-solid fa-magnifying-glass"></i>
-			</button>
+				<!-- dropdown 시작 -->
+				<div class="dropdown-center">
+						<button class="btn btn-outline-success btn:hover dropdown-toggle me-3" type="button" id="dropdownMenuButton_gu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">구 검색</button>
+						 <div id = "choice_gu" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						 <input type="radio" name="area" id="광산구" class="dropdown-item btn-check">
+						 <label for="광산구" class="dropdown_gu drop-btn ms-0 mb-0">광산구</label>	
+						 <input type="radio" name="area" id="동구" class="dropdown-item btn-check">
+						 <label for="동구" class="dropdown_gu drop-btn ms-0 mb-0">동구</label>	
+						 <input type="radio" name="area" id="서구" class="dropdown-item btn-check">
+						 <label for="서구" class="dropdown_gu drop-btn ms-0 mb-0">서구</label>	
+						 <input type="radio" name="area" id="남구" class="dropdown-item btn-check">
+						 <label for="남구" class="dropdown_gu drop-btn ms-0 mb-0">남구</label>	
+						 <input type="radio" name="area" id="북구" class="dropdown-item btn-check">
+						 <label for="북구" class="dropdown_gu drop-btn ms-0 mb-0">북구</label>
+						</div>
+					</div>
+						
+				<div class="dropdown-center">
+						<button disabled class="btn btn-outline-success btn:hover dropdown-toggle" type="button" id="dropdownMenuButton_dong" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    동 검색
+						</button>
+						 <div id = "choice_dong" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						 		  		
+						 </div>
+				</div> 
+				<!-- dropdown 끝 -->
         </div>
     </div>
     

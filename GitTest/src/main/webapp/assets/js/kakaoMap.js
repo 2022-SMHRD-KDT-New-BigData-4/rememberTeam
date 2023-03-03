@@ -1233,7 +1233,7 @@ function mapRS() {
 					detailItem = '<div class = "hide">'
 						+ '<div>'
 						+ '<button type="button" class="close_btn">'
-						+ '<i class="fa-solid fa-xmark fa-3x"></i>'
+						+ '<i class="fa-solid fa-xmark fa-2x"></i>'
 						+ '</button>'
 						+ '</div>'
 						+ '<img src="' + mappos1.img + '">'

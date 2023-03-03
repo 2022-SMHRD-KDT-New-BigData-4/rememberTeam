@@ -166,7 +166,8 @@ body{
 	/*width: 500px;*/
 	/*display: flex;*/
 	clear:both;
-	padding: 25px 20px;
+	/*padding: 25px 20px;*/
+	padding: 5px 10px;
     border-bottom: 1px solid #ddd;
 }
 
@@ -230,13 +231,16 @@ table h2{
 }
 
 table p{
-	color: blue;
-	margin: 0;
+    color: #27c100;
+    margin: 0;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 th {
     border-bottom: 1px solid #e5e5e5;
-    width: 100px;
+    width: 110px;
 	background-color: #fafafa;
   }
 

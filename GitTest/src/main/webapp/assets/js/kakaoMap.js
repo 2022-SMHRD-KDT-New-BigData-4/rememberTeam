@@ -1349,22 +1349,22 @@ function mapRS() {
 
 
 
-			if ($("#loading").length != 0) {
-				$("#loading").css({
+			if ($(".spinner-border").length != 0) {
+				$(".spinner-border").css({
 					"top": top + "px",
 					"left": left + "px"
 				});
-				$("#loading").show();
+				$(".spinner-border").show();
 			}
 			else {
-				$('body').append('<div id="loading" role="status" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "><span class="visually-hidden"></span></div>');
+				$('body').append('<div class="spinner-border text-success" role="status" style=" position:absolute; top:' + top + 'px; left:' + left + 'px; width:' + width + 'px; height:' + height + 'px; z-index:9999; margin:auto; padding:0; "><span class="visually-hidden"></span></div>');
 
 
 			}
 
 		},
 		complete: function() {
-			$('#loading').hide();
+			$('.spinner-border').hide();
 
 		},
 		error: (e) => {

@@ -40,6 +40,8 @@ if (cortar > 0) {
 			dong_lng = res[0].lng
 			dong_lat = res[0].lat
 			map.setCenter(new kakao.maps.LatLng(dong_lat, dong_lng));
+			
+			dongRS();
 
 		},
 		error: (e) => {
@@ -1538,8 +1540,8 @@ function dongRS() {
 			+ '<td> ' + mappos1.cr + '</td>'
 			+ '</tr>'
 			+ '<tr>'
-			+ '<th> 월 관리비</th>'
-			+ '<td> ' + mappos1.m_cost + '(원)</td>'
+			+ '<th> 월 관리비 (원)</th>'
+			+ '<td> ' + mappos1.m_cost + '</td>'
 			+ '<th> 관리비 포함 항목</th>'
 			+ '<td> ' + mappos1.cost_incs + '</td>'
 			+ '</tr>'
@@ -1550,10 +1552,10 @@ function dongRS() {
 			+ '<td> ' + mappos1.dr + '</td>'
 			+ '</tr>'
 			+ '<tr>'
-			+ '<th> 공급 면적</th>'
-			+ '<td> ' + mappos1.ct_area + '㎡</td>'
-			+ '<th> 전용 면적</th>'
-			+ '<td> ' + mappos1.ex_area + '㎡</td>'
+			+ '<th> 공급 면적 (㎡)</th>'
+			+ '<td> ' + mappos1.ct_area + '</td>'
+			+ '<th> 전용 면적 (㎡)</th>'
+			+ '<td> ' + mappos1.ex_area + '</td>'
 			+ '</tr>'
 			+ '<tr>'
 			+ '<th> 해당층/총층</th>'

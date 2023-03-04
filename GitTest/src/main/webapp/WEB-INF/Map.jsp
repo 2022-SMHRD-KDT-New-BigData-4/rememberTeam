@@ -23,6 +23,7 @@
         	<button type="button" id="menu_close_button" style="display: none">
         		<i class="fa-solid fa-bars fa-3x"></i>
         	</button>
+        	<span class="ms-md-5"> 검색된 매물은 2023.02.21 기준 매물 입니다.</span> 
         </div>
         <div class="logo" onClick="location.href='GoMain.do'">
         	<div>일</div>

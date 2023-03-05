@@ -40,10 +40,12 @@ if (cortar > 0) {
 			dong_lng = res[0].lng
 			dong_lat = res[0].lat
 			map.setCenter(new kakao.maps.LatLng(dong_lat, dong_lng));
+			
+			dongRS();
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 } else {
@@ -62,7 +64,7 @@ if (cortar > 0) {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 
@@ -86,7 +88,7 @@ $(".dropdown_gu").click(function() {
 		data: gu_name,
 		dataType: 'json',
 		success: (res) => {
-			console.log(res)
+			//console.log(res)
 			if ($(".dropdown_dong") != null) {
 				$(".dropdown_dong").remove()
 			}
@@ -211,7 +213,7 @@ function displayArea(coordinates, name) {
 		let click_latlng = mouseEvent.latLng;
 		map.setCenter(new kakao.maps.LatLng(click_latlng.getLat(), click_latlng.getLng()));
 		level = map.getLevel();
-		console.log(level)
+		//console.log(level)
 		map.setLevel(4);
 	});
 }
@@ -258,7 +260,7 @@ function mapEX() {
 		url: 'GJ_EXServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("전시관 마커")
+			//console.log("전시관 마커")
 
 			colorN = 4
 
@@ -313,7 +315,7 @@ function mapEX() {
 			//					markers.push(marker);
 			//				}
 			//				mapMaker(res, markerImage)
-			console.log("GJ_EX")
+			//console.log("GJ_EX")
 
 
 			//		});
@@ -322,7 +324,7 @@ function mapEX() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -334,7 +336,7 @@ function mapCC() {
 		url: 'GJ_CCServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log(res)
+			//console.log(res)
 
 			colorN = 3
 
@@ -356,7 +358,7 @@ function mapCC() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -368,7 +370,7 @@ function mapCS() {
 		url: 'GJ_CSServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("편의점 마커")
+			//console.log("편의점 마커")
 
 			// 오버레이 바꾸기위한 조건
 			colorN = 1;
@@ -390,7 +392,7 @@ function mapCS() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -402,7 +404,7 @@ function mapSM() {
 		url: 'GJ_SMServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("대형마트 마커")
+			//console.log("대형마트 마커")
 
 			colorN = 1;
 
@@ -423,7 +425,7 @@ function mapSM() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -435,7 +437,7 @@ function mapHS() {
 		url: 'GJ_HSServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("병원 마커")
+			//console.log("병원 마커")
 
 			colorN = 2;
 
@@ -456,7 +458,7 @@ function mapHS() {
 
 		},
 		error: (e) => {
-			console.log(e)
+		//	console.log(e)
 		}
 	})
 }
@@ -468,7 +470,7 @@ function mapPH() {
 		url: 'GJ_PHServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("약국 마커")
+			//console.log("약국 마커")
 
 			colorN = 2;
 
@@ -489,7 +491,7 @@ function mapPH() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -501,7 +503,7 @@ function mapPS() {
 		url: 'GJ_PSServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("경찰서 마커")
+			//console.log("경찰서 마커")
 
 			colorN = 3
 
@@ -522,7 +524,7 @@ function mapPS() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -534,7 +536,7 @@ function mapFS() {
 		url: 'GJ_FSServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("소방서 마커")
+			//console.log("소방서 마커")
 
 			colorN = 3
 
@@ -555,7 +557,7 @@ function mapFS() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -567,7 +569,7 @@ function mapCN() {
 		url: 'GJ_CNServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("영화관 마커")
+			//console.log("영화관 마커")
 
 			colorN = 4
 
@@ -589,7 +591,7 @@ function mapCN() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -601,7 +603,7 @@ function mapMS() {
 		url: 'GJ_MSServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("박물관 마커")
+			//console.log("박물관 마커")
 
 			colorN = 4
 
@@ -622,7 +624,7 @@ function mapMS() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -634,7 +636,7 @@ function mapLB() {
 		url: 'GJ_LBServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("도서관 마커")
+			//console.log("도서관 마커")
 
 			colorN = 4
 
@@ -655,7 +657,7 @@ function mapLB() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 }
@@ -733,7 +735,7 @@ function clickTest(e) {
 
 		// -> 여기는 마커도 생성하고 색상도 변경함 (활성화)
 	} else {
-		console.log(e.currentTarget.value)
+		//console.log(e.currentTarget.value)
 		removeMarker()
 		if (ctOverlay) {
 			ctOverlay.setMap(null);
@@ -1017,14 +1019,14 @@ function markerOverlay(res) {
 
 		kakao.maps.event.addListener(markers[i], 'click', function() {
 
-			console.log(markers[i])
-			console.log("3")
+			//console.log(markers[i])
+			//console.log("3")
 
 
 			if (markers[i].check == 1) {
 				ctOverlay.setMap(null);
 				test = 0;
-				console.log("Test1")
+				//console.log("Test1")
 				markers[num].setImage(markerImage);
 				markers[i].check = 0
 			}
@@ -1037,12 +1039,12 @@ function markerOverlay(res) {
 				}
 
 				markers[i].check = 1
-				console.log("Test2")
+				//console.log("Test2")
 				customOverlay.setMap(map);
 				ctOverlay = customOverlay
 
 				markers[i].setImage(selectmarkerImage);
-				console.log("i의마커이미지" + i)
+				//console.log("i의마커이미지" + i)
 				num = i
 				cnt = 2;
 
@@ -1085,7 +1087,7 @@ function mapRS() {
 		url: 'GJ_RSServer.do',
 		dataType: 'json',
 		success: (res) => {
-			console.log("매물")
+			//console.log("매물")
 
 			// 마커 클러스터러를 생성합니다 
 			clusterer = new kakao.maps.MarkerClusterer({
@@ -1176,7 +1178,7 @@ function mapRS() {
 			// console.log(positions[0].latlng)
 			// console.log(mappingData[3208].marker);
 			// console.log()
-			console.log(positions)
+			//console.log(positions)
 
 			// console.log(clustererMarkers.length)
 			// 클러스터러에 마커들을 추가합니다(마커 클러스터러 관련)
@@ -1421,7 +1423,7 @@ function mapRS() {
 
 		},
 		error: (e) => {
-			console.log(e)
+			//console.log(e)
 		}
 	})
 
@@ -1429,7 +1431,7 @@ function mapRS() {
 
 function search(num) {
 	var obj = mappingData[num];
-	console.log(obj); // marker, 매물 정보를 가져올 수 있습니다.
+	//console.log(obj); // marker, 매물 정보를 가져올 수 있습니다.
 }
 
 
@@ -1449,7 +1451,7 @@ function dongRS() {
 	if (itemStrCheck == true) {
 		$("#itemsClass").empty();
 		itemStrCheck = false;
-		console.log("3333")
+		//console.log("3333")
 	}
 
 	for (let i = 0; i < i_num.length; i++) {

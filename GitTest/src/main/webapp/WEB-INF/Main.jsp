@@ -16,7 +16,7 @@
 
 <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 
-<title>LET ME GO HOME.. PLZ... </title>
+<title>일인일집</title>
 
 
 <!-- CSS Files -->

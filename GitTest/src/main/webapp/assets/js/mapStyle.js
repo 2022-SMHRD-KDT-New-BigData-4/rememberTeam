@@ -1,13 +1,13 @@
 // category 메뉴 열고 닫기
 $('#down_btn').click(()=>{
-	console.log('클릭')
+	// console.log('클릭')
 	$('.category_btn button').css('display', 'block')
 	$('#down_btn').css('display', 'none')
 	
 })
 
 $('#up_btn').click(()=>{
-	console.log('클릭')
+	// console.log('클릭')
 	$('.category_btn button').css('display', 'none')
 	$('#rs_btn').css('display', 'block')
 	$('#down_btn').css('display', 'block')
@@ -63,13 +63,13 @@ let lb_color_cnt = 0; 	// -> 도서관
 // 매물
 function click_rs(target){	
 	if(rs_color_cnt==0){
-		console.log('매물 활성화')
+		// console.log('매물 활성화')
 		target.style.backgroundColor="#8ac926";
 		target.style.color="white";
 		rs_color_cnt++;
 	}else{
 		
-		console.log('매물 비활성화')
+		// console.log('매물 비활성화')
 		target.style.backgroundColor="white";
 		target.style.color="black";
 		rs_color_cnt--;

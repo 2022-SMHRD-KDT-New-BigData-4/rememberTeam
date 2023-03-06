@@ -25,7 +25,6 @@ public class GWANGJU_DONGServer implements Command{
 		response.setContentType("text/html;charset=UTF-8");
 		
 		long cortarno = Long.parseLong(request.getParameter("dong_code"));
-		System.out.println("cortarno"+cortarno);
 		
 		// 동 검색량 컨트롤러
 		BestSearch best = new BestSearch();

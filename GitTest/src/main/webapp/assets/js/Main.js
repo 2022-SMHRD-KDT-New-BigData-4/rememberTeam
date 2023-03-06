@@ -540,7 +540,6 @@ $(".borderClass").click(function() {
 					markers.push(marker);
 				}
 				clusterer.addMarkers(markers);
-				console.log("222")
 				ex_id = id;
 				isMarker = true;
 			},
@@ -622,7 +621,6 @@ $(".dropdown_gu").click(function() {
 $(document).on("click", ".dropdown_dong", function() {
 
 	let cortarNo = $(this).attr("for")
-	console.log(cortarNo)
 	location.href = 'GoMap.do?cortarNo=' + cortarNo
 
 })

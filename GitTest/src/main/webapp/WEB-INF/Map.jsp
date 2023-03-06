@@ -4,8 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>일인일집</title>
 
+<!-- favicon -->
+<link rel="icon" type="image/png" href="./assets/img/favicon.png">
 <!-- css 파일 불러오기 -->
 <link rel="stylesheet" href="assets/css/Map.css">
 <link id="pagestyle" href="./assets/css/material-dashboard.css?v=3.0.4"

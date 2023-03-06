@@ -1,6 +1,8 @@
 package com.smhrd.controller;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,11 +21,17 @@ import com.smhrd.model.DAO.GWANGJU_GU_DAO;
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	// command패턴을 위한 맵
 	HashMap<String, Command> map = null;
 	
 	// 동 검색량 담을 맵
 	Map<Long, Integer> searchDong = new HashMap<>();
+	
+	// 날짜포맷 설정후 현재 날짜를 받음
+	SimpleDateFormat format1 = new SimpleDateFormat ( "MMdd");
+	Date time = new Date();
+	String time1 = format1.format(time);
 	
 	public void init(ServletConfig config) throws ServletException {
 	
@@ -56,6 +64,8 @@ public class FrontController extends HttpServlet {
 		ServletContext application = request.getServletContext();
 		if(application.getAttribute("searchDong")==null) {
 			application.setAttribute("searchDong", searchDong);
+			// 하루마다 초기화를 위해 sysdate도 application 스코프에 담음
+			application.setAttribute("sysdate", time1);
 		}
 		
 		// 1. 들어온 요청이 어떤 요청인지 판단
